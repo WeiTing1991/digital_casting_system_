@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="P_Set_Research_Data" Id="{773f30f1-b7d3-4c7e-b27f-8d66212207e7}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Set_Research_Data
+VAR
+
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Set all research data for the process
+// 
+// AUTHOR      :  Seyma Gürel / Philippe Fleischmann / Weiting Chen
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2021
+//
+// ***********************************************************************************
+
+
+//
+// Updating Mixer 1 max speed [°/s]
+GVL_ResearchData.f_RED_Control_Speed:=720;
+GVL_VAR.f_MI1_MaxSpeed:=GVL_ResearchData.f_RED_Control_Speed;
+
+
+//
+// Updating Superplasticizer Pump checking values (WT 220916
+GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Flowrate:=9;           // [ml/min]
+GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Duration:=T#60000MS;   // [ms]
+//GVL_ResearchData.f_RED_Superplasticizer_Pump_Density:=342.0;                    // [g/min]
+GVL_ResearchData.f_RED_Superplasticizer_Pump_Density:=1.06;               // [g/cm^3]
+GVL_ResearchData.n_RED_Superplasticizer_Pump_Flush_Speed:=GVL_ResearchData.f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min;		  // [ml/min]
+//[32767 is equal 10v output and it means maximum setup speed from ViscoTech 654 rpm]
+
+
+//
+// Updating Acceleration Pump checking values (WT 220928
+GVL_ResearchData.n_RED_Acceleration_Pump_Check_Flowrate:=90;     		// [ml/min]
+GVL_ResearchData.n_RED_Acceleration_Pump_Check_Duration:=T#60000MS;   	// [ms]
+//GVL_ResearchData.f_RED_Acceleration_Pump_Mass:=342.0;                    // [g/min]
+GVL_ResearchData.f_RED_Acceleration_Pump_Density:=2.047;               // [g/cm^3]
+GVL_ResearchData.n_RED_Acceleration_Pump_Flush_Speed:=GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min;]]></ST>
+    </Implementation>
+    <LineIds Name="P_Set_Research_Data">
+      <LineId Id="182" Count="18" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="204" Count="0" />
+      <LineId Id="201" Count="0" />
+      <LineId Id="221" Count="1" />
+      <LineId Id="227" Count="4" />
+      <LineId Id="223" Count="0" />
+      <LineId Id="237" Count="0" />
+      <LineId Id="243" Count="0" />
+      <LineId Id="202" Count="0" />
+      <LineId Id="244" Count="0" />
+      <LineId Id="214" Count="1" />
+      <LineId Id="210" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

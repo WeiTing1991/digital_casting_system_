@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="P_Read_Research_Data" Id="{affa89fd-b285-40f3-982b-c7fb6b079584}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Read_Research_Data
+VAR
+
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Read all research data for the process
+// 
+// AUTHOR      :  Seyma Gürel / Philippe Fleischmann
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2021
+//
+// ***********************************************************************************
+
+
+//
+// Mixer run []
+GVL_ResearchData.b_RED_Status_On:=GVL_VAR.b_MI1_Run;
+
+//
+// Mixer 1 speed override [%]
+GVL_ResearchData.f_RED_Status_Speed_Overide:=GVL_VAR.f_MI1_Override;
+
+//
+// Mixer 1 current speed []
+GVL_ResearchData.f_RED_Status_Speed_Motor_1:=GVL.Axis_Mixer1.NcToPlc.ActVelo;
+
+//
+// Mixer 1 current torque []
+GVL_ResearchData.f_RED_Status_Torque_Motor_1:=GVL.f_MID1_ActTorque;
+
+//
+// Mixer 1 current motor temperature []
+GVL_ResearchData.f_RED_Status_Temperature_Motor_1:=GVL.in_MID1_ActMotorTemperature *0.1; // weiting added 220817
+
+//
+// Mixer 2 current speed []
+GVL_ResearchData.f_RED_Status_Speed_Motor_2:=GVL.Axis_Mixer1.NcToPlc.ActVelo;
+
+//
+// Mixer 2 current torque []
+GVL_ResearchData.f_RED_Status_Torque_Motor_2:=GVL.f_MID2_ActTorque;
+
+//
+// Mixer 1 current motor temperature []
+GVL_ResearchData.f_RED_Status_Temperature_Motor_2:=GVL.in_MID2_ActMotorTemperature *0.1; // weiting added 220817
+
+
+//
+// Accelration pump flowrate [ml/min]
+GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min:=(GVL_ResearchData.f_RED_Acceleration_Pump_Mass/GVL_ResearchData.f_RED_Acceleration_Pump_Density);
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_Read_Research_Data">
+      <LineId Id="182" Count="18" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="262" Count="0" />
+      <LineId Id="259" Count="1" />
+      <LineId Id="225" Count="0" />
+      <LineId Id="268" Count="0" />
+      <LineId Id="226" Count="2" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="210" Count="0" />
+      <LineId Id="220" Count="0" />
+      <LineId Id="215" Count="1" />
+      <LineId Id="213" Count="0" />
+      <LineId Id="246" Count="0" />
+      <LineId Id="242" Count="0" />
+      <LineId Id="248" Count="0" />
+      <LineId Id="247" Count="0" />
+      <LineId Id="219" Count="0" />
+      <LineId Id="221" Count="3" />
+      <LineId Id="217" Count="1" />
+      <LineId Id="214" Count="0" />
+      <LineId Id="249" Count="0" />
+      <LineId Id="251" Count="2" />
+      <LineId Id="250" Count="0" />
+      <LineId Id="154" Count="0" />
+      <LineId Id="235" Count="1" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

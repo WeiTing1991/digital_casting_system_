@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <POU Name="MAIN" Id="{231ff93b-6e60-47c8-9de3-03f4e5acf3e6}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR	
+
+	fb_MC_SetPosition		:FB_SoEAX5000SetPositionOffset;
+	pos:real;
+	Mixer1_2		: FB_Mixer1_2;
+	Analog			: FB_Analog;
+
+	SafetyReset 	: bool;
+	b_Enable		: BOOL;
+	b_Reset			: BOOL;
+
+
+	
+	Test : MC_ReadStatus;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  MAIN Programm
+// 
+// AUTHOR      :  Mathias Suter
+// 
+// EMAIL       :  mathias.suter@solinaut.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2021
+//
+// ***********************************************************************************
+
+
+//
+// Mode selector 
+//P_ModeSelector();
+
+//
+// Set research data 
+P_Set_Research_Data();
+
+//
+// Acceleration Pump 1 On/off 
+P_AP1_Calibrartion();
+
+//
+// Check for Acceleration Pump 1 state
+IF GVL_ResearchData.b_RED_Acceleration_Pump_Calibration_On=FALSE THEN
+	//
+	// Acceleration Pump 1 On/off 
+	P_AP1_OnOff();
+END_IF
+
+//
+// Temporary scaling of the poti for the mixer override  
+GVL_VAR.f_MI1_Override:=100.0 / 32767 * GVL_IO.in_MI1_Poti_Speed;
+
+//
+// Peristaltic Pump 1 manual control 
+//P_PP1_Ctrl_Manual();
+
+//
+// Mixer On/Off 
+P_MI1_OnOff();
+
+//
+// Temporary scaling of the poti for the mixer override  
+GVL_VAR.f_MI1_Override:=100.0 / 32767 * GVL_IO.in_MI1_Poti_Speed;
+
+//
+// Mixer 1 + 2
+Mixer1_2(
+	Mixer1			:= GVL.Axis_Mixer1,
+ 	Mixer2			:= GVL.Axis_Mixer2,
+	f_Velocity		:= GVL_VAR.f_MI1_MaxSpeed,
+	b_JogForward	:= FALSE,
+	b_JogBackwards	:= GVL_VAR.b_MI1_Run,
+ 	b_Enable		:= GVL_IO.ib_CC1_Button_Mode_Manual AND GVL_IO.ib_CC1_Safety_Ready,	
+ 	b_Reset			:= GVL_IO.ib_CC1_Button_Reset,
+	f_Override		:= GVL_VAR.f_MI1_Override);	
+	(*
+	fb_MC_SetPosition(
+	Axis			:= GVL.Axis_Mixer2,
+	memory			:= 1,
+	Feedback		:= 0);*)
+	
+pos:=GVL.Axis_Mixer2.NcToPlc.ModuloActPos;
+
+
+//
+GVL.f_MID1_ActCurrent:=GVL.in_MID1_ActAbsCurrent * 5.9 / 1000;
+GVL.f_MID1_ActTorque:=GVL.f_MID1_ActCurrent * 1.4 * 8; // Torque constante / Gear transaltion
+
+GVL.f_MID2_ActCurrent:=gvl.in_MID2_ActAbsCurrent * 5.9 / 1000;
+GVL.f_MID2_ActTorque:=GVL.f_MID2_ActCurrent * 1.4 * 8; // Torque constante / Gear transaltion
+
+//
+// Write global variable for mixer ready to drive
+GVL_VAR.b_MI1_ReadToDrive:=Mixer1_2.b_ReadyToDrive;
+	
+// 
+// Reset 
+GVL_IO.ob_CC1_Safety_Reset:=GVL_IO.ib_CC1_Button_Reset;
+ 	
+// GVL.bResetSafety	:= safetyReset;
+
+
+//
+// Concrete pump
+P_CP1_Enable();
+	
+// Analog();
+
+//
+// Outputs
+P_Outputs_Manual();
+
+//
+// Read researchs data 
+P_Read_Research_Data();
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="6" Count="7" />
+      <LineId Id="266" Count="0" />
+      <LineId Id="15" Count="9" />
+      <LineId Id="267" Count="5" />
+      <LineId Id="426" Count="2" />
+      <LineId Id="315" Count="0" />
+      <LineId Id="463" Count="1" />
+      <LineId Id="456" Count="0" />
+      <LineId Id="459" Count="0" />
+      <LineId Id="469" Count="1" />
+      <LineId Id="457" Count="0" />
+      <LineId Id="467" Count="0" />
+      <LineId Id="466" Count="0" />
+      <LineId Id="462" Count="0" />
+      <LineId Id="460" Count="0" />
+      <LineId Id="316" Count="0" />
+      <LineId Id="324" Count="2" />
+      <LineId Id="198" Count="2" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="328" Count="3" />
+      <LineId Id="323" Count="0" />
+      <LineId Id="320" Count="2" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="98" Count="0" />
+      <LineId Id="173" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="143" Count="0" />
+      <LineId Id="234" Count="2" />
+      <LineId Id="100" Count="1" />
+      <LineId Id="237" Count="0" />
+      <LineId Id="375" Count="0" />
+      <LineId Id="378" Count="1" />
+      <LineId Id="381" Count="2" />
+      <LineId Id="340" Count="0" />
+      <LineId Id="439" Count="0" />
+      <LineId Id="400" Count="1" />
+      <LineId Id="406" Count="0" />
+      <LineId Id="408" Count="0" />
+      <LineId Id="402" Count="0" />
+      <LineId Id="407" Count="0" />
+      <LineId Id="409" Count="0" />
+      <LineId Id="404" Count="0" />
+      <LineId Id="299" Count="0" />
+      <LineId Id="341" Count="0" />
+      <LineId Id="218" Count="0" />
+      <LineId Id="297" Count="0" />
+      <LineId Id="216" Count="0" />
+      <LineId Id="219" Count="0" />
+      <LineId Id="222" Count="0" />
+      <LineId Id="220" Count="0" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="487" Count="1" />
+      <LineId Id="490" Count="2" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="357" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="358" Count="1" />
+      <LineId Id="430" Count="3" />
+      <LineId Id="429" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

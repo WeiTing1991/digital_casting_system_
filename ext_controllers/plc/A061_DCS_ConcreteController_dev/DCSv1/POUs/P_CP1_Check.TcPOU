@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="P_CP1_Check" Id="{3065913d-6b79-4f5a-bac4-18ef0f6d8554}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_CP1_Check
+VAR_INPUT
+	//
+	// INT 
+	n_Step: INT := 0;	
+END_VAR
+VAR
+	//
+	// BOOL 
+	b_Condition: BOOL;
+	b_No_Emergency_Stop:BOOL :=TRUE;
+	
+	//
+	// Timer 
+	t_CP1_Check_Time: TON;
+	//
+	t_CP1_Puls_Enable: TON;	
+	t_CP1_Puls_Disable: TON;	
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 
+// 
+// FUNCTION    :  Step chain for Concrete pump calibration
+// 
+// AUTHOR      :  Weiting Chen / Philippe Fleischmann
+// 
+// EMAIL       :  
+// 
+// Copyright   :  
+//
+// ***********************************************************************************
+
+// Ignore emergency stop
+b_No_Emergency_Stop:=TRUE;
+
+//
+// Initalization
+IF n_Step=0 THEN
+	//
+	// Check condition 
+	b_Condition:=TRUE;
+	//
+	// Do step
+	IF b_Condition THEN
+		b_Condition:=FALSE;
+		n_Step:=10;
+	END_IF
+END_IF
+
+//
+// Check grid mounted and no errors and the check mode on 
+IF n_Step=10 THEN
+	//
+	// Check condition 
+	b_Condition:= GVL_IO.ib_CP1_Ready AND GVL_IO.ib_CP1_Safety_Grid_Mounted AND NOT GVL_IO.ib_CP1_Drive_Error;
+	//
+	// Do step
+	IF b_Condition AND b_No_Emergency_Stop THEN
+		b_Condition:=FALSE;
+		n_Step:=20;
+	END_IF
+END_IF
+
+//
+// Send enable to pump and wait for start 
+IF n_Step=20 THEN
+	//
+	// Check condition 
+	b_Condition:= GVL_ResearchData.b_RED_Concrete_Pump_Check_On AND GVL_ResearchData.b_RED_Concrete_Pump_Forward_On;
+	//
+	// Do step
+	IF b_Condition AND b_No_Emergency_Stop THEN
+		b_Condition:=FALSE;
+		n_Step:=25;
+	END_IF
+END_IF
+
+//
+// Pump enabled checking for errors or grid removed
+IF n_Step=25 THEN
+	//
+	// Check condition 
+	b_Condition:= t_CP1_Check_Time.Q;
+	//
+	// Do step
+	IF b_Condition THEN
+		b_Condition:=FALSE;
+		n_Step:=30;
+	END_IF
+END_IF
+
+//
+// Pump enabled checking for errors or grid removed
+IF n_Step=30 THEN
+	//
+	// Check condition 
+	b_Condition:= TRUE;
+	//
+	// Do step
+	IF b_Condition THEN
+		b_Condition:=FALSE;
+		n_Step:=40;
+	END_IF
+END_IF
+
+//
+// 
+IF n_Step=40 THEN
+	//
+	// Check condition 
+	b_Condition:=TRUE;
+	//
+	// Do step
+	IF b_Condition AND b_No_Emergency_Stop THEN
+		b_Condition:=FALSE;
+		n_Step:=50;
+	END_IF
+END_IF
+
+//
+// Return to step 10 
+IF n_Step=50 THEN
+	//
+	// Check condition 
+	b_Condition:=TRUE;
+	//
+	// Do step
+	IF b_Condition THEN
+		//
+		//Reset 
+		GVL_ResearchData.b_RED_Concrete_Pump_Check_On:=FALSE;
+		GVL_ResearchData.b_RED_Concrete_Pump_Forward_On:=FALSE;
+		b_Condition:=FALSE;
+		n_Step:=10;
+	END_IF
+END_IF
+
+
+// ****************************************
+// Timer
+// ****************************************
+t_CP1_Check_Time(
+	IN:=n_Step=25,
+	PT:=GVL_ResearchData.n_RED_Concrete_Pump_Check_Duration_Time);
+
+// ****************************************
+// Reset
+// ****************************************
+IF NOT GVL_ResearchData.b_RED_Concrete_Pump_Check_On THEN
+  //
+  // Rest step chain
+  n_Step:=0;
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_CP1_Check">
+      <LineId Id="6" Count="17" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="48" Count="15" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="66" Count="12" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="81" Count="12" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="150" Count="0" />
+      <LineId Id="138" Count="11" />
+      <LineId Id="137" Count="0" />
+      <LineId Id="123" Count="12" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="166" Count="23" />
+      <LineId Id="221" Count="3" />
+      <LineId Id="190" Count="2" />
+      <LineId Id="160" Count="1" />
+      <LineId Id="152" Count="6" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="193" Count="6" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="200" Count="0" />
+      <LineId Id="94" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

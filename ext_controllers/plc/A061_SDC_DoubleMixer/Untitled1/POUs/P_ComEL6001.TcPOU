@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <POU Name="P_ComEL6001" Id="{9a20473f-0d3f-4584-b429-33e10587a848}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_ComEL6001
+VAR
+	fbEL6001Ctrl		: SerialLineControl;
+	bEL6001CtrlError	: BOOL;
+	eEL6001CtrlErrorID	: ComError_t;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  ?? 
+// 
+// FUNCTION    :  Communication with EL6001 (RS-232)
+// 
+// AUTHOR      :  Mathias Suter
+// 
+// EMAIL       :  mathias.suter@solinaut.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2021
+//
+// ***********************************************************************************
+
+
+//
+// Communication with EL6001
+fbEL6001Ctrl(
+	Mode:= SERIALLINEMODE_EL6_22B, 
+	pComIn:= ADR(GVL.stIn_EL6001), 
+	pComOut:= ADR(GVL.stOut_EL6001), 
+	SizeComIn:= UINT_TO_INT(SIZEOF(GVL.stIn_EL6001)), 
+	Error=> , 
+	ErrorID=> , 
+	TxBuffer:= GVL.TxBufferEL, 
+	RxBuffer:= GVL.RxBufferEL );
+		
+//
+// Output ErrorID, if Error detected
+IF fbEL6001Ctrl.Error THEN
+	bEL6001CtrlError := TRUE;
+	eEL6001CtrlErrorID := fbEL6001Ctrl.ErrorID;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="P_ComEL6001">
+      <LineId Id="65" Count="18" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="10" Count="11" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="22" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

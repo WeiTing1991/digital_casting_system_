@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <POU Name="P_PP1_Ctrl_Manual" Id="{64331641-73eb-4f75-b223-cb93eca6db77}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_PP1_Ctrl_Manual
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Manual control of acceleration pump 1 
+// 
+// AUTHOR      :  Fabio Scotto / Philippe Fleischmann
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2020
+//
+// ***********************************************************************************
+
+//
+// Place holder for manual control of the peristaltic pump 
+
+;]]></ST>
+    </Implementation>
+    <LineIds Name="P_PP1_Ctrl_Manual">
+      <LineId Id="49" Count="22" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

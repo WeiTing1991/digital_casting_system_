@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="F_DecimalData" Id="{66d33ad8-e83a-4919-8f59-cd46dd00ddc3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_DecimalData : LREAL
+VAR_INPUT
+	
+	//
+	data_type : STRING;
+	//
+	value_input : LREAL;
+	
+	// decimal places
+	n_decimal_digit : INT;
+	
+	// Round or not
+	b_round: BOOL;
+	
+	// variable for comparison 
+	//n_temp_INT : ANY_INT;
+	//f_temp_REAL : ANY_REAL;
+	//f_temp_LREAL : ANY_REAL;
+END_VAR
+	
+VAR
+	value_Output : LREAL;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// This Function is for decimal the data by data type
+// only for OUTPUT LREAL and now 
+
+IF data_type = 'REAL' THEN
+	
+	value_Output:= STRING_TO_REAL(LREAL_TO_FMTSTR(TO_LREAL(value_input), n_decimal_digit, b_round));
+	
+ELSIF data_type = 'LREAL' THEN
+	
+	value_Output:= STRING_TO_REAL(LREAL_TO_FMTSTR(value_input, n_decimal_digit, b_round));
+	
+END_IF
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="F_DecimalData">
+      <LineId Id="29" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="50" Count="1" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="45" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

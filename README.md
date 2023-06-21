@@ -1,92 +1,74 @@
-# digital_casting_system
+# **Digital Casting System**
+
+
+![GitHub - License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Python Version](https://img.shields.io/github/pipenv/locked/python-version/WeiTing1991/compas)
+
+
+Digital Casting System is a Innosuisse project and a new novel approach for Smart Dynamic Casting(SDC). 
+
+
+## __Requirements__
+---
+* Windows 10 Pro
+* [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/?pk_campaign=AdWords-AdWordsSearch-TwinCAT_EN&pk_kwd=twincat&gclid=Cj0KCQjw9ZGYBhCEARIsAEUXITW5dmPmQ2629HIuFY7wfbSR70pi5uY2lkYziNmfKYczm1_YsK4hhPsaApjyEALw_wcB)
+* [Anaconda 3](https://www.anaconda.com/)
+
+
+## __Package Version__
+
+python = 3.10.6
+pyads = 3.39
 
 
 
+## __Installation__
+---
 
-## Getting started with this project
+First step, add the conda-forge
 
-### Setup code editor
+```bash
+conda config --add channels conda-forge
+```
+Create the envirment 
 
-1. Open project folder in VS Code
-2. Select python environment for the project
-3. First time using VS Code and on Windows? Make sure select the correct terminal profile: `Ctrl+Shift+P`, `Terminal: Select Default Profile` and select `Command Prompt`.
+```bash
+conda create -n dcs python
+conda activate dcs
+```
 
-> All terminal commands in the following sections can be run from the VS Code integrated terminal. 
+Main libraries
 
+```bash 
+pip install pyads
+pip install 
 
-### First steps with git
-
-1. Go to the `Source control` tab
-2. Make an initial commit with all newly created files
-
-
-### First steps with code
-
-1. Install the newly created project 
-
-        pip install -e .
-
-2. Install it on Rhino
-
-        python -m compas_rhino.install
+```
 
 
-### Code conventions
+---
 
-Code convention follows [PEP8](https://pep8.org/) style guidelines and line length of 120 characters.
+### Concrete Controller 
 
-1. Check adherence to style guidelines
+```bash
+pip install 
 
-        invoke lint
+```
+- Devices
+    - TBC
 
-2. Format code automatically
+### Arduino temperature sensor Kit 
 
-        invoke format
+```bash
+pip install pyserial
 
-
-### Documentation
-
-Documentation is generated automatically out of docstrings and [RST](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) files in this repository
-
-1. Generate the docs
-
-        invoke docs
-
-2. Check links in docs are valid
-
-        invoke linkcheck
-
-3. Open docs in your browser (file explorer -> `dist/docs/index.html`)
+```
+- Devices
+    - Sensor DS18B20
+    - Arduino UNO
+    - LCD DISPLAY 2X16, 1602 DRIVER, I2C
+    - UBS cable 
 
 
-### Testing
-
-Tests are written using the [pytest](https://docs.pytest.org/) framework
-
-1. Run all tests from terminal
-
-        invoke test
-
-2. Or run them from VS Code from the `Testing` tab
-
-
-### Developing Grasshopper components
-
-We use [Grasshopper Componentizer](https://github.com/compas-dev/compas-actions.ghpython_components) to develop Python components that can be stored and edited on git.
-
-1. Build components
-
-        invoke build-ghuser-components
-
-2. Install components on Rhino
-
-        python -m compas_rhino.install
-
-
-### Publish release
-
-Releases follow the [semver](https://semver.org/spec/v2.0.0.html) versioning convention.
-
-1. Create a new release
-
-        invoke release major
+## Credits
+This package was created by ... at FMMA-USI. 

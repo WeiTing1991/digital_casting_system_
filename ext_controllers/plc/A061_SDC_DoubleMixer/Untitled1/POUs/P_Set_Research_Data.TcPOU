@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="P_Set_Research_Data" Id="{773f30f1-b7d3-4c7e-b27f-8d66212207e7}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Set_Research_Data
+VAR
+
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Set all research data for the process
+// 
+// AUTHOR      :  Seyma Gürel / Philippe Fleischmann
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2021
+//
+// ***********************************************************************************
+
+
+//
+// Updating Mixer 1 max speed [°/s]
+GVL_ResearchData.f_RED_Control_Speed:=720;
+GVL_VAR.f_MI1_MaxSpeed:=GVL_ResearchData.f_RED_Control_Speed;
+
+//
+// Updating Acceleration Pump calibration values 
+GVL_ResearchData.n_RED_Acceleration_Pump_Calibration_Speed:=32767;     // [raw date]
+GVL_ResearchData.n_RED_Acceleration_Pump_Calibration_Time:=T#60000MS;   // [ms]
+//GVL_ResearchData.f_RED_Acceleration_Pump_Mass:=342.0;                    // [g/min]
+GVL_ResearchData.f_RED_Acceleration_Pump_Density:=2.047;               // [g/ml]
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_Set_Research_Data">
+      <LineId Id="182" Count="18" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="204" Count="0" />
+      <LineId Id="201" Count="1" />
+      <LineId Id="214" Count="1" />
+      <LineId Id="210" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

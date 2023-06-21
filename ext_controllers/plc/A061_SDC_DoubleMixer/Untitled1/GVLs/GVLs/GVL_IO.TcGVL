@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <GVL Name="GVL_IO" Id="{44600b8d-a6e4-429a-9add-e1e71d3867c2}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Global Varable In and Outputs
+// 
+// AUTHOR      :  Fabio Scotto / Philippe Fleischmann
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2020
+//
+// ***********************************************************************************
+
+//
+// Inputs
+
+//
+// Concrete Controller 1
+ib_CC1_Safety_Ready AT %I*: BOOL;
+ib_CC1_Button_Mode_Manual AT %I*: BOOL;
+ib_CC1_Button_Mode_Laptop AT %I*: BOOL;
+ib_CC1_Button_Reset AT %I*: BOOL;
+//
+// Concrete Pump 1
+ib_CP1_Drive_Error AT %I*: BOOL;
+ib_CP1_Ready AT %I*: BOOL;
+ib_CP1_Safety_Grid_Mounted AT %I*: BOOL;
+in_CP1_Tube_Pressure_Sensor AT %I*: INT;
+in_CP1_Tube_Temperature_Sensor AT %I*: INT;
+
+//
+// Peristaltic Pump 1
+ib_PP1_Button_On AT %I*: BOOL;
+ib_PP1_Button_Not_Off AT %I*: BOOL;
+in_PP1_Poti_Speed AT %I*	: INT; 
+
+//
+// Accelerator Pump 1
+ib_AP1_Button_On AT %I*: BOOL;
+ib_AP1_Button_Not_Off AT %I*: BOOL;
+ib_AP1_Ready AT %I*: BOOL;
+ib_AP1_No_Error AT %I*: BOOL;
+in_AP1_Poti_Speed AT %I*	: INT; 
+
+//
+// Mixer 1
+ib_MI1_Button_On AT %I*: BOOL;
+ib_MI1_Button_Not_Off AT %I*: BOOL;
+in_MI1_Poti_Speed AT %I*	: INT; 
+
+//
+// Outputs
+
+//
+// Concrete Controller 1
+ob_CC1_Safety_Reset AT %Q*: BOOL;
+
+//
+// Concrete Pump 1
+ob_CP1_Start AT %Q*: BOOL;
+ob_CP1_Stop AT %Q*: BOOL;
+ob_CP1_Forward AT %Q*: BOOL;
+ob_CP1_Backward AT %Q*: BOOL;
+
+on_CP1_Speed AT %Q*: INT;
+
+//
+// Accelerator Pump 1
+ob_AP1_Power_On AT %Q*: BOOL;
+ob_AP1_Start AT %Q*: BOOL;
+ob_AP1_Pressure_Ok AT %Q*: BOOL;
+ob_AP1_Not_Empty AT %Q*: BOOL;
+ob_AP1_Pulse AT %Q*: BOOL;
+
+on_AP1_Speed AT %Q*: INT;
+
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

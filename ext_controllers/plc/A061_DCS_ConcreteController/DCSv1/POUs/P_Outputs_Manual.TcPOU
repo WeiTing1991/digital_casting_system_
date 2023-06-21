@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="P_Outputs_Manual" Id="{29a9fa82-67db-4e62-a260-6977b4aa95ba}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Outputs_Manual
+VAR
+	//
+	//
+	n_temp_speed_SP1: REAL;
+	n_temp_speed_AP1: REAL;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Outputs Manual Mode
+// 
+// AUTHOR      :  Fabio Scotto / Philippe Fleischmann / Weiting Chen
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2020
+//
+// ***********************************************************************************
+
+
+//***********************************************************************************
+// Superplasticizer pump 1
+//***********************************************************************************
+//
+// WT (220916)
+
+
+//
+// Power on
+GVL_IO.ob_SP1_Power_On:=GVL_IO.ib_CC1_Button_Mode_Manual;
+//
+// Pressure is Okay, always set it to True
+GVL_IO.ob_SP1_Pressure_Ok:=TRUE;
+//
+// Bucket is not empty, always set it to true
+GVL_IO.ob_SP1_Not_Empty:=TRUE;
+//
+// Pulse mode is a preset amount,  not in use
+GVL_IO.ob_SP1_Pulse:=FALSE;
+
+
+//
+// Start pump
+IF		P_SP1_OnOff.n_step= 30 
+	OR 	P_SP1_Check.n_Step= 30 
+THEN
+	//
+	// Pump On
+	GVL_IO.ob_SP1_Start:=TRUE;
+ELSE
+	//
+	// Pump On
+	GVL_IO.ob_SP1_Start:=FALSE;
+END_IF
+
+//
+// Speeds for Superplastizier pump
+IF GVL_ResearchData.b_RED_Superplasticizer_Pump_Flush_On AND P_SP1_OnOff.n_step= 30 THEN
+	//
+	// Process speed for flushing or filling the pipe
+	n_temp_speed_SP1:=GVL_ResearchData.n_RED_Superplasticizer_Pump_Flush_Speed;
+
+ELSIF P_SP1_Check.n_Step=20 OR P_SP1_Check.n_Step=30 THEN 	
+	//	
+	// Check Flowrate for pump
+	n_temp_speed_SP1:=GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Flowrate;
+	
+ELSE
+	//
+	// Process speed for pump
+	n_temp_speed_SP1:=GVL_ResearchData.n_RED_Superplasticizer_Pump_Flowrate;
+
+END_IF
+
+GVL_IO.on_SP1_Speed:=F_ScalAnalogOut(
+	n_Input:= REAL_TO_INT(n_temp_speed_SP1),
+	n_InMin:= 0, 
+	n_InMax:= REAL_TO_INT(GVL_ResearchData.f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min), 
+	n_OutMin:= 0, 
+	n_OutMax:= 32767);
+
+
+//***********************************************************************************
+// Accelerator pump 1
+//***********************************************************************************
+
+//
+// Power on
+GVL_IO.ob_AP1_Power_On:=GVL_IO.ib_CC1_Button_Mode_Manual;
+//
+// Pressure okey always set to true
+GVL_IO.ob_AP1_Pressure_Ok:=TRUE;
+//
+// Bucket not empty always set to true
+GVL_IO.ob_AP1_Not_Empty:=TRUE;
+//
+// Pulse a preset amount not in use
+GVL_IO.ob_AP1_Pulse:=FALSE;
+
+//
+// Start pump
+IF 	   P_AP1_OnOff.n_Step=30 
+	OR P_AP1_Check.n_Step=30
+THEN
+	//
+	// Pump on
+	GVL_IO.ob_AP1_Start:=TRUE;
+ELSE
+	//
+	// Pump off
+	GVL_IO.ob_AP1_Start:=FALSE;
+END_IF
+
+//
+// Speed for accelerator pump
+IF GVL_ResearchData.b_RED_Acceleration_Pump_Flush_On AND P_AP1_OnOff.n_Step=30 THEN
+	//
+	// Process speed for flushing or filling the pipe
+	n_temp_speed_AP1:=GVL_ResearchData.n_RED_Acceleration_Pump_Flush_Speed;
+ELSIF P_AP1_Check.n_Step=20 OR P_AP1_Check.n_Step=30 THEN
+	//	
+	// Check Flowrate for pump
+	n_temp_speed_AP1:=GVL_ResearchData.n_RED_Acceleration_Pump_Check_Flowrate;
+ELSE
+	//
+	// Process speed for pump
+	n_temp_speed_AP1:=GVL_ResearchData.n_RED_Acceleration_Pump_Flowrate;
+END_IF
+
+GVL_IO.on_AP1_Speed:=F_ScalAnalogOut(
+	n_Input:= REAL_TO_INT(n_temp_speed_AP1),
+	n_InMin:= 0, 
+	n_InMax:= REAL_TO_INT(GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min), 
+	n_OutMin:= 0, 
+	n_OutMax:= 32767);
+
+
+// ***********************************************************************************
+// Concrete Pump 1 
+// ***********************************************************************************
+
+//
+// Start
+IF  P_CP1_Enable.n_Step=20 THEN
+	GVL_IO.ob_CP1_Start:=TRUE;
+ELSE
+	GVL_IO.ob_CP1_Start:=FALSE;
+END_IF
+
+//
+// Stop
+IF  P_CP1_Enable.n_Step=40 THEN
+	GVL_IO.ob_CP1_Stop:=TRUE;
+ELSE
+	GVL_IO.ob_CP1_Stop:=FALSE;
+END_IF
+
+//
+// Forward
+GVL_IO.ob_CP1_Forward:=GVL_ResearchData.b_RED_Concrete_Pump_Forward_On;
+
+//
+// Backward
+GVL_IO.ob_CP1_Backward:=GVL_ResearchData.b_RED_Concrete_Pump_Backward_On;
+
+//
+// Concrete pump speed  0 (0V) to 75 rpm (10V)
+GVL_IO.on_CP1_Speed:=F_ScalAnalogOut(
+	n_Input:=GVL_ResearchData.n_RED_Concrete_Pump_Speed, 
+	n_InMin:=0, 
+	n_InMax:=75, 
+	n_OutMin:=0, 
+	n_OutMax:=32767);
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_Outputs_Manual">
+      <LineId Id="3" Count="7" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="12" Count="2" />
+      <LineId Id="139" Count="4" />
+      <LineId Id="20" Count="1" />
+      <LineId Id="310" Count="0" />
+      <LineId Id="301" Count="0" />
+      <LineId Id="308" Count="1" />
+      <LineId Id="302" Count="1" />
+      <LineId Id="313" Count="0" />
+      <LineId Id="356" Count="0" />
+      <LineId Id="316" Count="0" />
+      <LineId Id="314" Count="1" />
+      <LineId Id="304" Count="0" />
+      <LineId Id="317" Count="0" />
+      <LineId Id="319" Count="2" />
+      <LineId Id="323" Count="2" />
+      <LineId Id="327" Count="0" />
+      <LineId Id="305" Count="0" />
+      <LineId Id="420" Count="0" />
+      <LineId Id="329" Count="0" />
+      <LineId Id="328" Count="0" />
+      <LineId Id="330" Count="0" />
+      <LineId Id="332" Count="0" />
+      <LineId Id="413" Count="0" />
+      <LineId Id="418" Count="0" />
+      <LineId Id="343" Count="0" />
+      <LineId Id="333" Count="0" />
+      <LineId Id="338" Count="0" />
+      <LineId Id="347" Count="2" />
+      <LineId Id="345" Count="0" />
+      <LineId Id="334" Count="0" />
+      <LineId Id="362" Count="0" />
+      <LineId Id="357" Count="0" />
+      <LineId Id="363" Count="0" />
+      <LineId Id="306" Count="0" />
+      <LineId Id="393" Count="0" />
+      <LineId Id="392" Count="0" />
+      <LineId Id="468" Count="0" />
+      <LineId Id="467" Count="0" />
+      <LineId Id="455" Count="0" />
+      <LineId Id="458" Count="1" />
+      <LineId Id="470" Count="0" />
+      <LineId Id="466" Count="0" />
+      <LineId Id="389" Count="0" />
+      <LineId Id="394" Count="1" />
+      <LineId Id="478" Count="1" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="471" Count="6" />
+      <LineId Id="410" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="300" Count="0" />
+      <LineId Id="154" Count="0" />
+      <LineId Id="153" Count="0" />
+      <LineId Id="155" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="156" Count="1" />
+      <LineId Id="146" Count="0" />
+      <LineId Id="159" Count="1" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="163" Count="1" />
+      <LineId Id="149" Count="0" />
+      <LineId Id="380" Count="0" />
+      <LineId Id="167" Count="1" />
+      <LineId Id="199" Count="1" />
+      <LineId Id="210" Count="0" />
+      <LineId Id="201" Count="0" />
+      <LineId Id="212" Count="0" />
+      <LineId Id="209" Count="0" />
+      <LineId Id="204" Count="2" />
+      <LineId Id="211" Count="0" />
+      <LineId Id="208" Count="0" />
+      <LineId Id="169" Count="2" />
+      <LineId Id="180" Count="0" />
+      <LineId Id="493" Count="2" />
+      <LineId Id="421" Count="0" />
+      <LineId Id="498" Count="1" />
+      <LineId Id="497" Count="0" />
+      <LineId Id="177" Count="0" />
+      <LineId Id="504" Count="1" />
+      <LineId Id="503" Count="0" />
+      <LineId Id="506" Count="1" />
+      <LineId Id="224" Count="0" />
+      <LineId Id="229" Count="0" />
+      <LineId Id="226" Count="2" />
+      <LineId Id="214" Count="0" />
+      <LineId Id="186" Count="0" />
+      <LineId Id="241" Count="0" />
+      <LineId Id="276" Count="18" />
+      <LineId Id="249" Count="7" />
+      <LineId Id="267" Count="8" />
+      <LineId Id="184" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

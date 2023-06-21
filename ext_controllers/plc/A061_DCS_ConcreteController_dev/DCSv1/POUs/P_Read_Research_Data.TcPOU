@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="P_Read_Research_Data" Id="{affa89fd-b285-40f3-982b-c7fb6b079584}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Read_Research_Data
+VAR
+	//
+	tempVelo_M1 :LREAL;
+	tempVelo_M2 :LREAL;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Read all research data for the process
+// 
+// AUTHOR      :  Seyma Gürel / Philippe Fleischmann / Weiting Chen
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2021
+//
+// ***********************************************************************************
+
+// 
+// Mode [] (WT
+GVL_ResearchData.b_RED_Mode_Manual:= GVL_VAR.b_Mode_Manual;
+GVL_ResearchData.b_RED_Mode_Laptop:= GVL_VAR.b_Mode_Laptop;
+
+//
+// Mixer run []
+GVL_ResearchData.b_RED_Status_On:=GVL_ResearchData.b_RED_Laptop_MI1_Run; // SHOULD BE CHANGE 
+
+
+//
+// Mixer 1 speed override [%]
+// GVL_ResearchData.f_RED_Status_Speed_Overide:=GVL_VAR.f_MI1_Override;
+
+//
+// Mixer 1 current speed []
+IF ABS(GVL.Axis_Mixer1.NcToPlc.ActVelo) < 0.5 THEN
+	tempVelo_M1:=0;
+ELSE
+	tempVelo_M1:=ABS(GVL.Axis_Mixer1.NcToPlc.ActVelo);
+END_IF
+GVL_ResearchData.f_RED_Status_Velo_Motor_1:= tempVelo_M1; 
+GVL_ResearchData.f_RED_Status_Speed_Motor_1:= tempVelo_M1/6; 
+
+
+//
+// Mixer 1 current torque []
+GVL_ResearchData.f_RED_Status_Torque_Motor_1:= GVL.f_MID1_ActTorque;
+//
+// Mixer 2 current torque []
+GVL_ResearchData.f_RED_Status_Torque_Motor_2:=GVL.f_MID2_ActTorque;
+
+//
+// Mixer 1 current motor temperature []
+GVL_ResearchData.f_RED_Status_Temperature_Motor_1:=GVL.in_MID1_ActMotorTemperature *0.1; // WT
+
+//
+// Mixer 2 current speed []
+IF ABS(GVL.Axis_Mixer2.NcToPlc.ActVelo) < 0.5 THEN
+	tempVelo_M2:=0;
+ELSE
+	tempVelo_M2:= ABS(GVL.Axis_Mixer1.NcToPlc.ActVelo);
+END_IF
+GVL_ResearchData.f_RED_Status_Velo_Motor_2:= tempVelo_M2; 
+GVL_ResearchData.f_RED_Status_Speed_Motor_2:= tempVelo_M2/6;
+
+//
+// Mixer 1 current motor temperature []
+GVL_ResearchData.f_RED_Status_Temperature_Motor_2:=GVL.in_MID2_ActMotorTemperature *0.1; // WT
+
+// Funnel Temperature
+GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet:=GVL_IO.in_Temp_Funnel *0.1;//
+
+//
+// Funnel Pressure [0 to 40 bar]
+GVL_ResearchData.f_RED_Status_Pressure_Funnel_inlet:= F_Mapping_REAL(
+													f_Input:= GVL_IO.in_Pressure_Funnel,
+													f_InMin:= 0, 
+													f_InMax:= 32767, 
+													f_OutMin:= 0, 
+													f_OutMax:= 40);
+//
+// Pump Temperature
+GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump:=GVL_IO.in_Temp_CPump*0.1;//
+												
+// Pump Pressure [0 to 40 bar]
+GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump:= F_Mapping_REAL(
+													f_Input:= GVL_IO.in_Pressure_Pump,
+													f_InMin:= 0, 
+													f_InMax:= 32767, 
+													f_OutMin:= 0, 
+													f_OutMax:= 40);
+
+//
+// Superplasticizer maximum pump flowrate [ml/min]
+// Based on demended flowrate value*2
+GVL_ResearchData.f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min:=GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Flowrate*2;
+
+//
+// Accelration maximum pump flowrate [ml/min]
+// Based on demended flowrate value*2
+GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min:=GVL_ResearchData.n_RED_Acceleration_Pump_Check_Flowrate*2;
+
+
+//
+// Concrete pump maximum pump flowrate [ml/min]
+GVL_ResearchData.f_RED_Status_Concrete_Pump_Max_Flowrate_l_per_min:=GVL_ResearchData.f_RED_Concrete_Pump_Check_Flowrate*3;
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_Read_Research_Data">
+      <LineId Id="182" Count="18" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="274" Count="0" />
+      <LineId Id="277" Count="2" />
+      <LineId Id="262" Count="0" />
+      <LineId Id="259" Count="1" />
+      <LineId Id="225" Count="0" />
+      <LineId Id="335" Count="0" />
+      <LineId Id="268" Count="0" />
+      <LineId Id="226" Count="2" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="336" Count="1" />
+      <LineId Id="343" Count="1" />
+      <LineId Id="338" Count="0" />
+      <LineId Id="220" Count="0" />
+      <LineId Id="303" Count="0" />
+      <LineId Id="389" Count="0" />
+      <LineId Id="376" Count="0" />
+      <LineId Id="215" Count="1" />
+      <LineId Id="213" Count="0" />
+      <LineId Id="360" Count="1" />
+      <LineId Id="359" Count="0" />
+      <LineId Id="246" Count="0" />
+      <LineId Id="242" Count="0" />
+      <LineId Id="248" Count="0" />
+      <LineId Id="247" Count="0" />
+      <LineId Id="391" Count="0" />
+      <LineId Id="395" Count="6" />
+      <LineId Id="403" Count="0" />
+      <LineId Id="392" Count="0" />
+      <LineId Id="249" Count="0" />
+      <LineId Id="251" Count="2" />
+      <LineId Id="411" Count="0" />
+      <LineId Id="414" Count="0" />
+      <LineId Id="416" Count="0" />
+      <LineId Id="418" Count="0" />
+      <LineId Id="417" Count="0" />
+      <LineId Id="419" Count="1" />
+      <LineId Id="426" Count="3" />
+      <LineId Id="412" Count="0" />
+      <LineId Id="446" Count="1" />
+      <LineId Id="445" Count="0" />
+      <LineId Id="437" Count="1" />
+      <LineId Id="440" Count="4" />
+      <LineId Id="439" Count="0" />
+      <LineId Id="290" Count="0" />
+      <LineId Id="250" Count="0" />
+      <LineId Id="154" Count="0" />
+      <LineId Id="296" Count="0" />
+      <LineId Id="287" Count="0" />
+      <LineId Id="286" Count="0" />
+      <LineId Id="235" Count="1" />
+      <LineId Id="297" Count="0" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="318" Count="2" />
+      <LineId Id="324" Count="0" />
+      <LineId Id="321" Count="0" />
+      <LineId Id="317" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="GVL_VAR" Id="{9adbfdb6-5565-465b-8ee1-db8e71381135}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Global Varable In and Outputs
+// 
+// AUTHOR      :  Fabio Scotto / Philippe Fleischmann / Weiting Chen
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2020
+//
+// ***********************************************************************************
+
+//
+// Concrete Controller 1
+b_Mode_Manual : BOOL;
+b_Mode_Laptop : BOOL;
+
+//
+// Concrete Pump 1
+
+//
+// Superplasticizer Pump 1
+b_SP1_Run : BOOL;
+f_SP1_Override :LREAL;
+
+//
+// Accelerator Pump 1
+b_AP1_Run : BOOL;
+f_AP1_Override : LREAL; 
+
+//
+// Mixer 1
+b_MI1_ReadToDrive : BOOL;
+b_MI1_Run : BOOL;
+f_MI1_Override : LREAL; 
+f_MI1_MaxSpeed : LREAL;
+f_MI1_ActSpeedM1 : LREAL;
+f_MI1_ActSpeedM2 : LREAL;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
