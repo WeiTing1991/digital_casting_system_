@@ -1,9 +1,9 @@
 """
 ********************************************************************************
-dcs
+digital_casting_system
 ********************************************************************************
 
-.. currentmodule:: dcs
+.. currentmodule:: digital_casting_system
 
 
 .. toctree::
@@ -11,16 +11,15 @@ dcs
 
 
 """
-
 from __future__ import print_function
-
+from __future__ import absolute_import
 import os
 
 
-__author__ = ["WeiTingChen"]
+__author__ = ["wei ting chen"]
 __copyright__ = ""
 __license__ = "MIT License"
-__email__ = "chenw@usi.ch"
+__email__ = "wei.ting.chen@usi.ch"
 __version__ = "0.1.0"
 
 
