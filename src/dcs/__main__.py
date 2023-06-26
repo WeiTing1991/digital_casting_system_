@@ -13,7 +13,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '54_agg_1.5FW_ETH_CAC'
+DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_1.5FW_ETH_temperature_1357'
 
 # HVAE TO FINISH NOT OVERRIDE THE FILE
 # direction for data storing
