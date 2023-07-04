@@ -13,7 +13,8 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_1.5FW_ETH_temperature_1357'
+DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_72S_1.5FW_ETH_2'
+#50_agg_1.5FW_ETH_temperature_test
 
 # HVAE TO FINISH NOT OVERRIDE THE FILE
 # direction for data storing
@@ -25,12 +26,12 @@ JSON_DIR = os.path.join(DATA, 'json')
 CSV_DIR = os.path.join(DATA, 'csv')
 
 # Record time slot
-RECODED_DELAY_TIME = 0.1 # second
+RECODED_DELAY_TIME = 0 # second
 
 
 # Value for Dry Run without concrete pump
 DRY_RUN = False
-LOOP_TIME = 200
+LOOP_TIME = 1000
 
 
 # ===============================================================================
@@ -106,7 +107,7 @@ def read_from_plc_and_store(data:dict, key:str, value):
     if key != 'Time':
         r_value_plc = plc.read_by_name(value)
         # reduce the decimal to 0.0000
-        r_value_plc = round(abs(r_value_plc), 4)
+        r_value_plc = round(abs(r_value_plc), 2)
 
         data[key] = r_value_plc
         print(f"{key}:{r_value_plc}")
@@ -212,6 +213,7 @@ if __name__ == "__main__":
                 # Concrete pump
                 for k, v in cc_pump_params.items():
                     read_from_plc_and_store(research_data[log], k, v)
+
                 # Accrator pump
                 for k, v in acc_pump_params.items():
                     read_from_plc_and_store(research_data[log], k, v)
