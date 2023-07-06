@@ -1820,9 +1820,9 @@ External Setpoint Generation:
 							<Name>GVL_IO.ib_CC1_Safety_Ready</Name>
 							<Comment><![CDATA[***********************************************************************************
 
- ETH Zrich / Robotic Fabrication Lab
+ ETH Zürich / Robotic Fabrication Lab
  HIB C 13 / Stefano-Franscini-Platz 1
- CH-8093 Zrich
+ CH-8093 Zürich
  
  ***********************************************************************************
  
@@ -1834,7 +1834,7 @@ External Setpoint Generation:
  
  EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
  
- Copyright   :  ETH Zrich (CH) 2020
+ Copyright   :  ETH Zürich (CH) 2020
 
  ***********************************************************************************
 

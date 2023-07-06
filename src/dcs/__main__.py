@@ -3,6 +3,8 @@ import pyads
 from datetime import datetime
 import time
 
+from threading import Thread
+
 from data_gathering.data_gathering import write_dict_to_csv, write_dict_to_json
 
 # =================================================================================
@@ -13,7 +15,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_72S_1.5FW_ETH_2'
+DEFAULT_FILENAME = NOW_DATE + '_' + '54agg_72S_1.5FW_temperature'
 #50_agg_1.5FW_ETH_temperature_test
 
 # HVAE TO FINISH NOT OVERRIDE THE FILE
@@ -26,7 +28,7 @@ JSON_DIR = os.path.join(DATA, 'json')
 CSV_DIR = os.path.join(DATA, 'csv')
 
 # Record time slot
-RECODED_DELAY_TIME = 0 # second
+RECODED_DELAY_TIME = 1 # second
 
 
 # Value for Dry Run without concrete pump
@@ -107,10 +109,10 @@ def read_from_plc_and_store(data:dict, key:str, value):
     if key != 'Time':
         r_value_plc = plc.read_by_name(value)
         # reduce the decimal to 0.0000
-        r_value_plc = round(abs(r_value_plc), 2)
+        r_value_plc = round(abs(r_value_plc), 3)
 
         data[key] = r_value_plc
-        print(f"{key}:{r_value_plc}")
+        #print(f"{key}:{r_value_plc}")
 
     else:
         data[key] = value
@@ -130,7 +132,7 @@ def read_from_plc_and_store_noDecimal(data:dict, key:str, value):
             r_value_plc = round(abs(r_value_plc), 4)
 
         data[key] = r_value_plc
-        print(f"{key}:{r_value_plc}")
+        #print(f"{key}:{r_value_plc}")
 
     else:
         data[key] = value
@@ -198,6 +200,7 @@ if __name__ == "__main__":
             # Update the time
             NOW_TIME = datetime.now().time().strftime("%H:%M:%S.%f")[:-3]
 
+
             # intergted to class moudle
             if research_data is not None:
                 research_data[log] = {}
@@ -208,15 +211,21 @@ if __name__ == "__main__":
 
                 # Inline mixer
                 for k, v in inline_mixer_params.items():
-                    read_from_plc_and_store(research_data[log], k, v)
+                    Thread1 = Thread(target=read_from_plc_and_store, args=(research_data[log], k, v))
+                    Thread1.start()
+                    #read_from_plc_and_store(research_data[log], k, v)
 
                 # Concrete pump
                 for k, v in cc_pump_params.items():
-                    read_from_plc_and_store(research_data[log], k, v)
+                    Thread2 = Thread(target=read_from_plc_and_store, args=(research_data[log], k, v))
+                    Thread2.start()
+                    #read_from_plc_and_store(research_data[log], k, v)
 
                 # Accrator pump
                 for k, v in acc_pump_params.items():
-                    read_from_plc_and_store(research_data[log], k, v)
+                    Thread3 = Thread(target=read_from_plc_and_store, args=(research_data[log], k, v))
+                    Thread3.start()
+                    #read_from_plc_and_store(research_data[log], k, v)
 
                 # Superplastizer pump
 
@@ -225,6 +234,8 @@ if __name__ == "__main__":
 
             # Write dictionary to JSON file
             write_dict_to_json(os.path.join(JSON_DIR, DEFAULT_FILENAME) + ".json" , research_data)
+
+
             # MAKE SURE WHICH PART YOU WANT STOP
             mixer_On_state = plc.read_by_name(mixer_On)
 
