@@ -858,7 +858,7 @@
                 <GroupType>AM803x</GroupType>
                 <ElectricMotorType>AM8032-xEx0</ElectricMotorType>
                 <MotorfeedbackType>Sick#EKM36-0KF0A0S16</MotorfeedbackType>
-                <MotorbrakeType />
+                <MotorbrakeType></MotorbrakeType>
                 <AssemblyType>AM8OCT</AssemblyType>
                 <VendorName>BECKHOFF</VendorName>
                 <IsAc>true</IsAc>
@@ -876,6 +876,11 @@
                   <Comment LcId="1033">Electric motor type</Comment>
                   <Name>ElecType</Name>
                   <Data type="visibleString">AM8032-xEx0</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033">Motor Serial number</Comment>
+                  <Name>SerialNr</Name>
+                  <Data type="visibleString">aa505774</Data>
                 </Parameter>
                 <Parameter>
                   <Comment LcId="1033">Motor oder code</Comment>
@@ -935,7 +940,7 @@
                 <Parameter>
                   <Comment LcId="1033">M(i) curve</Comment>
                   <Name>Mi</Name>
-                  <DataTable type="real641" unitSiNumerator="4">
+                  <DataTable type="real641">
                     <item>1.72</item>
                     <item>3.44</item>
                     <item>5.16</item>
@@ -947,7 +952,7 @@
                     <item>15.48</item>
                     <item>17.2</item>
                   </DataTable>
-                  <DataTable type="real641" unitSiNumerator="86">
+                  <DataTable type="real641">
                     <item>1.61</item>
                     <item>3.12</item>
                     <item>4.53</item>
@@ -983,7 +988,7 @@
                 <Parameter>
                   <Comment LcId="1033">Lq(i) curve</Comment>
                   <Name>Lqi</Name>
-                  <DataTable type="real641" unitSiNumerator="4">
+                  <DataTable type="real641">
                     <item>1.72</item>
                     <item>3.44</item>
                     <item>5.16</item>
@@ -995,7 +1000,7 @@
                     <item>15.48</item>
                     <item>17.2</item>
                   </DataTable>
-                  <DataTable type="real641" unitSiNumerator="44">
+                  <DataTable type="real641">
                     <item>0.01558</item>
                     <item>0.01398</item>
                     <item>0.01239</item>
@@ -1046,7 +1051,7 @@
                 <Parameter>
                   <Comment LcId="1033">Motor temp sensor R(T)</Comment>
                   <Name>TempSensorRT</Name>
-                  <DataTable type="real641" unitSiNumerator="45">
+                  <DataTable type="real641">
                     <item>-29.5</item>
                     <item>2.3</item>
                     <item>31.4</item>
@@ -1074,13 +1079,13 @@
                 <Parameter>
                   <Comment LcId="1033">NnUnrms</Comment>
                   <Name>NnUnrms</Name>
-                  <DataTable type="real641" unitSiNumerator="38">
+                  <DataTable type="real641">
                     <item>115</item>
                     <item>230</item>
                     <item>400</item>
                     <item>480</item>
                   </DataTable>
-                  <DataTable type="real641" unitSiNumerator="225">
+                  <DataTable type="real641">
                     <item>1400</item>
                     <item>3200</item>
                     <item>6000</item>
@@ -1090,13 +1095,13 @@
                 <Parameter>
                   <Comment LcId="1033">MnUnrms</Comment>
                   <Name>MnUnrms</Name>
-                  <DataTable type="real641" unitSiNumerator="38">
+                  <DataTable type="real641">
                     <item>115</item>
                     <item>230</item>
                     <item>400</item>
                     <item>480</item>
                   </DataTable>
-                  <DataTable type="real641" unitSiNumerator="86">
+                  <DataTable type="real641">
                     <item>2.34</item>
                     <item>2.28</item>
                     <item>2.2</item>
@@ -1412,7 +1417,7 @@
               </DatabaseType>
               <DatabaseParameters>
                 <Parameter>
-                  <Comment LcId="1033">cf: AbsolutePositionInterfaceType 0: No interface 1: BiSS B 2: EnDat2.1 3: EnDat2.2 4: Hiperface 5: BiSS C 6: BiSS C 7: Hiperface DSL 8: Resolver 9: MES 10: SSI binary 11: SSI gray 12: EnDat3.0 100: Electrical analog commutation channel: sin(x) and sin(x-120) 102: Mechanical analog commutation channel: cos and sin 103: Electrical analog commutation channel: cos and sin</Comment>
+                  <Comment LcId="1033">cf: AbsolutePositionInterfaceType 0: No interface 1: BiSS B 2: EnDat2.1 3: EnDat2.2 4: Hiperface 5: BiSS C 6: BiSS C 7: Hiperface DSL 8: Resolver 9: MES 10: SSI binary 11: SSI gray 100: Electrical analog commutation channel: sin(x) and sin(x-120) 102: Mechanical analog commutation channel: cos and sin 103: Electrical analog commutation channel: cos and sin</Comment>
                   <Name>AbsolutePositionInterface</Name>
                   <Data type="int8">7</Data>
                 </Parameter>
@@ -1422,12 +1427,12 @@
                   <Data type="int8">0</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionSinglePos</Name>
                   <Data type="int16">18</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionMultiPos</Name>
                   <Data type="int16">12</Data>
                 </Parameter>
@@ -1597,7 +1602,7 @@
                 <GroupType>AM803x</GroupType>
                 <ElectricMotorType>AM8032-xEx0</ElectricMotorType>
                 <MotorfeedbackType>Sick#EKM36-0KF0A0S16</MotorfeedbackType>
-                <MotorbrakeType />
+                <MotorbrakeType></MotorbrakeType>
                 <AssemblyType>AM8OCT</AssemblyType>
                 <VendorName>BECKHOFF</VendorName>
                 <IsAc>true</IsAc>
@@ -1615,6 +1620,11 @@
                   <Comment LcId="1033">Electric motor type</Comment>
                   <Name>ElecType</Name>
                   <Data type="visibleString">AM8032-xEx0</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033">Motor Serial number</Comment>
+                  <Name>SerialNr</Name>
+                  <Data type="visibleString">aa502838</Data>
                 </Parameter>
                 <Parameter>
                   <Comment LcId="1033">Motor oder code</Comment>
@@ -1674,7 +1684,7 @@
                 <Parameter>
                   <Comment LcId="1033">M(i) curve</Comment>
                   <Name>Mi</Name>
-                  <DataTable type="real641" unitSiNumerator="4">
+                  <DataTable type="real641">
                     <item>1.72</item>
                     <item>3.44</item>
                     <item>5.16</item>
@@ -1686,7 +1696,7 @@
                     <item>15.48</item>
                     <item>17.2</item>
                   </DataTable>
-                  <DataTable type="real641" unitSiNumerator="86">
+                  <DataTable type="real641">
                     <item>1.61</item>
                     <item>3.12</item>
                     <item>4.53</item>
@@ -1722,7 +1732,7 @@
                 <Parameter>
                   <Comment LcId="1033">Lq(i) curve</Comment>
                   <Name>Lqi</Name>
-                  <DataTable type="real641" unitSiNumerator="4">
+                  <DataTable type="real641">
                     <item>1.72</item>
                     <item>3.44</item>
                     <item>5.16</item>
@@ -1734,7 +1744,7 @@
                     <item>15.48</item>
                     <item>17.2</item>
                   </DataTable>
-                  <DataTable type="real641" unitSiNumerator="44">
+                  <DataTable type="real641">
                     <item>0.01558</item>
                     <item>0.01398</item>
                     <item>0.01239</item>
@@ -1785,7 +1795,7 @@
                 <Parameter>
                   <Comment LcId="1033">Motor temp sensor R(T)</Comment>
                   <Name>TempSensorRT</Name>
-                  <DataTable type="real641" unitSiNumerator="45">
+                  <DataTable type="real641">
                     <item>-29.5</item>
                     <item>2.3</item>
                     <item>31.4</item>
@@ -1813,13 +1823,13 @@
                 <Parameter>
                   <Comment LcId="1033">NnUnrms</Comment>
                   <Name>NnUnrms</Name>
-                  <DataTable type="real641" unitSiNumerator="38">
+                  <DataTable type="real641">
                     <item>115</item>
                     <item>230</item>
                     <item>400</item>
                     <item>480</item>
                   </DataTable>
-                  <DataTable type="real641" unitSiNumerator="225">
+                  <DataTable type="real641">
                     <item>1400</item>
                     <item>3200</item>
                     <item>6000</item>
@@ -1829,13 +1839,13 @@
                 <Parameter>
                   <Comment LcId="1033">MnUnrms</Comment>
                   <Name>MnUnrms</Name>
-                  <DataTable type="real641" unitSiNumerator="38">
+                  <DataTable type="real641">
                     <item>115</item>
                     <item>230</item>
                     <item>400</item>
                     <item>480</item>
                   </DataTable>
-                  <DataTable type="real641" unitSiNumerator="86">
+                  <DataTable type="real641">
                     <item>2.34</item>
                     <item>2.28</item>
                     <item>2.2</item>
@@ -2151,7 +2161,7 @@
               </DatabaseType>
               <DatabaseParameters>
                 <Parameter>
-                  <Comment LcId="1033">cf: AbsolutePositionInterfaceType 0: No interface 1: BiSS B 2: EnDat2.1 3: EnDat2.2 4: Hiperface 5: BiSS C 6: BiSS C 7: Hiperface DSL 8: Resolver 9: MES 10: SSI binary 11: SSI gray 12: EnDat3.0 100: Electrical analog commutation channel: sin(x) and sin(x-120) 102: Mechanical analog commutation channel: cos and sin 103: Electrical analog commutation channel: cos and sin</Comment>
+                  <Comment LcId="1033">cf: AbsolutePositionInterfaceType 0: No interface 1: BiSS B 2: EnDat2.1 3: EnDat2.2 4: Hiperface 5: BiSS C 6: BiSS C 7: Hiperface DSL 8: Resolver 9: MES 10: SSI binary 11: SSI gray 100: Electrical analog commutation channel: sin(x) and sin(x-120) 102: Mechanical analog commutation channel: cos and sin 103: Electrical analog commutation channel: cos and sin</Comment>
                   <Name>AbsolutePositionInterface</Name>
                   <Data type="int8">7</Data>
                 </Parameter>
@@ -2161,12 +2171,12 @@
                   <Data type="int8">0</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionSinglePos</Name>
                   <Data type="int16">18</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionMultiPos</Name>
                   <Data type="int16">12</Data>
                 </Parameter>
@@ -4425,7 +4435,6 @@
           <ObjectId>false</ObjectId>
         </InfoData>
       </Settings>
-      <EsiFile>C:\TwinCAT\3.1\Config\Io\EtherCAT\Beckhoff AX5xxx.xml</EsiFile>
       <TwinCAT>
         <ExtensionSupportFlags>1</ExtensionSupportFlags>
       </TwinCAT>

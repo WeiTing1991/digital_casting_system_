@@ -9,4 +9,9 @@
     <AssemblyName>TwinCAT Drive Manager 2 Project1</AssemblyName>
     <RootNamespace>TwinCAT Drive Manager 2 Project1</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Drive 11 %28AX5206-0000-0213%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
 </Project>

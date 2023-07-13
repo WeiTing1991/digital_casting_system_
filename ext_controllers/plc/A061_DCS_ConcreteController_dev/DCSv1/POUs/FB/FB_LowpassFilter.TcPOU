@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="FB_LowpassFilter" Id="{5fd9c30e-7d37-4f71-b563-ad00f4d23a52}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FB_LowpassFilter : REAL;
+VAR_INPUT
+	rValueIn	:REAL;
+END_VAR
+VAR
+	rValue_In	:REAL;
+	rValue_New	:REAL;	
+	rValue_Old	:REAL;
+	rFactor	    :REAL := 0.1; // 10% old new value			
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 
+// 
+// FUNCTION    :  
+// 
+// AUTHOR      :  Weiting Chen
+// 
+// EMAIL       :  
+// 
+// Copyright   :  
+//
+// ***********************************************************************************
+
+//
+
+rValue_In := rValueIn;
+
+IF rValue_Old = 0 THEN;
+	rValue_Old := rValue_In;
+	rValue_New := ((1-rFactor)*rValue_Old) + (rFactor*rValue_In);
+ELSE
+	rValue_Old := rValue_New;
+	rValue_New := ((1-rFactor)*rValue_Old) + (rFactor*rValue_In);
+END_IF
+
+
+// Read IO in and out
+FB_LowpassFilter := rValue_New;
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_LowpassFilter">
+      <LineId Id="18" Count="1" />
+      <LineId Id="23" Count="12" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="71" Count="1" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="43" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -38,6 +38,9 @@ b_RED_Mode_Laptop: BOOL; //Mode
 // Temperature and Pressure Sensor
 TemperatureAndPressure: STRING := 'TemperatureAndPressure';//***********************************************************
 f_RED_Status_Temperature_Funnel_inlet : REAL; // [°C] 
+f_RED_Status_Temperature_Funnel_outlet : REAL; // [°C] 
+f_RED_Status_Temperature_Funnel_plate : REAL; // [°C] 
+
 f_RED_Status_Pressure_Funnel_inlet : REAL; // [ bar]
 
 f_RED_Status_Temperature_Concrete_Pump : REAL; // [°C] 
