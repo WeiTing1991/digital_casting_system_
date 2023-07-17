@@ -169,11 +169,10 @@ def draw(*data_dict, xlabel, ylabel, ylimit):
         ax.annotate(xy=(data['data'][0][-1], data['data'][1][-1]), xytext=(5,i*5), textcoords='offset points', text= label_line, va='center', fontsize = '10')
         plt.plot(data['data'][0], data['data'][1], data['make_type'],color = data['color'], markersize = data['markersize'], label = data['label'])
 
+
     plt.grid()
     plt.legend(loc="upper left", fontsize = 20)
     plt.show()
-
-
 
 
 if __name__ == "__main__":
@@ -182,48 +181,89 @@ if __name__ == "__main__":
     HOME = os.path.abspath(os.path.join(HERE, "../../../"))
     DATA = os.path.abspath(os.path.join(HOME, "data/csv"))
 
-    FILFE_NAME_LIST = ["20230704_50_agg_72S1.5FW_ETH_temperature_120.csv",
-                       "20230706_54agg_72S_1.5FW_ETH_temperature_120.csv"
+    FILFE_NAME_LIST = ["20230706_54_agg_72S_1.5FW_ETH_temperature_120.csv",
+                       "20230713_54agg_70S_1.5FW_Temperature_withCAC.csv"
                        ]
 
-    ###########################################################
 
     DATA_LIST = FILFE_NAME_LIST
+
 
     data_frame_list = []
     for file_name in DATA_LIST:
         CsvToDf = CSVToDataFrame(file_name, DATA)
         CsvToDf.set_data_frame()
+
+        CsvToDf.print_columns()
+        CsvToDf.remap_data('Log', 90)
+        #CsvToDf.smooth_data('mixer_temperature_Funnel',0)
+
         data_frame_list.append(CsvToDf)
-
-    # the head of the colums
-    data_frame_list[0].print_columns()
-    data_frame_list[0].remap_data('Log', 90)
-    data_frame_list[0].smooth_data('mixer_temperature_Funnel',0.8)
-
 
     df1 = data_frame_list[0].get_data_frame()
     df2 = data_frame_list[1].get_data_frame()
 
-    print(df1['Log'])
-    print(df1['mixer_temperature_Funnel'])
+    #print(df1['Log'])
+    #print(df1['mixer_temperature_Funnel'])
 
-    x_data = df1['Log']
-    y_data = df1['mixer_temperature_Funnel']
+    def temp_data(x_data, y_data):
+
+        # non-linear curve fit
+        params, params_covariance = curve_fit(linar_func, x_data, y_data) # popt, pcov
+        # a*x + c
+        a = params[0]
+        c = params[1]
+        #print(data['data'][1], data['data'][0])
+        print(params)
+
+        #R squred
+        residuals = y_data- linar_func(x_data, *params)
+        ss_res = np.sum(residuals**2)
+        ss_tot = np.sum((y_data-np.mean(x_data))**2)
+        r_squared = round(1 - (ss_res / ss_tot), 3)
+        print(f"R^2:{r_squared}")
+
+        label_line = f"y = {params[0].round(5)}*x + {params[1].round(4)}"
+        print(label_line)
+
+        return x_data, y_data, params, label_line
+
+    temp_data_1 = temp_data(df1['Log'], df1['mixer_torque_M2'])
+    temp_data_2 = temp_data(df2['Log'], df2['mixer_torque_M2'])
 
 
-    plt.plot(x_data, y_data, label='50agg', linewidth = 0.1, color ='b')
-    #plt.plot(df2['Log'], df2['mixer_temperature_Funnel'], label='54agg', linewidth = 0.1, color ='r')
 
-    #plt.xticks(dx, x)
+    xlabel = " Time, mins"
+    ylabel = " Torque, Nm"
+    ax = plt.axes()
+    ax.set_xlabel(xlabel, fontsize=24)
+    ax.set_ylabel(ylabel, fontsize=24)
+
+
+    #plt.scatter(x_data, y_data, label='50agg', linestyle = 'solid', linewidth = 0.1, color ='b')
+
+
+
+
+    plt.plot(temp_data_1[0], temp_data_1[1], linestyle = 'solid', linewidth = 0.1, color ='b')
+    plt.plot(temp_data_1[0], linar_func(temp_data_1[0], *temp_data_1[2]), linestyle = 'solid', color = 'b', linewidth = 2, label='non-accelerated')
+    ax.annotate(xy=(70,35), textcoords='offset points', text= temp_data_1[3], va='center', fontsize = '20')
+
+    plt.plot(temp_data_2[0], temp_data_2[1], linestyle = 'solid', linewidth = 0.1, color ='r')
+    plt.plot(temp_data_2[0], linar_func(temp_data_2[0], *temp_data_2[2]), linestyle = 'solid', color = 'r', linewidth = 2, label='accelerated')
+    ax.annotate(xy=(70,30), textcoords='offset points', text= temp_data_2[3], va='center', fontsize = '20')
+
+
     plt.xlim()
-    plt.ylim(0,2*y_data.max())
+    plt.ylim(0 ,8)
 
-    plt.yticks(np.arange(0, 2*y_data.max() + 5, 5))
+    plt.yticks(np.arange(0, 8, 5))
+    plt.xticks(np.arange(0, 95, 10))
 
-
+    plt.legend(loc="upper left", fontsize = 20)
     #plt.grid()
     plt.show()
+
 
 
 
@@ -278,4 +318,4 @@ if __name__ == "__main__":
     draw(two_data_info_dicts[0],
          two_data_info_dicts[1],
          xlabel='Time', ylabel='Temperature', ylimit=50)
-    """
+"""
