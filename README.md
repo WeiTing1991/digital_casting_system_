@@ -1,11 +1,10 @@
 # **Digital Casting System**
 
-
 ![GitHub - License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Python Version](https://img.shields.io/github/pipenv/locked/python-version/WeiTing1991/compas)
-
 
 Digital Casting System is a Innosuisse project and a new novel approach for Smart Dynamic Casting(SDC). 
+
+
 
 
 ## __Requirements__
@@ -13,7 +12,8 @@ Digital Casting System is a Innosuisse project and a new novel approach for Smar
 * Windows 10 Pro
 * [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/?pk_campaign=AdWords-AdWordsSearch-TwinCAT_EN&pk_kwd=twincat&gclid=Cj0KCQjw9ZGYBhCEARIsAEUXITW5dmPmQ2629HIuFY7wfbSR70pi5uY2lkYziNmfKYczm1_YsK4hhPsaApjyEALw_wcB)
 * [Anaconda 3](https://www.anaconda.com/)
-
+* [Docke]()
+* [ABB RobotStudio]()
 
 ## __Package Version__
 
@@ -30,21 +30,20 @@ First step, add the conda-forge
 ```bash
 conda config --add channels conda-forge
 ```
-Create the envirment 
+Create the envirment and activate it 
 
 ```bash
-conda create -n dcs python
+conda create -n dcs python = 3.10
 conda activate dcs
 ```
 
-Main libraries
+Install depenedencies
 
 ```bash 
 pip install pyads
 pip install 
 
 ```
-
 
 ---
 
@@ -71,4 +70,4 @@ pip install pyserial
 
 
 ## Credits
-This package was created by ... at FMMA-USI. 
+This package was created by WeiTing Chen <chenw@usi.ch> `@WeiTing1991 <https://github.com/WeiTing1991>`_ at FMMA-USI and ETHZ. 

@@ -232,17 +232,13 @@ if __name__ == "__main__":
     temp_data_2 = temp_data(df2['Log'], df2['mixer_torque_M2'])
 
 
-
     xlabel = " Time, mins"
     ylabel = " Torque, Nm"
     ax = plt.axes()
     ax.set_xlabel(xlabel, fontsize=24)
     ax.set_ylabel(ylabel, fontsize=24)
 
-
     #plt.scatter(x_data, y_data, label='50agg', linestyle = 'solid', linewidth = 0.1, color ='b')
-
-
 
 
     plt.plot(temp_data_1[0], temp_data_1[1], linestyle = 'solid', linewidth = 0.1, color ='b')
@@ -263,8 +259,6 @@ if __name__ == "__main__":
     plt.legend(loc="upper left", fontsize = 20)
     #plt.grid()
     plt.show()
-
-
 
 
 """
