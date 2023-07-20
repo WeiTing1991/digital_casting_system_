@@ -181,24 +181,30 @@ if __name__ == "__main__":
     HOME = os.path.abspath(os.path.join(HERE, "../../../"))
     DATA = os.path.abspath(os.path.join(HOME, "data/csv"))
 
-    FILFE_NAME_LIST = ["20230706_54_agg_72S_1.5FW_ETH_temperature_120.csv",
-                       "20230713_54agg_70S_1.5FW_Temperature_withCAC.csv"
+    FILFE_NAME_LIST = ["20230626_50agg_70S_1.5FW_ETH_temperature_60rpm.csv",
+                       "20230704_50agg_72S1.5FW_ETH_temperature_120rpm.csv",
+                       "20230706_54agg_72S_1.5FW_ETH_temperature_120rpm.csv",
+                       "20230713_54agg_70S_1.5FW_Temperature_withCAC_120rpm.csv"
                        ]
+
+
+    # "20230626_50agg_70S_1.5FW_ETH_temperature_60rpm.csv",
 
 
     DATA_LIST = FILFE_NAME_LIST
 
-
     data_frame_list = []
-    for file_name in DATA_LIST:
-        CsvToDf = CSVToDataFrame(file_name, DATA)
-        CsvToDf.set_data_frame()
+    for i, file_name in enumerate(DATA_LIST):
 
-        CsvToDf.print_columns()
-        CsvToDf.remap_data('Log', 90)
-        #CsvToDf.smooth_data('mixer_temperature_Funnel',0)
+        if i == 2 or i == 3:
+            CsvToDf = CSVToDataFrame(file_name, DATA)
+            CsvToDf.set_data_frame()
 
-        data_frame_list.append(CsvToDf)
+            CsvToDf.print_columns()
+            CsvToDf.remap_data('Log', 90)
+            #CsvToDf.smooth_data('mixer_temperature_Funnel',0)
+
+            data_frame_list.append(CsvToDf)
 
     df1 = data_frame_list[0].get_data_frame()
     df2 = data_frame_list[1].get_data_frame()
@@ -214,47 +220,56 @@ if __name__ == "__main__":
         a = params[0]
         c = params[1]
         #print(data['data'][1], data['data'][0])
-        print(params)
+
 
         #R squred
         residuals = y_data- linar_func(x_data, *params)
         ss_res = np.sum(residuals**2)
         ss_tot = np.sum((y_data-np.mean(x_data))**2)
         r_squared = round(1 - (ss_res / ss_tot), 3)
-        print(f"R^2:{r_squared}")
+
 
         label_line = f"y = {params[0].round(5)}*x + {params[1].round(4)}"
+
+        print(params)
+        print(f"R^2:{r_squared}")
         print(label_line)
 
         return x_data, y_data, params, label_line
 
-    temp_data_1 = temp_data(df1['Log'], df1['mixer_torque_M2'])
-    temp_data_2 = temp_data(df2['Log'], df2['mixer_torque_M2'])
+    temp_data_1 = temp_data(df1['Log'], df1['mixer_motor_temperature_M2'] - df1['mixer_motor_temperature_M2'][0])
+    temp_data_2 = temp_data(df2['Log'], df2['mixer_motor_temperature_M2'] - df2['mixer_motor_temperature_M2'][0])
+
+    print(df1['mixer_motor_temperature_M1'][0], df2['mixer_motor_temperature_M1'][0])
 
 
-    xlabel = " Time, mins"
-    ylabel = " Torque, Nm"
+    xlabel = " Time, min"
+    ylabel = " Δ Motor Temperature, ℃"
     ax = plt.axes()
     ax.set_xlabel(xlabel, fontsize=24)
     ax.set_ylabel(ylabel, fontsize=24)
 
     #plt.scatter(x_data, y_data, label='50agg', linestyle = 'solid', linewidth = 0.1, color ='b')
 
+    y_temp = 15
+    axis_fontsize = 15
+
 
     plt.plot(temp_data_1[0], temp_data_1[1], linestyle = 'solid', linewidth = 0.1, color ='b')
-    plt.plot(temp_data_1[0], linar_func(temp_data_1[0], *temp_data_1[2]), linestyle = 'solid', color = 'b', linewidth = 2, label='non-accelerated')
-    ax.annotate(xy=(70,35), textcoords='offset points', text= temp_data_1[3], va='center', fontsize = '20')
+    plt.plot(temp_data_1[0], linar_func(temp_data_1[0], *temp_data_1[2]), linestyle = 'solid', color = 'b', linewidth = 2, label='54agg_120rpm')
+    ax.annotate(xy=(70,y_temp), textcoords='offset points', text= temp_data_1[3], va='center', fontsize = axis_fontsize, color = 'b')
 
     plt.plot(temp_data_2[0], temp_data_2[1], linestyle = 'solid', linewidth = 0.1, color ='r')
-    plt.plot(temp_data_2[0], linar_func(temp_data_2[0], *temp_data_2[2]), linestyle = 'solid', color = 'r', linewidth = 2, label='accelerated')
-    ax.annotate(xy=(70,30), textcoords='offset points', text= temp_data_2[3], va='center', fontsize = '20')
+    plt.plot(temp_data_2[0], linar_func(temp_data_2[0], *temp_data_2[2]), linestyle = 'solid', color = 'r', linewidth = 2, label='54agg_120rpm_Acc')
+    ax.annotate(xy=(70,y_temp + 5 ), textcoords='offset points', text= temp_data_2[3], va='center', fontsize = axis_fontsize, color = 'r')
 
 
-    plt.xlim()
-    plt.ylim(0 ,8)
+    plt.xlim(0, 90)
+    plt.ylim(0 ,30)
 
-    plt.yticks(np.arange(0, 8, 5))
-    plt.xticks(np.arange(0, 95, 10))
+    plt.yticks(np.arange(0, 30, 5), fontsize=axis_fontsize)
+    plt.xticks(np.arange(0, 90, 10), fontsize=axis_fontsize)
+
 
     plt.legend(loc="upper left", fontsize = 20)
     #plt.grid()
