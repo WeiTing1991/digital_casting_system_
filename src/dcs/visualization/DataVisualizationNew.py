@@ -1,47 +1,52 @@
-
 ## install panda, matplotlib, scipy
-
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import math
 import os
 
-
-from sklearn.preprocessing import MinMaxScaler
+#from sklearn.preprocessing import StandardScaler
 from scipy.optimize import curve_fit
+from scipy import odr
 
 class CSVToDataFrame():
-
-    """ CSV data to panda dataframe
+    """ CSV data to Panda Dataframe
     """
+
     def __init__(self, filename:str, data_folder_path:str):
-        """
+        """ Initialize the csv path
         """
         self.CSV_DIR = os.path.abspath(os.path.join(data_folder_path, filename))
 
-    def set_data_frame(self):
-        """
+    # Setter and Getter
+    def set_data_frame(self) -> None:
+        """ set panda data frame
         """
         self.df = pd.read_csv(self.CSV_DIR)
 
-    def get_data_frame(self):
-        """
+    def get_data_frame(self)-> object:
+        """ get panda data frame
         """
         return self.df
 
-    def print_head(self):
-        """
+    # printer
+    def print_head(self)-> None:
+        """ print whole head of data frame
         """
         print(self.df.head())
 
-    def print_columns(self):
-        """
+    def print_columns(self)-> None:
+        """ print whole colums of data frame
         """
         print(self.df.columns)
 
+    def print_single_column(self, col)-> None:
+        """ print the data from a column
+        """
+        print(self.df[col])
 
-    def clean_noise_data(self, colume_name: str, replace_num:int, tolerance:int):
+    # Method
+    def clean_noise_data(self, colume_name: str, replace_num:int, tolerance:int) -> None:
         """
         """
         min_num = replace_num - tolerance
@@ -49,130 +54,349 @@ class CSVToDataFrame():
 
         self.df[colume_name] = np.where(self.df[colume_name].between(min_num, max_num), replace_num, self.df[colume_name])
 
-    def average_tow_column_data(self, col_1, col_2, new_col):
+    def average_two_columns(self, col_1, col_2, new_col) -> None:
         """
-        average adata from the two column to new column
+        average data from the two column to new column
         """
         self.df[new_col] = (self.df[col_1] + self.df[col_2])/2
 
-    def remap_data(self, col, remap_Max):
+    def standardize_data(self, col:str, type:str)-> None:
         """
-        remap the data
+        standardize data
+        TODO: check the standardscaler
+        """
+        if type == "first":
+        # Standardize data with first value
+            self.df[col] = self.df[col] - self.df[col][0]
+
+        elif type == "mean":
+        # Standardize data with mean
+            self.df[col] = self.df[col] - self.df[col].mean()
+
+    def standardize_allcolumn_data(self)-> None:
+        """
+        standardize data
+        """
+        # Standardize data with first value
+        for column in self.df.columns.values:
+            if column != "Time":
+                self.standardize_data(column, "mean")
+
+    def normalize_data(self, col, remap_Max)-> None:
+        """
+        normalize the data
         """
         scale_data = (self.df[col] - self.df[col].min()) / (self.df[col].max() - self.df[col].min())
         self.df[col] = (scale_data*remap_Max).round(2)
 
-    def smooth_data(self, col, factor):
+    def smooth(self, col, factor) -> None:
         """
         smooth the data with average
         """
         self.df[col] = (self.df[col]*(1-factor) + self.df[col].mean()*factor).round(2)
 
-    def two_cols_to_arr(self):
+
+class PlotData():
+    """ the class is to plot data from Panda DataFrame
+        dataframe_list:list
+        col_x:str
+        col_y:str
+
+    """
+    def __init__(self, dataframe_list:list, col_x:str, col_y:str):
+        """ Initialize the plot attribute
+        """
+        self.df_list = dataframe_list
+        self.data_x_col = col_x
+        self.data_y_col = col_y
+
+        self.fig, self.ax = plt.subplots()
+
+            # plot atrribute
+        self.make_type_list = ['o', '^', '*', 'x', '.','d']
+        self.color_list = ['blue', 'red', 'green', 'orange', 'purple', 'cyan']
+
+    # getter
+    def get_column_data(self, col) -> object:
+        return self.df[col]
+
+    # print
+    def print_df(self)-> None:
         """
         """
-        #print(f"speed:{data_1.col_1_list}")
-        # col_1_list : Speed [rpm]
-        # col_2_list : Torque [Nm]
+        print(self.df_list)
 
-        self.col_1_list = (self.col_1_list).round(2) # rpm
-        self.col_2_list = (self.col_2_list).round(2) # Nm
+    # Method
+    def linar_func(self, x, a, c) -> float:
+        return a*x + c
+    def exponential_func(self, x, a, b, c) -> float:
+        return a*np.exp(-b * x) + c
 
-        speed_list = self.col_1_list
-        torque_list = self.col_2_list
-        power_list = ((2*math.pi*(self.col_2_list/1000)*self.col_1_list)/60).round(4) # kw = (2pi* rpm* kNm)/60
+    def fitting_curve(self, data_x:list, data_y:list, func_type:str, curve_dgree = 2) -> dict:
+        """
+        func_type: linar: linar_func; exp:exponential_func; poly: polynomial_func
 
-        data_arr_speed_torque = np.array([self.col_1_list, self.col_2_list], dtype=np.ufunc)
-        data_arr_power_speedspaue = np.array([list(map(lambda x: x ** 2, self.col_1_list)), power_list*1000], dtype=np.ufunc) # kw to w
+        data_dict["result"] = residuals
+        data_dict["label_line"] = label_line
+        data_dict["R_squared"] = R_squared
 
-        print(f"speed_vs_torque:{data_arr_speed_torque}\n")
-        print(f"power_vs_speed^2:{data_arr_power_speedspaue}\n")
+        """
+        label_func:str
+        data_dict ={}
 
-        return data_arr_speed_torque, data_arr_power_speedspaue
+        if func_type is "linar":
+            func = self.linar_func
+            params, params_covariance = curve_fit(func, data_x, data_y) # popt, pcov, a*x + c
 
+            label_func = f"y = {params[0].round(5)}x + {params[1].round(5)}"
+            result = func(data_x, *params)
 
+        elif func_type is "exp":
+            func = self.exponential_func
+            params, params_covariance = curve_fit(func, data_x, data_y) # popt, pcov, a*x**2 +x*b + c
 
-class PlotFromData():
-    """
-    plot data
-    """
-    def __init__(self) -> None:
-        pass
-    def linarfunc(self):
-        pass
-    def expfunc(self):
-        pass
-    def show_plot(self):
-        pass
+            label_func = f"y ={params[0].round(5)}" + f"e$^{{{params[2].round(5)}}}$$^x$ + " + f"{params[2].round(5)}"
+            result = func(data_x, *params)
 
+        elif func_type is "poly":
 
-def linar_func(x, a, c):
-    return a*x + c
+            poly_model = odr.polynomial(2)  # using third order polynomial model
+            data = odr.Data(data_x, data_y)
+            odr_obj = odr.ODR(data, poly_model)
+            output = odr_obj.run()  # running ODR fitting
+            params = output.beta[::-1]
+            poly = np.poly1d(params)
 
-def exponential_func(x, a, b, c):
-    return a*np.exp(x*b) + c
+            label_func = f"y = {params[0].round(5)}x$^2$ + {params[1].round(5)}x + {params[2].round(5)}"
+            result = poly(data_x)
 
-def dataframe_to_dict(data_list, label_list, make_type_list, color_list):
-    # create dictionary for plot
-    data_plot_info_dicts = {}
-    for i, d in enumerate(data_list):
-        if data_plot_info_dicts != None:
-            data_plot_info_dicts[i] = {}
-        data_plot_info_dicts[i]['data'] = data_list[i]
-        data_plot_info_dicts[i]['label'] = label_list[i]
-        data_plot_info_dicts[i]['make_type'] = make_type_list[i]
-        data_plot_info_dicts[i]['markersize'] = 10
-        data_plot_info_dicts[i]['color'] = color_list[i]
-        data_plot_info_dicts[i]['linewidth'] = 1
-        data_plot_info_dicts[i]['linestyle'] = 'solid'
-    return data_plot_info_dicts
-
-def draw(*data_dict, xlabel, ylabel, ylimit):
-    """
-    TODO:
-    data_arr : numpay array
-
-    """
-    ax = plt.axes()
-    ax.set_xlabel(xlabel, fontsize=24)
-    ax.set_ylabel(ylabel, fontsize=24)
-
-    ax.axes.set_ylim(0.00, ylimit)
-
-    for i, data in enumerate(data_dict):
-        # linear curves fit
-        # gradient, intercept, r_value, p_value, slop_std_error = stats.linregress(data['data'][0], data['data'][1])
-        # predict_y = gradient * data['data'][0] + intercept
-
-        # non-linear curve fit
-        params, params_covariance = curve_fit(linar_func, data['data'][0], data['data'][1]) # popt, pcov
-        # a*x + c
-        a = params[0]
-        c = params[1]
-        #print(data['data'][1], data['data'][0])
-        print(params)
-        # R squred
-        residuals = data['data'][1]- linar_func(data['data'][0], *params)
+        #R squred
+        residuals = data_y- result
         ss_res = np.sum(residuals**2)
-        ss_tot = np.sum((data['data'][1]-np.mean(data['data'][1]))**2)
+        ss_tot = np.sum((data_y-np.mean(data_x))**2)
         r_squared = round(1 - (ss_res / ss_tot), 3)
-        print(f"R^2:{r_squared}")
-
-        label_line = f"{params[0].round(5)}*x + {params[1].round(4)}, $R^2$:{r_squared}"
-        print(label_line)
-
-        # fitting curve plot
-        plt.grid(b=None)
-        plt.xticks(fontsize=20)
-        plt.yticks(fontsize=20)
-        plt.plot(data['data'][0], linar_func(data['data'][0], a, c), linestyle = data['linestyle'], color = data['color'], linewidth = 1,)
-        ax.annotate(xy=(data['data'][0][-1], data['data'][1][-1]), xytext=(5,i*5), textcoords='offset points', text= label_line, va='center', fontsize = '10')
-        plt.plot(data['data'][0], data['data'][1], data['make_type'],color = data['color'], markersize = data['markersize'], label = data['label'])
+        R_squared = f"R$^2$:{r_squared}"
 
 
-    plt.grid()
-    plt.legend(loc="upper left", fontsize = 20)
-    plt.show()
+        print(params)
+        print(R_squared)
+        #print(label_line)
+
+        data_dict["result"] = result
+        data_dict["label_func"] = label_func + ", "+ R_squared
+        #data_dict["R_squared"] = R_squared
+        return data_dict
+
+    def set_label(self):
+        label = input("Please enter the name of this plot: ")
+        return str(label).lower()
+
+
+    def plot_layout(self,
+                    xlabel:str = "None", ylabel:str = "Nnne",
+                    xlim_min = 0, xlim_max=90,
+                    ylim_min = 0, ylim_max=30,
+                    xinterval = 10, yinterval = 5,
+                    axis_fontsize = 20, fontsize = 30, fontweight = "regular"
+                    ):
+        """
+        Set the plot layout
+        """
+        # set range of x and y axis
+        self.ax.set(xlim = (xlim_min, xlim_max),
+                    ylim = (ylim_min ,ylim_max),
+                    )
+        self.ax.set_xticks(np.arange(xlim_min, xlim_max+5, xinterval), fontweight=fontweight)
+        self.ax.set_yticks(np.arange(ylim_min, ylim_max+5, yinterval), fontweight=fontweight)
+        self.ax.tick_params(labelsize = axis_fontsize)
+
+        # set x, y axis label
+        self.ax.set_xlabel(xlabel, fontweight=fontweight, fontsize=fontsize)
+        self.ax.set_ylabel(ylabel, fontweight=fontweight, fontsize=fontsize)
+
+
+    def draw_plot(self,
+                  curve_fitting_type:str ='linar',
+                  figure_type:str = "plot",
+                  ax_x=0, ax_y=0,
+                  ax_y_spacing = 0.5, fontsize:int = 15) ->None:
+
+        for i, df in enumerate(self.df_list):
+
+            data_x = df[self.data_x_col]
+            data_y = df[self.data_y_col]
+            data_dict = self.fitting_curve(data_x, data_y, curve_fitting_type)
+
+            plot_label = self.set_label()
+
+            if figure_type is "plot":
+                # draw plot
+                self.ax.plot(data_x, data_y, linestyle = '--', linewidth = 0.1, color = self.color_list[i])
+            elif figure_type is "point":
+                # draw point
+                self.ax.scatter(data_x, data_y, marker=self.make_type_list[i], s=1, color = self.color_list[i], alpha=0.5)
+
+            self.ax.plot(data_x, data_dict["result"], linestyle = '-.', linewidth = 2, color = self.color_list[i], label= plot_label)
+
+            x = self.ax.get_xlim()[1]*3/4
+            y = self.ax.get_ylim()[1]*3/4
+
+            self.ax.annotate(xy=(x, y+i*ax_y_spacing), text= data_dict["label_func"],
+                            fontsize = fontsize, color = self.color_list[i])
+
+        plt.legend(loc="upper left", fontsize = fontsize)
+
+    def run(self) -> None:
+        plt.show()
+
+
+#Test
+#################################################################################
+
+
+def single_file_test(DATA_LIST):
+
+    xlabel = " Time, min"
+    ylabel = " Temperature, ℃"
+
+    data_frame_list = []
+    column_list = ["mixer_temperature_Funnel_outlet",
+                   "mixer_temperature_Funnel",
+                   "mixer_temperature_Funnel_plate",
+                   "mixer_motor_temperature_M2",
+                   "mixer_motor_temperature_M1"
+                ]
+
+    for i, file_name in enumerate(DATA_LIST):
+        print(file_name)
+        print("Are you decide to use this file")
+        bool_sellected = str(input("Please enter y or n: "))
+
+        if bool_sellected.lower() == "y" :
+            CsvToDf = CSVToDataFrame(file_name, DATA)
+            CsvToDf.set_data_frame()
+
+            #CsvToDf.standardize_allcolumn_data()
+            CsvToDf.normalize_data("Log", 90)
+
+            df = CsvToDf.get_data_frame()
+
+            for column in column_list:
+                new_df = df[[column, "Log"]].copy()
+                new_df["temperature"] = new_df[column].copy()
+                data_frame_list.append(new_df)
+        else:
+            continue
+
+    plot = PlotData(dataframe_list=data_frame_list, col_x="Log", col_y="temperature")
+
+    plot.plot_layout(xlabel = xlabel, ylabel= ylabel,
+                    xlim_min = 0, xlim_max=90, xinterval = 10,
+                    ylim_min = 10, ylim_max=40, yinterval = 5)
+
+
+    plot.draw_plot(curve_fitting_type ='linar', figure_type = "plot",
+                   ax_x=0, ax_y=0,
+                   ax_y_spacing = 0.8, fontsize= 15)
+    plot.run()
+
+
+def mutlifile_test(DATA_LIST):
+    # label name
+    xlabel = " Time, min"
+    #xlabel = " Motor Temperature, ℃"
+    #xlabel = " Funnel Temperature, ℃"
+    #ylabel = " Δ Motor Temperature, ℃"
+    ylabel = " Δ Funnel Temperature, ℃"
+    #ylabel = " Torque, Nm"
+
+    #data_x_name = "mixer_motor_temperature_M2"
+    data_x_name = "Log"
+    data_y_name = "mixer_temperature_Funnel"
+
+
+    total_time = 90 # min
+    data_frame_list = []
+    for i, file_name in enumerate(DATA_LIST):
+
+        print(file_name)
+        print("Are you decide to use this file")
+        bool_sellected = str(input("Please enter y or n: "))
+        if bool_sellected.lower() == "y" :
+            CsvToDf = CSVToDataFrame(file_name, DATA)
+            CsvToDf.set_data_frame()
+
+            # normalize the log to time data, time interval is 1 second
+            CsvToDf.normalize_data('Log', 90)
+            #CsvToDf.normalize_data(data_x_name, 1)
+            #CsvToDf.normalize_data(data_y_name, 1)
+
+            CsvToDf.standardize_data(data_y_name, "first")
+            #bool_standarized_x = str(input("standardize x, please enter y or n :"))
+
+            #bool_standarized_y = str(input("standardize y, please enter y or n :"))
+
+            # if bool_standarized_x == "y":
+            #     # Standardize x data
+            #     CsvToDf.standardize_data(data_x_name, "first")
+
+            # if bool_standarized_y == "y":
+            #     # Standardize y data
+            #     CsvToDf.standardize_data(data_y_name, "first")
+
+
+            df = CsvToDf.get_data_frame()
+            data_frame_list.append(df)
+
+        else:
+            continue
+
+    # Plot the data
+    plot = PlotData(dataframe_list=data_frame_list, col_x=data_x_name, col_y=data_y_name)
+
+    plot.plot_layout(xlabel = xlabel, ylabel= ylabel,
+                    xlim_min = 0, xlim_max=90, xinterval = 5,
+                    ylim_min = 0, ylim_max=20, yinterval = 5)
+
+    plot.draw_plot(curve_fitting_type ='linar', figure_type = "plot",
+                   ax_x=0, ax_y=0,
+                   ax_y_spacing = 0.8, fontsize= 15)
+    plot.run()
+
+    #label_list = [50agg_60rpm, 50agg_120rpm, 54agg_120rpm, 54agg_120rpm_Acc]
+
+
+"""
+## Data sorting naming:
+### Log
+Data log order
+
+### Inline mixer:
+two motor system, M1 is motor 1, M2 is Motor 2
+- mixer_motor_temperature_M2
+- mixer_motor_temperature_M1
+- mixer_torque_M2
+- mixer_torque_M1
+- mixer_speed_M2
+- mixer_speed_M1
+
+### Funnel
+- mixer_temperature_Funnel_outlet
+- mixer_temperature_Funnel
+- mixer_temperature_Funnel_plate
+
+### Concrete pump
+- cp_temperature : concrete pump temperature
+- cp_pressure : concrete pump pressure
+- cp_flowrate : concrete pump set flowrate
+
+### Accelerator pump
+- ac_flowrate : accelerator pump flowrate
+
+### Time
+real time format : Min:Sec
+"""
+
 
 
 if __name__ == "__main__":
@@ -182,149 +406,16 @@ if __name__ == "__main__":
     DATA = os.path.abspath(os.path.join(HOME, "data/csv"))
 
     FILFE_NAME_LIST = ["20230626_50agg_70S_1.5FW_ETH_temperature_60rpm.csv",
-                       "20230704_50agg_72S1.5FW_ETH_temperature_120rpm.csv",
+                       "20230704_50agg_72S_1.5FW_ETH_temperature_120rpm.csv",
                        "20230706_54agg_72S_1.5FW_ETH_temperature_120rpm.csv",
                        "20230713_54agg_70S_1.5FW_Temperature_withCAC_120rpm.csv"
                        ]
 
 
-    # "20230626_50agg_70S_1.5FW_ETH_temperature_60rpm.csv",
-
-
+    input_plot_mode = input("the plot will be muitifile comparsion?: \n Please enter yes or no: ")
     DATA_LIST = FILFE_NAME_LIST
 
-    data_frame_list = []
-    for i, file_name in enumerate(DATA_LIST):
-
-        if i == 2 or i == 3:
-            CsvToDf = CSVToDataFrame(file_name, DATA)
-            CsvToDf.set_data_frame()
-
-            CsvToDf.print_columns()
-            CsvToDf.remap_data('Log', 90)
-            #CsvToDf.smooth_data('mixer_temperature_Funnel',0)
-
-            data_frame_list.append(CsvToDf)
-
-    df1 = data_frame_list[0].get_data_frame()
-    df2 = data_frame_list[1].get_data_frame()
-
-    #print(df1['Log'])
-    #print(df1['mixer_temperature_Funnel'])
-
-    def temp_data(x_data, y_data):
-
-        # non-linear curve fit
-        params, params_covariance = curve_fit(linar_func, x_data, y_data) # popt, pcov
-        # a*x + c
-        a = params[0]
-        c = params[1]
-        #print(data['data'][1], data['data'][0])
-
-
-        #R squred
-        residuals = y_data- linar_func(x_data, *params)
-        ss_res = np.sum(residuals**2)
-        ss_tot = np.sum((y_data-np.mean(x_data))**2)
-        r_squared = round(1 - (ss_res / ss_tot), 3)
-
-
-        label_line = f"y = {params[0].round(5)}*x + {params[1].round(4)}"
-
-        print(params)
-        print(f"R^2:{r_squared}")
-        print(label_line)
-
-        return x_data, y_data, params, label_line
-
-    temp_data_1 = temp_data(df1['Log'], df1['mixer_motor_temperature_M2'] - df1['mixer_motor_temperature_M2'][0])
-    temp_data_2 = temp_data(df2['Log'], df2['mixer_motor_temperature_M2'] - df2['mixer_motor_temperature_M2'][0])
-
-    print(df1['mixer_motor_temperature_M1'][0], df2['mixer_motor_temperature_M1'][0])
-
-
-    xlabel = " Time, min"
-    ylabel = " Δ Motor Temperature, ℃"
-    ax = plt.axes()
-    ax.set_xlabel(xlabel, fontsize=24)
-    ax.set_ylabel(ylabel, fontsize=24)
-
-    #plt.scatter(x_data, y_data, label='50agg', linestyle = 'solid', linewidth = 0.1, color ='b')
-
-    y_temp = 15
-    axis_fontsize = 15
-
-
-    plt.plot(temp_data_1[0], temp_data_1[1], linestyle = 'solid', linewidth = 0.1, color ='b')
-    plt.plot(temp_data_1[0], linar_func(temp_data_1[0], *temp_data_1[2]), linestyle = 'solid', color = 'b', linewidth = 2, label='54agg_120rpm')
-    ax.annotate(xy=(70,y_temp), textcoords='offset points', text= temp_data_1[3], va='center', fontsize = axis_fontsize, color = 'b')
-
-    plt.plot(temp_data_2[0], temp_data_2[1], linestyle = 'solid', linewidth = 0.1, color ='r')
-    plt.plot(temp_data_2[0], linar_func(temp_data_2[0], *temp_data_2[2]), linestyle = 'solid', color = 'r', linewidth = 2, label='54agg_120rpm_Acc')
-    ax.annotate(xy=(70,y_temp + 5 ), textcoords='offset points', text= temp_data_2[3], va='center', fontsize = axis_fontsize, color = 'r')
-
-
-    plt.xlim(0, 90)
-    plt.ylim(0 ,30)
-
-    plt.yticks(np.arange(0, 30, 5), fontsize=axis_fontsize)
-    plt.xticks(np.arange(0, 90, 10), fontsize=axis_fontsize)
-
-
-    plt.legend(loc="upper left", fontsize = 20)
-    #plt.grid()
-    plt.show()
-
-
-"""
-    ######################################################
-    # replace the speed noise
-    ## motor_speed_list= [20, 40, 60, 80, 100, 120]
-
-    arr_list_data_1 = []
-    arr_list_data_2 = []
-
-    for data_frame in data_frame_list:
-        data_frame.group_by_column("mixer_temperature_Funnel", "Time")
-        arr_data_1, arr_data_2 = data_frame.two_cols_to_arr()
-        arr_list_data_1.append(arr_data_1)
-        arr_list_data_2.append(arr_data_2)
-    # data for each impeller
-
-    ######################################################
-    # plot atrribute
-    plot_attribute = ['data',
-                      'label',
-                      'make_type',
-                      'markersize',
-                      'color',
-                      'linewidth'
-                      'linestyle']
-
-
-    label_list = []
-    for i, file_name in enumerate(DATA_LIST):
-        label = input("Enter the experment name here :  ")
-        #label = file_name[9:-9] # TODO make to function
-        label_list.append(label)
-
-
-    make_type_list = ['o', '^', '*', 'x', '.','d']
-    color_list = ['g', 'b', 'r', 'y', 'm', 'c']
-
-    # to dictionary
-    two_data_info_dicts = dataframe_to_dict(arr_list_data_1,
-                                                label_list,
-                                                make_type_list[:len(label_list)],
-                                                color_list[:len(label_list)])
-
-
-    # for i in DATA_LIST:
-    #     draw(speed_torque_info_dicts[i], xlabel='Speed [rpm]', ylabel='Torque [Nm]', ylimit=18.96/2)
-
-
-    # plot speed-torque
-    draw(two_data_info_dicts[0],
-         two_data_info_dicts[1],
-         xlabel='Time', ylabel='Temperature', ylimit=50)
-"""
+    if input_plot_mode == "y":
+        mutlifile_test(DATA_LIST)
+    else:
+        single_file_test(DATA_LIST)
