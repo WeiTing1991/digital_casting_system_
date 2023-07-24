@@ -153,7 +153,7 @@ class PlotData():
 
         elif func_type is "exp":
             func = self.exponential_func
-            params, params_covariance = curve_fit(func, data_x, data_y) # popt, pcov, a*x**2 +x*b + c
+            params, params_covariance = curve_fit(func, data_x, data_y) # popt, pcov
 
             label_func = f"y ={params[0].round(5)}" + f"e$^{{{params[2].round(5)}}}$$^x$ + " + f"{params[2].round(5)}"
             result = func(data_x, *params)
@@ -217,6 +217,7 @@ class PlotData():
 
     def draw_plot(self,
                   curve_fitting_type:str ='linar',
+                  curve_fit:bool =False,
                   figure_type:str = "plot",
                   ax_x=0, ax_y=0,
                   ax_y_spacing = 0.5, fontsize:int = 15) ->None:
@@ -231,18 +232,19 @@ class PlotData():
 
             if figure_type is "plot":
                 # draw plot
-                self.ax.plot(data_x, data_y, linestyle = '--', linewidth = 0.1, color = self.color_list[i])
+                self.ax.plot(data_x, data_y, linestyle = '-', linewidth = 0.5, color = self.color_list[i],label= plot_label)
             elif figure_type is "point":
                 # draw point
-                self.ax.scatter(data_x, data_y, marker=self.make_type_list[i], s=1, color = self.color_list[i], alpha=0.5)
+                self.ax.scatter(data_x, data_y, marker=self.make_type_list[i], s=10, color = self.color_list[i], alpha=0.5,label= plot_label)
 
-            self.ax.plot(data_x, data_dict["result"], linestyle = '-.', linewidth = 2, color = self.color_list[i], label= plot_label)
+            if curve_fit:
+                self.ax.plot(data_x, data_dict["result"], linestyle = '-.', linewidth = 2, color = self.color_list[i], label= plot_label)
 
-            x = self.ax.get_xlim()[1]*3/4
-            y = self.ax.get_ylim()[1]*3/4
+                x = self.ax.get_xlim()[1]*3/4
+                y = self.ax.get_ylim()[1]*3/4
 
-            self.ax.annotate(xy=(x, y+i*ax_y_spacing), text= data_dict["label_func"],
-                            fontsize = fontsize, color = self.color_list[i])
+                self.ax.annotate(xy=(x, y+i*ax_y_spacing), text= data_dict["label_func"],
+                                fontsize = fontsize, color = self.color_list[i])
 
         plt.legend(loc="upper left", fontsize = fontsize)
 
@@ -253,19 +255,22 @@ class PlotData():
 #Test
 #################################################################################
 
-
 def single_file_test(DATA_LIST):
 
     xlabel = " Time, min"
     ylabel = " Temperature, ℃"
 
     data_frame_list = []
-    column_list = ["mixer_temperature_Funnel_outlet",
+    column_list = [
+                   "mixer_temperature_Funnel_outlet",
                    "mixer_temperature_Funnel",
                    "mixer_temperature_Funnel_plate",
-                   "mixer_motor_temperature_M2",
-                   "mixer_motor_temperature_M1"
-                ]
+                   "mixer_motor_temperature_M1",
+                   "mixer_motor_temperature_M2"
+                    ]
+
+    data_x_name = "Log"
+    data_y_name = "Temperature"
 
     for i, file_name in enumerate(DATA_LIST):
         print(file_name)
@@ -283,16 +288,16 @@ def single_file_test(DATA_LIST):
 
             for column in column_list:
                 new_df = df[[column, "Log"]].copy()
-                new_df["temperature"] = new_df[column].copy()
+                new_df["Temperature"] = new_df[column].copy()
                 data_frame_list.append(new_df)
         else:
             continue
 
-    plot = PlotData(dataframe_list=data_frame_list, col_x="Log", col_y="temperature")
+    plot = PlotData(dataframe_list=data_frame_list, col_x= data_x_name, col_y= data_y_name)
 
     plot.plot_layout(xlabel = xlabel, ylabel= ylabel,
                     xlim_min = 0, xlim_max=90, xinterval = 10,
-                    ylim_min = 10, ylim_max=40, yinterval = 5)
+                    ylim_min = 15, ylim_max=40, yinterval = 5)
 
 
     plot.draw_plot(curve_fitting_type ='linar', figure_type = "plot",
@@ -301,19 +306,7 @@ def single_file_test(DATA_LIST):
     plot.run()
 
 
-def mutlifile_test(DATA_LIST):
-    # label name
-    xlabel = " Time, min"
-    #xlabel = " Motor Temperature, ℃"
-    #xlabel = " Funnel Temperature, ℃"
-    #ylabel = " Δ Motor Temperature, ℃"
-    ylabel = " Δ Funnel Temperature, ℃"
-    #ylabel = " Torque, Nm"
-
-    #data_x_name = "mixer_motor_temperature_M2"
-    data_x_name = "Log"
-    data_y_name = "mixer_temperature_Funnel"
-
+def mutlifile_test(DATA_LIST, xlabel, ylabel, data_x_name, data_y_name, standardize_data_x: bool = False, standardize_data_y: bool = True):
 
     total_time = 90 # min
     data_frame_list = []
@@ -328,21 +321,12 @@ def mutlifile_test(DATA_LIST):
 
             # normalize the log to time data, time interval is 1 second
             CsvToDf.normalize_data('Log', 90)
-            #CsvToDf.normalize_data(data_x_name, 1)
-            #CsvToDf.normalize_data(data_y_name, 1)
+            CsvToDf.smooth(data_y_name, factor=0.5)
 
-            CsvToDf.standardize_data(data_y_name, "first")
-            #bool_standarized_x = str(input("standardize x, please enter y or n :"))
-
-            #bool_standarized_y = str(input("standardize y, please enter y or n :"))
-
-            # if bool_standarized_x == "y":
-            #     # Standardize x data
-            #     CsvToDf.standardize_data(data_x_name, "first")
-
-            # if bool_standarized_y == "y":
-            #     # Standardize y data
-            #     CsvToDf.standardize_data(data_y_name, "first")
+            if standardize_data_x:
+                CsvToDf.standardize_data(data_x_name, "first")
+            if standardize_data_y:
+                CsvToDf.standardize_data(data_y_name, "first")
 
 
             df = CsvToDf.get_data_frame()
@@ -355,16 +339,15 @@ def mutlifile_test(DATA_LIST):
     plot = PlotData(dataframe_list=data_frame_list, col_x=data_x_name, col_y=data_y_name)
 
     plot.plot_layout(xlabel = xlabel, ylabel= ylabel,
-                    xlim_min = 0, xlim_max=90, xinterval = 5,
-                    ylim_min = 0, ylim_max=20, yinterval = 5)
+                    xlim_min = 0, xlim_max=5, xinterval = 1,
+                    ylim_min = 0, ylim_max=8, yinterval = 1)
 
-    plot.draw_plot(curve_fitting_type ='linar', figure_type = "plot",
+    plot.draw_plot(curve_fit=False, curve_fitting_type ='linar', figure_type = "point",
                    ax_x=0, ax_y=0,
                    ax_y_spacing = 0.8, fontsize= 15)
     plot.run()
 
     #label_list = [50agg_60rpm, 50agg_120rpm, 54agg_120rpm, 54agg_120rpm_Acc]
-
 
 """
 ## Data sorting naming:
@@ -398,7 +381,6 @@ real time format : Min:Sec
 """
 
 
-
 if __name__ == "__main__":
 
     HERE = os.path.dirname(__file__)
@@ -416,6 +398,28 @@ if __name__ == "__main__":
     DATA_LIST = FILFE_NAME_LIST
 
     if input_plot_mode == "y":
-        mutlifile_test(DATA_LIST)
+        #mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Δ Funnel Temperature, ℃", data_x_name="Log", data_y_name= "mixer_temperature_Funnel")
+
+        # mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Funnel Temperature, ℃",
+        #                standardize_data_y= False, data_x_name="Log", data_y_name= "mixer_temperature_Funnel")
+
+        # mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Motor Temperature, ℃",
+        #                standardize_data_y= False, data_x_name="Log", data_y_name= "mixer_motor_temperature_M2")
+
+
+        # mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "CP Temperature, ℃",
+        #                standardize_data_y= False, data_x_name="Log", data_y_name= "cp_temperature")
+
+        #mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Δ Motor Temperature, ℃", data_x_name="Log", data_y_name= "mixer_motor_temperature_M2")
+
+        mutlifile_test(DATA_LIST, xlabel= "Δ Motor Temperature, ℃", ylabel= "Torque, Nm",
+                        standardize_data_x= True, standardize_data_y= False,
+                        data_x_name="mixer_motor_temperature_M2", data_y_name= "mixer_torque_M2")
+
+        # mutlifile_test(DATA_LIST, xlabel= "Δ funnel Temperature, ℃", ylabel= "Torque, Nm",
+        #                 standardize_data_x= True, standardize_data_y= False,
+        #                 data_x_name="mixer_temperature_Funnel", data_y_name= "mixer_torque_M2")
+
+
     else:
         single_file_test(DATA_LIST)
