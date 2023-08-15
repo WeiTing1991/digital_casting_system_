@@ -15,7 +15,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '50agg_57S_1.5FW_0225'
+DEFAULT_FILENAME = NOW_DATE + '_' + '54agg_78S_3FW_StrengthTest_30rpm'
 #50_agg_1.5FW_ETH_temperature_test
 
 # HVAE TO FINISH NOT OVERRIDE THE FILE
@@ -181,7 +181,7 @@ if __name__ == "__main__":
 
         plc.write_by_name(mixer_On, 'TRUE')
 
-        plc.write_by_name(curved_speed_mode, 'TRUE')
+        #plc.write_by_name(curved_speed_mode, 'TRUE')
 
         #plc.write_by_name(cc_pump_Forward_On, 'TRUE')
 
