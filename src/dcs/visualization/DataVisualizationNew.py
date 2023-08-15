@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 import math
 import os
+from datetime import datetime
+
 
 #from sklearn.preprocessing import StandardScaler
 from scipy.optimize import curve_fit
@@ -44,6 +46,15 @@ class CSVToDataFrame():
         """ print the data from a column
         """
         print(self.df[col])
+
+    def get_time_interval(self)-> float:
+        """
+        """
+        start_time_str = self.df["Time"][0]
+        end_time_str = self.df["Time"][1]
+
+        delta_time = datetime.strptime(end_time_str, '%H:%M:%S.%f') - datetime.strptime(start_time_str, '%H:%M:%S.%f')
+        return delta_time.total_seconds()
 
     # Method
     def clean_noise_data(self, colume_name: str, replace_num:int, tolerance:int) -> None:
@@ -88,6 +99,12 @@ class CSVToDataFrame():
         """
         scale_data = (self.df[col] - self.df[col].min()) / (self.df[col].max() - self.df[col].min())
         self.df[col] = (scale_data*remap_Max).round(2)
+
+    def log_to_time(self, col, record_time) -> None:
+        """
+        convert Log to real time
+        """
+        self.df[col] = (self.df["Log"]*record_time)/60
 
     def smooth(self, col, factor) -> None:
         """
@@ -305,7 +322,6 @@ def single_file_test(DATA_LIST):
                    ax_y_spacing = 0.8, fontsize= 15)
     plot.run()
 
-
 def mutlifile_test(DATA_LIST, xlabel, ylabel, data_x_name, data_y_name, standardize_data_x: bool = False, standardize_data_y: bool = True):
 
     total_time = 90 # min
@@ -320,7 +336,13 @@ def mutlifile_test(DATA_LIST, xlabel, ylabel, data_x_name, data_y_name, standard
             CsvToDf.set_data_frame()
 
             # normalize the log to time data, time interval is 1 second
-            CsvToDf.normalize_data('Log', 90)
+            interval_time = CsvToDf.get_time_interval()
+            print(interval_time)
+
+
+            CsvToDf.log_to_time("Real_Time_inteval", interval_time)
+
+            #CsvToDf.normalize_data('Log', 90)
             CsvToDf.smooth(data_y_name, factor=0.5)
 
             if standardize_data_x:
@@ -339,10 +361,10 @@ def mutlifile_test(DATA_LIST, xlabel, ylabel, data_x_name, data_y_name, standard
     plot = PlotData(dataframe_list=data_frame_list, col_x=data_x_name, col_y=data_y_name)
 
     plot.plot_layout(xlabel = xlabel, ylabel= ylabel,
-                    xlim_min = 0, xlim_max=5, xinterval = 1,
-                    ylim_min = 0, ylim_max=8, yinterval = 1)
+                    xlim_min = 0, xlim_max=90, xinterval = 10,
+                    ylim_min = 15, ylim_max=40, yinterval = 10)
 
-    plot.draw_plot(curve_fit=False, curve_fitting_type ='linar', figure_type = "point",
+    plot.draw_plot(curve_fit=False, curve_fitting_type ='linar', figure_type = "plot",
                    ax_x=0, ax_y=0,
                    ax_y_spacing = 0.8, fontsize= 15)
     plot.run()
@@ -390,7 +412,7 @@ if __name__ == "__main__":
     FILFE_NAME_LIST = ["20230626_50agg_70S_1.5FW_ETH_temperature_60rpm.csv",
                        "20230704_50agg_72S_1.5FW_ETH_temperature_120rpm.csv",
                        "20230706_54agg_72S_1.5FW_ETH_temperature_120rpm.csv",
-                       "20230713_54agg_70S_1.5FW_Temperature_withCAC_120rpm.csv"
+                       "20230713_54agg_70S_1.5FW_TemperatureCAC_120rpm.csv"
                        ]
 
 
@@ -400,8 +422,8 @@ if __name__ == "__main__":
     if input_plot_mode == "y":
         #mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Δ Funnel Temperature, ℃", data_x_name="Log", data_y_name= "mixer_temperature_Funnel")
 
-        # mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Funnel Temperature, ℃",
-        #                standardize_data_y= False, data_x_name="Log", data_y_name= "mixer_temperature_Funnel")
+        mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Funnel Temperature, ℃",
+                       standardize_data_y= False, data_x_name="Real_Time_inteval", data_y_name= "mixer_temperature_Funnel")
 
         # mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Motor Temperature, ℃",
         #                standardize_data_y= False, data_x_name="Log", data_y_name= "mixer_motor_temperature_M2")
@@ -412,9 +434,9 @@ if __name__ == "__main__":
 
         #mutlifile_test(DATA_LIST, xlabel= "Time, min", ylabel= "Δ Motor Temperature, ℃", data_x_name="Log", data_y_name= "mixer_motor_temperature_M2")
 
-        mutlifile_test(DATA_LIST, xlabel= "Δ Motor Temperature, ℃", ylabel= "Torque, Nm",
-                        standardize_data_x= True, standardize_data_y= False,
-                        data_x_name="mixer_motor_temperature_M2", data_y_name= "mixer_torque_M2")
+        # mutlifile_test(DATA_LIST, xlabel= "Δ Motor Temperature, ℃", ylabel= "Torque, Nm",
+        #                 standardize_data_x= True, standardize_data_y= False,
+        #                 data_x_name="mixer_motor_temperature_M2", data_y_name= "mixer_torque_M2")
 
         # mutlifile_test(DATA_LIST, xlabel= "Δ funnel Temperature, ℃", ylabel= "Torque, Nm",
         #                 standardize_data_x= True, standardize_data_y= False,
