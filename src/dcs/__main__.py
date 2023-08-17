@@ -15,7 +15,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '54agg_78S_3FW_StrengthTest_30rpm'
+DEFAULT_FILENAME = NOW_DATE + '_' + '54agg_78S_1.5FW_PigmentTest_60rpm'
 #50_agg_1.5FW_ETH_temperature_test
 
 # HVAE TO FINISH NOT OVERRIDE THE FILE
@@ -73,7 +73,8 @@ cc_pump_flowrate = "GVL_ResearchData.f_RED_Concrete_Pump_Flowrate"
 
 cc_pump_params = dict(
     cp_flowrate = "GVL_ResearchData.f_RED_Concrete_Pump_Flowrate",
-    cp_temperature = "GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump",
+    #cp_temperature = "GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump",
+
     cp_pressure = "GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump"
 
 )
@@ -99,8 +100,8 @@ inline_mixer_params = dict(
 
     mixer_temperature_Funnel= "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
     mixer_temperature_Funnel_outlet = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
-    mixer_temperature_Funnel_plate = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate",
-
+    #mixer_temperature_Funnel_plate = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate",
+    cp_temperature = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate",
     mixer_pressure ="GVL_ResearchData.f_RED_Status_Pressure_Funnel_inlet",
 )
 
