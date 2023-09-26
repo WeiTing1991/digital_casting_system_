@@ -140,18 +140,18 @@ FILENAME = "test"
 if __name__ == "__main__":
 
 
-    # # Connect to plc and open connection
-    # plc = pyads.Connection(CLIENT_ID, pyads.PORT_TC3PLC1)
-    # plc.open()
+    # Connect to plc and open connection
+    plc = pyads.Connection(CLIENT_ID, pyads.PORT_TC3PLC1)
+    plc.open()
 
-    # try:
-    #     plc.read_device_info()
-    #     print(f"Connection.:{plc.is_open}")
-    #     print(f"{plc.read_state}")
-    #     print(f"plc address :{plc.get_local_address()}")
+    try:
+        plc.read_device_info()
+        print(f"Connection.:{plc.is_open}")
+        print(f"{plc.read_state}")
+        print(f"plc address :{plc.get_local_address()}")
 
-    # except EOFError:
-    #     print(f"Connection failed")
+    except EOFError:
+        print(f"Connection failed")
 
     if not DRY_RUN:
 
@@ -162,13 +162,13 @@ if __name__ == "__main__":
         # Read the state from PLC
 
         mixer_On_state = plc.read_by_name(mixer_On)
+
         #cc_pump_Backward_On_state = plc.read_by_name(cc_pump_Backward_On)
         #cc_pump_Forward_On_state = plc.read_by_name(cc_pump_Forward_On)
 
         plc.write_by_name(mixer_On, 'TRUE')
 
         #plc.write_by_name(curved_speed_mode, 'TRUE')
-
         #plc.write_by_name(cc_pump_Forward_On, 'TRUE')
 
         mixer_On_state = plc.read_by_name(mixer_On)
@@ -179,8 +179,8 @@ if __name__ == "__main__":
         while mixer_On_state :
         #and (cc_pump_Backward_On_state or cc_pump_Forward_On_state):
 
-            #
-            #print (f"mixer:{mixer_On_state}")
+
+            print (f"mixer:{mixer_On_state}")
             #print (f"cc_pump_Backward_On:{cc_pump_Backward_On_state}")
             #print (f"cc_pump_Forward_On:{cc_pump_Forward_On_state}")
 

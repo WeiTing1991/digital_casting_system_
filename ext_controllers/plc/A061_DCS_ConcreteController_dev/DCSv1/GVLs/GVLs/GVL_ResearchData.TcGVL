@@ -39,7 +39,7 @@ b_RED_Mode_Laptop: BOOL; //Mode
 TemperatureAndPressure: STRING := 'TemperatureAndPressure';//***********************************************************
 f_RED_Status_Temperature_Funnel_inlet : REAL; // [°C] 
 f_RED_Status_Temperature_Funnel_outlet : REAL; // [°C] 
-f_RED_Status_Temperature_Funnel_plate : REAL; // [°C] 
+f_RED_Status_Temperature_Funnel_plate : REAL; // [°C] change to concrete pump temperature 
 
 f_RED_Status_Pressure_Funnel_inlet : REAL; // [ bar]
 
