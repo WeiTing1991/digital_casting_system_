@@ -77,7 +77,7 @@ f_RED_Concrete_Pump_Check_Mass: REAL;           // [g]
 b_RED_Concrete_Pump_Flush_On: BOOL;				// FLUSH MODE ON 
 n_RED_Concrete_Pump_Flush_Flowrate: REAL;		// [l/min]
 
-f_RED_Concrete_Pump_Flowrate: REAL; 			// **** WRITE VALUE From 0 to 5 [l/min]
+f_RED_Concrete_Pump_Flowrate: REAL; 			// **** WRITE VALUE From 0 to 5 [l/min] Need to put into the correct factor
 
 
 //
