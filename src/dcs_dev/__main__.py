@@ -70,6 +70,13 @@ mixer_On = "GVL_ResearchData.b_RED_Laptop_MI1_Run"
 
 curved_speed_mode = "GVL_ResearchData.b_RED_Mixer_Curved_Speed_On"
 
+GOBAL_DATA = "GVL_ResearchData." # Name of gobal data scipt from TwinCAT PLC
+
+for k, v in dict:
+    dict[k] = GOBAL_DATA + v
+
+
+
 inline_mixer_params = dict(
 
     mixer_speed_M1 =  "GVL_ResearchData.f_RED_Status_Speed_Motor_1",
