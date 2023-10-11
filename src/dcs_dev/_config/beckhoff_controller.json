@@ -1,0 +1,227 @@
+{
+
+    "inline_mixer": {
+            "id":"100",
+
+            "Input":[
+                { "id":"101",
+                "var_name": "mixer_on",
+                "var_name_IN" : "GVL_ResearchData.b_RED_Laptop_MI1_Run",
+                "type":"bool",
+                "active":true
+                }
+            ],
+
+            "Output":[
+                { "id":"111",
+                "var_name": "mixer_speed_M1",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Speed_Motor_1",
+                "type":"",
+                "active":true
+                },
+                { "id":"112",
+                "var_name": "mixer_speed_M2",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Speed_Motor_2",
+                "type":"",
+                "active":true
+                },
+
+                { "id":"113",
+                "var_name": "mixer_torque_M1",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Torque_Motor_1",
+                "type":"",
+                "active":true
+                },
+                { "id":"114",
+                "var_name": "mixer_torque_M2",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Torque_Motor_2",
+                "type":"",
+                "active":true
+                },
+
+                { "id":"115",
+                "var_name": "mixer_motor_temperature_M1",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Temperature_Motor_1",
+                "type":"",
+                "status":true
+                },
+                { "id":"116",
+                "var_name": "mixer_motor_temperature_M2",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Temperature_Motor_2",
+                "type":"",
+                "active":true
+                },
+
+                { "id":"117",
+                "var_name": "mixer_temperature_Funnel",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
+                "type":"",
+                "active":true
+                },
+                { "id":"118",
+                "var_name": "mixer_temperature_Funnel_outlet",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
+                "type":"",
+                "active":true
+                },
+                { "id":"119",
+                "var_name": "mixer_temperature_Funnel_plate",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate",
+                "type":"",
+                "active":false
+                },
+
+                { "id":"120",
+                "var_name": "mixer_pressure",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Pressure_Funnel_inlet",
+                "type":"",
+                "active":true
+                }
+
+            ]
+        },
+
+    "concrete_pump": {
+            "id":"200",
+
+            "Input":[
+                { "id":"201",
+                "var_name": "concrete_pump_Forward_On",
+                "var_name_IN" : "GVL_ResearchData.b_RED_Concrete_Pump_Forward_On",
+                "type":"Bool",
+                "active":true
+                },
+                { "id":"202",
+                "var_name": "concrete_pump_Backward_On",
+                "var_name_IN" : "GVL_ResearchData.b_RED_Concrete_Pump_Backward_On",
+                "type":"Bool",
+                "active":false
+                },
+
+                { "id":"203",
+                "var_name": "concrete_flowrate",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Concrete_Pump_Flowrate",
+                "type":"",
+                "active":true
+                }
+            ],
+
+            "Output":[
+                { "id":"211",
+                "var_name": "concrete_pump_temperature",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump",
+                "type":"",
+                "active":true
+                }
+            ]
+        },
+
+    "accelerator_pump": {
+            "id":"300",
+
+            "Input":[
+                { "id":"301",
+                "var_name": "accelerator_pump_On",
+                "var_name_IN" : "GVL_ResearchData.b_RED_Concrete_Pump_Forward_On",
+                "type":"Bool",
+                "active":false
+                },
+                { "id":"302",
+                "var_name": "accelerator_flowrate",
+                "var_name_IN" : "GVL_ResearchData.n_RED_Acceleration_Pump_Flowrate",
+                "type":"Bool",
+                "active":false
+                },
+
+                { "id":"303",
+                "var_name": "",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Concrete_Pump_Flowrate",
+                "type":"",
+                "active":true
+                }
+            ],
+
+            "Output":[
+                { "id":"311",
+                "var_name": "concrete_pump_temperature",
+                "var_name_IN" : "GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump",
+                "type":"",
+                "active":false
+                }
+            ]
+        },
+
+    "superplasticizer_pump": {
+            "id":"400",
+
+            "Input":[
+                { "id":"401",
+                "var_name": "superplasticizer_pump_On",
+                "var_name_IN" : "GVL_ResearchData.",
+                "type":"Bool",
+                "active":false
+                },
+                { "id":"402",
+                "var_name": "superplasticizer_flowrate",
+                "var_name_IN" : "GVL_ResearchData.",
+                "type":"Bool",
+                "active":false
+                },
+
+                { "id":"403",
+                "var_name": "",
+                "var_name_IN" : "GVL_ResearchData.",
+                "type":"",
+                "active":false
+                }
+            ],
+
+            "Output":[
+                { "id":"411",
+                "var_name": "",
+                "var_name_IN" : "GVL_ResearchData.",
+                "type":"",
+                "active":false
+                }
+            ]
+        },
+
+    "system": {
+            "id":"500",
+
+            "Input":[
+                { "id":"501",
+                "var_name": "curved_speed_mode",
+                "var_name_IN" : "GVL_ResearchData.b_RED_Mixer_Curved_Speed_On",
+                "type":"Bool",
+                "active":false
+                },
+                { "id":"502",
+                "var_name": "",
+                "var_name_IN" : "",
+                "type":"Bool",
+                "active":false
+                },
+
+                { "id":"503",
+                "var_name": "",
+                "var_name_IN" : ".",
+                "type":"",
+                "active":false
+                }
+            ],
+
+            "Output":[
+                { "id":"511",
+                "var_name": "",
+                "var_name_IN" : ".",
+                "type":"",
+                "active":false
+                }
+            ]
+        }
+
+
+}
+
+
