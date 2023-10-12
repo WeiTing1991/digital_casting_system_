@@ -1,1 +1,14 @@
-pyads >= 3.3.9
+autopep8
+attrs >=17.4
+bump2version >=1.0.1
+check-manifest >=0.36
+doc8
+flake8
+graphviz
+pytest >=3.2
+
+
+#
+pyads >=3.3.9
+numpy >=1.26.0
+

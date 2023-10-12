@@ -9,7 +9,6 @@ Digital Casting System is a Innosuisse project and a new novel approach for Smar
 
 
 
-
 ## __Requirements__
 ---
 * Windows 10 Pro
@@ -23,11 +22,12 @@ Digital Casting System is a Innosuisse project and a new novel approach for Smar
 
 ## __Installation__
 
+### Anaconda 3 option 1
+
 First step, add the conda-forge
 
 ```bash
 conda config --add channels conda-forge
-
 ```
 Create the envirment and activate it 
 
@@ -41,6 +41,36 @@ Install depenedencies
 conda activate dcs  
 pip install -r requirements.txt 
 
+```
+
+### Virtualenv option 2 in Ubuntu 22.04
+
+Install Virtualenv
+
+```bash
+sudo apt install python3-venv -y
+
+```
+Clone repos and create the envirment
+
+```bash
+mkdir myfolder 
+cd myfolder
+
+git clone https://github.com/USI-FMAA/digital_casting_system.git
+
+python3.10 -m venv env
+```
+
+Install depenedencies
+
+```bash 
+source env/bin/activate
+which python3
+
+pip3 install -r requirements.txt 
+
+pip3 list 
 ```
 
 ### Concrete Controller 
