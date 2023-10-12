@@ -1774,6 +1774,10 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
+							<Name>GVL.Axis_Mixer1.NcToPlc</Name>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+						</Var>
+						<Var>
 							<Name>GVL.in_MID1_ActAbsCurrent</Name>
 							<Type>INT</Type>
 						</Var>
@@ -1781,10 +1785,6 @@ External Setpoint Generation:
 							<Name>GVL.in_MID1_ActMotorTemperature</Name>
 							<Comment><![CDATA[ 220817 WT ]]></Comment>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.Axis_Mixer1.NcToPlc</Name>
-							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
 							<Name>GVL.Axis_Mixer2.NcToPlc</Name>
@@ -1891,14 +1891,14 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_IO.in_AP1_Poti_Speed</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>GVL_IO.ib_SP1_Button_On</Name>
 							<Comment><![CDATA[ 
  Superplasticizer Pump 1 (WT 220915)]]></Comment>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_IO.in_AP1_Poti_Speed</Name>
-							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.ib_SP1_Button_Not_Off</Name>
@@ -1997,13 +1997,13 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_IO.on_CP1_Speed</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
 							<Name>GVL_IO.ob_AP1_Power_On</Name>
 							<Comment><![CDATA[ Accelerator Pump 1]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_IO.on_CP1_Speed</Name>
+							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.ob_AP1_Start</Name>
@@ -2022,14 +2022,14 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_IO.on_AP1_Speed</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>GVL_IO.ob_SP1_Power_On</Name>
 							<Comment><![CDATA[ 
  Superplasticizer Pump 1 (WT 220915)]]></Comment>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_IO.on_AP1_Speed</Name>
-							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.ob_SP1_Start</Name>

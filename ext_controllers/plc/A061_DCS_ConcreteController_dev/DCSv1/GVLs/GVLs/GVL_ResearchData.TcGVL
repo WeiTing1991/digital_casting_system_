@@ -95,7 +95,8 @@ f_RED_Superplasticizer_Pump_Mass: REAL;             // [g]
 b_RED_Superplasticizer_Pump_Flush_On: BOOL;			// FLUSH MODE ON 
 n_RED_Superplasticizer_Pump_Flush_Flowrate: REAL;
 
-n_RED_Superplasticizer_Pump_Flowrate: REAL;         // **** WRITE VALUE From 0 to 18 **** [ml/min] 
+n_RED_Superplasticizer_Pump_Max_Flowrate:REAL;
+n_RED_Superplasticizer_Pump_Flowrate: REAL;         // **** WRITE VALUE From 0 to 103 **** [ml/min]
 
 //
 ACCELERATION_PUMP: STRING := 'Acceleration_Pump';//***************************
@@ -112,7 +113,8 @@ f_RED_Acceleration_Pump_Mass: REAL;             // [g]
 b_RED_Acceleration_Pump_Flush_On: BOOL;			// FLUSH MODE ON 
 n_RED_Acceleration_Pump_Flush_Flowrate: REAL;
 
-n_RED_Acceleration_Pump_Flowrate: REAL;         // **** WRITE VALUE From 0 to 180 **** [ml/min]  
+n_RED_Acceleration_Pump_Max_Flowrate :REAL;
+n_RED_Acceleration_Pump_Flowrate: REAL;         // **** WRITE VALUE From 0 to 468 **** [ml/min] 
 
 
 // ***********************************************************************************

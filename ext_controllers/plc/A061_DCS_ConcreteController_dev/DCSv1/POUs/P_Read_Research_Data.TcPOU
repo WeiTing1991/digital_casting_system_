@@ -112,14 +112,11 @@ GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump:= F_Mapping_REAL(
 
 //
 // Superplasticizer maximum pump flowrate [ml/min]
-// Based on demended flowrate value*2
 GVL_ResearchData.f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min:=GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Flowrate*2;
 
 //
 // Accelration maximum pump flowrate [ml/min]
-// Based on demended flowrate value*2
-GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min:=GVL_ResearchData.n_RED_Acceleration_Pump_Check_Flowrate*2;
-
+GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min:=GVL_ResearchData.n_RED_Acceleration_Pump_Max_Flowrate;
 
 //
 // Concrete pump maximum pump flowrate [ml/min]
@@ -183,13 +180,11 @@ GVL_ResearchData.f_RED_Status_Concrete_Pump_Max_Flowrate_l_per_min:=GVL_Research
       <LineId Id="290" Count="0" />
       <LineId Id="250" Count="0" />
       <LineId Id="154" Count="0" />
-      <LineId Id="296" Count="0" />
       <LineId Id="287" Count="0" />
       <LineId Id="286" Count="0" />
       <LineId Id="235" Count="1" />
-      <LineId Id="297" Count="0" />
       <LineId Id="234" Count="0" />
-      <LineId Id="318" Count="2" />
+      <LineId Id="319" Count="1" />
       <LineId Id="324" Count="0" />
       <LineId Id="321" Count="0" />
       <LineId Id="317" Count="0" />
