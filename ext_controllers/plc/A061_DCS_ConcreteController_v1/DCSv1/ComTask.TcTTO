@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <Task Name="ComTask" Id="{8bc98846-327c-49e2-aeb1-c9d32414c912}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>10000</CycleTime>
+    <Priority>21</Priority>
+    <PouCall>
+      <Name>P_ComEL6001</Name>
+    </PouCall>
+    <TaskFBGuid>{e416e97e-0f43-4a2e-b822-a78ab201b421}</TaskFBGuid>
+    <Fb_init>{696a714c-12aa-4cf2-a51d-57211903f608}</Fb_init>
+    <Fb_exit>{fb018e63-9e80-4e29-9ff5-6c5f3ec0f596}</Fb_exit>
+    <CycleUpdate>{7136db9d-db46-4aa2-a00b-a7254a71dd99}</CycleUpdate>
+    <PostCycleUpdate>{0ec24622-4e49-4fab-af40-4c7e0689aece}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>

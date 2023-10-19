@@ -9,7 +9,6 @@ path = "_config"
 SRC_DIR = os.path.join(HERE, path)
 
 
-
 # Opening JSON file
 f = open(SRC_DIR + "/beckhoff_controller.json")
 
@@ -28,13 +27,13 @@ print(mixer)
 
 
 
-print(mixer._to_list())
+# print(mixer._to_list())
 
 
-mixer_params_output = mixer.output_params
-print(mixer_params_output)
+# mixer_params_output = mixer.output_params
+# print(mixer_params_output)
 
-mixer_output = config["inline_mixer"]["Output"]
+# mixer_output = config["inline_mixer"]["Output"]
 
 
 # for i in mixer_output:

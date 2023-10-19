@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="Beckhoff Automation GmbH" productName="TwinCAT PLC Control" productVersion="3.5.13.21" creationDateTime="2023-10-13T13:24:26.3299657" />
+  <contentHeader name="DCSv1" modificationDateTime="2023-10-13T13:24:26.3319586">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation />
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous />
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/globalvars" handleUnknown="implementation">
+      <globalVars name="GVL_ResearchData">
+        <variable name="b_RED_Mode_Manual">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">Mode</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Mode_Laptop">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">Mode</xhtml>
+          </documentation>
+        </variable>
+        <variable name="TemperatureAndPressure">
+          <type>
+            <string />
+          </type>
+          <initialValue>
+            <simpleValue value="'TemperatureAndPressure'" />
+          </initialValue>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">***********************************************************</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Temperature_Funnel_inlet">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [°C] </xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Temperature_Funnel_outlet">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [°C] </xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Temperature_Funnel_plate">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [°C] change to concrete pump temperature </xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Pressure_Funnel_inlet">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [ bar]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Temperature_Concrete_Pump">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [°C] </xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Pressure_Concrete_Pump">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [ bar]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="MIXER">
+          <type>
+            <string />
+          </type>
+          <initialValue>
+            <simpleValue value="'MIXER'" />
+          </initialValue>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">***********************************************************</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Laptop_MI1_Run">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> POWER ON *****</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Control_Speed_by_Laptop">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [0 rpm to 120 rpm]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Mixer_Curved_Speed_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> Curved Speed Mode</xhtml>
+          </documentation>
+        </variable>
+        <variable name="CONCRETE_PUMP">
+          <type>
+            <string />
+          </type>
+          <initialValue>
+            <simpleValue value="'CONCRETE_PUMP'" />
+          </initialValue>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">***************************</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Concrete_Pump_Forward_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> Forward ON ******</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Concrete_Pump_Backward_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> Forward ON ******</xhtml>
+          </documentation>
+        </variable>
+        <variable name="n_RED_Concrete_Pump_Speed">
+          <type>
+            <INT />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> **** WRITE VALUE From 0 to 75 ***[rpm] </xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Concrete_Pump_Check_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> CHECK MODE ON </xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Concrete_Pump_Check_Flowrate">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [l/min]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="n_RED_Concrete_Pump_Check_Duration_Time">
+          <type>
+            <TIME />
+          </type>
+        </variable>
+        <variable name="f_RED_Concrete_Pump_Density">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [g/ml]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Concrete_Pump_Check_Mass">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [g]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Concrete_Pump_Flush_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> FLUSH MODE ON </xhtml>
+          </documentation>
+        </variable>
+        <variable name="n_RED_Concrete_Pump_Flush_Flowrate">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [l/min]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Concrete_Pump_Flowrate">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> **** WRITE VALUE from _ to _ [l/min]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Concrete_Pump_dosing_volume">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> calibation 230926 WT</xhtml>
+          </documentation>
+        </variable>
+        <variable name="Superplasticizer_Pump">
+          <type>
+            <string />
+          </type>
+          <initialValue>
+            <simpleValue value="'Superplasticizer_Pump'" />
+          </initialValue>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">***************************</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Superplasticizer_Pump_Power_On_Laptop">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> POWER ON </xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Superplasticizer_Pump_Check_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> CHECK MODE ON </xhtml>
+          </documentation>
+        </variable>
+        <variable name="n_RED_Superplasticizer_Pump_Check_Flowrate">
+          <type>
+            <REAL />
+          </type>
+        </variable>
+        <variable name="n_RED_Superplasticizer_Pump_Check_Duration">
+          <type>
+            <TIME />
+          </type>
+        </variable>
+        <variable name="f_RED_Superplasticizer_Pump_Density">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [g/ml]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Superplasticizer_Pump_Mass">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [g]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Superplasticizer_Pump_Flush_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> FLUSH MODE ON </xhtml>
+          </documentation>
+        </variable>
+        <variable name="n_RED_Superplasticizer_Pump_Flush_Flowrate">
+          <type>
+            <REAL />
+          </type>
+        </variable>
+        <variable name="n_RED_Superplasticizer_Pump_Max_Flowrate">
+          <type>
+            <REAL />
+          </type>
+        </variable>
+        <variable name="n_RED_Superplasticizer_Pump_Flowrate">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> **** WRITE VALUE From 0 to 103 **** [ml/min]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="ACCELERATION_PUMP">
+          <type>
+            <string />
+          </type>
+          <initialValue>
+            <simpleValue value="'Acceleration_Pump'" />
+          </initialValue>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">***************************</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Accelerastor_Pump_Power_On_Laptop">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> POWER ON ******</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Acceleration_Pump_Check_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> CHECK MODE ON </xhtml>
+          </documentation>
+        </variable>
+        <variable name="n_RED_Acceleration_Pump_Check_Flowrate">
+          <type>
+            <REAL />
+          </type>
+        </variable>
+        <variable name="n_RED_Acceleration_Pump_Check_Duration">
+          <type>
+            <TIME />
+          </type>
+        </variable>
+        <variable name="f_RED_Acceleration_Pump_Density">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [g/ml]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Acceleration_Pump_Mass">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [g]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Acceleration_Pump_Flush_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> FLUSH MODE ON </xhtml>
+          </documentation>
+        </variable>
+        <variable name="n_RED_Acceleration_Pump_Flush_Flowrate">
+          <type>
+            <REAL />
+          </type>
+        </variable>
+        <variable name="n_RED_Acceleration_Pump_Max_Flowrate">
+          <type>
+            <REAL />
+          </type>
+        </variable>
+        <variable name="n_RED_Acceleration_Pump_Flowrate">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> **** WRITE VALUE From 0 to 468 **** [ml/min] </xhtml>
+          </documentation>
+        </variable>
+        <variable name="PROCESS_OUTPUTS">
+          <type>
+            <string />
+          </type>
+          <initialValue>
+            <simpleValue value="'PROCESS_OUTPUTS'" />
+          </initialValue>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">***********************************************************</xhtml>
+          </documentation>
+        </variable>
+        <variable name="b_RED_Status_On">
+          <type>
+            <BOOL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> 
+ Status mixer</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Speed_Motor_1">
+          <type>
+            <LREAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">[rpm]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Speed_Motor_2">
+          <type>
+            <LREAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">[rpm]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Velo_Motor_1">
+          <type>
+            <LREAL />
+          </type>
+        </variable>
+        <variable name="f_RED_Status_Velo_Motor_2">
+          <type>
+            <LREAL />
+          </type>
+        </variable>
+        <variable name="f_RED_Status_Torque_Motor_1">
+          <type>
+            <LREAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [Nm]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Torque_Motor_2">
+          <type>
+            <LREAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [Nm]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Temperature_Motor_1">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [°C] </xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Temperature_Motor_2">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [°C] </xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [ml/min]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [ml/min]</xhtml>
+          </documentation>
+        </variable>
+        <variable name="f_RED_Status_Concrete_Pump_Max_Flowrate_l_per_min">
+          <type>
+            <REAL />
+          </type>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml"> [l/min]</xhtml>
+          </documentation>
+        </variable>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
+            <Attributes>
+              <Attribute Name="qualified_only" Value="" />
+            </Attributes>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <LinkAlways>true</LinkAlways>
+            </BuildProperties>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+            <InterfaceAsPlainText>
+              <xhtml xmlns="http://www.w3.org/1999/xhtml">{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Global Varable to collect all research data
+// 
+// AUTHOR      :  Seyma Gürel / Philippe Fleischmann / Weiting Chen
+// 
+// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2021
+//
+// ***********************************************************************************
+
+
+// ***********************************************************************************
+// Process inputs
+// ***********************************************************************************
+
+// WT ADD 
+// Mode 
+b_RED_Mode_Manual: BOOL; //Mode
+b_RED_Mode_Laptop: BOOL; //Mode
+
+
+// Temperature and Pressure Sensor
+TemperatureAndPressure: STRING := 'TemperatureAndPressure';//***********************************************************
+f_RED_Status_Temperature_Funnel_inlet : REAL; // [°C] 
+f_RED_Status_Temperature_Funnel_outlet : REAL; // [°C] 
+f_RED_Status_Temperature_Funnel_plate : REAL; // [°C] change to concrete pump temperature 
+
+f_RED_Status_Pressure_Funnel_inlet : REAL; // [ bar]
+
+f_RED_Status_Temperature_Concrete_Pump : REAL; // [°C] 
+f_RED_Status_Pressure_Concrete_Pump: REAL; // [ bar]
+
+
+// Power On 
+//b_RED_Concrete_Pump_Power_On_Laptop: BOOL;		// NOT USE NOW
+
+
+//
+MIXER: STRING := 'MIXER';//***********************************************************
+
+// Inline Mixer Reactor				
+b_RED_Laptop_MI1_Run: BOOL;						// POWER ON *****
+f_RED_Control_Speed_by_Laptop:REAL;				// [0 rpm to 120 rpm]
+b_RED_Mixer_Curved_Speed_On: BOOL;				// Curved Speed Mode
+
+//
+CONCRETE_PUMP: STRING := 'CONCRETE_PUMP';//***************************
+
+// Concrete Pump
+b_RED_Concrete_Pump_Forward_On: BOOL;			// Forward ON ******
+b_RED_Concrete_Pump_Backward_On: BOOL;			// Forward ON ******
+n_RED_Concrete_Pump_Speed: INT;					// **** WRITE VALUE From 0 to 75 ***[rpm] 
+
+
+b_RED_Concrete_Pump_Check_On: BOOL;				// CHECK MODE ON 
+f_RED_Concrete_Pump_Check_Flowrate: REAL; 		// [l/min]
+n_RED_Concrete_Pump_Check_Duration_Time: TIME;
+f_RED_Concrete_Pump_Density: REAL;				// [g/ml]
+f_RED_Concrete_Pump_Check_Mass: REAL;           // [g]
+
+b_RED_Concrete_Pump_Flush_On: BOOL;				// FLUSH MODE ON 
+n_RED_Concrete_Pump_Flush_Flowrate: REAL;		// [l/min]
+
+f_RED_Concrete_Pump_Flowrate: REAL; 			// **** WRITE VALUE from _ to _ [l/min]
+f_RED_Concrete_Pump_dosing_volume: REAL;		// calibation 230926 WT
+
+
+//
+Superplasticizer_Pump: STRING := 'Superplasticizer_Pump'; //***************************
+
+// Superplasticizer Pump (WT
+b_RED_Superplasticizer_Pump_Power_On_Laptop: BOOL;  // POWER ON 
+
+b_RED_Superplasticizer_Pump_Check_On: BOOL;			// CHECK MODE ON 
+n_RED_Superplasticizer_Pump_Check_Flowrate: REAL;
+n_RED_Superplasticizer_Pump_Check_Duration: TIME;
+f_RED_Superplasticizer_Pump_Density: REAL;          // [g/ml]
+f_RED_Superplasticizer_Pump_Mass: REAL;             // [g]
+
+b_RED_Superplasticizer_Pump_Flush_On: BOOL;			// FLUSH MODE ON 
+n_RED_Superplasticizer_Pump_Flush_Flowrate: REAL;
+
+n_RED_Superplasticizer_Pump_Max_Flowrate:REAL;
+n_RED_Superplasticizer_Pump_Flowrate: REAL;         // **** WRITE VALUE From 0 to 103 **** [ml/min]
+
+//
+ACCELERATION_PUMP: STRING := 'Acceleration_Pump';//***************************
+
+// Accelerator Pump (WT
+b_RED_Accelerastor_Pump_Power_On_Laptop: BOOL;  // POWER ON ******
+
+b_RED_Acceleration_Pump_Check_On: BOOL;			// CHECK MODE ON 
+n_RED_Acceleration_Pump_Check_Flowrate: REAL;
+n_RED_Acceleration_Pump_Check_Duration: TIME;
+f_RED_Acceleration_Pump_Density: REAL;          // [g/ml]
+f_RED_Acceleration_Pump_Mass: REAL;             // [g]
+
+b_RED_Acceleration_Pump_Flush_On: BOOL;			// FLUSH MODE ON 
+n_RED_Acceleration_Pump_Flush_Flowrate: REAL;
+
+n_RED_Acceleration_Pump_Max_Flowrate :REAL;
+n_RED_Acceleration_Pump_Flowrate: REAL;         // **** WRITE VALUE From 0 to 468 **** [ml/min] 
+
+
+// ***********************************************************************************
+// Process outpus
+// ***********************************************************************************
+
+//
+PROCESS_OUTPUTS: STRING := 'PROCESS_OUTPUTS';//***********************************************************
+
+// 
+// Status mixer
+b_RED_Status_On : BOOL;
+//f_RED_Status_Speed_Overide : LREAL;
+f_RED_Status_Speed_Motor_1 : LREAL;					//[rpm]
+f_RED_Status_Speed_Motor_2 : LREAL;					//[rpm]
+f_RED_Status_Velo_Motor_1 : LREAL;
+f_RED_Status_Velo_Motor_2 :LREAL;
+
+f_RED_Status_Torque_Motor_1 : LREAL;				// [Nm]
+f_RED_Status_Torque_Motor_2 : LREAL;				// [Nm]
+
+f_RED_Status_Temperature_Motor_1 : REAL; // [°C] 
+f_RED_Status_Temperature_Motor_2 : REAL; // [°C] 
+
+
+//
+// Superplasticizer Pump (WT 220916
+//n_RED_Status_Superplasticizer_Pump_Flowrate: INT;          // [ml/min]
+f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min: REAL;           // [ml/min]
+
+//
+// Accelerator Pump
+//n_RED_Status_Acceleration_Pump_Flowrate: INT;          // [ml/min]
+f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min: REAL;           // [ml/min]
+
+//
+//Concrete Pump
+f_RED_Status_Concrete_Pump_Max_Flowrate_l_per_min: REAL;           // [l/min]
+
+
+END_VAR</xhtml>
+            </InterfaceAsPlainText>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>10f77899-a32f-44e6-ad7f-4be50514220e</ObjectId>
+          </data>
+        </addData>
+      </globalVars>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="GVL_ResearchData" ObjectId="10f77899-a32f-44e6-ad7f-4be50514220e" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

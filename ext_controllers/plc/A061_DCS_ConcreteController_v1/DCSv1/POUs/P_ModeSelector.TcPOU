@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="P_ModeSelector" Id="{0eb7d8c2-292e-4a26-bb54-34c9ce7294b6}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_ModeSelector
+VAR
+	//
+	// BOOL
+	Mode_Power_on: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Digital Casting System
+// 
+// FUNCTION    :  selector for mode control
+// 
+// AUTHOR      :  Weiting Chen
+// 
+// EMAIL       :  chenw@usi.ch
+// 
+// Copyright   :  USI , ETH Zürich (CH) 2022
+//
+// ***********************************************************************************
+
+
+// Manual mode
+GVL_VAR.b_Mode_Manual := GVL_IO.ib_CC1_Button_Mode_Manual;
+ 
+// Laptop mode
+GVL_VAR.b_Mode_Laptop := GVL_IO.ib_CC1_Button_Mode_Laptop;
+
+// Robot mode
+// Pass
+
+
+IF GVL_VAR.b_Mode_Manual THEN // should be change to not 
+	//
+	Mode_Power_on:= GVL_IO.ib_CC1_Button_Mode_Manual;
+
+ElSIF GVL_VAR.b_Mode_Laptop THEN
+	//
+	Mode_Power_on:= GVL_IO.ib_CC1_Button_Mode_Laptop;
+	
+END_IF
+
+GVL_VAR.b_CC1_Mode_On:=Mode_Power_on;]]></ST>
+    </Implementation>
+    <LineIds Name="P_ModeSelector">
+      <LineId Id="6" Count="17" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="65" Count="1" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="24" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

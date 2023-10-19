@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="P_MI1_Curved_Speed" Id="{668deb67-cf09-4e20-9688-76a532b9420e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_MI1_Curved_Speed
+
+VAR_INPUT
+	//
+	// state
+	n_Step : INT :=0;
+	
+	//
+	t_MI1_Time_Const_Speed : TIME :=T#30S;
+	t_MI1_Time_Changed_Speed : TIME :=T#20S;
+END_VAR
+
+VAR	
+	// Condition
+	b_Condition : BOOL;
+	
+	// Timer
+	fb_MI1_Timer_Const_Speed: TON;
+	fb_MI1_Timer_Changed_Speed: TON;
+	
+	// Trigger
+	fb_MI1_Trigger_Changed_Speed : R_TRIG;
+	
+	
+	// Speed setup
+	f_MI1_Initial_Speed: REAL := 20;
+	f_MI1_Constant_Speed: REAL := 60; 
+	f_MI1_Max_Speed : REAL := 120;
+END_VAR
+
+
+VAR_OUTPUT
+	// Speed Output
+	f_MI1_Speed: REAL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Digital Casting System
+// 
+// FUNCTION    :  Curve speed change for inline mixer
+// 
+// AUTHOR      :  Weiting Chen 
+// 
+// EMAIL       :  chenw@usi.ch
+// 
+// Copyright   :  USI ; ETH Zürich (CH) 2022
+//
+// ***********************************************************************************
+
+//
+//
+
+CASE n_Step OF
+
+	0: 
+		// Initalization		
+		b_Condition:=TRUE;
+		
+		IF b_Condition THEN
+			b_Condition:=FALSE;
+			n_Step:=10;
+		END_IF
+		
+	10: 
+		// constant speed as required 		
+		b_Condition:=GVL_ResearchData.b_RED_Mixer_Curved_Speed_On;
+		
+		// Start timer
+		fb_MI1_Timer_Const_Speed(
+				IN:=n_Step=10,
+				PT:=t_MI1_Time_Const_Speed);
+				
+		// Set the speed
+		f_MI1_Speed:= f_MI1_Constant_Speed;
+		
+		IF b_Condition AND fb_MI1_Timer_Const_Speed.Q THEN
+			
+			// reset timer 
+			fb_MI1_Timer_Const_Speed(IN:=FALSE);
+			// set speed as initial speed
+			f_MI1_Speed:=f_MI1_Initial_Speed;
+			
+			b_Condition:=FALSE;
+			n_Step:=15;
+		END_IF
+	
+	15: 
+		// 		
+		b_Condition:=TRUE;
+		
+		IF b_Condition THEN
+			
+			b_Condition:=FALSE;
+			n_Step:=20;
+		END_IF
+		
+	20: 
+		// Linear speed increasing 		
+		b_Condition:=GVL_ResearchData.b_RED_Mixer_Curved_Speed_On;
+		
+		IF f_MI1_Speed < f_MI1_Max_Speed THEN
+			
+			// Start Timer 
+			fb_MI1_Timer_Changed_Speed(
+					IN:=n_Step=20,
+					PT:=t_MI1_Time_Changed_Speed);
+			// Trigger 
+			fb_MI1_Trigger_Changed_Speed(clk:=fb_MI1_Timer_Changed_Speed.Q);
+			IF fb_MI1_Trigger_Changed_Speed.Q THEN
+				f_MI1_Speed:= f_MI1_Speed +f_MI1_Initial_Speed;
+				// Reset timer 
+				fb_MI1_Timer_Changed_Speed(IN:=FALSE);
+			END_IF
+		END_IF
+		
+		IF b_Condition AND f_MI1_Speed = f_MI1_Max_Speed THEN
+			b_Condition:=FALSE;
+			n_Step:=30;
+		END_IF
+		
+	30: 
+		// Linear speed decreasing 		
+		b_Condition:=GVL_ResearchData.b_RED_Mixer_Curved_Speed_On;
+		
+		IF f_MI1_Speed = f_MI1_Max_Speed OR f_MI1_Speed < f_MI1_Max_Speed THEN
+			
+			// Start Timer 
+			fb_MI1_Timer_Changed_Speed(
+					IN:=n_Step=30,
+					PT:=t_MI1_Time_Changed_Speed);
+			// Trigger 
+			fb_MI1_Trigger_Changed_Speed(clk:=fb_MI1_Timer_Changed_Speed.Q);
+			IF fb_MI1_Trigger_Changed_Speed.Q THEN
+				f_MI1_Speed:= f_MI1_Speed - f_MI1_Initial_Speed;
+				fb_MI1_Timer_Changed_Speed(IN:=FALSE);
+			END_IF
+		END_IF
+		
+		IF b_Condition AND f_MI1_Speed = 0 THEN
+			//
+			f_MI1_Speed:= f_MI1_Initial_Speed;
+			b_Condition:=FALSE;
+			n_Step:=40;
+		END_IF
+		
+	40: 
+		// 		
+		b_Condition:=TRUE;
+		
+		IF b_Condition THEN
+			b_Condition:=FALSE;
+			n_Step:=50;
+		END_IF
+		
+	50: 
+		// 		
+		b_Condition:=TRUE;
+		
+		IF b_Condition THEN
+			
+			// reset 
+			GVL_ResearchData.b_RED_Mixer_Curved_Speed_On:=FALSE;
+			GVL_ResearchData.b_RED_Laptop_MI1_Run:= FALSE;
+			
+			b_Condition:=FALSE;
+			n_Step:=0;
+		END_IF
+		
+END_CASE
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_MI1_Curved_Speed">
+      <LineId Id="818" Count="18" />
+      <LineId Id="971" Count="0" />
+      <LineId Id="449" Count="0" />
+      <LineId Id="972" Count="0" />
+      <LineId Id="974" Count="0" />
+      <LineId Id="973" Count="0" />
+      <LineId Id="985" Count="0" />
+      <LineId Id="983" Count="0" />
+      <LineId Id="1050" Count="0" />
+      <LineId Id="1056" Count="0" />
+      <LineId Id="1051" Count="4" />
+      <LineId Id="1145" Count="0" />
+      <LineId Id="1057" Count="2" />
+      <LineId Id="1136" Count="1" />
+      <LineId Id="1130" Count="0" />
+      <LineId Id="1251" Count="0" />
+      <LineId Id="1250" Count="0" />
+      <LineId Id="1248" Count="0" />
+      <LineId Id="1247" Count="0" />
+      <LineId Id="1246" Count="0" />
+      <LineId Id="1245" Count="0" />
+      <LineId Id="1244" Count="0" />
+      <LineId Id="1144" Count="0" />
+      <LineId Id="1273" Count="0" />
+      <LineId Id="1134" Count="0" />
+      <LineId Id="1271" Count="0" />
+      <LineId Id="1274" Count="0" />
+      <LineId Id="1272" Count="0" />
+      <LineId Id="1062" Count="2" />
+      <LineId Id="1146" Count="0" />
+      <LineId Id="1390" Count="4" />
+      <LineId Id="1400" Count="0" />
+      <LineId Id="1395" Count="1" />
+      <LineId Id="1389" Count="0" />
+      <LineId Id="1397" Count="0" />
+      <LineId Id="1065" Count="2" />
+      <LineId Id="1242" Count="0" />
+      <LineId Id="1199" Count="0" />
+      <LineId Id="1374" Count="0" />
+      <LineId Id="1366" Count="7" />
+      <LineId Id="1439" Count="0" />
+      <LineId Id="1405" Count="0" />
+      <LineId Id="1376" Count="1" />
+      <LineId Id="1375" Count="0" />
+      <LineId Id="1069" Count="3" />
+      <LineId Id="1147" Count="0" />
+      <LineId Id="1073" Count="0" />
+      <LineId Id="1413" Count="3" />
+      <LineId Id="1428" Count="10" />
+      <LineId Id="1075" Count="2" />
+      <LineId Id="1440" Count="1" />
+      <LineId Id="1078" Count="2" />
+      <LineId Id="1148" Count="0" />
+      <LineId Id="1081" Count="7" />
+      <LineId Id="1149" Count="0" />
+      <LineId Id="1089" Count="4" />
+      <LineId Id="1163" Count="0" />
+      <LineId Id="1195" Count="1" />
+      <LineId Id="1178" Count="0" />
+      <LineId Id="1476" Count="0" />
+      <LineId Id="1094" Count="2" />
+      <LineId Id="1150" Count="0" />
+      <LineId Id="1180" Count="0" />
+      <LineId Id="1151" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

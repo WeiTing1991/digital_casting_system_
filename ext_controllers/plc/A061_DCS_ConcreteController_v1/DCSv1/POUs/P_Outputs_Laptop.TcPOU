@@ -15,7 +15,7 @@ VAR
 	// temp data for concrete pump
 	n_max_pump_speed: REAL :=75;    // measure value 
 	n_target_pump_speed: REAL :=25; // by calibration (7.5L/min)
-	n_test_pump_speed: REAL :=50;   // NEW NOTES 230926 current dosing rate is 0.32 L/rev Check real flowrate 50*0.32 = 16L/min
+	n_test_pump_speed: REAL :=50;   // NEW NOTES 230926 current dosing rate is 0.32 L/rev Check real flowrate
 	f_dosing_volume:REAL; 
 	
 END_VAR

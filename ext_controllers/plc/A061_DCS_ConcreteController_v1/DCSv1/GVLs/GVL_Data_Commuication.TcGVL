@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="GVL_Data_Commuication" Id="{a3482e37-60b7-4e9d-bf7d-df83fe76d5fc}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+// Variable sheet of Inline mixer 
+
+ 
+
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

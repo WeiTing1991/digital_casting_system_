@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="a3482e37-60b7-4e9d-bf7d-df83fe76d5fc">GVL_1</Type>
+      <From>GVL_1</From>
+      <To>GVL_Data_Commuication</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="c5ccd711-5daa-4117-b19b-a45baec9e237">README_1</Type>
+      <From>ReadMe_1</From>
+      <To>ReadMe_Com</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

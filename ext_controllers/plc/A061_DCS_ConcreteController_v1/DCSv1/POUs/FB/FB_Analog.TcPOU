@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_Analog" Id="{3c3a665e-cb0e-4117-b633-de110b8896f1}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Analog
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  ?? 
+// 
+// FUNCTION    :  Analog Calculation
+// 
+// AUTHOR      :  Mathias Suter
+// 
+// EMAIL       :  mathias.suter@solinaut.ch
+// 
+// Copyright   :  ETH Zürich (CH) 2021
+//
+// ***********************************************************************************
+
+
+//
+// Analog Inputs - Scale 0-100%
+GVL.fControlMixerPumpSpeed := INT_TO_REAL(GVL.nControlMixerPumpSpeed) / 32767 * 100;			
+//GVL.fControlPeristalticPumpSpeed := INT_TO_REAL(GVL.nControlPeristalticPumpSpeed) / 32767 * 100;			
+GVL.fControlDosingPumpSpeed := INT_TO_REAL(GVL.nControlDosingPumpSpeed) / 32767 * 100;				
+GVL.fInputSpare1 := INT_TO_REAL(GVL.nInputSpare1) / 32767 * 100;						
+GVL.fInputSpare2 := INT_TO_REAL(GVL.nInputSpare2) / 32767 * 100;						
+	
+
+//
+// Analog Outputs - Scale 0-100%
+// GVL.nConcretePumpSpeed := REAL_TO_INT(GVL.fConcretePumpSpeed / 100 * 32767);				
+GVL.nDosingPumpSpeed := REAL_TO_INT(GVL.fDosingPumpSpeed / 100 * 32767);					
+GVL.nOutputSpare1 := REAL_TO_INT(GVL.fOutputSpare1 / 100 * 32767);						
+GVL.nOutputSpare2 := REAL_TO_INT(GVL.fOutputSpare2 / 100 * 32767);	
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Analog">
+      <LineId Id="10" Count="21" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="35" Count="5" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="58" Count="2" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="44" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

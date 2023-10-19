@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="ReadMe_Com" Id="{c5ccd711-5daa-4117-b19b-a45baec9e237}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+
+VAR_GLOBAL
+//***********************************************************************************
+//
+// ETH Zürich / Robotic Fabrication Lab
+// HIB C 13 / Stefano-Franscini-Platz 1
+// CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Inline Mixer
+// 
+// FUNCTION    :  Read Me
+// 
+// AUTHOR      :  Weiting Chen
+// 
+// EMAIL       :  chenw@usi.ch
+// 
+// Copyright   :  USI / ETH Zürich (CH) 2023
+//
+// ***********************************************************************************
+
+//
+//Naming Prefix
+//ib = Input Bool   / ob = Output Bool
+//if = Input float  / of = Output float (REAL, LREAL)
+//in = Input numeric/ on = Outplut numerical (INT, Sint, USINT, UNIT, DINT, UDINT, BYTE, WORD, DWORD, LWORD, XINT, UXINT, XWORD) 
+//t = Time (TON)
+
+
+
+//
+//Short Cuts
+//CC1 = Concrete Controller 
+//AP1 = Accelerator Pump
+//CP1 = Concrete Pump
+//PP1 = Peristaltic Pump
+//MI1 = Mixer
+//T1  = Tool 1
+//CA1 = Camera 1
+//RED = Research Data
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
