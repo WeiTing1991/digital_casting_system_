@@ -1,11 +1,10 @@
 from data_struct import DataObject, DataDict, MachineDataStruct
-from data_processing import PathConfig
+
 
 
 
 if __name__ == "__main__":
-    path = PathConfig()
-    print(path)
+
 
 
     DataObject1 = DataObject(var_id=101,

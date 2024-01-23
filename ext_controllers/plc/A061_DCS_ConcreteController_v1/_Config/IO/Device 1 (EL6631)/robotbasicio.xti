@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32" ClassName="CPnIoBoxDef" SubType="9121">
+	<Box Id="19" BoxType="9121">
+		<Name>__FILENAME__</Name>
+		<Comment><![CDATA[GSDML Name: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Path: D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_v1\
+VendorName: ABB Robotics
+OrderNumber: 888-3
+HW Release Version: 1
+SW Release Version: V1.4]]></Comment>
+		<ImageId>121</ImageId>
+		<Vars VarGrpType="1">
+			<Name>Inputs</Name>
+			<Var>
+				<Name>PnIoBoxState</Name>
+				<Comment><![CDATA[0 = No error
+1 = Profinet device state machine is in boot mode
+2 = Device not found
+3 = The stationname is not unique
+4 = IP could not be set
+5 = IP conflict
+6 = DCP set was not successful
+7 = Watchdog error
+8 = Datahold error
+9 = RTC3: Sync mode could not be initiated
+10 = Profinet controller has a link error
+11 = The aliasname is not unique
+12 = The automatic name assignement isn't possible - wrong device type
+13 = IOC-AR is established but no application ready
+14 = IOC-AR is established but module difference
+15 = At least one InputCR is invalid, provider in stop or problemindicator is set
+16 = At least one OutputCR is invalid, provider in stop or problemindicator is set
+31 = Only for EtherCAT gateways: WC-State of cyclic EtherCAT frame is 1
+]]></Comment>
+				<Type>UINT</Type>
+				<BitOffs>32</BitOffs>
+			</Var>
+			<Var>
+				<Name>PnIoBoxDiag</Name>
+				<Comment><![CDATA[0x0000 = No diagnosis
+0x0001 = IOC-AR is not established
+0x0002 = IOC-AR is established
+0x0004 = IOC-AR is established but no application ready
+0x0008 = IOC-AR is established but module difference
+0x0010 = At least one AlarmCR got a diagnosis alarm
+0x0100 = At least one InputCR is invalid
+0x0200 = At least one InputCR Provider is in stop
+0x0400 = At least one InputCR Problemindicator is set
+0x1000 = At least one OutputCR is invalid
+0x2000 = At least one OutputCR Provider is in stop
+0x4000 = At least one OutputCR Problemindicator is set
+]]></Comment>
+				<Type>UINT</Type>
+				<BitOffs>48</BitOffs>
+			</Var>
+		</Vars>
+		<Vars VarGrpType="2">
+			<Name>Outputs</Name>
+			<Var>
+				<Name>PnIoBoxCtrl</Name>
+				<Type>UINT</Type>
+				<BitOffs>48</BitOffs>
+			</Var>
+		</Vars>
+		<Profinet DeviceId="1" VendorId="944" FrameOffset="32768" IPAdd="c0a8010b" ProtocolType="3" BoxOnDeviceTyp="119" MaxPhysSlotNr="4" InstanceServerPort="50000" InstanceClientPort="50001" InstanceId="1" InstanceNumberOfARs="1" InstanceNumberOfAPIs="1" MinDeviceInterval="256" NrOfGsdmlDap="1" SavePnIoBoxValues="0100" MultipleWriteSupported="true" Phase="1" WatchdogFaktor="3" ReductionRatio="1" SendClockFaktor="32" MaxInputLen="1440" MaxOutputLen="1440" SendClockFactorData="2000" RedRatio="0100020004000800100020004000800000010002" BoxTypeInfo="The robot controller's internal PROFINET IO device." PDOmapping="1" OutputErrorBehavior="2" GSDMLPath="D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_v1\GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml" ImagePath="D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_v1\.bmp" MainFamily="I/O" ProductFamily="Robot Device" OrderNr="888-3" DefaultDNSName="RobotBasicIO" VendorName="ABB Robotics" FamDescription="The robot controller's internal PROFINET IO device." SWVersion="V1.4" HWVersion="1" AltLanguage="7">
+			<UsedGsdmlModule ModuleIdentNumber="769" ModuleName="DAP Module" InfoText="The robot controller's internal PROFINET IO device." OrderNumber="888-3">
+				<Slot>0</Slot>
+			</UsedGsdmlModule>
+			<UsedGsdmlSubModule SubModuleIdentNumber="1" SubSlotNumber="1" TypeOfSubmodule="3" Id="DIM IO" SubModuleName="Robot Basic Device" InfoText="The robot controller's internal PROFINET IO device." OrderNumber="888-3"/>
+			<API Id="1">
+				<Name>API</Name>
+				<ImageId>4</ImageId>
+				<Module Id="#x031d0004" DAP="true" ModuleIdentNumber="769" ModuleInfo="The robot controller's internal PROFINET IO device.">
+					<Name>Term 4 (DAP Module)</Name>
+					<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Module Info: The robot controller's internal PROFINET IO device.
+OrderNumber: 888-3]]></Comment>
+					<ImageId>182</ImageId>
+					<SubModule Id="#x031c0009" SubModuleIdentNumber="1" TypeOfSubModule="3" SubSlotNumber="1" IsFixSubmodule="true" SubModuleID="DIM IO" AddSubModFlags="28">
+						<Name>Subterm 9 (Robot Basic Device)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Submodule Info: The robot controller's internal PROFINET IO device.
+OrderNumber: 888-3]]></Comment>
+						<ImageId>183</ImageId>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+						</Vars>
+					</SubModule>
+					<SubModule Id="#x031c000a" SubModuleIdentNumber="32768" TypeOfSubModule="1" SubSlotNumber="32768" IsFixSubmodule="true" SubModuleID="IDS1_1I" InterfaceData="0100000000000000000000000000000000000000000098000300000000000000">
+						<Name>Subterm 10 (Interface)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+]]></Comment>
+						<ImageId>183</ImageId>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+						</Vars>
+					</SubModule>
+					<SubModule Id="#x031c000b" SubModuleIdentNumber="32769" TypeOfSubModule="2" SubSlotNumber="32769" IsFixSubmodule="true" SubModuleID="IDS1_1P" PortData="00000000000000000000000000000000000000000000000000000000">
+						<Name>Subterm 11 (Network Port)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+]]></Comment>
+						<ImageId>183</ImageId>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+						</Vars>
+					</SubModule>
+				</Module>
+			</API>
+		</Profinet>
+	</Box>
+</TcSmItem>

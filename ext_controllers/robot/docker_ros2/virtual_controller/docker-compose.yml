@@ -1,0 +1,14 @@
+version: '3'
+services:
+  ros2:
+    image: osrf/ros:iron-desktop
+    container_name: ros2
+    build:
+      context: .
+      dockerfile: docker/dockerfile
+      args:
+        - ROS_DISTRO = Humble
+      target: ros2
+
+    # Interactive shell
+    stdin_open: true

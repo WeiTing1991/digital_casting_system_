@@ -8,7 +8,9 @@ VAR_GLOBAL
 // 2023 10 13 WT
 // Data Communication to XML/Json
 // System
+{attribute 'OPC.UA.DA' := '1'}
 b_Sys_Mode_Manual: BOOL; 
+{attribute 'OPC.UA.DA' := '1'}
 b_Sys_Mode_Laptop: BOOL; 
 
 // Inline mixer
@@ -32,7 +34,6 @@ f_Mixer_Status_Torque_Motor_2 : LREAL;
 
 f_Mixer_Status_Temperature_Motor_1 : REAL; 
 f_Mixer_Status_Temperature_Motor_2 : REAL; 
-
 
 
 // Concrete pump

@@ -2,7 +2,6 @@ from typing import Protocol, Any
 import os
 
 
-
 class PathConfig():
     """
     """
@@ -10,7 +9,7 @@ class PathConfig():
     # path = "_config"
     # SRC_DIR = os.path.join(HERE, path)
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         """
         self._HERE = os.path.dirname(__file__)

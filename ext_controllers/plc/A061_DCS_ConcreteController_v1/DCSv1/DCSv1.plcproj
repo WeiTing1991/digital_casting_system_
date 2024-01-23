@@ -52,6 +52,9 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\000_Archive\P_ComEL6001.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\FB\FB_Analog.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -77,9 +80,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\P_AP1_Check.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\P_ComEL6001.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\P_CP1_Check.TcPOU">
@@ -125,6 +125,7 @@
     <Folder Include="GVLs" />
     <Folder Include="GVLs\GVLs" />
     <Folder Include="POUs\FB" />
+    <Folder Include="POUs\000_Archive" />
     <Folder Include="POUs\POUs" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
