@@ -29,6 +29,10 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\GVLs\GVL_PN.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\GVLs\GVL_ResearchData.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>

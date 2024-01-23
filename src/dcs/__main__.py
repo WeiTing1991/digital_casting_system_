@@ -15,7 +15,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '50agg_76S_5FW_pumping_test_correct'
+DEFAULT_FILENAME = NOW_DATE + '_' + 'WarmWater_temperature_test_2'
 #50_agg_1.5FW_ETH_temperature_test
 
 # HVAE TO FINISH NOT OVERRIDE THE FILE
@@ -99,9 +99,10 @@ inline_mixer_params = dict(
     mixer_motor_temperature_M2 =  "GVL_ResearchData.f_RED_Status_Temperature_Motor_2",
 
     #mixer_temperature_Funnel= "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
-    cp_temperature_fresh= "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
-    #mixer_temperature_Funnel_outlet = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
-    cp_temperature_outlet  = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
+    #cp_temperature_fresh= "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
+    mixer_temperature_outlet = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
+    mixer_temperature_Funnel = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
+    #cp_temperature_outlet  = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
     #mixer_temperature_Funnel_plate = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate",
     cp_temperature = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate",
 

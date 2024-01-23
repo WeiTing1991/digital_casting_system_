@@ -2183,6 +2183,10 @@ External Setpoint Generation:
 							<Name>GVL.stOut_EL6001</Name>
 							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
+						<Var>
+							<Name>GVL_PN.ob_PN_output</Name>
+							<Type>BOOL</Type>
+						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2021-01-27T08:08:38">
 						<OwnerA Name="InputDst" Prefix="TIPC^Untitled1^Untitled1 Instance" Type="1">
@@ -3899,15 +3903,55 @@ External Setpoint Generation:
 					<Box Id="15" BoxType="9106" BoxFlags="#x00000020">
 						<Name>Term 15 (EL6631) new</Name>
 						<ImageId>124</ImageId>
-						<EtherCAT SlaveType="5" AdsServerAddress="05399ea803100000" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x19e73052" RevisionNo="#x00120000" InfoDataAddr="true" InfoDataNetId="true" TimeoutStateChange1="10000" TimeoutStateChange3="20000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6631 PROFINET IO Controller" Desc="EL6631" PortABoxInfo="#x01000008">
+						<EtherCAT SlaveType="5" AdsServerAddress="05399ea802010000" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x19e73052" RevisionNo="#x00120000" InfoDataAddr="true" InfoDataNetId="true" OwnAddrExtern="true" TimeoutStateChange1="10000" TimeoutStateChange3="20000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6631 PROFINET IO Controller" Desc="EL6631" PortABoxInfo="#x01000008">
 							<SyncMan>001000042600010001000000400000040004001026010000</SyncMan>
 							<SyncMan>001400042200010002000000400000040004001422010000</SyncMan>
-							<SyncMan>001800006400000003000000000000000000001864010000</SyncMan>
-							<SyncMan>002400002000000004000000000000000000002420010000</SyncMan>
-							<Fmmu>0000000000000000000000020000000001000000000000000000000000000000</Fmmu>
-							<Fmmu>0000000000000000000000010000000002000000000000000000000000000000</Fmmu>
+							<SyncMan>001806006400010003000000000000000000001864010000</SyncMan>
+							<SyncMan>00240c002000010004000000000000000000002420010000</SyncMan>
+							<Fmmu>0000000000000000001800020100000001000000000000000000000000000000</Fmmu>
+							<Fmmu>0000000000000000002400010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010000400140004</BootStrapData>
+							<Pdo Name="tcpniodevice_In" Index="#x1a00" Flags="#x0001" SyncMan="3">
+								<Entry Name="tcpniodevice_BoxState" Index="#x6000" Sub="#x01" Flags="#x00000100">
+									<DefaultDataMask>1f001f00</DefaultDataMask>
+									<Type>UINT</Type>
+								</Entry>
+								<Entry Name="tcpniodevice_BoxDiag" Index="#x6000" Sub="#x02" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="tcpniodevice_Out" Index="#x1600" InOut="1" Flags="#x0001" SyncMan="2">
+								<Entry Name="tcpniodevice_BoxCtrl" Index="#x7000" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="PnIoProtocolState" Index="#x1bfe" Flags="#x0001" SyncMan="3">
+								<Entry Name="DevState" Index="#xf100" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+								<Entry Name="PnIoError" Index="#xf100" Sub="#x02" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+								<Entry Name="PnIoDiag" Index="#xf100" Sub="#x03" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="ECatState" Index="#x1bff" Flags="#x0001" SyncMan="3">
+								<Entry Name="ECatState" Index="#xf101" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="PnIoProtocolCtrl" Index="#x17fe" InOut="1" Flags="#x0001" SyncMan="2">
+								<Entry Name="DevCtrl" Index="#xf200" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="ECatCtrl" Index="#x17ff" InOut="1" Flags="#x0001" SyncMan="2">
+								<Entry Name="ECatCtrl" Index="#xf201" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
 							<CoeProfile ProfileNo="5001"/>
 						</EtherCAT>
 					</Box>
@@ -6418,6 +6462,147 @@ External Setpoint Generation:
 					</EtherCAT>
 				</Box>
 				<EtherCAT DcSyncMode="3"/>
+			</Device>
+			<Device Id="1" DevType="119" AmsPort="28673" AmsNetId="5.57.158.168.2.1" RemoteName="Device 1 (EL6631)">
+				<Name>Device 1 (EL6631)</Name>
+				<DevData>000000000f00000000000000000000005465726d2031352028454c3636333129206e65770000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000105637964040000000000000000000000000000000000000000000000000000000000000000000000000000000000</DevData>
+				<Image Id="7" AddrType="4" ImageType="3" SizeIn="6" SizeOut="12">
+					<Name>Image</Name>
+				</Image>
+				<Box Id="17" BoxType="9122">
+					<Name>tcpniodevice</Name>
+					<Comment><![CDATA[GSDML Name: GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml
+Path: $(TWINCAT3DIR)Config\Io\Profinet\
+VendorName: Beckhoff Automation
+OrderNumber: TwinCAT PN Device
+HW Release Version: 1
+SW Release Version: V5.00]]></Comment>
+					<ImageId>107</ImageId>
+					<Vars VarGrpType="1">
+						<Name>Inputs</Name>
+						<Var>
+							<Name>PnIoBoxState</Name>
+							<Comment><![CDATA[0 = No error
+1 = Profinet device state machine is in boot mode
+2 = Device not found
+3 = The stationname is not unique
+4 = IP could not be set
+5 = IP conflict
+6 = DCP set was not successful
+7 = Watchdog error
+8 = Datahold error
+9 = RTC3: Sync mode could not be initiated
+10 = Profinet controller has a link error
+11 = The aliasname is not unique
+12 = The automatic name assignement isn't possible - wrong device type
+13 = IOC-AR is established but no application ready
+14 = IOC-AR is established but module difference
+15 = At least one InputCR is invalid, provider in stop or problemindicator is set
+16 = At least one OutputCR is invalid, provider in stop or problemindicator is set
+31 = Only for EtherCAT gateways: WC-State of cyclic EtherCAT frame is 1
+]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>PnIoBoxDiag</Name>
+							<Comment><![CDATA[0x0000 = No diagnosis
+0x0001 = IOC-AR is not established
+0x0002 = IOC-AR is established
+0x0004 = IOC-AR is established but no application ready
+0x0008 = IOC-AR is established but module difference
+0x0010 = At least one AlarmCR got a diagnosis alarm
+0x0100 = At least one InputCR is invalid
+0x0200 = At least one InputCR Provider is in stop
+0x0400 = At least one InputCR Problemindicator is set
+0x1000 = At least one OutputCR is invalid
+0x2000 = At least one OutputCR Provider is in stop
+0x4000 = At least one OutputCR Problemindicator is set
+]]></Comment>
+							<Type>UINT</Type>
+							<BitOffs>16</BitOffs>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>Outputs</Name>
+						<Var>
+							<Name>PnIoBoxCtrl</Name>
+							<Type>UINT</Type>
+						</Var>
+					</Vars>
+					<Profinet DeviceId="33" VendorId="288" FrameOffset="49152" IPAdd="c0a8010a" ProtocolType="3" BoxOnDeviceTyp="119" MaxPhysSlotNr="255" InstanceServerPort="50000" InstanceClientPort="50001" InstanceNumberOfARs="1" InstanceNumberOfAPIs="1" MinDeviceInterval="32" NrOfGsdmlDap="6" MultipleWriteSupported="true" Phase="1" WatchdogFaktor="3" ReductionRatio="1" SendClockFaktor="32" MaxInputLen="1440" MaxOutputLen="1440" SendClockFactorData="200040008000" RedRatio="0100020004000800100020004000800000010002" SavePnIoBoxValues="1d00" BoxTypeInfo="TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnostic supported" PDOmapping="1" OutputErrorBehavior="2" GSDMLPath="$(TWINCAT3DIR)Config\Io\Profinet\GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml" ImagePath="C:\TwinCAT\3.1\Config\Io\Profinet\GSDML-0120-0021-TCPNDevice.bmp" MainFamily="I/O" ProductFamily="TwinCAT Profinet I/O" OrderNr="TwinCAT PN Device" DefaultDNSName="tcpniodevice" VendorName="Beckhoff Automation" FamDescription="TwinCAT products" GraphicFile="GSDML-0120-0021-TCPNDevice" SWVersion="V5.00" HWVersion="1" AltLanguage="7">
+						<GsdmlValue HelpInfo="disable or enable" Id="Disabled_Enabled" Content="00000100">
+							<RecordText>disabled</RecordText>
+							<RecordText>enabled</RecordText>
+						</GsdmlValue>
+						<UsedGsdmlModule ModuleIdentNumber="6" ModuleName="DAP Module" InfoText="TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnostic supported" OrderNumber="TwinCAT PN Device">
+							<Slot>0</Slot>
+						</UsedGsdmlModule>
+						<UsedGsdmlSubModule SubModuleIdentNumber="1" SubSlotNumber="1" TypeOfSubmodule="3" Id="DAP 6" SubModuleName="TwinCAT Device V2.32, 1 Port, at least FW V5.00" InfoText="TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnostic supported">
+							<Record Name="Device parameters" Length="4" Index="4096">
+								<ConstData>0</ConstData>
+								<ConstData>1</ConstData>
+								<ConstData>0</ConstData>
+								<ConstData>0</ConstData>
+								<RecordDataDef Name="Dummy for certification" ValueItemTarget="Disabled_Enabled" DataType="Bit" MaxAllowedValue="1" ByteOffset="3" BitLength="1" Visible="true" Changeable="true"/>
+							</Record>
+						</UsedGsdmlSubModule>
+						<API Id="1">
+							<Name>API</Name>
+							<ImageId>4</ImageId>
+							<Module Id="#x031d0001" DAP="true" ModuleIdentNumber="6" ModuleInfo="TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnostic supported">
+								<Name>Term 1 (DAP Module)</Name>
+								<Comment><![CDATA[GSDML: GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml
+Module Info: TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnostic supported
+OrderNumber: TwinCAT PN Device]]></Comment>
+								<ImageId>182</ImageId>
+								<SubModule Id="#x031c0001" SubModuleIdentNumber="1" TypeOfSubModule="3" SubSlotNumber="1" IOCREnd="27088" IsFixSubmodule="true" SubModuleID="DAP 6" AddSubModFlags="124">
+									<Name>Subterm 1 (TwinCAT Device V2.32, 1 Port, at least FW V5.00)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml
+Submodule Info: TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnostic supported
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Record Length="4" Index="4096" ConstData="00010000"/>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0002" SubModuleIdentNumber="32768" TypeOfSubModule="1" SubSlotNumber="32768" IOCREnd="2304" IsFixSubmodule="true" SubModuleID="IDS_6I" InterfaceData="0100000000000000000000000000000000000000000098000000000000000000">
+									<Name>Subterm 2 (Interface)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0003" SubModuleIdentNumber="32769" TypeOfSubModule="2" SubSlotNumber="32769" IOCREnd="25632" IsFixSubmodule="true" SubModuleID="IDS_6P" PortData="00000000000000000000000000000000000000000000000000000000">
+									<Name>Subterm 3 (Port 1)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+							</Module>
+						</API>
+					</Profinet>
+				</Box>
+				<Profinet PLCPortNr="851" AddPortCount="1">
+					<Ethernet DeviceDesc="EL6631 PROFINET IO Controller"/>
+					<PNController ClientPort="60000" ServerPort="61000" VendorId="288" DeviceId="37" IPData="00000000c0a80101ffffff00c0a80101" SystemName="el6631-pncontroller" IRTSendClock="32">
+						<RTData CableLength="10"/>
+					</PNController>
+				</Profinet>
 			</Device>
 		</Io>
 	</Project>

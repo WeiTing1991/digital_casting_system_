@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <GVL Name="GVL_ResearchData" Id="{10f77899-a32f-44e6-ad7f-4be50514220e}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -37,9 +37,9 @@ b_RED_Mode_Laptop: BOOL; //Mode
 
 // Temperature and Pressure Sensor
 TemperatureAndPressure: STRING := 'TemperatureAndPressure';//***********************************************************
-f_RED_Status_Temperature_Funnel_inlet : REAL; // [°C] 
+f_RED_Status_Temperature_Funnel_inlet : REAL; // [°C] change to concrete pump fresh temperature
 f_RED_Status_Temperature_Funnel_outlet : REAL; // [°C] 
-f_RED_Status_Temperature_Funnel_plate : REAL; // [°C] change to concrete pump temperature 
+f_RED_Status_Temperature_Funnel_plate : REAL; // [°C] change to concrete pump outlet temperature 
 
 f_RED_Status_Pressure_Funnel_inlet : REAL; // [ bar]
 
