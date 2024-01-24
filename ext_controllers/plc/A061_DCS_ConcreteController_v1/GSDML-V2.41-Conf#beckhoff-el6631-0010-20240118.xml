@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.41.xsd">
+	<!--***** GSDML was created by TwinCAT *****
+ Original GSDML: GSDML-V2.41-beckhoff-EL6631-20211117.xml
+ TwinCAT Version: v3.1 (Build 4024.32)
+ Writer Version: 2
+ ***************************************************-->
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0x0120" DeviceID="0x19E7">
+			<InfoText TextId="IDT_FamilyDescription"/>
+			<VendorName Value="Beckhoff Automation"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="I/O" ProductFamily="EL Device"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="DAP 7" PhysicalSlots="0..255" ModuleIdentNumber="0x00000007" PNIO_Version="V2.33" MinDeviceInterval="32" ImplementationType="Software Implementation V2.33" DNS_CompatibleName="el6631-0010" FixedInSlots="0" ObjectUUID_LocalIndex="0" RequiredSchemaVersion="V2.1" MultipleWriteSupported="true" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" SharedInputSupported="true" SharedDeviceSupported="true" CheckDeviceID_Allowed="true" LLDP_NoD_Supported="true" NameOfStationNotTransferable="false" ResetToFactoryModes="2 4" AutoConfigurationSupported="true" CIR_Supported="true" PrmBeginPrmEndSequenceSupported="true">
+					<ModuleInfo>
+						<Name TextId="IDT_MODULE_NAME_DAP7"/>
+						<InfoText TextId="IDT_INFO_DAP7"/>
+						<VendorName Value="Beckhoff Automation"/>
+						<OrderNumber Value="EL6631-0010"/>
+						<HardwareRelease Value="2"/>
+						<SoftwareRelease Value="V14.47"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_Interface_SM"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_Port1_SM"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_Port2_SM"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="1024" MaxOutputLength="1024" MaxDataLength="2048"/>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP 7" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3 4" MayIssueProcessAlarm="true" IM5_Supported="true">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="IDT_MODULE_NAME_DAP7"/>
+								<InfoText TextId="IDT_INFO_DAP7"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="ID_INTERFACE2_V233" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="true" SubslotNumber="32768" TextId="IDT_MODULE_NAME_DAP7" SubmoduleIdentNumber="0x00008000" PTP_BoundarySupported="true" DCP_BoundarySupported="true" PDEV_CombinedObjectSupported="true">
+							<ApplicationRelations StartupMode="Advanced;Legacy" NumberOfAR="2">
+								<TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client" AdditionalProtocolsSupported="false"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="ID_PORT1_2_V233" SubslotNumber="32769" LinkStateDiagnosisCapability="Up+Down" PortDeactivationSupported="false" TextId="IDT_Port1" SubmoduleIdentNumber="0x00008001" MAUType="100BASETXFD" CheckMAUTypeSupported="true" IsDefaultRingport="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="ID_PORT2_ 2_V233" SubslotNumber="32770" LinkStateDiagnosisCapability="Up+Down" PortDeactivationSupported="false" TextId="IDT_Port2" SubmoduleIdentNumber="0x00008002" MAUType="100BASETXFD" CheckMAUTypeSupported="true" IsDefaultRingport="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="1"/>
+					</Graphics>
+					<AssetManagement/>
+					<SystemRedundancy DeviceType="S2" MaxSwitchOverTime="30" RT_InputOnBackupAR_Supported="true" NumberOfAR_Sets="1" S2MaxInputOnBackupDelay="30" MinRDHT="100" DeviceTypes="S2"/>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<GraphicsList>
+				<GraphicItem ID="1" GraphicFile="GSDML-0120-19E7-EL6631"/>
+				<GraphicItem ID="2" GraphicFile="GSDML-0120-19E7-EL6631"/>
+			</GraphicsList>
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<Text TextId="IDT_FamilyDescription" Value="EL products, protection type IP20"/>
+					<Text TextId="IDT_MODULE_NAME_DAP7" Value="EL6631-0010 V2.33, at least FW 14"/>
+					<Text TextId="IDT_Interface_SM" Value="X1"/>
+					<Text TextId="IDT_Port1_SM" Value="X1 P1"/>
+					<Text TextId="IDT_Port2_SM" Value="X1 P2"/>
+					<Text TextId="IDT_Port1" Value="Port 1"/>
+					<Text TextId="IDT_Port2" Value="Port 2"/>
+					<Text TextId="IDT_INFO_DAP7" Value="PROFINET I/O device - EtherCAT slave terminal, V2.33, port diagnostic, MRP, shared device and system redundancy supported"/>
+				</PrimaryLanguage>
+				<Language xml:lang="de">
+					<Text TextId="IDT_FamilyDescription" Value="EL Produkte, Schutzart IP20"/>
+					<Text TextId="IDT_MODULE_NAME_DAP7" Value="EL6631-0010 V2.33, mind. FW 14"/>
+					<Text TextId="IDT_Interface_SM" Value="X1"/>
+					<Text TextId="IDT_Port1_SM" Value="X1 P1"/>
+					<Text TextId="IDT_Port2_SM" Value="X1 P2"/>
+					<Text TextId="IDT_Port1" Value="Port 1"/>
+					<Text TextId="IDT_Port2" Value="Port 2"/>
+					<Text TextId="IDT_INFO_DAP7" Value="PROFINET I/O Device - EtherCAT Slave Klemme, V2.33, 2 Port Diagnose, MRP,  'shared device' und Systemredundanz wird unterstuetzt "/>
+				</Language>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

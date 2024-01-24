@@ -6,7 +6,7 @@
     <Node>
       <Title>Scope Project1</Title>
       <Expanded>False</Expanded>
-      <FileName>D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_dev\TwinCAT Measurement Project1\Scope Project1.svdx</FileName>
+      <FileName>D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_v1\TwinCAT Measurement Project1\Scope Project1.svdx</FileName>
       <Children>
         <Node>
           <Title>DataPool</Title>
@@ -183,7 +183,7 @@
     <Node>
       <Title>Scope Project1</Title>
       <Expanded>False</Expanded>
-      <FileName>D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_dev\TwinCAT Measurement Project1\Scope Project1.tcscopex</FileName>
+      <FileName>D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_v1\TwinCAT Measurement Project1\Scope Project1.tcscopex</FileName>
       <Children>
         <Node>
           <Title>DataPool</Title>

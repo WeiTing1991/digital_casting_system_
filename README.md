@@ -22,7 +22,7 @@ Digital Casting System is a Innosuisse project and a new novel approach for Smar
 
 ## __Installation__
 
-### Anaconda 3 option 1
+### Anaconda 3 option 1 on Windows 11
 
 First step, add the conda-forge
 
@@ -43,7 +43,7 @@ pip install -r requirements.txt
 
 ```
 
-### Virtualenv option 2 in Ubuntu 22.04
+### Virtualenv option 2 on Ubuntu 22.04
 
 Install Virtualenv
 

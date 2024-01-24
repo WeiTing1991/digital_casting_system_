@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.4">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -126,6 +126,8 @@
 			<SubItem>
 				<Name>nDataIn7</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<Comment><![CDATA[Drive Velocity Actual Value
+]]></Comment>
 				<BitSize>32</BitSize>
 				<BitOffs>288</BitOffs>
 			</SubItem>
@@ -325,6 +327,8 @@ Drive Status 4 (manually linked):
 			<SubItem>
 				<Name>nState8</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[Digital Inputs 1..8
+]]></Comment>
 				<BitSize>8</BitSize>
 				<BitOffs>248</BitOffs>
 			</SubItem>
@@ -1021,7 +1025,7 @@ Drive Status 4 (manually linked):
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
+			<Name GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF_OLD5</Name>
 			<BitSize>2048</BitSize>
 			<SubItem>
 				<Name>StateDWord</Name>
@@ -1337,6 +1341,493 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 		<DataType>
+			<Name GUID="{6BDEED54-7268-405F-A18B-665A0AE0FEE9}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_OPMODE</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name>OpModePosAreaMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeTargetPosMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeLoop</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeMotionMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModePEHTimeMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeBacklashCompensation</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeDelayedErrorReaction</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeModulo</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeSimulationAxis</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeStopMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeOutputSmoothingFilter</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModePosLagMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeVeloLagMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>17</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeSoftLimitMinMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>18</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeSoftLimitMaxMonitoring</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>19</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModePosCorrection</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>20</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeAllowSlaveCommands</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>21</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeAllowExtSetAxisCommands</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>22</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ApplicationRequest</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>23</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{F7B9FC50-054E-4547-B468-83A9E72D8064}" Namespace="MC" TcBaseType="true" HideType="true">NCTOPLC_AXIS_REF_STATE3_FLAGS</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name>TouchProbe1InputState </Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TouchProbe2InputState </Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<Format Name="Short">
+				<Printf>%08x</Printf>
+			</Format>
+			<Format Name="Cpp">
+				<Printf>0x%08x</Printf>
+			</Format>
+			<Format Name="IEC">
+				<Printf>16#%08X</Printf>
+			</Format>
+		</DataType>
+		<DataType>
+			<Name GUID="{60E203BA-3CEE-4BB0-8728-643B1F529592}" Namespace="MC" TcBaseType="true" HideType="true">NCTOPLC_AXIS_REF_STATE3</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name>Value</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Flags</Name>
+				<Type GUID="{F7B9FC50-054E-4547-B468-83A9E72D8064}" Namespace="MC">NCTOPLC_AXIS_REF_STATE3_FLAGS</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<Format Name="Short">
+				<Printf>%08x</Printf>
+			</Format>
+			<Format Name="Cpp">
+				<Printf>0x%08x</Printf>
+			</Format>
+			<Format Name="IEC">
+				<Printf>16#%08X</Printf>
+			</Format>
+		</DataType>
+		<DataType>
+			<Name GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
+			<BitSize>2048</BitSize>
+			<SubItem>
+				<Name>StateDWord</Name>
+				<Type GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC">NCTOPLC_AXIS_REF_STATE</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ErrorCode</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AxisState</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<Comment><![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]></Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AxisModeConfirmation</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>HomingState</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<Comment><![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]></Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CoupleState</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<Comment><![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]></Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SvbEntries</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SafEntries</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AxisId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OpModeDWord</Name>
+				<Type GUID="{6BDEED54-7268-405F-A18B-665A0AE0FEE9}" Namespace="MC">NCTOPLC_AXIS_REF_OPMODE</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>288</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ModuloActPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActiveControlLoopIndex</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ControlLoopIndex</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>464</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ModuloActTurns</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActVelo</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PosDiff</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SetPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>640</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SetVelo</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>704</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SetAcc</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>768</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TargetPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>832</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ModuloSetPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>896</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ModuloSetTurns</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>960</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CmdNo</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>992</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CmdState</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1008</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SetJerk</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1024</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SetTorque</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1088</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActTorque</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1152</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>StateDWord2</Name>
+				<Type GUID="{669F3788-48FD-42CF-8A59-2DA946853FB6}" Namespace="MC">NCTOPLC_AXIS_REF_STATE2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>1216</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>StateDWord3</Name>
+				<Type GUID="{60E203BA-3CEE-4BB0-8728-643B1F529592}" Namespace="MC">NCTOPLC_AXIS_REF_STATE3</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>1248</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TouchProbeState</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>1280</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TouchProbeCounter</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>1312</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamCouplingState</Name>
+				<Type GUID="{BA9D9D0F-1A4A-4A27-A19F-3032626A8491}" Namespace="MC">NCTOPLC_AXIS_REF_CAMCOUPLINGSTATE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>8</Elements>
+				</ArrayInfo>
+				<BitSize>64</BitSize>
+				<BitOffs>1344</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamCouplingTableID</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000039}">UINTARR8</Type>
+				<BitSize>128</BitSize>
+				<BitOffs>1408</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActTorqueDerivative</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1536</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SetTorqueDerivative</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1600</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AbsPhasingPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1664</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TorqueOffset</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1728</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActPosWithoutPosCorrection</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1792</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActAcc</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1856</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>DcTimeStamp</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>1920</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>NcStructType</Name>
+					<Value>2</Value>
+				</Property>
+			</Properties>
+			<Relations>
+				<Relation Priority="100">
+					<Type GUID="{429B767E-373B-40AE-BFA5-E1C08B444DF3}">NCAXLESTRUCT_TOPLC</Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{E8DA524A-605F-4879-82E6-B86EF6986572}">NCAXLESTRUCT_TOPLC2</Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{B507963E-69F3-4B64-BB8C-2BD7A560976D}">NCAXLESTRUCT_TOPLC3</Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{F794B740-82D7-4637-848E-4F74A711D038}">NCAXLESTRUCT_TOPLC4</Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{40BD39B0-C3EA-4F74-9F4F-5F1982786F7C}"></Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{40BD39B2-C3EA-4F74-9F4F-5F1982786F7C}"></Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}"></Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}"></Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
 			<Name GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom" AutoDeleteType="true">EL6inData22B</Name>
 			<Comment><![CDATA[ This data type is corresponding to the
    EL-6xxx data structure used in the
@@ -1441,9 +1932,13 @@ External Setpoint Generation:
 		<ImageData Id="1005">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
 		<ImageData Id="1006">424dd6020000000000003600000028000000100000000e0000000100180000000000a002000000000000000000000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c08080800000ff000000000000000000000000000000000000000000ff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c08080800000ff0000000000000000000000000000000000000000000000ff0000ffff00ffc0c0c0c0c0c0c0c0c0c0c0c08080800000ff000000000000000000000000000000000000000000ff00ffff00ffff00ffff0000ff0000ff0000ff00008080800000ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffff00ffff0000c0c0c0c0c0c0c0c0c0808080000000000000000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0ff0000c0c0c0c0c0c0808080000000ff00ffff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffc0c0c0c0c0c0ff0000c0c0c0808080000000000000000000000000000000000000000000000000ff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0ff00008080800000000000000000000000000000000000000000000000000000ff0000ffff00ffff0000c0c0c0c0c0c0ff0000808080000000000000000000000000000000000000000000000000ff00ffff00ffff00ffc0c0c0ff0000ff0000c0c0c0808080000000ff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080000000000000000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080</ImageData>
 	</ImageDatas>
-	<Project ProjectGUID="{2A0F4D27-024B-4488-901A-91B2CF435EFB}" TargetNetId="5.57.158.168.1.1" ShowHideConfigurations="#x106">
+	<Project ProjectGUID="{2A0F4D27-024B-4488-901A-91B2CF435EFB}" TargetNetId="41.158.198.119.1.1" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
-			<Licenses IgnoreProjectLicenses="true"/>
+			<Licenses IgnoreProjectLicenses="true">
+				<Target>
+					<ManualSelect>{66689887-CCBD-452C-AC9A-039D997C6E66}</ManualSelect>
+				</Target>
+			</Licenses>
 			<Tasks>
 				<Task Id="5" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
@@ -1485,7 +1980,6 @@ External Setpoint Generation:
 							<Var>
 								<Name>In</Name>
 								<Type GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC">NCENCODERSTRUCT_IN2B</Type>
-								<BitOffs>1024</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn1</Name>
 								</SubVar>
@@ -1516,7 +2010,6 @@ External Setpoint Generation:
 							<Var>
 								<Name>Out</Name>
 								<Type GUID="{9CC50AB2-5D79-4869-A3C2-1FA7761BAFEA}" Namespace="MC">NCENCODERSTRUCT_OUT2</Type>
-								<BitOffs>2048</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut1</Name>
 								</SubVar>
@@ -1548,7 +2041,6 @@ External Setpoint Generation:
 							<Var>
 								<Name>In</Name>
 								<Type GUID="{F95C7C69-0C87-46C4-9559-1285CCA5B23A}" Namespace="MC">NCDRIVESTRUCT_IN2</Type>
-								<BitOffs>1344</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn1</Name>
 								</SubVar>
@@ -1574,7 +2066,6 @@ External Setpoint Generation:
 							<Var>
 								<Name>Out</Name>
 								<Type GUID="{644DC4BD-3D15-4DCB-94C7-24F3A5D579AA}" Namespace="MC">NCDRIVESTRUCT_OUT2</Type>
-								<BitOffs>2368</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut1</Name>
 								</SubVar>
@@ -1612,7 +2103,7 @@ External Setpoint Generation:
 						<Name>Outputs</Name>
 						<Var>
 							<Name>ToPlc</Name>
-							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF_OLD5</Type>
 						</Var>
 					</Vars>
 				</Axis>
@@ -1631,7 +2122,6 @@ External Setpoint Generation:
 							<Var>
 								<Name>In</Name>
 								<Type GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC">NCENCODERSTRUCT_IN2B</Type>
-								<BitOffs>2688</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn1</Name>
 								</SubVar>
@@ -1662,7 +2152,6 @@ External Setpoint Generation:
 							<Var>
 								<Name>Out</Name>
 								<Type GUID="{9CC50AB2-5D79-4869-A3C2-1FA7761BAFEA}" Namespace="MC">NCENCODERSTRUCT_OUT2</Type>
-								<BitOffs>4736</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut1</Name>
 								</SubVar>
@@ -1694,7 +2183,6 @@ External Setpoint Generation:
 							<Var>
 								<Name>In</Name>
 								<Type GUID="{F95C7C69-0C87-46C4-9559-1285CCA5B23A}" Namespace="MC">NCDRIVESTRUCT_IN2</Type>
-								<BitOffs>3008</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn1</Name>
 								</SubVar>
@@ -1720,7 +2208,6 @@ External Setpoint Generation:
 							<Var>
 								<Name>Out</Name>
 								<Type GUID="{644DC4BD-3D15-4DCB-94C7-24F3A5D579AA}" Namespace="MC">NCDRIVESTRUCT_OUT2</Type>
-								<BitOffs>5056</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut1</Name>
 								</SubVar>
@@ -1752,15 +2239,13 @@ External Setpoint Generation:
 						<Var>
 							<Name>FromPlc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-							<BitOffs>1664</BitOffs>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2" InsertType="1">
 						<Name>Outputs</Name>
 						<Var>
 							<Name>ToPlc</Name>
-							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<BitOffs>2688</BitOffs>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF_OLD5</Type>
 						</Var>
 					</Vars>
 				</Axis>
@@ -1768,18 +2253,18 @@ External Setpoint Generation:
 		</Motion>
 		<Plc>
 			<Project GUID="{C29FE267-D081-4438-A6F8-D544C2CCE89E}" Name="DCSv1" PrjFilePath="DCSv1\DCSv1.plcproj" TmcFilePath="DCSv1\DCSv1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="DCSv1\DCSv1.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="DCSv1\DCSv1.tmc" TmcHash="{D72A1014-97BD-4497-E800-1CB317D17A9C}">
 					<Name>DCSv1 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>GVL.Axis_Mixer1.NcToPlc</Name>
-							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-						</Var>
-						<Var>
 							<Name>GVL.in_MID1_ActAbsCurrent</Name>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.Axis_Mixer1.NcToPlc</Name>
+							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
 							<Name>GVL.in_MID1_ActMotorTemperature</Name>
@@ -1787,12 +2272,12 @@ External Setpoint Generation:
 							<Type>INT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.Axis_Mixer2.NcToPlc</Name>
-							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-						</Var>
-						<Var>
 							<Name>GVL.in_MID2_ActAbsCurrent</Name>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.Axis_Mixer2.NcToPlc</Name>
+							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
 							<Name>GVL.in_MID2_ActMotorTemperature</Name>
@@ -1820,9 +2305,9 @@ External Setpoint Generation:
 							<Name>GVL_IO.ib_CC1_Safety_Ready</Name>
 							<Comment><![CDATA[***********************************************************************************
 
- ETH Zrich / Robotic Fabrication Lab
+ ETH Zürich / Robotic Fabrication Lab
  HIB C 13 / Stefano-Franscini-Platz 1
- CH-8093 Zrich
+ CH-8093 Zürich
  
  ***********************************************************************************
  
@@ -1834,7 +2319,7 @@ External Setpoint Generation:
  
  EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
  
- Copyright   :  ETH Zrich (CH) 2020
+ Copyright   :  ETH Zürich (CH) 2020
 
  ***********************************************************************************
 
@@ -1949,7 +2434,7 @@ External Setpoint Generation:
 							<Type>INT</Type>
 						</Var>
 					</Vars>
-					<Vars VarGrpType="2">
+					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
 						<Var>
 							<Name>GVL.Axis_Mixer1.PlcToNc</Name>
@@ -2052,7 +2537,7 @@ External Setpoint Generation:
 							<Type>INT</Type>
 						</Var>
 					</Vars>
-					<Vars VarGrpType="1">
+					<Vars VarGrpType="1" ContextId="1" AreaNo="16">
 						<Name>ComTask Inputs</Name>
 						<Var>
 							<Name>GVL.bSafetyIO</Name>
@@ -2124,7 +2609,7 @@ External Setpoint Generation:
 							<Type>INT</Type>
 						</Var>
 					</Vars>
-					<Vars VarGrpType="2">
+					<Vars VarGrpType="2" ContextId="1" AreaNo="17">
 						<Name>ComTask Outputs</Name>
 						<Var>
 							<Name>GVL.bResetSafety</Name>
@@ -2240,6 +2725,26 @@ External Setpoint Generation:
 							</OwnerB>
 						</OwnerA>
 					</UnrestoredVarLinks>
+					<Contexts>
+						<Context>
+							<Id NeedCalleeCall="true">0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010050</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>10000000</CycleTime>
+						</Context>
+						<Context>
+							<Id NeedCalleeCall="true">1</Id>
+							<Name>ComTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010060</OTCID>
+							</ManualConfig>
+							<Priority>21</Priority>
+							<CycleTime>10000000</CycleTime>
+						</Context>
+					</Contexts>
 					<TaskPouOids>
 						<TaskPouOid Prio="20" OTCID="#x08502001"/>
 						<TaskPouOid Prio="21" OTCID="#x08502002"/>
@@ -2248,7 +2753,7 @@ External Setpoint Generation:
 			</Project>
 		</Plc>
 		<Io>
-			<Device Id="2" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="172.17.147.1.3.1" RemoteName="Device 1 (EtherCAT)">
+			<Device Id="2" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="172.17.147.1.3.1" RemoteName="Device 1 (EtherCAT)" InfoImageId="1">
 				<Name>Device 1 (EtherCAT)</Name>
 				<AddressInfo>
 					<Ccat>
@@ -3897,13 +4402,16 @@ External Setpoint Generation:
 							</Pdo>
 							<CoeProfile ProfileNo="39326601"/>
 							<CoeProfile ProfileNo="5001"/>
-							<EL60xxComPort BaudRate="9600" ByteSize="8" EnableRtsCts="true" LocalComPort="true" RxFifoFullThreshold="864"/>
 						</EtherCAT>
 					</Box>
 					<Box Id="15" BoxType="9106" BoxFlags="#x00000020">
 						<Name>Term 15 (EL6631) new</Name>
 						<ImageId>124</ImageId>
+<<<<<<< HEAD
 						<EtherCAT SlaveType="5" AdsServerAddress="05399ea80201f503" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x19e73052" RevisionNo="#x00120000" InfoDataAddr="true" InfoDataNetId="true" OwnAddrExtern="true" TimeoutStateChange1="10000" TimeoutStateChange3="20000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6631 PROFINET IO Controller" Desc="EL6631" PortABoxInfo="#x01000008">
+=======
+						<EtherCAT SlaveType="5" AdsServerAddress="299ec67702010000" FixedAdsServerNetId="true" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x19e73052" RevisionNo="#x00120000" InfoDataAddr="true" InfoDataNetId="true" OwnAddrExtern="true" TimeoutStateChange1="10000" TimeoutStateChange3="20000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6631 PROFINET IO Controller" Desc="EL6631" PortABoxInfo="#x01000008">
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 							<SyncMan>001000042600010001000000400000040004001026010000</SyncMan>
 							<SyncMan>001400042200010002000000400000040004001422010000</SyncMan>
 							<SyncMan>001806006400010003000000000000000000001864010000</SyncMan>
@@ -3912,6 +4420,7 @@ External Setpoint Generation:
 							<Fmmu>0000000000000000002400010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010000400140004</BootStrapData>
+<<<<<<< HEAD
 							<Pdo Name="tcpniodevice_In" Index="#x1a00" Flags="#x0001" SyncMan="3">
 								<Entry Name="tcpniodevice_BoxState" Index="#x6000" Sub="#x01" Flags="#x00000100">
 									<DefaultDataMask>1f001f00</DefaultDataMask>
@@ -3934,21 +4443,58 @@ External Setpoint Generation:
 									<Type>UINT</Type>
 								</Entry>
 								<Entry Name="PnIoDiag" Index="#xf100" Sub="#x03" Flags="#x00000100">
+=======
+							<Pdo Name="irc5-master-c91_Inputs" Index="#x1a00" Flags="#x0001" SyncMan="3">
+								<Entry Name="irc5-master-c91_PnIoBoxState" Index="#x6000" Sub="#x01" Flags="#x00000100">
+									<DefaultDataMask>1f001f00</DefaultDataMask>
+									<Type>UINT</Type>
+								</Entry>
+								<Entry Name="irc5-master-c91_PnIoBoxDiag" Index="#x6000" Sub="#x02" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="irc5-master-c91_Outputs" Index="#x1600" InOut="1" Flags="#x0001" SyncMan="2">
+								<Entry Name="irc5-master-c91_PnIoBoxCtrl" Index="#x7000" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="Device_1_ProtocolState" Index="#x1bfe" Flags="#x0001" SyncMan="3">
+								<Entry Name="Device_1_DevState" Index="#xf100" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+								<Entry Name="Device_1_PnIoError" Index="#xf100" Sub="#x02" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+								<Entry Name="Device_1_PnIoDiag" Index="#xf100" Sub="#x03" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="Device_1_ProtocolCtrl" Index="#x17fe" InOut="1" Flags="#x0001" SyncMan="2">
+								<Entry Name="Device_1_DevCtrl" Index="#xf200" Sub="#x01" Flags="#x00000100">
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 									<Type>UINT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="ECatState" Index="#x1bff" Flags="#x0001" SyncMan="3">
+<<<<<<< HEAD
 								<Entry Name="ECatState" Index="#xf101" Sub="#x01" Flags="#x00000100">
 									<Type>UINT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="PnIoProtocolCtrl" Index="#x17fe" InOut="1" Flags="#x0001" SyncMan="2">
 								<Entry Name="DevCtrl" Index="#xf200" Sub="#x01" Flags="#x00000100">
+=======
+								<Entry Name="Device_1_ECatState" Index="#xf101" Sub="#x01" Flags="#x00000100">
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 									<Type>UINT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="ECatCtrl" Index="#x17ff" InOut="1" Flags="#x0001" SyncMan="2">
+<<<<<<< HEAD
 								<Entry Name="ECatCtrl" Index="#xf201" Sub="#x01" Flags="#x00000100">
+=======
+								<Entry Name="Device_1_ECatCtrl" Index="#xf201" Sub="#x01" Flags="#x00000100">
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 									<Type>UINT</Type>
 								</Entry>
 							</Pdo>
@@ -3963,7 +4509,7 @@ External Setpoint Generation:
 				</Box>
 				<EtherCAT/>
 			</Device>
-			<Device Id="4" DevType="111" DevFlags="#x0003" AmsPort="28676" AmsNetId="172.17.147.1.5.1" RemoteName="Device 4 (EtherCAT)">
+			<Device Id="4" DevType="111" DevFlags="#x0003" AmsPort="28676" AmsNetId="172.17.147.1.5.1" RemoteName="Device 4 (EtherCAT)" InfoImageId="2">
 				<Name>Device 4 (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>
@@ -6463,6 +7009,7 @@ External Setpoint Generation:
 				</Box>
 				<EtherCAT DcSyncMode="3"/>
 			</Device>
+<<<<<<< HEAD
 			<Device Id="1" DevType="119" AmsPort="28673" AmsNetId="5.57.158.168.2.1" RemoteName="Device 1 (EL6631)">
 				<Name>Device 1 (EL6631)</Name>
 				<DevData>000000000f00000000000000000000005465726d2031352028454c3636333129206e65770000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000105637964040000000000000000000000000000000000000000000000000000000000000000000000000000000000</DevData>
@@ -6478,6 +7025,23 @@ OrderNumber: TwinCAT PN Device
 HW Release Version: 1
 SW Release Version: V5.00]]></Comment>
 					<ImageId>107</ImageId>
+=======
+			<Device Id="1" DevType="119" AmsPort="28673" AmsNetId="41.158.198.119.2.1" RemoteName="Device 1 (EL6631)">
+				<Name>Device 1 (EL6631)</Name>
+				<DevData>000000000f00000000000000000000005465726d2031352028454c3636333129206e65770000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000</DevData>
+				<Image Id="7" AddrType="4" ImageType="3" SizeIn="6" SizeOut="12">
+					<Name>Image</Name>
+				</Image>
+				<Box Id="18" BoxType="9121">
+					<Name>irc5-master-c91</Name>
+					<Comment><![CDATA[GSDML Name: GSDML-V2.34-PNET-Anybus-20180124.xml
+Path: D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_v1\
+VendorName: ABB Robotics
+OrderNumber: ABCC-PRT
+HW Release Version: V1.00
+SW Release Version: V1.12]]></Comment>
+					<ImageId>121</ImageId>
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 					<Vars VarGrpType="1">
 						<Name>Inputs</Name>
 						<Var>
@@ -6529,6 +7093,7 @@ SW Release Version: V5.00]]></Comment>
 							<Type>UINT</Type>
 						</Var>
 					</Vars>
+<<<<<<< HEAD
 					<Profinet DeviceId="33" VendorId="288" FrameOffset="49152" IPAdd="c0a8010b" ProtocolType="3" BoxOnDeviceTyp="119" MaxPhysSlotNr="255" InstanceServerPort="50000" InstanceClientPort="50001" InstanceNumberOfARs="1" InstanceNumberOfAPIs="1" MinDeviceInterval="32" NrOfGsdmlDap="6" MultipleWriteSupported="true" Phase="1" WatchdogFaktor="3" ReductionRatio="1" SendClockFaktor="32" MaxInputLen="1440" MaxOutputLen="1440" SendClockFactorData="200040008000" RedRatio="0100020004000800100020004000800000010002" SavePnIoBoxValues="1d00" BoxTypeInfo="TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnostic supported" PDOmapping="1" OutputErrorBehavior="2" GSDMLPath="$(TWINCAT3DIR)Config\Io\Profinet\GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml" ImagePath="C:\TwinCAT\3.1\Config\Io\Profinet\GSDML-0120-0021-TCPNDevice.bmp" MainFamily="I/O" ProductFamily="TwinCAT Profinet I/O" OrderNr="TwinCAT PN Device" DefaultDNSName="tcpniodevice" VendorName="Beckhoff Automation" FamDescription="TwinCAT products" GraphicFile="GSDML-0120-0021-TCPNDevice" SWVersion="V5.00" HWVersion="1" AltLanguage="7">
 						<GsdmlValue HelpInfo="disable or enable" Id="Disabled_Enabled" Content="00000100">
 							<RecordText>disabled</RecordText>
@@ -6562,6 +7127,28 @@ Submodule Info: TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnos
 ]]></Comment>
 									<ImageId>183</ImageId>
 									<Record Length="4" Index="4096" ConstData="00010000"/>
+=======
+					<Profinet DeviceId="7" VendorId="268" FrameOffset="49152" IPAdd="c0a8010b" ProtocolType="3" BoxOnDeviceTyp="119" MaxPhysSlotNr="64" InstanceServerPort="50000" InstanceClientPort="50001" InstanceId="1" InstanceNumberOfARs="1" InstanceNumberOfAPIs="1" MinDeviceInterval="64" SavePnIoBoxValues="0100" Phase="1" WatchdogFaktor="3" ReductionRatio="16" SendClockFaktor="32" MaxInputLen="256" MaxOutputLen="256" SendClockFactorData="200040008000" RedRatio="0100020004000800100020004000800000010002" BoxTypeInfo="This Device Access Point supports RT communication" PDOmapping="1" OutputErrorBehavior="2" GSDMLPath="D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_v1\GSDML-V2.34-PNET-Anybus-20180124.xml" ImagePath="D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_v1\DSQC688.bmp" MainFamily="General" ProductFamily="Anybus" OrderNr="ABCC-PRT" DefaultDNSName="PNET-Anybus" VendorName="ABB Robotics" FamDescription="PROFINET Anybus" GraphicFile="DSQC688" SWVersion="V1.12" HWVersion="V1.00" AltLanguage="7">
+						<UsedGsdmlModule ModuleIdentNumber="17" ModuleName="DAP Module" InfoText="This Device Access Point supports RT communication" OrderNumber="ABCC-PRT">
+							<Slot>0</Slot>
+						</UsedGsdmlModule>
+						<UsedGsdmlSubModule SubSlotNumber="1" TypeOfSubmodule="3" Id="DAP V2.0" SubModuleName="PROFINET Anybus" InfoText="A PROFINET Anybus module for IRC5 Robot controller" OrderNumber="ABCC-PRT"/>
+						<API Id="1">
+							<Name>API</Name>
+							<ImageId>4</ImageId>
+							<Module Id="#x031d0008" DAP="true" ModuleIdentNumber="17" ModuleInfo="This Device Access Point supports RT communication">
+								<Name>Term 8 (DAP Module)</Name>
+								<Comment><![CDATA[GSDML: GSDML-V2.34-PNET-Anybus-20180124.xml
+Module Info: This Device Access Point supports RT communication
+OrderNumber: ABCC-PRT]]></Comment>
+								<ImageId>182</ImageId>
+								<SubModule Id="#x031c000d" TypeOfSubModule="3" SubSlotNumber="1" IsFixSubmodule="true" SubModuleID="DAP V2.0">
+									<Name>Subterm 13 (PROFINET Anybus)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.34-PNET-Anybus-20180124.xml
+Submodule Info: A PROFINET Anybus module for IRC5 Robot controller
+OrderNumber: ABCC-PRT]]></Comment>
+									<ImageId>183</ImageId>
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 									<Vars VarGrpType="1">
 										<Name>Inputs</Name>
 									</Vars>
@@ -6569,9 +7156,15 @@ Submodule Info: TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnos
 										<Name>Outputs</Name>
 									</Vars>
 								</SubModule>
+<<<<<<< HEAD
 								<SubModule Id="#x031c0002" SubModuleIdentNumber="32768" TypeOfSubModule="1" SubSlotNumber="32768" IOCREnd="20444" IsFixSubmodule="true" SubModuleID="IDS_6I" InterfaceData="0100000000000000000000000000000000000000000098000000000000000000">
 									<Name>Subterm 2 (Interface)</Name>
 									<Comment><![CDATA[GSDML: GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml
+=======
+								<SubModule Id="#x031c000e" SubModuleIdentNumber="1" TypeOfSubModule="1" SubSlotNumber="32768" IsFixSubmodule="true" SubModuleID="IDS_V2.0I" InterfaceData="0100000000000000000000000000000000000000000000000300000000000000">
+									<Name>Subterm 14 (Interface)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.34-PNET-Anybus-20180124.xml
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 ]]></Comment>
 									<ImageId>183</ImageId>
 									<Vars VarGrpType="1">
@@ -6581,9 +7174,15 @@ Submodule Info: TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnos
 										<Name>Outputs</Name>
 									</Vars>
 								</SubModule>
+<<<<<<< HEAD
 								<SubModule Id="#x031c0003" SubModuleIdentNumber="32769" TypeOfSubModule="2" SubSlotNumber="32769" IOCREnd="31606" IsFixSubmodule="true" SubModuleID="IDS_6P" PortData="00000000000000000000000000000000000000000000000000000000">
 									<Name>Subterm 3 (Port 1)</Name>
 									<Comment><![CDATA[GSDML: GSDML-V2.33-beckhoff-TCPNDevice-20190325.xml
+=======
+								<SubModule Id="#x031c000f" SubModuleIdentNumber="2" TypeOfSubModule="2" SubSlotNumber="32769" IsFixSubmodule="true" SubModuleID="IDS_V2.0P" PortData="00000000000000000000000000000000000000000000000000000000">
+									<Name>Subterm 15 (Port 1)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.34-PNET-Anybus-20180124.xml
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 ]]></Comment>
 									<ImageId>183</ImageId>
 									<Vars VarGrpType="1">
@@ -6599,7 +7198,11 @@ Submodule Info: TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnos
 				</Box>
 				<Profinet PLCPortNr="851" AddPortCount="1">
 					<Ethernet DeviceDesc="EL6631 PROFINET IO Controller"/>
+<<<<<<< HEAD
 					<PNController ClientPort="60000" ServerPort="61000" VendorId="288" DeviceId="37" IPData="00000000c0a80101ffffff00c0a80101" SystemName="el6631-pncontroller" IRTSendClock="32">
+=======
+					<PNController ClientPort="60000" ServerPort="61000" VendorId="288" DeviceId="37" IPData="00000000c0a8010affffff00c0a80101" SystemName="el6631-pncontroller" IRTSendClock="32">
+>>>>>>> 1ee685d499889bc862851012909f1d0b646b1ea8
 						<RTData CableLength="10"/>
 					</PNController>
 				</Profinet>
@@ -6607,11 +7210,11 @@ Submodule Info: TwinCAT PLC PROFINET I/O Device with I/Os, V2.32, 1 port diagnos
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{08502001-0050-0304-0020-500850000403}" Id="#x02030030" Watchdog="00000000000000000000000000000000"/>
-		<MappingInfo Identifier="{00000000-2002-0850-0120-500861000403}" Id="#x02030020"/>
-		<MappingInfo Identifier="{00000000-0050-0304-3000-040350000403}" Id="#x02030050"/>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500840000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{00000000-2002-0850-0120-500861000403}" Id="#x02030020"/>
 		<MappingInfo Identifier="{00000000-0020-0304-3000-040321000403}" Id="#x02030060"/>
+		<MappingInfo Identifier="{00000000-0050-0304-3000-040350000403}" Id="#x02030050"/>
+		<MappingInfo Identifier="{08502001-0050-0304-0020-500850000403}" Id="#x02030030" Watchdog="00000000000000000000000000000000"/>
 		<MappingInfo Identifier="{05000010-2001-0850-3000-040300205008}" Id="#x02030040" Watchdog="14000000040000000400000004000000"/>
 		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^Mixer 1">
 			<OwnerB Name="TIID^Device 4 (EtherCAT)^Drive 11 (AX5206-0000-0213)">
