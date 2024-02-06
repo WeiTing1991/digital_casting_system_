@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <GVL Name="GVL_IO" Id="{44600b8d-a6e4-429a-9add-e1e71d3867c2}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -71,8 +71,8 @@ in_MI1_Poti_Speed AT %I*	: INT;
 
 //
 // Temperature sensor #WT 20230510
-in_Temp_Funnel AT %I*: INT;
-inTempFunnelOutlet AT %I*: INT;
+in_Temp_CPump_fresh AT %I*: INT;
+in_Temp_Funnel_Outlet AT %I*: INT;
 in_Temp_CPump AT %I*: INT;
 
 in_Pressure_Funnel AT %I*: INT;
