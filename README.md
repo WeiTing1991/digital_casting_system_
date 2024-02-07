@@ -11,7 +11,8 @@ Digital Casting System is a Innosuisse project and a new novel approach for Smar
 
 ## __Requirements__
 ---
-* Windows 10 Pro
+* [Windows 10]()
+* [Debian 12]()
 * [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/?pk_campaign=AdWords-AdWordsSearch-TwinCAT_EN&pk_kwd=twincat&gclid=Cj0KCQjw9ZGYBhCEARIsAEUXITW5dmPmQ2629HIuFY7wfbSR70pi5uY2lkYziNmfKYczm1_YsK4hhPsaApjyEALw_wcB)
 * [Anaconda 3](https://www.anaconda.com/)
 * [Docker]()
@@ -43,9 +44,9 @@ pip install -r requirements.txt
 
 ```
 
-### Virtualenv option 2 on Ubuntu 22.04
+### Virtualenv option 2 on Debian 12
 
-Install Virtualenv
+Install venv
 
 ```bash
 sudo apt install python3-venv -y

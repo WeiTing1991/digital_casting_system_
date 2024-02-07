@@ -98,16 +98,13 @@ inline_mixer_params = dict(
     mixer_motor_temperature_M1 =  "GVL_ResearchData.f_RED_Status_Temperature_Motor_1",
     mixer_motor_temperature_M2 =  "GVL_ResearchData.f_RED_Status_Temperature_Motor_2",
 
-    #mixer_temperature_Funnel= "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
-    #cp_temperature_fresh= "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
-    mixer_temperature_outlet = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet",
-    mixer_temperature_Funnel = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
-    #cp_temperature_outlet  = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
-    #mixer_temperature_Funnel_plate = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate",
-    cp_temperature = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate",
 
-
+    mixer_temperature_outlet = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
     mixer_pressure ="GVL_ResearchData.f_RED_Status_Pressure_Funnel_inlet",
+
+    cp_temperature_fresh= "GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump_fresh",
+    cp_temperature = "GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump",
+
 )
 
 # =================================================================================
