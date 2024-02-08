@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <POU Name="P_Set_Research_Data" Id="{773f30f1-b7d3-4c7e-b27f-8d66212207e7}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Set_Research_Data
 VAR
@@ -40,9 +40,9 @@ GVL_VAR.f_MI1_MaxSpeed:= 720; // [distance/s] ( equel to 120 rpm, by measurement
 // Superplasticizer pump 
 //***********************************************************************************
 
-//Superplasticizer Pump checking values (WT
+//Superplasticizer Pump checking values (WT useing for CAC 240208
 GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Flowrate:=GVL_ResearchData.n_RED_Superplasticizer_Pump_Max_Flowrate/2;             // [ml/min]
-GVL_ResearchData.n_RED_Superplasticizer_Pump_Max_Flowrate:=104;				// Calibration number 231012 , ?? ml/min based on dosing value ?? ml/rev TODO check 
+GVL_ResearchData.n_RED_Superplasticizer_Pump_Max_Flowrate:=138;				// Calibration number 240208 138 (122ml/min 5018 rev/min(rpm) in VIsco proparam driver) 
 
 GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Duration:=T#60000MS;     // [ms]
 //GVL_ResearchData.f_RED_Superplasticizer_Pump_Density:=1.06;               // [g/cm^3] TODO use for calibration number
@@ -56,9 +56,9 @@ GVL_ResearchData.n_RED_Superplasticizer_Pump_Flush_Flowrate:=GVL_ResearchData.f_
 // Accelerator pump 1
 //***********************************************************************************
 //
-// Accelerator Pump checking values (WT
+// Accelerator Pump checking values (WT using for Xseed 240208
 GVL_ResearchData.n_RED_Acceleration_Pump_Check_Flowrate:=GVL_ResearchData.n_RED_Acceleration_Pump_Max_Flowrate/2;     		
-GVL_ResearchData.n_RED_Acceleration_Pump_Max_Flowrate:=468; 			// TODO check 
+GVL_ResearchData.n_RED_Acceleration_Pump_Max_Flowrate:=637; 			// Calibration number 240208 (274 ml/min 4800 rev/min(rpm) in VIsco proparam driver) 
 
 GVL_ResearchData.n_RED_Acceleration_Pump_Check_Duration:=T#60000MS;   	// [ms]
 

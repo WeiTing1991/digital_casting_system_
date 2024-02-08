@@ -1,0 +1,24 @@
+ViscoTec ViscoPro Parameter File 
+-------------------------------- 
+Version; V1.80 
+Date/Time; Thu Feb 8 2024-15:34:41 
+Serial Number;  
+Firmware Version; 5.0.4.42 
+Pump; 3RD10 
+Motor; ViscoPro-C 
+GearBox; 40 
+;
+Settings 
+-------- 
+Density; 1.00 
+Q1ist; 1.1000 
+Q1a; 7.634 
+Q1v; 2.300 
+Q1; 200 
+Q2a; 7.634 
+Q2v; 0.760 
+Q2; 0.110 
+Q3a; 5.741 
+Q3; 0.000 
+Pause; 0.00 
+Overload; 100 
