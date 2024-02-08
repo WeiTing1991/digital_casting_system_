@@ -15,7 +15,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '50Agg_75S_fluidity_test_specailxseed'
+DEFAULT_FILENAME = NOW_DATE + '_' + '50Agg_74S_column8x5c'
 #50_agg_1.5FW_ETH_temperature_test
 
 # HVAE TO FINISH NOT OVERRIDE THE FILE
