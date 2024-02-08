@@ -29,10 +29,6 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\GVLs\GVL_PN.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
     <Compile Include="GVLs\GVLs\GVL_ResearchData.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -45,18 +41,7 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\GVL_Data_Com.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="GVLs\ReadMe_Com.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
     <Compile Include="PlcTask.TcTTO">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\000_Archive\P_ComEL6001.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\FB\FB_Analog.TcPOU">
@@ -84,6 +69,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\P_AP1_Check.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\P_ComEL6001.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\P_CP1_Check.TcPOU">
@@ -129,7 +117,6 @@
     <Folder Include="GVLs" />
     <Folder Include="GVLs\GVLs" />
     <Folder Include="POUs\FB" />
-    <Folder Include="POUs\000_Archive" />
     <Folder Include="POUs\POUs" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />

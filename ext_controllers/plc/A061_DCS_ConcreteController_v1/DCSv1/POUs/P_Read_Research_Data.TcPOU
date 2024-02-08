@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="P_Read_Research_Data" Id="{affa89fd-b285-40f3-982b-c7fb6b079584}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Read_Research_Data
 VAR
@@ -84,11 +84,11 @@ GVL_ResearchData.f_RED_Status_Temperature_Motor_2:=GVL.in_MID2_ActMotorTemperatu
 
 // Funnel Temperature
 
-GVL_ResearchData.f_RED_Status_Temperature_Funnel_inlet:= FB_LowpassFilter(INT_TO_REAL(GVL_IO.in_Temp_Funnel)* 0.1);
+GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump_fresh:= FB_LowpassFilter(INT_TO_REAL(GVL_IO.in_Temp_CPump_fresh)* 0.1);
 
-GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet:= FB_LowpassFilter(INT_TO_REAL(GVL_IO.inTempFunnelOutlet) * 0.1); 
+GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet:= FB_LowpassFilter(INT_TO_REAL(GVL_IO.in_Temp_Funnel_Outlet) * 0.1); 
 
-GVL_ResearchData.f_RED_Status_Temperature_Funnel_plate:= FB_LowpassFilter(INT_TO_REAL(GVL_IO.in_Temp_CPump) * 0.1); // data use from pump temperature sensors for NOW 230712, termprate!!!!
+GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump:= FB_LowpassFilter(INT_TO_REAL(GVL_IO.in_Temp_CPump) * 0.1);
 
 //
 // Funnel Pressure [0 to 40 bar]
@@ -98,9 +98,6 @@ GVL_ResearchData.f_RED_Status_Pressure_Funnel_inlet:= F_Mapping_REAL(
 													f_InMax:= 32767, 
 													f_OutMin:= 0, 
 													f_OutMax:= 40);
-//
-// Pump Temperature
-GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump:=GVL_IO.in_Temp_CPump*0;// use for funnel plate temperature !!! 230712
 												
 // Pump Pressure [0 to 40 bar]
 GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump:= F_Mapping_REAL(
@@ -172,8 +169,6 @@ GVL_ResearchData.f_RED_Status_Concrete_Pump_Max_Flowrate_l_per_min:=GVL_Research
       <LineId Id="419" Count="1" />
       <LineId Id="426" Count="3" />
       <LineId Id="412" Count="0" />
-      <LineId Id="446" Count="1" />
-      <LineId Id="445" Count="0" />
       <LineId Id="437" Count="1" />
       <LineId Id="440" Count="4" />
       <LineId Id="439" Count="0" />

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="P_Set_Research_Data" Id="{773f30f1-b7d3-4c7e-b27f-8d66212207e7}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Set_Research_Data
 VAR
@@ -42,12 +42,13 @@ GVL_VAR.f_MI1_MaxSpeed:= 720; // [distance/s] ( equel to 120 rpm, by measurement
 
 //Superplasticizer Pump checking values (WT
 GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Flowrate:=GVL_ResearchData.n_RED_Superplasticizer_Pump_Max_Flowrate/2;             // [ml/min]
-GVL_ResearchData.n_RED_Superplasticizer_Pump_Max_Flowrate:=103;				// Calibration number 231012 , 468 ml/min based on dosing value 5.321 ml/rev
+GVL_ResearchData.n_RED_Superplasticizer_Pump_Max_Flowrate:=104;				// Calibration number 231012 , ?? ml/min based on dosing value ?? ml/rev TODO check 
 
 GVL_ResearchData.n_RED_Superplasticizer_Pump_Check_Duration:=T#60000MS;     // [ms]
 //GVL_ResearchData.f_RED_Superplasticizer_Pump_Density:=1.06;               // [g/cm^3] TODO use for calibration number
 
 GVL_ResearchData.n_RED_Superplasticizer_Pump_Flush_Flowrate:=GVL_ResearchData.f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min;	// [ml/min]
+
 //[32767 is equal 10v output and it means maximum setup speed from ViscoTec 3803 rpm]
 
 
@@ -57,18 +58,19 @@ GVL_ResearchData.n_RED_Superplasticizer_Pump_Flush_Flowrate:=GVL_ResearchData.f_
 //
 // Accelerator Pump checking values (WT
 GVL_ResearchData.n_RED_Acceleration_Pump_Check_Flowrate:=GVL_ResearchData.n_RED_Acceleration_Pump_Max_Flowrate/2;     		
-GVL_ResearchData.n_RED_Acceleration_Pump_Max_Flowrate:=468; 			// Calibration number 231012 , 468 ml/min based on dosing value 5.321 ml/rev 
+GVL_ResearchData.n_RED_Acceleration_Pump_Max_Flowrate:=468; 			// TODO check 
 
 GVL_ResearchData.n_RED_Acceleration_Pump_Check_Duration:=T#60000MS;   	// [ms]
 
 //GVL_ResearchData.f_RED_Acceleration_Pump_Density:=1.62;               // [kg/m^3] TODO use for calibration number
 
 GVL_ResearchData.n_RED_Acceleration_Pump_Flush_Flowrate:=GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min;	// [ml/min]
+
+
 //[32767 is equal 10v output and it means maximum setup speed from ViscoTec 3517 rpm]
 GVL_ResearchData.f_RED_Acceleration_Pump_Mass:= (GVL_ResearchData.n_RED_Acceleration_Pump_Check_Flowrate*
 												(TO_REAL(GVL_ResearchData.n_RED_Acceleration_Pump_Check_Duration)/TO_REAL(T#60000MS))*
 												GVL_ResearchData.f_RED_Acceleration_Pump_Density);
-
 
 
 //***********************************************************************************
@@ -105,6 +107,7 @@ GVL_ResearchData.f_RED_Concrete_Pump_Check_Mass:= (GVL_ResearchData.f_RED_Concre
       <LineId Id="223" Count="0" />
       <LineId Id="250" Count="0" />
       <LineId Id="237" Count="0" />
+      <LineId Id="346" Count="0" />
       <LineId Id="243" Count="0" />
       <LineId Id="281" Count="0" />
       <LineId Id="202" Count="0" />
@@ -119,10 +122,11 @@ GVL_ResearchData.f_RED_Concrete_Pump_Check_Mass:= (GVL_ResearchData.f_RED_Concre
       <LineId Id="213" Count="0" />
       <LineId Id="335" Count="0" />
       <LineId Id="2" Count="0" />
+      <LineId Id="350" Count="0" />
+      <LineId Id="349" Count="0" />
       <LineId Id="259" Count="0" />
       <LineId Id="329" Count="1" />
       <LineId Id="328" Count="0" />
-      <LineId Id="327" Count="0" />
       <LineId Id="283" Count="0" />
       <LineId Id="260" Count="0" />
       <LineId Id="279" Count="1" />

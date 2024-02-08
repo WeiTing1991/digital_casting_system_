@@ -98,9 +98,6 @@ GVL_ResearchData.f_RED_Status_Pressure_Funnel_inlet:= F_Mapping_REAL(
 													f_InMax:= 32767, 
 													f_OutMin:= 0, 
 													f_OutMax:= 40);
-//
-// Pump Temperature
-GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump:=GVL_IO.in_Temp_CPump*0;// use for funnel plate temperature !!! 230712
 												
 // Pump Pressure [0 to 40 bar]
 GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump:= F_Mapping_REAL(
@@ -172,8 +169,6 @@ GVL_ResearchData.f_RED_Status_Concrete_Pump_Max_Flowrate_l_per_min:=GVL_Research
       <LineId Id="419" Count="1" />
       <LineId Id="426" Count="3" />
       <LineId Id="412" Count="0" />
-      <LineId Id="446" Count="1" />
-      <LineId Id="445" Count="0" />
       <LineId Id="437" Count="1" />
       <LineId Id="440" Count="4" />
       <LineId Id="439" Count="0" />

@@ -65,7 +65,6 @@ GVL_IO.ob_SP1_Not_Empty:=TRUE;
 // Pulse mode is a preset amount,  not in use
 GVL_IO.ob_SP1_Pulse:=FALSE;
 
-
 //
 // Start pump
 IF		P_SP1_OnOff.n_step= 30 
@@ -82,6 +81,9 @@ END_IF
 
 //
 // Speeds for Superplastizier pump
+
+GVL_ResearchData.n_RED_Superplasticizer_Pump_dosing_factor:=1;
+
 IF GVL_ResearchData.b_RED_Superplasticizer_Pump_Flush_On AND P_SP1_OnOff.n_step= 30 THEN
 	//
 	// Process speed for flushing or filling the pipe
@@ -99,10 +101,11 @@ ELSE
 
 END_IF
 
+
 GVL_IO.on_SP1_Speed:=F_ScalAnalogOut(
 	n_Input:= REAL_TO_INT(n_temp_speed_SP1),
 	n_InMin:= 0, 
-	n_InMax:= REAL_TO_INT(GVL_ResearchData.f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min), 
+	n_InMax:= REAL_TO_INT(GVL_ResearchData.f_RED_Status_Superplasticizer_Pump_Max_Flowrate_ml_per_min*GVL_ResearchData.n_RED_Superplasticizer_Pump_dosing_factor), 
 	n_OutMin:= 0, 
 	n_OutMax:= 32767);
 
@@ -140,6 +143,8 @@ END_IF
 
 //
 // Speed for accelerator pump
+GVL_ResearchData.n_RED_Acceleration_Pump_dosing_factor := 1;
+
 IF GVL_ResearchData.b_RED_Acceleration_Pump_Flush_On AND P_AP1_OnOff.n_Step=30 THEN
 	//
 	// Process speed for flushing or filling the pipe
@@ -157,7 +162,7 @@ END_IF
 GVL_IO.on_AP1_Speed:=F_ScalAnalogOut(
 	n_Input:= REAL_TO_INT(n_temp_speed_AP1),
 	n_InMin:= 0, 
-	n_InMax:= REAL_TO_INT(GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min), 
+	n_InMax:= REAL_TO_INT(GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min*GVL_ResearchData.n_RED_Superplasticizer_Pump_dosing_factor), 
 	n_OutMin:= 0, 
 	n_OutMax:= 32767);
 
@@ -211,6 +216,7 @@ ELSE
 	n_temp_flowrate_CP1:=GVL_ResearchData.f_RED_Concrete_Pump_Flowrate*1000;
 END_IF
 
+//TODO 
 GVL_ResearchData.f_RED_Concrete_Pump_dosing_volume:= 0.32;
 
 // temporary remapping  
@@ -237,7 +243,15 @@ GVL_IO.on_CP1_Speed:=REAL_TO_INT(F_Mapping_REAL(
       <LineId Id="196" Count="0" />
       <LineId Id="182" Count="0" />
       <LineId Id="178" Count="3" />
-      <LineId Id="25" Count="129" />
+      <LineId Id="25" Count="12" />
+      <LineId Id="39" Count="16" />
+      <LineId Id="366" Count="0" />
+      <LineId Id="364" Count="1" />
+      <LineId Id="56" Count="15" />
+      <LineId Id="361" Count="0" />
+      <LineId Id="72" Count="41" />
+      <LineId Id="362" Count="1" />
+      <LineId Id="114" Count="40" />
       <LineId Id="288" Count="0" />
       <LineId Id="155" Count="10" />
       <LineId Id="223" Count="0" />
@@ -246,6 +260,7 @@ GVL_IO.on_CP1_Speed:=REAL_TO_INT(F_Mapping_REAL(
       <LineId Id="224" Count="0" />
       <LineId Id="207" Count="11" />
       <LineId Id="205" Count="0" />
+      <LineId Id="360" Count="0" />
       <LineId Id="340" Count="1" />
       <LineId Id="248" Count="0" />
       <LineId Id="227" Count="0" />
