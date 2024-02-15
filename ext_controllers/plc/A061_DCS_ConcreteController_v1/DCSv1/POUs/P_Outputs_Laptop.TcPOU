@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <POU Name="P_Outputs_Laptop" Id="{bcd714bb-3f40-4b88-8117-548c3a821447}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_Outputs_Laptop
 VAR
@@ -82,8 +82,6 @@ END_IF
 //
 // Speeds for Superplastizier pump
 
-GVL_ResearchData.n_RED_Superplasticizer_Pump_dosing_factor:=1;
-
 IF GVL_ResearchData.b_RED_Superplasticizer_Pump_Flush_On AND P_SP1_OnOff.n_step= 30 THEN
 	//
 	// Process speed for flushing or filling the pipe
@@ -143,7 +141,6 @@ END_IF
 
 //
 // Speed for accelerator pump
-GVL_ResearchData.n_RED_Acceleration_Pump_dosing_factor := 1;
 
 IF GVL_ResearchData.b_RED_Acceleration_Pump_Flush_On AND P_AP1_OnOff.n_Step=30 THEN
 	//
@@ -245,12 +242,12 @@ GVL_IO.on_CP1_Speed:=REAL_TO_INT(F_Mapping_REAL(
       <LineId Id="178" Count="3" />
       <LineId Id="25" Count="12" />
       <LineId Id="39" Count="16" />
-      <LineId Id="366" Count="0" />
-      <LineId Id="364" Count="1" />
+      <LineId Id="365" Count="0" />
       <LineId Id="56" Count="15" />
       <LineId Id="361" Count="0" />
-      <LineId Id="72" Count="41" />
-      <LineId Id="362" Count="1" />
+      <LineId Id="72" Count="40" />
+      <LineId Id="363" Count="0" />
+      <LineId Id="385" Count="0" />
       <LineId Id="114" Count="40" />
       <LineId Id="288" Count="0" />
       <LineId Id="155" Count="10" />

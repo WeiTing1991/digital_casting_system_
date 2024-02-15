@@ -21,11 +21,18 @@
     <Compile Include="ComTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DUTs\DUT_8BIT.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\GVLs\GVL.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\GVLs\GVL_IO.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVLs\GVL_PN.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
@@ -78,6 +85,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\P_CP1_Enable.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\P_Data_Convert.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\P_MI1_Curved_Speed.TcPOU">

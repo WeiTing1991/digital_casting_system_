@@ -1922,6 +1922,87 @@ External Setpoint Generation:
 				<Elements>4</Elements>
 			</ArrayInfo>
 		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000300000100}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..255] OF BYTE</Name>
+			<BitSize>2048</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>256</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-0003000000E2}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..225] OF BYTE</Name>
+			<BitSize>1808</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>226</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-0003000000C4}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..195] OF BYTE</Name>
+			<BitSize>1568</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>196</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-0003000000A6}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..165] OF BYTE</Name>
+			<BitSize>1328</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>166</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000300000088}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..135] OF BYTE</Name>
+			<BitSize>1088</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>136</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-00030000006A}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..105] OF BYTE</Name>
+			<BitSize>848</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>106</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-00030000004C}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..75] OF BYTE</Name>
+			<BitSize>608</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>76</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-00030000002E}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..45] OF BYTE</Name>
+			<BitSize>368</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>46</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000300000010}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..15] OF BYTE</Name>
+			<BitSize>128</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>16</Elements>
+			</ArrayInfo>
+		</DataType>
 	</DataTypes>
 	<ImageDatas>
 		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ff808080808080808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff0000c00000c0ffffffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
@@ -2249,7 +2330,7 @@ External Setpoint Generation:
 		</Motion>
 		<Plc>
 			<Project GUID="{C29FE267-D081-4438-A6F8-D544C2CCE89E}" Name="DCSv1" PrjFilePath="DCSv1\DCSv1.plcproj" TmcFilePath="DCSv1\DCSv1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="DCSv1\DCSv1.tmc" TmcHash="{F041EBD9-C64C-3FC0-7784-5AF91C21B5F4}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="DCSv1\DCSv1.tmc" TmcHash="{EA551420-6D6B-A547-DCAE-C75ABADFEA80}">
 					<Name>DCSv1 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -2429,6 +2510,14 @@ External Setpoint Generation:
 							<Name>GVL_IO.in_Pressure_Pump</Name>
 							<Type>INT</Type>
 						</Var>
+						<Var>
+							<Name>GVL_PN.DO_From_ROB</Name>
+							<Type>BYTE</Type>
+						</Var>
+						<Var>
+							<Name>GVL_PN.AO_From_ROB</Name>
+							<Type>WORD</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
@@ -2532,6 +2621,10 @@ External Setpoint Generation:
 							<Name>GVL_IO.on_SP1_Speed</Name>
 							<Type>INT</Type>
 						</Var>
+						<Var>
+							<Name>GVL_PN.AI_TO_ROB</Name>
+							<Type>WORD</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="1" ContextId="1" AreaNo="16">
 						<Name>ComTask Inputs</Name>
@@ -2604,6 +2697,10 @@ External Setpoint Generation:
 							<Name>GVL_IO.in_CP1_Tube_Temperature_Sensor</Name>
 							<Type>INT</Type>
 						</Var>
+						<Var>
+							<Name>GVL_PN.DO_From_ROB_2</Name>
+							<Type>BYTE</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2" ContextId="1" AreaNo="17">
 						<Name>ComTask Outputs</Name>
@@ -2663,6 +2760,14 @@ External Setpoint Generation:
 						<Var>
 							<Name>GVL.stOut_EL6001</Name>
 							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>GVL_PN.DI_TO_ROB</Name>
+							<Type>BYTE</Type>
+						</Var>
+						<Var>
+							<Name>GVL_PN.DI_TO_ROB_2</Name>
+							<Type>BYTE</Type>
 						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2021-01-27T08:08:38">
@@ -4409,15 +4514,89 @@ External Setpoint Generation:
 					<Box Id="15" BoxType="9107" BoxFlags="#x00000020">
 						<Name>Term 15 (EL6631-0010)</Name>
 						<ImageId>124</ImageId>
-						<EtherCAT SlaveType="5" AdsServerAddress="05399ea803100000" FixedAdsServerNetId="true" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x19e73052" RevisionNo="#x0012000a" InfoDataAddr="true" InfoDataNetId="true" TimeoutStateChange1="10000" TimeoutStateChange3="20000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6631-0010 PROFINET IO Device" Desc="EL6631-0010" PortABoxInfo="#x01000008">
+						<EtherCAT SlaveType="5" AdsServerAddress="05399ea802010000" FixedAdsServerNetId="true" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x19e73052" RevisionNo="#x0012000a" InfoDataAddr="true" InfoDataNetId="true" OwnAddrExtern="true" TimeoutStateChange1="10000" TimeoutStateChange3="20000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6631-0010 PROFINET IO Device" Desc="EL6631-0010" PortABoxInfo="#x01000008">
 							<SyncMan>001000042600010001000000400000040004001026010000</SyncMan>
 							<SyncMan>001400042200010002000000400000040004001422010000</SyncMan>
-							<SyncMan>001800006400000003000000000000000000001864010000</SyncMan>
-							<SyncMan>002400002000000004000000000000000000002420010000</SyncMan>
-							<Fmmu>0000000000000000000000020000000001000000000000000000000000000000</Fmmu>
-							<Fmmu>0000000000000000000000010000000002000000000000000000000000000000</Fmmu>
+							<SyncMan>001804016400010003000000000000000000001864010000</SyncMan>
+							<SyncMan>002404012000010004000000000000000000002420010000</SyncMan>
+							<Fmmu>0000000000000000001800020100000001000000000000000000000000000000</Fmmu>
+							<Fmmu>0000000000000000002400010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010000400140004</BootStrapData>
+							<Pdo Name="robotbasicio_Inputs" Index="#x1a00" Flags="#x0001" SyncMan="3">
+								<Entry Name="robotbasicio_PnIoBoxState" Index="#x6000" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+								<Entry Name="robotbasicio_SubmoduleData_1" Index="#x6001" Sub="#x01" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-000300000100}">ARRAY [0..255] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 002" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-0003000000E2}">ARRAY [0..225] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 003" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-0003000000C4}">ARRAY [0..195] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 004" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-0003000000A6}">ARRAY [0..165] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 005" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-000300000088}">ARRAY [0..135] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 006" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-00030000006A}">ARRAY [0..105] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 007" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-00030000004C}">ARRAY [0..75] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 008" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-00030000002E}">ARRAY [0..45] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 009" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-000300000010}">ARRAY [0..15] OF BYTE</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="robotbasicio_Outputs" Index="#x1600" InOut="1" Flags="#x0001" SyncMan="2">
+								<Entry Name="robotbasicio_PnIoBoxCtrl" Index="#x7000" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+								<Entry Name="robotbasicio_SubmoduleData_1" Index="#x7001" Sub="#x01" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-000300000100}">ARRAY [0..255] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 002" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-0003000000E2}">ARRAY [0..225] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 003" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-0003000000C4}">ARRAY [0..195] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 004" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-0003000000A6}">ARRAY [0..165] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 005" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-000300000088}">ARRAY [0..135] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 006" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-00030000006A}">ARRAY [0..105] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 007" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-00030000004C}">ARRAY [0..75] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 008" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-00030000002E}">ARRAY [0..45] OF BYTE</Type>
+								</Entry>
+								<Entry Name="SubIndex 009" Flags="#x00000100">
+									<Type GUID="{18071995-0000-0000-0000-000300000010}">ARRAY [0..15] OF BYTE</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="ECatState" Index="#x1bff" Flags="#x0001" SyncMan="3">
+								<Entry Name="Device_1_ECatState" Index="#xf101" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
+							<Pdo Name="ECatCtrl" Index="#x17ff" InOut="1" Flags="#x0001" SyncMan="2">
+								<Entry Name="Device_1_ECatCtrl" Index="#xf201" Sub="#x01" Flags="#x00000100">
+									<Type>UINT</Type>
+								</Entry>
+							</Pdo>
 							<CoeProfile ProfileNo="5001"/>
 						</EtherCAT>
 					</Box>
@@ -6944,10 +7123,3228 @@ External Setpoint Generation:
 				</Box>
 				<EtherCAT DcSyncMode="3"/>
 			</Device>
+			<Device Id="1" DevType="118" AmsPort="28673" AmsNetId="5.57.158.168.2.1" RemoteName="Device 1 (EL6631-0010)">
+				<Name>Device 1 (EL6631-0010)</Name>
+				<DevData>000000000f00000000000000a08601005465726d2031352028454c363633312d3030313029000000000000000000000000000000000000000000000000000000000000000000010000000000000000000001057adaff040000000000000000000000000000000000000000000000000000000000000000000000000000000000</DevData>
+				<Image Id="7" AddrType="4" ImageType="3" SizeIn="260" SizeOut="260">
+					<Name>Image</Name>
+				</Image>
+				<Box Id="18" BoxType="9131">
+					<Name>robotbasicio</Name>
+					<Comment><![CDATA[GSDML Name: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Path: D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_dev\GSDML\
+VendorName: ABB Robotics
+OrderNumber: 888-3
+HW Release Version: 1
+SW Release Version: V1.4]]></Comment>
+					<ImageId>121</ImageId>
+					<Vars VarGrpType="1">
+						<Name>Inputs</Name>
+						<Var>
+							<Name>PnIoBoxState</Name>
+							<Comment><![CDATA[0x0001 = Device is in I/O exchange
+0x0002 = Device is blinking
+0x0004 = Provider State -> 0 = Stop, 1 = Run
+0x0008 = Problem Indicator -> 0 = OK, 1 = Error
+]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>Outputs</Name>
+						<Var>
+							<Name>PnIoBoxCtrl</Name>
+							<Comment><![CDATA[0x00XX = Last two hex characters of station name
+]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+					</Vars>
+					<Profinet DeviceId="1" VendorId="944" FrameOffset="32768" ProtocolType="4" BoxOnDeviceTyp="118" MaxPhysSlotNr="4" InstanceServerPort="50000" InstanceClientPort="50001" InstanceId="1" InstanceNumberOfARs="5" InstanceNumberOfAPIs="1" MinDeviceInterval="256" NrOfGsdmlDap="1" SavePnIoBoxValues="0100" BoxTypeInfo="The robot controller's internal PROFINET IO device." MacAdd5="255" PDOmapping="1" GSDMLPath="D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_dev\GSDML\GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml" ImagePath="D:\99_Github\02_USI\digital_casting_system\ext_controllers\plc\A061_DCS_ConcreteController_dev\GSDML\.bmp" MainFamily="I/O" ProductFamily="Robot Device" OrderNr="888-3" DefaultDNSName="RobotBasicIO" VendorName="ABB Robotics" FamDescription="The robot controller's internal PROFINET IO device." SWVersion="V1.4" HWVersion="1" AltLanguage="7">
+						<UsedGsdmlModule ModuleIdentNumber="769" ModuleName="DAP Module" InfoText="The robot controller's internal PROFINET IO device." OrderNumber="888-3">
+							<Slot>0</Slot>
+						</UsedGsdmlModule>
+						<UsedGsdmlModule ModuleIdentNumber="11" Id="11" ModuleName="DI 256 bytes" InfoText="DI 256 bytes">
+							<Slot>1</Slot>
+						</UsedGsdmlModule>
+						<UsedGsdmlModule ModuleIdentNumber="12" Id="12" ModuleName="DO 256 bytes" InfoText="DO 256 bytes">
+							<Slot>2</Slot>
+						</UsedGsdmlModule>
+						<UsedGsdmlSubModule SubModuleIdentNumber="1" SubSlotNumber="1" TypeOfSubmodule="3" Id="DIM IO" SubModuleName="Robot Basic Device" InfoText="The robot controller's internal PROFINET IO device." OrderNumber="888-3"/>
+						<UsedGsdmlSubModule SubModuleIdentNumber="1" SubSlotNumber="1" TypeOfSubmodule="3" Id="11" SubModuleName="DI 256 bytes" InfoText="DI 256 bytes">
+							<DataItemOut Name="Input 0" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 1" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 2" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 3" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 4" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 5" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 6" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 7" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 8" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 9" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 10" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 11" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 12" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 13" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 14" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 15" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 16" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 17" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 18" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 19" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 20" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 21" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 22" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 23" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 24" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 25" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 26" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 27" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 28" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 29" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 30" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 31" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 32" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 33" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 34" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 35" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 36" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 37" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 38" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 39" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 40" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 41" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 42" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 43" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 44" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 45" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 46" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 47" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 48" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 49" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 50" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 51" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 52" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 53" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 54" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 55" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 56" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 57" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 58" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 59" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 60" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 61" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 62" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 63" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 64" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 65" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 66" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 67" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 68" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 69" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 70" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 71" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 72" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 73" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 74" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 75" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 76" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 77" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 78" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 79" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 80" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 81" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 82" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 83" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 84" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 85" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 86" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 87" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 88" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 89" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 90" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 91" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 92" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 93" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 94" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 95" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 96" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 97" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 98" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 99" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 100" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 101" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 102" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 103" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 104" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 105" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 106" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 107" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 108" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 109" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 110" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 111" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 112" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 113" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 114" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 115" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 116" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 117" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 118" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 119" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 120" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 121" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 122" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 123" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 124" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 125" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 126" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 127" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 128" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 129" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 130" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 131" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 132" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 133" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 134" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 135" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 136" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 137" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 138" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 139" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 140" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 141" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 142" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 143" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 144" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 145" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 146" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 147" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 148" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 149" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 150" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 151" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 152" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 153" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 154" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 155" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 156" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 157" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 158" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 159" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 160" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 161" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 162" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 163" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 164" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 165" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 166" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 167" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 168" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 169" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 170" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 171" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 172" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 173" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 174" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 175" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 176" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 177" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 178" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 179" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 180" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 181" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 182" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 183" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 184" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 185" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 186" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 187" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 188" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 189" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 190" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 191" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 192" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 193" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 194" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 195" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 196" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 197" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 198" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 199" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 200" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 201" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 202" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 203" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 204" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 205" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 206" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 207" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 208" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 209" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 210" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 211" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 212" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 213" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 214" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 215" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 216" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 217" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 218" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 219" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 220" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 221" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 222" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 223" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 224" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 225" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 226" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 227" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 228" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 229" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 230" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 231" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 232" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 233" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 234" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 235" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 236" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 237" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 238" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 239" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 240" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 241" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 242" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 243" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 244" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 245" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 246" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 247" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 248" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 249" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 250" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 251" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 252" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 253" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 254" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemOut Name="Input 255" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+						</UsedGsdmlSubModule>
+						<UsedGsdmlSubModule SubModuleIdentNumber="1" SubSlotNumber="1" TypeOfSubmodule="3" Id="12" SubModuleName="DO 256 bytes" InfoText="DO 256 bytes">
+							<DataItemIn Name="Output 0" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 1" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 2" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 3" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 4" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 5" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 6" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 7" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 8" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 9" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 10" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 11" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 12" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 13" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 14" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 15" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 16" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 17" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 18" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 19" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 20" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 21" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 22" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 23" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 24" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 25" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 26" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 27" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 28" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 29" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 30" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 31" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 32" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 33" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 34" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 35" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 36" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 37" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 38" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 39" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 40" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 41" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 42" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 43" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 44" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 45" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 46" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 47" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 48" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 49" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 50" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 51" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 52" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 53" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 54" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 55" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 56" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 57" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 58" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 59" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 60" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 61" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 62" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 63" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 64" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 65" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 66" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 67" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 68" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 69" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 70" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 71" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 72" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 73" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 74" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 75" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 76" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 77" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 78" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 79" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 80" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 81" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 82" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 83" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 84" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 85" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 86" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 87" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 88" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 89" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 90" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 91" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 92" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 93" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 94" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 95" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 96" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 97" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 98" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 99" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 100" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 101" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 102" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 103" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 104" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 105" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 106" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 107" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 108" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 109" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 110" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 111" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 112" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 113" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 114" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 115" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 116" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 117" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 118" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 119" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 120" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 121" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 122" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 123" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 124" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 125" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 126" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 127" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 128" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 129" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 130" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 131" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 132" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 133" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 134" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 135" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 136" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 137" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 138" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 139" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 140" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 141" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 142" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 143" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 144" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 145" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 146" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 147" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 148" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 149" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 150" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 151" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 152" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 153" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 154" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 155" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 156" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 157" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 158" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 159" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 160" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 161" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 162" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 163" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 164" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 165" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 166" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 167" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 168" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 169" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 170" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 171" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 172" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 173" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 174" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 175" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 176" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 177" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 178" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 179" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 180" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 181" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 182" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 183" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 184" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 185" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 186" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 187" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 188" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 189" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 190" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 191" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 192" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 193" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 194" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 195" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 196" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 197" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 198" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 199" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 200" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 201" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 202" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 203" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 204" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 205" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 206" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 207" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 208" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 209" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 210" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 211" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 212" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 213" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 214" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 215" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 216" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 217" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 218" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 219" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 220" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 221" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 222" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 223" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 224" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 225" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 226" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 227" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 228" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 229" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 230" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 231" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 232" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 233" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 234" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 235" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 236" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 237" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 238" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 239" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 240" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 241" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 242" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 243" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 244" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 245" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 246" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 247" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 248" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 249" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 250" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 251" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 252" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 253" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 254" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+							<DataItemIn Name="Output 255" VarSize="8" VarType="{18071995-0000-0000-0000-000000000032}"/>
+						</UsedGsdmlSubModule>
+						<API Id="1">
+							<Name>API</Name>
+							<ImageId>4</ImageId>
+							<Module Id="#x031d0001" DAP="true" ModuleIdentNumber="769" ModuleInfo="The robot controller's internal PROFINET IO device.">
+								<Name>Term 1 (DAP Module)</Name>
+								<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Module Info: The robot controller's internal PROFINET IO device.
+OrderNumber: 888-3]]></Comment>
+								<ImageId>182</ImageId>
+								<SubModule Id="#x031c0001" SubModuleIdentNumber="1" TypeOfSubModule="3" SubSlotNumber="1" IsFixSubmodule="true" SubModuleID="DIM IO" AddSubModFlags="28">
+									<Name>Subterm 1 (Robot Basic Device)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Submodule Info: The robot controller's internal PROFINET IO device.
+OrderNumber: 888-3]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0002" SubModuleIdentNumber="32768" TypeOfSubModule="1" SubSlotNumber="32768" IsFixSubmodule="true" SubModuleID="IDS1_1I" InterfaceData="0100000000000000000000000000000000000000000098000300000000000000">
+									<Name>Subterm 2 (Interface)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0003" SubModuleIdentNumber="32769" TypeOfSubModule="2" SubSlotNumber="32769" IsFixSubmodule="true" SubModuleID="IDS1_1P" PortData="00000000000000000000000000000000000000000000000000000000">
+									<Name>Subterm 3 (Network Port)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+							</Module>
+							<Module Id="#x031d0002" ModuleIdentNumber="11" SlotNumber="1" ModuleInfo="DI 256 bytes" ModuleID="11" DirectDeletable="true">
+								<Name>Term 2 (DI 256 bytes)</Name>
+								<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Module Info: DI 256 bytes
+]]></Comment>
+								<ImageId>182</ImageId>
+								<SubModule Id="#x031c0004" SubModuleIdentNumber="1" TypeOfSubModule="3" SubSlotNumber="1" IsFixSubmodule="true" SubModuleID="11">
+									<Name>Subterm 4 (DI 256 bytes)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Submodule Info: DI 256 bytes
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+										<Var>
+											<Name>Input 0</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>16</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 1</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>24</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 2</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>32</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 3</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>40</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 4</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>48</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 5</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>56</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 6</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>64</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 7</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>72</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 8</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>80</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 9</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>88</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 10</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>96</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 11</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>104</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 12</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>112</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 13</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>120</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 14</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>128</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 15</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>136</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 16</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>144</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 17</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>152</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 18</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>160</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 19</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>168</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 20</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>176</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 21</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>184</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 22</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>192</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 23</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>200</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 24</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>208</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 25</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>216</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 26</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>224</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 27</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>232</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 28</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>240</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 29</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>248</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 30</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>256</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 31</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>264</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 32</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>272</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 33</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>280</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 34</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>288</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 35</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>296</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 36</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>304</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 37</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>312</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 38</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>320</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 39</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>328</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 40</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>336</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 41</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>344</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 42</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>352</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 43</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>360</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 44</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>368</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 45</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>376</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 46</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>384</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 47</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>392</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 48</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>400</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 49</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>408</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 50</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>416</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 51</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>424</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 52</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>432</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 53</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>440</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 54</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>448</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 55</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>456</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 56</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>464</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 57</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>472</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 58</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>480</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 59</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>488</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 60</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>496</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 61</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>504</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 62</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>512</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 63</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>520</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 64</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>528</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 65</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>536</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 66</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>544</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 67</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>552</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 68</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>560</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 69</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>568</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 70</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>576</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 71</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>584</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 72</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>592</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 73</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>600</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 74</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>608</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 75</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>616</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 76</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>624</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 77</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>632</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 78</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>640</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 79</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>648</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 80</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>656</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 81</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>664</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 82</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>672</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 83</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>680</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 84</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>688</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 85</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>696</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 86</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>704</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 87</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>712</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 88</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>720</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 89</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>728</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 90</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>736</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 91</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>744</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 92</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>752</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 93</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>760</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 94</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>768</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 95</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>776</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 96</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>784</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 97</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>792</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 98</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>800</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 99</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>808</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 100</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>816</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 101</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>824</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 102</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>832</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 103</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>840</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 104</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>848</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 105</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>856</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 106</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>864</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 107</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>872</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 108</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>880</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 109</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>888</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 110</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>896</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 111</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>904</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 112</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>912</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 113</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>920</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 114</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>928</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 115</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>936</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 116</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>944</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 117</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>952</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 118</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>960</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 119</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>968</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 120</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>976</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 121</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>984</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 122</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>992</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 123</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1000</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 124</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1008</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 125</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1016</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 126</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1024</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 127</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1032</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 128</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1040</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 129</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1048</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 130</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1056</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 131</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1064</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 132</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1072</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 133</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1080</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 134</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1088</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 135</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1096</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 136</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1104</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 137</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1112</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 138</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1120</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 139</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1128</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 140</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1136</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 141</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1144</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 142</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1152</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 143</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1160</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 144</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1168</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 145</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1176</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 146</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1184</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 147</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1192</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 148</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1200</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 149</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1208</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 150</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1216</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 151</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1224</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 152</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1232</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 153</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1240</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 154</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1248</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 155</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1256</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 156</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1264</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 157</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1272</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 158</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1280</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 159</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1288</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 160</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1296</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 161</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1304</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 162</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1312</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 163</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1320</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 164</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1328</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 165</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1336</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 166</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1344</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 167</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1352</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 168</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1360</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 169</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1368</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 170</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1376</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 171</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1384</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 172</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1392</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 173</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1400</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 174</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1408</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 175</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1416</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 176</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1424</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 177</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1432</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 178</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1440</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 179</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1448</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 180</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1456</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 181</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1464</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 182</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1472</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 183</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1480</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 184</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1488</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 185</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1496</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 186</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1504</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 187</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1512</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 188</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1520</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 189</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1528</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 190</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1536</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 191</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1544</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 192</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1552</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 193</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1560</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 194</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1568</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 195</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1576</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 196</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1584</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 197</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1592</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 198</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1600</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 199</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1608</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 200</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1616</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 201</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1624</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 202</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1632</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 203</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1640</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 204</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1648</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 205</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1656</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 206</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1664</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 207</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1672</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 208</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1680</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 209</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1688</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 210</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1696</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 211</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1704</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 212</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1712</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 213</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1720</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 214</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1728</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 215</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1736</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 216</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1744</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 217</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1752</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 218</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1760</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 219</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1768</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 220</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1776</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 221</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1784</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 222</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1792</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 223</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1800</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 224</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1808</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 225</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1816</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 226</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1824</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 227</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1832</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 228</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1840</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 229</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1848</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 230</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1856</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 231</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1864</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 232</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1872</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 233</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1880</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 234</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1888</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 235</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1896</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 236</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1904</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 237</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1912</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 238</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1920</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 239</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1928</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 240</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1936</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 241</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1944</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 242</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1952</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 243</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1960</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 244</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1968</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 245</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1976</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 246</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1984</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 247</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1992</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 248</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2000</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 249</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2008</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 250</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2016</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 251</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2024</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 252</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2032</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 253</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2040</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 254</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2048</BitOffs>
+										</Var>
+										<Var>
+											<Name>Input 255</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2056</BitOffs>
+										</Var>
+									</Vars>
+								</SubModule>
+							</Module>
+							<Module Id="#x031d0003" ModuleIdentNumber="12" SlotNumber="2" ModuleInfo="DO 256 bytes" ModuleID="12" DirectDeletable="true">
+								<Name>Term 3 (DO 256 bytes)</Name>
+								<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Module Info: DO 256 bytes
+]]></Comment>
+								<ImageId>182</ImageId>
+								<SubModule Id="#x031c0005" SubModuleIdentNumber="1" TypeOfSubModule="3" SubSlotNumber="1" IsFixSubmodule="true" SubModuleID="12">
+									<Name>Subterm 5 (DO 256 bytes)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-ABB-Robotics-Robot-Device-20180814.xml
+Submodule Info: DO 256 bytes
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+										<Var>
+											<Name>Output 0</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>16</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 1</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>24</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 2</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>32</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 3</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>40</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 4</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>48</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 5</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>56</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 6</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>64</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 7</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>72</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 8</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>80</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 9</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>88</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 10</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>96</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 11</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>104</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 12</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>112</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 13</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>120</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 14</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>128</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 15</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>136</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 16</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>144</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 17</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>152</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 18</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>160</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 19</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>168</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 20</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>176</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 21</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>184</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 22</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>192</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 23</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>200</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 24</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>208</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 25</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>216</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 26</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>224</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 27</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>232</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 28</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>240</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 29</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>248</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 30</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>256</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 31</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>264</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 32</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>272</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 33</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>280</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 34</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>288</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 35</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>296</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 36</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>304</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 37</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>312</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 38</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>320</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 39</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>328</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 40</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>336</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 41</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>344</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 42</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>352</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 43</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>360</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 44</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>368</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 45</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>376</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 46</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>384</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 47</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>392</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 48</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>400</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 49</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>408</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 50</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>416</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 51</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>424</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 52</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>432</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 53</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>440</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 54</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>448</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 55</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>456</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 56</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>464</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 57</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>472</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 58</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>480</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 59</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>488</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 60</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>496</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 61</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>504</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 62</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>512</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 63</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>520</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 64</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>528</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 65</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>536</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 66</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>544</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 67</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>552</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 68</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>560</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 69</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>568</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 70</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>576</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 71</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>584</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 72</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>592</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 73</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>600</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 74</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>608</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 75</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>616</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 76</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>624</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 77</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>632</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 78</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>640</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 79</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>648</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 80</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>656</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 81</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>664</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 82</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>672</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 83</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>680</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 84</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>688</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 85</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>696</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 86</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>704</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 87</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>712</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 88</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>720</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 89</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>728</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 90</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>736</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 91</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>744</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 92</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>752</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 93</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>760</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 94</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>768</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 95</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>776</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 96</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>784</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 97</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>792</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 98</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>800</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 99</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>808</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 100</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>816</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 101</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>824</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 102</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>832</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 103</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>840</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 104</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>848</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 105</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>856</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 106</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>864</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 107</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>872</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 108</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>880</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 109</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>888</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 110</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>896</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 111</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>904</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 112</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>912</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 113</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>920</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 114</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>928</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 115</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>936</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 116</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>944</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 117</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>952</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 118</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>960</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 119</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>968</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 120</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>976</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 121</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>984</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 122</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>992</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 123</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1000</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 124</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1008</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 125</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1016</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 126</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1024</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 127</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1032</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 128</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1040</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 129</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1048</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 130</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1056</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 131</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1064</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 132</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1072</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 133</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1080</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 134</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1088</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 135</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1096</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 136</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1104</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 137</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1112</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 138</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1120</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 139</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1128</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 140</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1136</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 141</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1144</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 142</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1152</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 143</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1160</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 144</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1168</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 145</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1176</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 146</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1184</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 147</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1192</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 148</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1200</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 149</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1208</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 150</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1216</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 151</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1224</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 152</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1232</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 153</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1240</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 154</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1248</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 155</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1256</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 156</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1264</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 157</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1272</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 158</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1280</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 159</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1288</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 160</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1296</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 161</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1304</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 162</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1312</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 163</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1320</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 164</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1328</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 165</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1336</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 166</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1344</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 167</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1352</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 168</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1360</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 169</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1368</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 170</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1376</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 171</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1384</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 172</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1392</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 173</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1400</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 174</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1408</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 175</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1416</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 176</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1424</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 177</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1432</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 178</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1440</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 179</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1448</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 180</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1456</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 181</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1464</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 182</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1472</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 183</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1480</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 184</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1488</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 185</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1496</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 186</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1504</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 187</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1512</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 188</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1520</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 189</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1528</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 190</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1536</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 191</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1544</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 192</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1552</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 193</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1560</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 194</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1568</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 195</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1576</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 196</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1584</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 197</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1592</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 198</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1600</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 199</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1608</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 200</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1616</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 201</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1624</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 202</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1632</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 203</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1640</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 204</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1648</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 205</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1656</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 206</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1664</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 207</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1672</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 208</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1680</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 209</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1688</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 210</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1696</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 211</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1704</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 212</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1712</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 213</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1720</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 214</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1728</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 215</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1736</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 216</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1744</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 217</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1752</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 218</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1760</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 219</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1768</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 220</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1776</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 221</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1784</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 222</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1792</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 223</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1800</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 224</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1808</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 225</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1816</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 226</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1824</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 227</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1832</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 228</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1840</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 229</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1848</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 230</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1856</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 231</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1864</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 232</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1872</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 233</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1880</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 234</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1888</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 235</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1896</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 236</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1904</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 237</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1912</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 238</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1920</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 239</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1928</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 240</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1936</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 241</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1944</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 242</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1952</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 243</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1960</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 244</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1968</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 245</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1976</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 246</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1984</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 247</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>1992</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 248</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2000</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 249</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2008</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 250</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2016</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 251</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2024</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 252</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2032</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 253</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2040</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 254</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2048</BitOffs>
+										</Var>
+										<Var>
+											<Name>Output 255</Name>
+											<Type>BITARR8</Type>
+											<BitOffs>2056</BitOffs>
+										</Var>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+							</Module>
+						</API>
+					</Profinet>
+				</Box>
+				<Profinet PLCPortNr="851" AddPortCount="1">
+					<Ethernet DeviceDesc="EL6631-0010 PROFINET IO Device"/>
+				</Profinet>
+			</Device>
 		</Io>
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500840000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500870000403}" Id="#x02030070"/>
 		<MappingInfo Identifier="{00000000-2002-0850-0120-500861000403}" Id="#x02030020"/>
 		<MappingInfo Identifier="{00000000-0020-0304-3000-040321000403}" Id="#x02030060"/>
 		<MappingInfo Identifier="{00000000-0050-0304-3000-040350000403}" Id="#x02030050"/>
@@ -6986,6 +10383,13 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="TIPC^DCSv1^DCSv1 Instance">
+			<OwnerB Name="TIID^Device 1 (EL6631-0010)^robotbasicio">
+				<Link VarA="PlcTask Inputs^GVL_PN.AO_From_ROB" VarB="API^Term 3 (DO 256 bytes)^Subterm 5 (DO 256 bytes)^Inputs^Output 1"/>
+				<Link VarA="PlcTask Inputs^GVL_PN.AO_From_ROB" VarB="API^Term 3 (DO 256 bytes)^Subterm 5 (DO 256 bytes)^Inputs^Output 2" Size="8" OffsA="8"/>
+				<Link VarA="PlcTask Inputs^GVL_PN.DO_From_ROB" VarB="API^Term 3 (DO 256 bytes)^Subterm 5 (DO 256 bytes)^Inputs^Output 0"/>
+				<Link VarA="PlcTask Outputs^GVL_PN.AI_TO_ROB" VarB="API^Term 2 (DI 256 bytes)^Subterm 4 (DI 256 bytes)^Outputs^Input 1"/>
+				<Link VarA="PlcTask Outputs^GVL_PN.AI_TO_ROB" VarB="API^Term 2 (DI 256 bytes)^Subterm 4 (DI 256 bytes)^Outputs^Input 2" Size="8" OffsA="8"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 10 (EL1008) new">
 				<Link VarA="PlcTask Inputs^GVL_IO.ib_SP1_No_Error" VarB="Channel 2^Input"/>
 				<Link VarA="PlcTask Inputs^GVL_IO.ib_SP1_Ready" VarB="Channel 1^Input"/>

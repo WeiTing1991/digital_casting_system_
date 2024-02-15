@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IPPNIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Version>
+    <IOSS Version="20.4.9280.0"></IOSS>
+  </Version>
+  <ARs>
+    <AR BlVers="256" ARTyp="IO_AR_SINGLE" ARUID="1" MulWrt="true" PRL="NO">
+      <ARUUID d1="3291334170" d2="54028" d3="17650" d4="128" d5="210" d6="3" d7="9" d8="68" d9="14" d10="170" d11="213"></ARUUID>
+      <ARProp State="PRIMARY" SVTO="NOT_ALLOWED" PSrv="CM_INITIATOR" DRate="DR_AT_LEAST_100_MBIT" CRTr="SRT_TRANSPORT" CfgDiff="NOT_ALLOWED" LogConStat="YES" IgnFS="NO" Safety="NO" StartAR="YES" AdvStUpMd=""></ARProp>
+      <CRs CRCnt="2">
+        <CRPara BlVers="256" CRID="1" RTCls="RT_CLASS1_RTC" MdRedn="false" CRTyp="INPUT_CR" DatLn="70" FrID="49152" SndClc="32" RedRat="8" Phs="8" Seq="0" FrOffst="BEST_EFFORT" WtchD="24" DatHld="24">
+          <CRHdr VLID="NO_VLANID" CRPrio="IOCR_PRIORITY"></CRHdr>
+          <MCAddr d1="0" d2="0" d3="0" d4="0" d5="0" d6="0"></MCAddr>
+          <RelAPICRs APICnt="1">
+            <APICR API="0">
+              <RelDatas RelDatCnt="5">
+                <RelDat SlNr="0" SSlNr="1"></RelDat>
+                <RelDat SlNr="0" SSlNr="32768"></RelDat>
+                <RelDat SlNr="0" SSlNr="32769"></RelDat>
+                <RelDat SlNr="0" SSlNr="32770"></RelDat>
+                <RelDat SlNr="1" SSlNr="1"></RelDat>
+              </RelDatas>
+              <RelIOCSs RelIOCSCnt="1">
+                <RelIOCS SlNr="2" SSlNr="1"></RelIOCS>
+              </RelIOCSs>
+            </APICR>
+          </RelAPICRs>
+        </CRPara>
+        <CRPara BlVers="256" CRID="1" RTCls="RT_CLASS1_RTC" MdRedn="false" CRTyp="OUTPUT_CR" DatLn="70" FrID="65535" SndClc="32" RedRat="8" Phs="8" Seq="0" FrOffst="BEST_EFFORT" WtchD="24" DatHld="24">
+          <CRHdr VLID="NO_VLANID" CRPrio="IOCR_PRIORITY"></CRHdr>
+          <MCAddr d1="0" d2="0" d3="0" d4="0" d5="0" d6="0"></MCAddr>
+          <RelAPICRs APICnt="1">
+            <APICR API="0">
+              <RelDatas RelDatCnt="1">
+                <RelDat SlNr="2" SSlNr="1"></RelDat>
+              </RelDatas>
+              <RelIOCSs RelIOCSCnt="5">
+                <RelIOCS SlNr="0" SSlNr="1"></RelIOCS>
+                <RelIOCS SlNr="0" SSlNr="32768"></RelIOCS>
+                <RelIOCS SlNr="0" SSlNr="32769"></RelIOCS>
+                <RelIOCS SlNr="0" SSlNr="32770"></RelIOCS>
+                <RelIOCS SlNr="1" SSlNr="1"></RelIOCS>
+              </RelIOCSs>
+            </APICR>
+          </RelAPICRs>
+        </CRPara>
+      </CRs>
+      <ModParas ModParCnt="3">
+        <ModPara SlNr="0" ModuleTargetID=""></ModPara>
+        <ModPara SlNr="1" ModuleTargetID=""></ModPara>
+        <ModPara SlNr="2" ModuleTargetID=""></ModPara>
+      </ModParas>
+      <SMParas SMCnt="3">
+        <SMPara>
+          <RelAPISMs BlVers="256" RelAPICnt="1">
+            <APISM API="0" SlNr="0" ModID="7" ModProp="0">
+              <SMs SMCnt="4">
+                <SMDes SSlNr="32768" SMID="32768" NdID="1" SubmoduleItemTarget="">
+                  <SMProp Shar="INVALID" SMTyp="NO_IO"></SMProp>
+                  <SMElDess ElCnt="2">
+                    <SMElDes Intpret="IOPS" Descr="DATA_INPUT" Len="1" Offst="66"></SMElDes>
+                    <SMElDes Intpret="IOCS" Descr="DATA_OUTPUT" Len="1" Offst="0"></SMElDes>
+                  </SMElDess>
+                </SMDes>
+                <SMDes SSlNr="32769" SMID="32769" NdID="2" SubmoduleItemTarget="">
+                  <SMProp Shar="INVALID" SMTyp="NO_IO"></SMProp>
+                  <SMElDess ElCnt="2">
+                    <SMElDes Intpret="IOPS" Descr="DATA_INPUT" Len="1" Offst="67"></SMElDes>
+                    <SMElDes Intpret="IOCS" Descr="DATA_OUTPUT" Len="1" Offst="1"></SMElDes>
+                  </SMElDess>
+                </SMDes>
+                <SMDes SSlNr="32770" SMID="32770" NdID="3" SubmoduleItemTarget="">
+                  <SMProp Shar="INVALID" SMTyp="NO_IO"></SMProp>
+                  <SMElDess ElCnt="2">
+                    <SMElDes Intpret="IOPS" Descr="DATA_INPUT" Len="1" Offst="68"></SMElDes>
+                    <SMElDes Intpret="IOCS" Descr="DATA_OUTPUT" Len="1" Offst="2"></SMElDes>
+                  </SMElDess>
+                </SMDes>
+                <SMDes SSlNr="1" SMID="1" NdID="4" SubmoduleItemTarget="">
+                  <SMProp Shar="INVALID" SMTyp="NO_IO"></SMProp>
+                  <SMElDess ElCnt="2">
+                    <SMElDes Intpret="IOPS" Descr="DATA_INPUT" Len="1" Offst="69"></SMElDes>
+                    <SMElDes Intpret="IOCS" Descr="DATA_OUTPUT" Len="1" Offst="3"></SMElDes>
+                  </SMElDess>
+                </SMDes>
+              </SMs>
+            </APISM>
+          </RelAPISMs>
+        </SMPara>
+        <SMPara>
+          <RelAPISMs BlVers="256" RelAPICnt="1">
+            <APISM API="0" SlNr="1" ModID="1804" ModProp="0">
+              <SMs SMCnt="1">
+                <SMDes SSlNr="1" SMID="1" NdID="5" SubmoduleItemTarget="">
+                  <SMProp Shar="NO_SHARED_INPUT" SMTyp="INPUT"></SMProp>
+                  <SMElDess ElCnt="3">
+                    <SMElDes Intpret="DATA" Descr="DATA_INPUT" Len="64" Offst="1"></SMElDes>
+                    <SMElDes Intpret="IOPS" Descr="DATA_INPUT" Len="1" Offst="65"></SMElDes>
+                    <SMElDes Intpret="IOCS" Descr="DATA_OUTPUT" Len="1" Offst="4"></SMElDes>
+                  </SMElDess>
+                </SMDes>
+              </SMs>
+            </APISM>
+          </RelAPISMs>
+        </SMPara>
+        <SMPara>
+          <RelAPISMs BlVers="256" RelAPICnt="1">
+            <APISM API="0" SlNr="2" ModID="1805" ModProp="0">
+              <SMs SMCnt="1">
+                <SMDes SSlNr="1" SMID="1" NdID="6" SubmoduleItemTarget="">
+                  <SMProp Shar="INVALID" SMTyp="OUTPUT"></SMProp>
+                  <SMElDess ElCnt="3">
+                    <SMElDes Intpret="IOCS" Descr="DATA_INPUT" Len="1" Offst="0"></SMElDes>
+                    <SMElDes Intpret="DATA" Descr="DATA_OUTPUT" Len="64" Offst="5"></SMElDes>
+                    <SMElDes Intpret="IOPS" Descr="DATA_OUTPUT" Len="1" Offst="69"></SMElDes>
+                  </SMElDess>
+                </SMDes>
+              </SMs>
+            </APISM>
+          </RelAPISMs>
+        </SMPara>
+      </SMParas>
+      <AlCRParas AlCRCnt="1">
+        <AlCRPara BlVers="256" AlCRPrTp="DATA_RTA_PDU" Prio="USER_PRIORITY" RTATmout="500" Retr="3" LocAlRef="0" MaxAlLen="200"></AlCRPara>
+      </AlCRParas>
+      <DevParas>
+        <DevPara DevID="6631" VndID="288" DevIns="0" StatNLen="11" StatN="pneta059cc1" IPovDNS="false" GsdFile="" UseIODevIpAdr="NO" CfgName="PNetA059CC1">
+          <IP d1="192" d2="168" d3="5" d4="11"></IP>
+          <Mask d1="255" d2="255" d3="255" d4="0"></Mask>
+          <Gate d1="192" d2="168" d3="5" d4="11"></Gate>
+        </DevPara>
+      </DevParas>
+      <ARParas ARParCnt="0"></ARParas>
+    </AR>
+  </ARs>
+</IPPNIO>

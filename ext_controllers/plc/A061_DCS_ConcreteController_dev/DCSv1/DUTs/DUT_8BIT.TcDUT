@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="DUT_8BIT" Id="{aefa07c2-bcc3-4c12-82d7-108f713b9bfb}">
+    <Declaration><![CDATA[TYPE DUT_8BIT :
+STRUCT
+	bData:BITARR8;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
