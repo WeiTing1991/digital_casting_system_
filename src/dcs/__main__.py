@@ -15,7 +15,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '50Agg_74S_column8x5c'
+DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_10cac_diffXseed_eggshell_material_test'
 #50_agg_1.5FW_ETH_temperature_test
 
 # HVAE TO FINISH NOT OVERRIDE THE FILE
@@ -52,8 +52,8 @@ acc_pump_density = "GVL_ResearchData.f_RED_Acceleration_Pump_Density"
 acc_pump_flowrate = "GVL_ResearchData.n_RED_Acceleration_Pump_Flowrate"
 
 acc_pump_params = dict(
-    ac_flowrate = "GVL_ResearchData.n_RED_Acceleration_Pump_Flowrate",
-
+    accHigh_flowrate = "GVL_ResearchData.n_RED_Acceleration_Pump_Flowrate",
+    accLow_flowrate = "GVL_ResearchData.n_RED_Superplasticizer_Pump_Flowrate"
 )
 
 # ------------------------------------------------------------------------------#
@@ -73,12 +73,8 @@ cc_pump_flowrate = "GVL_ResearchData.f_RED_Concrete_Pump_Flowrate"
 
 cc_pump_params = dict(
     cp_flowrate = "GVL_ResearchData.f_RED_Concrete_Pump_Flowrate",
-    #cp_temperature = "GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump",
-
     cp_pressure = "GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump"
-
 )
-
 
 # ------------------------------------------------------------------------------#
 # Inline mixer reactor
@@ -264,8 +260,6 @@ if __name__ == "__main__":
 
         # To CSV file
         write_dict_to_csv(os.path.join(CSV_DIR,DEFAULT_FILENAME) + ".csv" , research_data_without_log, header)
-
-
 
     # DRY RUN
     else:

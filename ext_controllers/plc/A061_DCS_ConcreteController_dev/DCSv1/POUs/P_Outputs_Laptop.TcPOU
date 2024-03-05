@@ -159,7 +159,7 @@ END_IF
 GVL_IO.on_AP1_Speed:=F_ScalAnalogOut(
 	n_Input:= REAL_TO_INT(n_temp_speed_AP1),
 	n_InMin:= 0, 
-	n_InMax:= REAL_TO_INT(GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min*GVL_ResearchData.n_RED_Superplasticizer_Pump_dosing_factor), 
+	n_InMax:= REAL_TO_INT(GVL_ResearchData.f_RED_Status_Acceleration_Pump_Max_Flowrate_ml_per_min*GVL_ResearchData.n_RED_Acceleration_Pump_dosing_factor), 
 	n_OutMin:= 0, 
 	n_OutMax:= 32767);
 

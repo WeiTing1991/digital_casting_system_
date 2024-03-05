@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
   <GVL Name="GVL_ResearchData" Id="{10f77899-a32f-44e6-ad7f-4be50514220e}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -77,7 +77,7 @@ b_RED_Concrete_Pump_Flush_On: BOOL;				// FLUSH MODE ON
 n_RED_Concrete_Pump_Flush_Flowrate: REAL;		// [l/min]
 
 f_RED_Concrete_Pump_Flowrate: REAL; 			// **** WRITE VALUE from _ to 16 [l/min]
-f_RED_Concrete_Pump_dosing_volume: REAL;		// calibation 230926 WT
+f_RED_Concrete_Pump_dosing_volume: REAL:=1.05;		// calibation 230926 WT
 
 
 //
@@ -118,7 +118,7 @@ n_RED_Acceleration_Pump_Flush_Flowrate: REAL;
 n_RED_Acceleration_Pump_Max_Flowrate :REAL;
 n_RED_Acceleration_Pump_Flowrate: REAL;         // **** WRITE VALUE From **** [ml/min] 
 
-n_RED_Acceleration_Pump_dosing_factor: REAL:=1;
+n_RED_Acceleration_Pump_dosing_factor: REAL;
 
 
 // ***********************************************************************************
