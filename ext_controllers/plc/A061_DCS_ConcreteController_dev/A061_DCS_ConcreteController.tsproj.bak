@@ -1855,6 +1855,10 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
+							<Name>GVL.Axis_Mixer1.NcToPlc</Name>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+						</Var>
+						<Var>
 							<Name>GVL.in_MID1_ActAbsCurrent</Name>
 							<Type>INT</Type>
 						</Var>
@@ -1864,6 +1868,10 @@ External Setpoint Generation:
 							<Type>INT</Type>
 						</Var>
 						<Var>
+							<Name>GVL.Axis_Mixer2.NcToPlc</Name>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+						</Var>
+						<Var>
 							<Name>GVL.in_MID2_ActAbsCurrent</Name>
 							<Type>INT</Type>
 						</Var>
@@ -1871,22 +1879,6 @@ External Setpoint Generation:
 							<Name>GVL.in_MID2_ActMotorTemperature</Name>
 							<Comment><![CDATA[ 220817 WT]]></Comment>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>GVL_PN.AO_From_ROB</Name>
-							<Type>WORD</Type>
-						</Var>
-						<Var>
-							<Name>GVL.Axis_Mixer1.NcToPlc</Name>
-							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>GVL.Axis_Mixer2.NcToPlc</Name>
-							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>GVL_PN.DO_From_ROB</Name>
-							<Type>BYTE</Type>
 						</Var>
 						<Var>
 							<Name>GVL.nControlMixerPumpSpeed</Name>
@@ -1980,14 +1972,14 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_IO.in_AP1_Poti_Speed</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>GVL_IO.ib_SP1_Button_On</Name>
 							<Comment><![CDATA[ 
  Superplasticizer Pump 1 (WT 220915)]]></Comment>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_IO.in_AP1_Poti_Speed</Name>
-							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.ib_SP1_Button_Not_Off</Name>
@@ -2037,19 +2029,23 @@ External Setpoint Generation:
 							<Name>GVL_IO.in_Pressure_Pump</Name>
 							<Type>INT</Type>
 						</Var>
+						<Var>
+							<Name>GVL_PN.DO_From_ROB</Name>
+							<Type>BYTE</Type>
+						</Var>
+						<Var>
+							<Name>GVL_PN.AO_From_ROB</Name>
+							<Type>WORD</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
 						<Var>
-							<Name>GVL.Axis_Mixer2.PlcToNc</Name>
+							<Name>GVL.Axis_Mixer1.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 						<Var>
-							<Name>GVL_PN.AI_TO_ROB</Name>
-							<Type>WORD</Type>
-						</Var>
-						<Var>
-							<Name>GVL.Axis_Mixer1.PlcToNc</Name>
+							<Name>GVL.Axis_Mixer2.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 						<Var>
@@ -2090,13 +2086,13 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_IO.on_CP1_Speed</Name>
-							<Type>INT</Type>
-						</Var>
-						<Var>
 							<Name>GVL_IO.ob_AP1_Power_On</Name>
 							<Comment><![CDATA[ Accelerator Pump 1]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_IO.on_CP1_Speed</Name>
+							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.ob_AP1_Start</Name>
@@ -2115,14 +2111,14 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_IO.on_AP1_Speed</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
 							<Name>GVL_IO.ob_SP1_Power_On</Name>
 							<Comment><![CDATA[ 
  Superplasticizer Pump 1 (WT 220915)]]></Comment>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_IO.on_AP1_Speed</Name>
-							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.ob_SP1_Start</Name>
@@ -2144,13 +2140,13 @@ External Setpoint Generation:
 							<Name>GVL_IO.on_SP1_Speed</Name>
 							<Type>INT</Type>
 						</Var>
+						<Var>
+							<Name>GVL_PN.AI_TO_ROB</Name>
+							<Type>WORD</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="1">
 						<Name>ComTask Inputs</Name>
-						<Var>
-							<Name>GVL_PN.DO_From_ROB_2</Name>
-							<Type>BYTE</Type>
-						</Var>
 						<Var>
 							<Name>GVL.bSafetyIO</Name>
 							<Comment><![CDATA[Hardware Input]]></Comment>
@@ -2220,17 +2216,13 @@ External Setpoint Generation:
 							<Name>GVL_IO.in_CP1_Tube_Temperature_Sensor</Name>
 							<Type>INT</Type>
 						</Var>
+						<Var>
+							<Name>GVL_PN.DO_From_ROB_2</Name>
+							<Type>BYTE</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>ComTask Outputs</Name>
-						<Var>
-							<Name>GVL_PN.DI_TO_ROB_2</Name>
-							<Type>BYTE</Type>
-						</Var>
-						<Var>
-							<Name>GVL_PN.DI_TO_ROB</Name>
-							<Type>BYTE</Type>
-						</Var>
 						<Var>
 							<Name>GVL.bResetSafety</Name>
 							<Comment><![CDATA[Hardware Output]]></Comment>
@@ -2287,6 +2279,14 @@ External Setpoint Generation:
 						<Var>
 							<Name>GVL.stOut_EL6001</Name>
 							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
+							<Name>GVL_PN.DI_TO_ROB</Name>
+							<Type>BYTE</Type>
+						</Var>
+						<Var>
+							<Name>GVL_PN.DI_TO_ROB_2</Name>
+							<Type>BYTE</Type>
 						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2021-01-27T08:08:38">
