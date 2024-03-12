@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
-  <POU Name="F_Mapping_REAL" Id="{c57e8e14-c4d5-469a-b351-cfa42dbc4a1c}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION F_Mapping_REAL : REAL
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="F_Mapping" Id="{c57e8e14-c4d5-469a-b351-cfa42dbc4a1c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK F_Mapping
 VAR_INPUT
 	f_Input:REAL;
 	f_InMin:REAL;
@@ -16,7 +16,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//
+      <ST><![CDATA[
 // Check plausibility 
 
 IF f_Input > f_InMax THEN
@@ -26,7 +26,7 @@ END_IF
 IF f_InMax = f_InMin THEN	
 	//
 	// Not plausible output fix value
-	F_Mapping_REAL := 0;
+	F_ScalAnalogOut := 0;
 ELSE
 	// Check the input data is lager than maximum
 	IF f_Input > f_InMax THEN
@@ -36,11 +36,12 @@ ELSE
 	// Plausible calculate output 
 	f_DeltaIn:=f_InMax-f_InMin;
 	f_DeltaOut:=f_OutMax-f_OutMin;
-	F_Mapping_REAL :=(f_DeltaOut/f_DeltaIn)*(f_Input-f_InMin);	
+	F_ScalAnalogOut :=REAL_TO_INT((f_DeltaOut/f_DeltaIn)*(f_Input-f_InMin));	
 END_IF]]></ST>
     </Implementation>
-    <LineIds Name="F_Mapping_REAL">
-      <LineId Id="28" Count="20" />
+    <LineIds Name="F_Mapping">
+      <LineId Id="130" Count="0" />
+      <LineId Id="110" Count="19" />
       <LineId Id="7" Count="0" />
     </LineIds>
   </POU>

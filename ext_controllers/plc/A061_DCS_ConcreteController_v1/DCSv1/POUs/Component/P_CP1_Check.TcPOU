@@ -3,9 +3,10 @@
   <POU Name="P_CP1_Check" Id="{3065913d-6b79-4f5a-bac4-18ef0f6d8554}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_CP1_Check
 VAR_INPUT
-	//
-	// INT 
 	n_Step: INT := 0;	
+	b_set_run : BOOL;
+	b_check_mode_on : BOOL;
+	t_check_duration :TIME;
 END_VAR
 VAR
 	//
@@ -23,23 +24,19 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//***********************************************************************************
+      <ST><![CDATA[// ***********************************************************************************
 //
-// ETH Zürich / Robotic Fabrication Lab
-// HIB C 13 / Stefano-Franscini-Platz 1
-// CH-8093 Zürich
+// Müller-steinag Gruppe, Kandergrien Einigen, CH-3646 Bern
+// ETH Zurich, Building HIF E26, Laura-Hezner-Weg 7, CH-8093 Zürich
 // 
 // ***********************************************************************************
 // 
-// PROJECT     :  A061 
-// 
+// PROJECT     :  A061 Digital Casting System 
 // FUNCTION    :  Step chain for Concrete pump calibration
-// 
-// AUTHOR      :  Weiting Chen / Philippe Fleischmann
-// 
-// EMAIL       :  
-// 
-// Copyright   :  
+// AUTHOR      :  Weiting Chen
+// EMAIL       :  chenw@usi.ch
+// Copyright   :  USI Mendrisio; ETH Zürich; Müller-steinag Gruppe (CH) 2023
+// Contributor :  Philippe Fleischmann
 //
 // ***********************************************************************************
 
@@ -79,7 +76,7 @@ END_IF
 IF n_Step=20 THEN
 	//
 	// Check condition 
-	b_Condition:= GVL_ResearchData.b_RED_Concrete_Pump_Check_On AND GVL_ResearchData.b_RED_Concrete_Pump_Forward_On;
+	b_Condition:= b_check_mode_on AND b_set_run;
 	//
 	// Do step
 	IF b_Condition AND b_No_Emergency_Stop THEN
@@ -141,13 +138,12 @@ IF n_Step=50 THEN
 	IF b_Condition THEN
 		//
 		//Reset 
-		GVL_ResearchData.b_RED_Concrete_Pump_Check_On:=FALSE;
-		GVL_ResearchData.b_RED_Concrete_Pump_Forward_On:=FALSE;
+		b_set_run:=FALSE;
+		b_check_mode_on:=FALSE;
 		b_Condition:=FALSE;
 		n_Step:=10;
 	END_IF
 END_IF
-
 
 // ****************************************
 // Timer
@@ -159,7 +155,7 @@ t_CP1_Check_Time(
 // ****************************************
 // Reset
 // ****************************************
-IF NOT GVL_ResearchData.b_RED_Concrete_Pump_Check_On THEN
+IF NOT b_check_mode_on THEN
   //
   // Rest step chain
   n_Step:=0;
@@ -168,26 +164,7 @@ END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="P_CP1_Check">
-      <LineId Id="6" Count="17" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="48" Count="15" />
-      <LineId Id="24" Count="0" />
-      <LineId Id="66" Count="12" />
-      <LineId Id="65" Count="0" />
-      <LineId Id="81" Count="12" />
-      <LineId Id="80" Count="0" />
-      <LineId Id="150" Count="0" />
-      <LineId Id="138" Count="11" />
-      <LineId Id="137" Count="0" />
-      <LineId Id="123" Count="12" />
-      <LineId Id="96" Count="0" />
-      <LineId Id="166" Count="23" />
-      <LineId Id="221" Count="3" />
-      <LineId Id="190" Count="2" />
-      <LineId Id="160" Count="1" />
-      <LineId Id="152" Count="6" />
-      <LineId Id="97" Count="0" />
-      <LineId Id="193" Count="6" />
+      <LineId Id="265" Count="134" />
       <LineId Id="100" Count="0" />
       <LineId Id="200" Count="0" />
       <LineId Id="94" Count="0" />

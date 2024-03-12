@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="c57e8e14-c4d5-469a-b351-cfa42dbc4a1c">F_MAPPING_REAL</Type>
+      <From>F_Mapping_REAL</From>
+      <To>F_Mapping</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

@@ -20,25 +20,28 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//***********************************************************************************
+      <ST><![CDATA[// ***********************************************************************************
 //
-// ETH Zürich / Robotic Fabrication Lab
-// HIB C 13 / Stefano-Franscini-Platz 1
-// CH-8093 Zürich
+// Müller-steinag Gruppe, Kandergrien Einigen, CH-3646 Bern
+// ETH Zurich, Building HIF E26, Laura-Hezner-Weg 7, CH-8093 Zürich
 // 
 // ***********************************************************************************
 // 
-// PROJECT     :  A061 Inline Mixer
-// 
-// FUNCTION    :  MAIN Programm
-// 
-// AUTHOR      :  Mathias Suter 
-// 
-// EMAIL       :  mathias.suter@solinaut.ch
-// 
-// Copyright   :  ETH Zürich (CH) 2021
+// PROJECT     :  A061 Digital Casting System 
+// FUNCTION    :  Set data to IO the process
+// AUTHOR      :  Weiting Chen
+// EMAIL       :  chenw@usi.ch
+// Copyright   :  USI Mendrisio; ETH Zürich; Müller-steinag Gruppe (CH) 2023
+// Contributor :  Philippe Fleischmann, Mathias Suter 
 //
 // ***********************************************************************************
+
+
+
+
+
+GVL_IO.ob_CC1_Safety_Reset:=GVL_IO.ib_CC1_Button_Reset;
+
 
 P_Data_Convert();
 //
@@ -49,7 +52,9 @@ P_ModeSelector();
 // Set research data 
 P_Set_Research_Data();
 
-//WT
+
+
+
 
 //***********************************************************************************
 // Superplasticizer Pump
@@ -187,8 +192,15 @@ P_Read_Research_Data();
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="790" Count="27" />
-      <LineId Id="1021" Count="0" />
+      <LineId Id="1206" Count="13" />
+      <LineId Id="796" Count="0" />
+      <LineId Id="1221" Count="1" />
+      <LineId Id="1229" Count="1" />
+      <LineId Id="1223" Count="0" />
+      <LineId Id="1225" Count="0" />
+      <LineId Id="1220" Count="0" />
+      <LineId Id="809" Count="8" />
+      <LineId Id="1226" Count="2" />
       <LineId Id="820" Count="32" />
       <LineId Id="1170" Count="0" />
       <LineId Id="858" Count="0" />

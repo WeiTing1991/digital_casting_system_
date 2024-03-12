@@ -2,46 +2,53 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <GVL Name="ReadMe" Id="{6354b487-1c67-4bd0-bfdf-078ef0b6da95}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
-VAR_GLOBAL
-//***********************************************************************************
+// ***********************************************************************************
 //
-// ETH Zürich / Robotic Fabrication Lab
-// HIB C 13 / Stefano-Franscini-Platz 1
-// CH-8093 Zürich
+// Müller-steinag Gruppe, Kandergrien Einigen, CH-3646 Bern
+// ETH Zurich, Building HIF E26, Laura-Hezner-Weg 7, CH-8093 Zürich
 // 
 // ***********************************************************************************
 // 
-// PROJECT     :  A061 Inline Mixer
-// 
-// FUNCTION    :  Read Me
-// 
-// AUTHOR      :  Fabio Scotto / Philippe Fleischmann/ Weiting Chen
-// 
-// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
-// 
-// Copyright   :  ETH Zürich (CH) 2020
+// PROJECT     :  A061 Digital Casting System 
+// FUNCTION    :  Profinet Variable Convertor
+// AUTHOR      :  Weiting Chen
+// EMAIL       :  chenw@usi.ch
+// Copyright   :  USI Mendrisio; ETH Zürich; Müller-steinag Gruppe (CH) 2023
+// Contributor :  Fabio Scotto / Philippe Fleischmann 
 //
 // ***********************************************************************************
 
+VAR_GLOBAL
 //
-//Prefix
+//File description 
+//GVL(GVL : Global variables)
+//GVL_IO(GVL_IO : IO)
+//GVL_PN(GVL_PN : Profinet Array)
+//GVL_RED(GVL_research : variables for control via laptop)
+//GVL_ROB(GVL_research : variables for control via Robot)
+
+//
+//Data Type Prefix
 //ib = Input Bool   / ob = Output Bool
 //if = Input float  / of = Output float (REAL, LREAL)
-//in = Input numeric/ on = Outplut numerical (INT, Sint, USINT, UNIT, DINT, UDINT, BYTE, WORD, DWORD, LWORD, XINT, UXINT, XWORD) 
+//in = Input numeric/ on = Output numeric 
+//(INT, SINT, USINT, UNIT, DINT, UDINT, BYTE, WORD, DWORD, LWORD, XINT, UXINT, XWORD) 
 //t = Time (TON)
-
-
+//s = String
 
 //
-//Short Cuts
+//Naming Shortcuts
 //CC1 = Concrete Controller 
-//AP1 = Accelerator Pump
+//AP1 = Admixture pump, High dosage ViscoTech Pump (Xseed or Accelerator)
 //CP1 = Concrete Pump
+//SP1 = Admixture pump, Low dosage ViscoTech Pump  (Xseed or Accelerator or Superplasticizer)
+
 //PP1 = Peristaltic Pump
 //MI1 = Mixer
 //T1  = Tool 1
 //CA1 = Camera 1
 //RED = Research Data
+//PN = Profinet with Roboter
 
 END_VAR]]></Declaration>
   </GVL>

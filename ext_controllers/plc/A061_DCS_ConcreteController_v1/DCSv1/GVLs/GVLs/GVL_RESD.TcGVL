@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="GVL_RESD" Id="{b609842c-d25b-424b-a488-5296437ef3c4}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+CONCRETE_CONTROLLER: STRING := 'MIXER';//***********************************************************
+b_Operate_mode_manual : BOOL;
+b_Operate_mode_laptop : BOOL; 	
+b_Operate_mode_robot : BOOL; 
+b_Concrete_Controller_power_on : BOOL; 
+n_Concrete_Controller_current_mode : INT;
+
+MIXER: STRING := 'MIXER';//***********************************************************
+// Inline Mixer Reactor				
+b_MI1_set_run : BOOL;								// POWER ON *****
+n_MI1_set_speed : REAL;								// [0 rpm to 120 rpm]
+b_MI1_set_curved_speed_mode_on: BOOL;				// Curved Speed Mode
+
+f_MI1_Override_Max_Speed : REAL := 120;				// [rpm]
+
+b_MI1_Is_Run:BOOL;
+b_MI1_is_ready : BOOL;
+n_MI1_status_SpeedM1 : INT;
+n_MI1_status_SpeedM2 : INT;
+f_Status_Torque_Motor_1 : REAL;
+f_Status_Torque_Motor_2 : REAL;
+f_MI1_status_temperature_funnel_outlet : REAL; 		
+f_MI1_status_Pressure_funnel_inlet : REAL; 	
+f_MI1_status_temperature_motor_1 : REAL; 			 
+f_MI1_status_temperature_motor_2 : REAL; 
+
+CONCRETE_PUMP: STRING := 'CONCRETE_PUMP';
+
+b_Concrete_Pump_Power_On: BOOL;						// NOT USE NOW
+
+b_Concrete_Pump_Forward_On: BOOL;					// Forward ON
+b_Concrete_Pump_Backward_On: BOOL;					// X
+
+b_Concrete_Pump_Flush_On: BOOL;						// FLUSH MODE ON 
+n_Concrete_Pump_Flush_Flowrate: REAL;				// READ [l/min]
+
+b_Concrete_Pump_Check_On: BOOL;						// CHECK MODE ON 
+f_Concrete_Pump_Check_Flowrate: REAL; 				// [ O tp 24 l/min]
+n_Concrete_Pump_Check_Duration: INT := 15; 			// [s]
+
+f_Concrete_Pump_Set_Flowrate: REAL; 				// [0 to 24 l/min]
+f_Concrete_Pump_dosing_volume: REAL := 0.32;		// calibrated 230926 WT
+n_Concrete_Pump_Max_Speed : REAL := 75;
+n_Concrete_Pump_Set_Speed: INT;						// WRITE VALUE From 0 to 75 [rpm] 
+
+b_CP1_is_run : BOOL;
+b_CP1_is_ready : BOOL;
+f_CP1_status_temperature_concrete_fresh : REAL; // [°C]
+f_CP1_status_temperature_Concrete_pump : REAL; // [°C] 
+f_CP1_status_pressure_Concrete_pump: REAL; // [bar]
+
+
+//f_Concrete_Pump_Density: REAL;					// [g/ml]
+//f_Concrete_Pump_Check_Mass: REAL;           		// [g]
+
+Admixture_Pump_1: STRING := 'Admixture Pump (AP1)';
+
+b_Admixture_Pump_Set_Run : BOOL;  					// POWER ON 
+b_Admixture_Pump_Flush_On: BOOL;					// FLUSH MODE ON 
+n_Admixture_Pump_Flush_Flowrate: REAL;				// READ 
+b_Admixture_Pump_Check_On: BOOL;					// CHECK MODE ON 
+n_Admixture_Pump_Check_Flowrate: REAL;				// READ 
+n_Admixture_Pump_Check_Duration: INT := 60; 		// [s]
+n_Admixture_Pump_Max_Flowrate :REAL  := 637;		//calibrated 2402 WT
+n_Admixture_Pump_Set_Flowrate: REAL;         		// 0 to 637 [ml/min] 
+n_Admixture_Pump_dosing_factor: REAL := 1;			//only for scaled
+
+//f_Admixture_Pump_1_Density: REAL;          // [g/ml]
+//f_Admixture_Pump_1_Mass: REAL;             // [g]
+
+b_Admixture_Pump_is_run : BOOL;
+b_Admixture_Pump_is_ready : BOOL;
+
+//
+Sup_Admixture_Pump_1: STRING := 'Admixture Pump (SP1)'; //***************************
+
+b_Sup_Admixture_Pump_Set_Run: BOOL;  // POWER ON 
+
+b_Sup_Admixture_Pump_Flush_On: BOOL;				// FLUSH MODE ON 
+n_Sup_Admixture_Pump_Flush_Flowrate: REAL;
+
+b_Sup_Admixture_Pump_Check_On: BOOL;				// CHECK MODE ON 
+n_Sup_Admixture_Pump_Check_Flowrate: REAL;
+n_Sup_Admixture_Pump_Check_Duration: INT := 60; 	// [s];
+
+n_Sup_Admixture_Pump_Max_Flowrate:REAL := 138; 		//[ml/min]
+n_Sup_Admixture_Pump_dosing_factor:REAL:=1; //only for scaled
+
+n_Sup_Admixture_Pump_Set_Flowrate: REAL;         	// 0 to 138[ml/min]
+
+//f_Admixture_Pump_2_Density: REAL;          // [g/ml]
+//f_Admixture_Pump_2_Mass: REAL;             // [g]
+
+b_Sup_Admixture_Pump_is_run : BOOL;
+b_Sup_Admixture_Pump_is_ready : BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

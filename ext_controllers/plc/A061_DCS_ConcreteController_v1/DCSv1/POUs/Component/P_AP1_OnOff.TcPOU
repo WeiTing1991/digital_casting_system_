@@ -1,42 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
-  <POU Name="P_MI1_OnOff" Id="{c8b14d52-094f-4a7e-b91b-4c0d8c76e44c}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM P_MI1_OnOff
+  <POU Name="P_AP1_OnOff" Id="{b8d622cd-4111-4e48-af2c-db51b7467c73}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_AP1_OnOff
 VAR_INPUT
-	//
-	// INT 
 	n_Step: INT := 0;	
+	b_set_run : BOOL;
 END_VAR
 VAR
-	//
-	// BOOL 
 	b_Condition: BOOL;
 	b_No_Emergency_Stop:BOOL :=TRUE;
-	
 END_VAR
-
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//***********************************************************************************
+      <ST><![CDATA[// ***********************************************************************************
 //
-// ETH Zürich / Robotic Fabrication Lab
-// HIB C 13 / Stefano-Franscini-Platz 1
-// CH-8093 Zürich
+// Müller-steinag Gruppe, Kandergrien Einigen, CH-3646 Bern
+// ETH Zurich, Building HIF E26, Laura-Hezner-Weg 7, CH-8093 Zürich
 // 
 // ***********************************************************************************
 // 
-// PROJECT     :  A061 Inline Mixer
-// 
-// FUNCTION    :  Step chain for mixer on or off 
-// 
-// AUTHOR      :  Fabio Scotto / Philippe Fleischmann
-// 
-// EMAIL       :  scotto@arch.ethz.ch / fleischmann@arch.ehtz.ch
-// 
-// Copyright   :  ETH Zürich (CH) 2020
+// PROJECT     :  A061 Digital Casting System 
+// FUNCTION    :  Step chain for accelerator pump on or off 
+// AUTHOR      :  Weiting Chen
+// EMAIL       :  chenw@usi.ch
+// Copyright   :  USI Mendrisio; ETH Zürich; Müller-steinag Gruppe (CH) 2022
+// Contributor :  Fabio Scotto/ Philippe Fleischmann
 //
 // ***********************************************************************************
 
+//
 // Ignore emergency stop
 b_No_Emergency_Stop:=TRUE;
 
@@ -59,7 +51,7 @@ END_IF
 IF n_Step=10 THEN
 	//
 	// Check condition 
-	b_Condition:= GVL_VAR.b_MI1_ReadToDrive AND (GVL_IO.ib_MI1_Button_On OR GVL_ResearchData.b_RED_Laptop_MI1_Run);
+	b_Condition:= GVL_IO.ib_AP1_Ready AND b_set_run;
 	//
 	// Do step
 	IF b_Condition AND b_No_Emergency_Stop THEN
@@ -87,7 +79,7 @@ END_IF
 IF n_Step=30 THEN
 	//
 	// Check condition 
-	b_Condition:= NOT GVL_IO.ib_MI1_Button_Not_Off OR NOT GVL_VAR.b_MI1_ReadToDrive OR NOT GVL_ResearchData.b_RED_Laptop_MI1_Run;
+	b_Condition:= NOT GVL_IO.ib_AP1_Button_Not_Off or NOT GVL_IO.ib_AP1_No_Error or NOT b_set_run ;
 	//
 	// Do step
 	IF b_Condition THEN
@@ -130,30 +122,10 @@ END_IF
 
 //
 // Mixer run
-GVL_VAR.b_MI1_Run:=n_Step=30;
-
-
-// ****************************************
-// Timer
-// ****************************************
-
-
-]]></ST>
+GVL.b_AP1_Is_Run:=n_Step=30;]]></ST>
     </Implementation>
-    <LineIds Name="P_MI1_OnOff">
-      <LineId Id="3" Count="7" />
-      <LineId Id="160" Count="0" />
-      <LineId Id="12" Count="2" />
-      <LineId Id="161" Count="6" />
-      <LineId Id="22" Count="86" />
-      <LineId Id="182" Count="0" />
-      <LineId Id="184" Count="2" />
-      <LineId Id="188" Count="0" />
-      <LineId Id="187" Count="0" />
-      <LineId Id="189" Count="1" />
-      <LineId Id="183" Count="0" />
-      <LineId Id="109" Count="3" />
-      <LineId Id="120" Count="1" />
+    <LineIds Name="P_AP1_OnOff">
+      <LineId Id="246" Count="109" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>

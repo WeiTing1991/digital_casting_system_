@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_Output_Speed" Id="{2a087e52-1a7d-4ebe-b703-1f52510d215c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Output_Speed
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	//
+	n_temp_speed_SP1: REAL;
+	n_temp_speed_AP1: REAL;
+	n_temp_speed_MI1: REAL;
+	
+	n_temp_speed_CP1: REAL;
+	n_temp_flowrate_CP1: REAL;
+	
+	n_max_pump_speed: REAL :=75;    // measure value 
+	n_target_pump_speed: REAL :=25; // by calibration (7.5L/min)
+	n_test_pump_speed: REAL :=50;   // NEW NOTES 230926 current dosing rate is 0.32 L/rev Check real flowrate
+	f_dosing_volume:REAL; 
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Output_Speed">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

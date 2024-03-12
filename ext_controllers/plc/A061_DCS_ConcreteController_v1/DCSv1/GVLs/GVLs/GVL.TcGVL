@@ -2,34 +2,113 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <GVL Name="GVL" Id="{0033c46d-4b0c-47e7-af0d-9524e918bf98}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
+// ***********************************************************************************
+//
+// Müller-steinag Gruppe, Kandergrien Einigen, CH-3646 Bern
+// ETH Zurich, Building HIF E26, Laura-Hezner-Weg 7, CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Digital Casting System 
+// FUNCTION    :  Global Varable Decelerate
+// AUTHOR      :  Weiting Chen
+// EMAIL       :  chenw@usi.ch
+// Copyright   :  USI Mendrisio; ETH Zürich; Müller-steinag Gruppe (CH) 2023
+// Contributor :  Mathias Suter/ Philippe Fleischmann
+//
+// ***********************************************************************************
+
 VAR_GLOBAL
 	
+    // get
+	//
+	// Concrete Controller 1
+	b_mode_manual : BOOL;
+	b_mode_laptop : BOOL; 
+	b_mode_robot : BOOL;  
+	
+	b_CC1_enable :BOOL;
+	b_CC1_power_on: BOOL;
+	s_current_mode: STRING;
 	
 	//
-	// Data Communication RS-232
+	// Mixer 1
+	b_MI1_ReadToDrive : BOOL;
+	b_MI1_Is_Run : BOOL;
+	
+	f_MI1_MaxSpeed : REAL := 720 ; //distance/s] (equel to 120 rpm, by measurement 221006)
+	n_MI1_OverrideSpeed :INT;
+	
+	f_MI1_ActSpeedM1 : INT;
+	f_MI1_ActSpeedM2 : INT;
+	
+	// Data Communication Axis Mixers
+	// Mixer drive A 
+	Axis_Mixer1: AXIS_REF;
+	
+	f_MID1_ActCurrent:REAL;
+	f_MID1_ActTorque:REAL;
+	
+	//
+	// Mixer drive B
+	Axis_Mixer2: AXIS_REF;
+	f_MID2_ActCurrent:REAL;
+	f_MID2_ActTorque:REAL;
+	
+	//
+	// Concrete Pump 1
+	b_CP1_Check_On : BOOL; //??
+	b_CP1_is_run : BOOL;
+	b_CP1_is_ready : BOOL;	
+	
+	//
+	// Admixture pump 1 (High dosage)
+	b_AP1_Is_Run : BOOL;
+	b_AP1_Check_On : BOOL;
+	b_AP1_is_ready : BOOL;
+	
+	//f_AP1_Override : LREAL; 
+	
+	//
+	// Spare Admixture pump 1 (Low dosage)
+	b_SP1_Is_Run : BOOL;
+	b_SP1_Check_On : BOOL;
+	b_SP1_is_ready : BOOL;
+	
+	//f_SP1_Override :LREAL;
+
+	// Config
+	// Concrete Pump 1
+	f_CP1_Max_Flowrate : REAL;
+	f_CP1_Check_Flowrate : REAL;
+	t_CP1_Check_Duration : TIME;
+ 	n_CP1_Flush_Flowrate :REAL;
+	
+	// Admixture pump (High)
+	n_AP1_Max_Flowrate : REAL;
+	n_AP1_Check_Flowrate : REAL;
+	t_AP1_Check_Duration : TIME;
+	n_AP1_Flush_Flowrate : REAL;
+	f_AP1_Check_Mass : REAL;
+	
+	// Admixture pump (low)
+	n_SP1_Max_Flowrate : REAL;
+	n_SP1_Check_Flowrate : REAL;
+	t_SP1_Check_Duration : TIME;
+	n_SP1_Flush_Flowrate : REAL;
+	f_SP1_Check_Mass : REAL;
+	
+	
+	
+	
+	
+	// 
+	// Data Communication RS-232 (Spare)
 	TxBufferEL								: ComBuffer;
 	RxBufferEL								: ComBuffer;
 	
 			
-	//
-	// Data Communication Axis Mixers
 
-	//
-	// Mixer drive A // 16.09.2021 PF
-	Axis_Mixer1 							: AXIS_REF;
-	f_MID1_ActCurrent: REAL;
-	f_MID1_ActTorque: REAL;
-	in_MID1_ActAbsCurrent AT %I*: INT;
-	in_MID1_ActMotorTemperature AT %I* :INT; // 220817 WT 
-	
-	//
-	// Mixer drive B // 16.09.2021 PF
-	Axis_Mixer2 							: AXIS_REF;
-	f_MID2_ActCurrent: REAL;
-	f_MID2_ActTorque: REAL;
-	in_MID2_ActAbsCurrent AT %I*: INT;
-	in_MID2_ActMotorTemperature AT %I* :INT; // 220817 WT
-	
 	//
 	// Control Input Speed
 	fControlMixerPumpSpeed					: REAL; 

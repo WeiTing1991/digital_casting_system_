@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="GVL_ROB" Id="{4e6aaf52-5faa-4d3c-95d5-15091f54db1f}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+// ***********************************************************************************
+//
+// Müller-steinag Gruppe, Kandergrien Einigen, CH-3646 Bern
+// ETH Zurich, Building Hin E26, Laura-Hezner-Weg 7, CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Digital Casting System 
+// FUNCTION    :  Global Proninet Varable with robot
+// AUTHOR      :  Weiting Chen
+// EMAIL       :  chenw@usi.ch
+// Copyright   :  USI Mendrisio; ETH Zürich; Müller-steinag Gruppe (CH) 2023
+//
+// **************S*********************************************************************
+
+VAR_GLOBAL
+	//output to robot digital input (DI) ; input from robot digital output(DO)
+	
+	//INT type as 16bit ranged -32767 to 32767 (Here, the number is scaled by 1000
+	
+	//Concrete Controller
+	ib_spare : BOOL;
+	in_spare : INT;
+	
+	ob_mode_manual : BOOL;
+	ob_mode_laptop : BOOL; 	
+	ob_mode_robot : BOOL; 
+	ob_CC1_power_on : BOOL; 
+	on_current_mode : INT; //index use no scale.
+	
+	//Inline Mixer (MI1)  				
+	ib_MI1_set_run : BOOL;
+	ib_MI1_set_rest : BOOL;				 
+	in_MI1_set_speed : INT;								// [0 rpm to 120 rpm]
+	ib_MI1_set_curved_speed_mode_on : BOOL;
+	
+	ob_MI1_is_run : BOOL;
+	ob_MI1_is_ready : BOOL;
+	
+	on_MI1_status_speed_motor_1 : INT;				 	// [rpm]
+	on_MI1_status_Speed_motor_2 : INT;					// [rpm]
+	on_MI1_status_torque_motor_1 : INT;					// [Nm]
+	on_MI1_status_torque_motor_2 : INT;					// [Nm]
+	on_MI1_status_temperature_motor_1 : INT; 			// [°C] 
+	on_MI1_status_temperature_motor_2 : INT; 			// [°C] 
+	
+	on_MI1_status_temperature_funnel_outlet : INT; 		// [°C] 
+	on_MI1_status_Pressure_funnel_inlet : INT; 			// [bar]
+	
+	
+	//Concrete pump (CP1)  
+	//ib_CP1_run: BOOL;					// NOT USE NOW
+	ib_CP1_forward_on: BOOL;			    
+	ib_CP1_backward_on: BOOL;			// 241219 Backward is not working from the conctroller
+	in_CP1_set_speed: INT;				// 0 to 75 [rpm] 
+	in_CP1_set_flowrate: INT; 			// 0 to 16 [l/min]
+	in_CP1_set_dosing_volume: INT;		// calibration in 230926 WT 0.32
+	
+	ib_CP1_check_on: BOOL;			 
+	in_CP1_set_check_Flowrate: INT; 	// [l/min]
+	t_CP1_set_check_duration: TIME;		//  T#1d2h30m40s500ms
+	in_CP1_concrete_density: INT;		// [g/ml]
+	in_CP1_concrete_mass: INT;          // [g]
+	
+	ib_CP1_flush_on: BOOL;				
+	in_CP1_set_flush_flowrate: INT;		// [l/min]
+	
+	ob_CP1_is_run : BOOL;
+	ob_CP1_is_ready : BOOL;
+	on_CP1_status_temperature_concrete_fresh : INT; // [°C]
+	on_CP1_status_temperature_Concrete_pump : INT; // [°C] 
+	on_CP1_status_pressure_Concrete_pump: INT; // [ bar
+	
+	
+	// Admixture pump, High dosage ViscoTech Pump
+	ib_AP1_set_run: BOOL;  
+	in_AP1_set_flowrate: INT;         		// [ml/min] 
+	in_AP1_set_dosing_factor: INT;          // Set default 1
+	
+	ib_AP1_check_on: BOOL;			
+	in_AP1_set_check_flowrate: INT;
+	t_AP1_set_check_duration: TIME;// T#1d2h30m40s500ms
+	in_AP1_material_density: INT;          // [g/ml]
+	in_AP1_material_mass: INT;             // [g]
+	
+	ib_AP1_flush_on: BOOL;			 
+	in_AP1_flush_flowrate: INT;	  // [ml/min] 
+	
+	ob_AP1_is_run : BOOL;
+	ob_AP1_is_ready : BOOL;
+	on_AP1_max_flowrate: INT;				// [ml/min] 
+	
+	// Admixture pump, Low dosage ViscoTech Pump 
+	ib_SP1_set_run: BOOL;
+	in_SP1_set_flowrate: INT;         // [ml/min]
+	in_SP1_dosing_factor:INT;       
+	
+	ib_SP1_set_check_on: BOOL;			 
+	in_SP1_set_check_flowrate: INT;	  // [ml/min] 
+	t_SP1_Check_Duration: TIME;       // T#1d2h30m40s500ms
+	in_SP1_material_density: INT;     // [g/ml]
+	in_SP1_material_mass: INT;        // [g]
+	
+	ib_SP1_flush_on: BOOL;			 
+	in_SP1_flush_flowrate: INT;	  // [ml/min] 
+	
+	ob_SP1_is_run:BOOL;
+	ob_SP1_is_ready : BOOL;
+	on_SP1_max_flowrate:INT;		  // [ml/min] 
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

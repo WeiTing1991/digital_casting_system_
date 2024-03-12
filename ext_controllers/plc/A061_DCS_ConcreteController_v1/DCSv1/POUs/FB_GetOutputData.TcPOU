@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_GetOutputData" Id="{3594ad90-3508-4d18-a5d5-1b7dd77fecad}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_GetOutputData
+VAR_INPUT
+	//Gerenal
+	b_Output_number_REALMode : BOOL;
+END_VAR
+VAR_IN_OUT
+	//CC1
+	b_mode_manual : BOOL;
+	b_mode_laptop : BOOL; 	
+	b_mode_robot : BOOL; 
+	b_CC1_power_on : BOOL; 
+	n_current_mode : INT;
+
+	//MI1
+	b_MI1_Is_Run:BOOL;
+	b_MI1_is_ready : BOOL;
+	n_MI1_status_SpeedM1 : INT;
+	n_MI1_status_SpeedM2 : INT;
+	f_Status_Torque_Motor_1 : REAL;
+	f_Status_Torque_Motor_2 : REAL;
+	f_MI1_status_temperature_funnel_outlet : REAL; 		
+	f_MI1_status_Pressure_funnel_inlet : REAL; 	
+	f_MI1_status_temperature_motor_1 : REAL; 			 
+	f_MI1_status_temperature_motor_2 : REAL; 			
+
+	//CP1
+	b_CP1_is_run : BOOL;
+	b_CP1_is_ready : BOOL;
+	f_CP1_status_temperature_concrete_fresh : REAL; // [°C]
+	f_CP1_status_temperature_Concrete_pump : REAL; // [°C] 
+	f_CP1_status_pressure_Concrete_pump: REAL; // [bar]
+	
+	//AP1
+	b_AP1_is_run : BOOL;
+	b_AP1_is_ready : BOOL;
+	
+	//SP1
+	b_SP1_is_run : BOOL;
+	b_SP1_is_ready : BOOL;
+	
+END_VAR
+VAR_OUTPUT
+
+END_VAR
+VAR
+	tempVelo_M1 : LREAL;
+	tempVelo_M2 : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// ***********************************************************************************
+//
+// Müller-steinag Gruppe, Kandergrien Einigen, CH-3646 Bern
+// ETH Zurich, Building Hin E26, Laura-Hezner-Weg 7, CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Digital Casting System 
+// FUNCTION    :  Read data from IO and process 
+// AUTHOR      :  Weiting Chen
+// EMAIL       :  chenw@usi.ch
+// Copyright   :  USI Mendrisio; ETH Zürich; Müller-steinag Gruppe (CH) 2024
+// Contributor :  Seyma Gürel / Philippe Fleischmann 
+//
+// ***********************************************************************************
+
+b_mode_manual := GVL.b_mode_manual;
+b_mode_laptop := GVL.b_mode_laptop; 	
+b_mode_robot := GVL.b_mode_robot; 
+b_CC1_power_on := GVL.b_CC1_power_on; 
+
+IF GVL.s_current_mode = 'Controller'THEN
+	n_current_mode := 1;
+ELSIF GVL.s_current_mode = 'Laptop' THEN
+	n_current_mode := 2;
+ELSIF GVL.s_current_mode = 'Robot' THEN
+	n_current_mode := 3;
+ELSE 
+	n_current_mode := 4;
+END_IF
+
+//// Mixer 1_2 
+//Status
+b_MI1_Is_Run := GVL.b_MI1_Is_Run;
+b_MI1_is_ready := GVL.b_MI1_ReadToDrive;
+
+//current speed [rpm]
+tempVelo_M1 := ABS(GVL.Axis_Mixer1.NcToPlc.ActVelo/6);  // velocity to rpm
+GVL.f_MI1_ActSpeedM1 := LREAL_TO_INT(tempVelo_M1);
+n_MI1_status_SpeedM1 := GVL.f_MI1_ActSpeedM1 ;
+
+tempVelo_M2 := ABS(GVL.Axis_Mixer2.NcToPlc.ActVelo/6);  // velocity to rpm
+GVL.f_MI1_ActSpeedM2 := LREAL_TO_INT(tempVelo_M2);
+n_MI1_status_SpeedM2 := GVL.f_MI1_ActSpeedM2 ;
+
+//Torque
+GVL.f_MID1_ActCurrent:=GVL_IO.in_MID1_ActAbsCurrent * 5.9 / 1000;
+GVL.f_MID1_ActTorque:=GVL.f_MID1_ActCurrent * 0.8 * 8; // Torque constante / Gear transaltion 
+f_Status_Torque_Motor_1:= GVL.f_MID1_ActTorque;
+
+GVL.f_MID2_ActCurrent:=GVL_IO.in_MID2_ActAbsCurrent * 5.9 / 1000;
+GVL.f_MID2_ActTorque:=GVL.f_MID2_ActCurrent * 0.8 * 8; // Torque constante / Gear transaltion
+f_Status_Torque_Motor_2:= GVL.f_MID2_ActTorque;
+
+//Temperature
+IF b_Output_number_REALMode THEN
+	f_MI1_status_temperature_funnel_outlet := F_LowpassFilter(GVL_IO.in_Temp_Funnel_Outlet) * 0.1; 
+	f_MI1_status_temperature_motor_1 := F_LowpassFilter(UINT_TO_REAL(GVL_IO.in_MID1_ActMotorTemperature)) * 0.1;
+	f_MI1_status_temperature_motor_2 := F_LowpassFilter(UINT_TO_REAL(GVL_IO.in_MID2_ActMotorTemperature)) * 0.1;
+ELSE
+	f_MI1_status_temperature_funnel_outlet := F_LowpassFilter(GVL_IO.in_Temp_Funnel_Outlet); 
+	f_MI1_status_temperature_motor_1 := F_LowpassFilter(UINT_TO_REAL(GVL_IO.in_MID1_ActMotorTemperature));
+	f_MI1_status_temperature_motor_2 := F_LowpassFilter(UINT_TO_REAL(GVL_IO.in_MID2_ActMotorTemperature));
+END_IF
+
+//Pressure TODO
+//f_CP1_status_pressure_Concrete_pump := F_DecimalData(GVL_RESD.f_CP1_status_pressure_Concrete_pump, 3, TRUE),	
+f_MI1_status_Pressure_funnel_inlet := F_Mapping_REAL(
+													f_Input:= GVL_IO.in_Pressure_Funnel,
+													f_InMin:= 0, 
+													f_InMax:= 32767, 
+													f_OutMin:= 0, 
+													f_OutMax:= 40);
+
+////Concrete Pump 	
+//Status
+b_CP1_is_run := GVL.b_CP1_Is_Run;
+GVL.b_CP1_is_ready := GVL_IO.ib_CP1_Ready;
+b_CP1_is_ready := GVL.b_CP1_is_ready;
+
+//Torque
+//Temperature
+IF b_Output_number_REALMode THEN
+	f_CP1_status_temperature_concrete_fresh := F_LowpassFilter(GVL_IO.in_Temp_CPump_fresh)*0.1;
+	f_CP1_status_temperature_Concrete_pump := F_LowpassFilter(GVL_IO.in_Temp_CPump)*0.1; 
+ELSE
+	f_CP1_status_temperature_concrete_fresh := F_LowpassFilter(GVL_IO.in_Temp_CPump_fresh);
+	f_CP1_status_temperature_Concrete_pump := F_LowpassFilter(GVL_IO.in_Temp_CPump); 
+END_IF
+
+//Pressure
+f_CP1_status_pressure_Concrete_pump:= F_Mapping_REAL(
+													f_Input:= GVL_IO.in_Pressure_Pump,
+													f_InMin:= 0, 
+													f_InMax:= 32767, 
+													f_OutMin:= 0, 
+													f_OutMax:= 40);
+													
+////AP1
+//Status
+b_AP1_is_run := GVL.b_AP1_Is_Run;
+GVL.b_AP1_is_ready := GVL_IO.ib_AP1_Ready;
+b_AP1_is_ready := GVL.b_AP1_is_ready;
+//f_AP1_max_flowrate := GVL.n_AP1_Max_Flowrate;						
+
+////SP1
+//Status
+GVL.b_SP1_is_ready := GVL_IO.ib_SP1_Ready;
+b_SP1_is_ready := GVL.b_SP1_is_ready;
+//f_SP1_max_flowrate := GVL.n_SP1_Max_Flowrate;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	]]></ST>
+    </Implementation>
+    <LineIds Name="FB_GetOutputData">
+      <LineId Id="56" Count="119" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

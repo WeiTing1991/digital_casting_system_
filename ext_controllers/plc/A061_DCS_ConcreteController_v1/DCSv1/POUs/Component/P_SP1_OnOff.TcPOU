@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="P_SP1_OnOff" Id="{af07f2a9-5270-48fe-9cdf-3dc46a09c97d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_SP1_OnOff
+VAR_INPUT
+	n_step: INT := 0;
+	b_set_run : BOOL;
+END_VAR
+VAR	
+	b_Condition: BOOL;
+	b_No_Emergency_Stop:BOOL :=TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// ***********************************************************************************
+//
+// Müller-steinag Gruppe, Kandergrien Einigen, CH-3646 Bern
+// ETH Zurich, Building HIF E26, Laura-Hezner-Weg 7, CH-8093 Zürich
+// 
+// ***********************************************************************************
+// 
+// PROJECT     :  A061 Digital Casting System 
+// FUNCTION    :  Step chain for Superplasticizer pump on or off 
+// AUTHOR      :  Weiting Chen
+// EMAIL       :  chenw@usi.ch
+// Copyright   :  USI Mendrisio; ETH Zürich; Müller-steinag Gruppe (CH) 2022
+// Contributor :  Philippe Fleischmann
+//
+// ***********************************************************************************
+
+//
+// Ignore the emergency stop
+b_No_Emergency_Stop:= TRUE;
+
+//
+// Initalization
+IF n_Step=0 THEN
+	//
+	// Check condition 
+	b_Condition:=TRUE;
+	//
+	// Do 
+	IF b_Condition THEN
+		b_Condition:=FALSE;
+		n_Step:=10;
+	END_IF
+END_IF
+
+//
+// Wait for start mixer
+IF n_Step=10 THEN
+	//
+	// Check condition 
+	b_Condition:=GVL_IO.ib_SP1_Ready AND b_set_run;
+	//
+	// Do 
+	IF b_Condition AND b_No_Emergency_Stop THEN
+		b_Condition:=FALSE;
+		n_Step:=20;
+	END_IF
+END_IF
+
+//
+// Reserve
+IF n_Step=20 THEN
+	//
+	// Check condition 
+	b_Condition:=TRUE;
+	//
+	// Do 
+	IF b_Condition AND b_No_Emergency_Stop THEN
+		b_Condition:=FALSE;
+		n_Step:=30;
+	END_IF
+END_IF
+
+//
+// Run for mixer 
+IF n_Step=30 THEN
+	//
+	// Check condition 
+	b_Condition:= NOT GVL_IO.ib_SP1_Button_Not_Off OR NOT GVL_IO.ib_SP1_No_Error OR NOT b_set_run;
+	//
+	// Do
+	IF b_Condition THEN
+		b_Condition:=FALSE;
+		n_Step:=40;
+	END_IF
+END_IF
+
+//
+// Reserve
+IF n_Step=40 THEN
+	//
+	// Check condition 
+	b_Condition:=TRUE;
+	//
+	// Do 
+	IF b_Condition AND b_No_Emergency_Stop THEN
+		b_Condition:=FALSE;
+		n_Step:=50;
+	END_IF
+END_IF
+
+//
+// Return to step 10 
+IF n_Step=50 THEN
+	//
+	// Check condition 
+	b_Condition:=TRUE;
+	//
+	// Do 
+	IF b_Condition THEN
+		b_Condition:=FALSE;
+		n_Step:=10;
+	END_IF
+END_IF
+
+
+// Mixer run
+GVL.b_SP1_Is_Run:=n_step=30;
+]]></ST>
+    </Implementation>
+    <LineIds Name="P_SP1_OnOff">
+      <LineId Id="165" Count="105" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="37" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
