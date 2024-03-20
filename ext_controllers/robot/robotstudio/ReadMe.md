@@ -1,2 +1,0 @@
-revolution counter update 
-moveabj 
