@@ -5,6 +5,7 @@
 VAR_INPUT
 	// Mixer 
 	b_MI1_set_run: BOOL;
+	b_Ml1_Enable : BOOL;
 	b_MI1_Curved_Speed_On : BOOL;
 	f_MI1_Override_Speed :REAL;
 	f_MI1_Override_Max_Speed :REAL;

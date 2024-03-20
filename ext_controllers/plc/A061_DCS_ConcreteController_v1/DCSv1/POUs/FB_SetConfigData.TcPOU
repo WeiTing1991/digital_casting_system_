@@ -11,19 +11,19 @@ VAR_INPUT
 	// Concrete Pump
 	_f_CP1_Max_Flowrate : REAL;
 	_f_CP1_Check_Flowrate : REAL;
-	_t_CP1_Check_Duration : INT;
+	_t_CP1_Check_Duration : TIME;
 	
 	// Admixture pump (High)
 	_n_AP1_Max_Flowrate : REAL;
 	_n_AP1_Check_Flowrate : REAL;
-	_n_AP1_Check_Duration : INT;
+	_t_AP1_Check_Duration : TIME;
 	_n_AP1_Flush_Flowrate : REAL;
 	//_f_AP1_Check_Mass : REAL;
 	
 	// Admixture pump (low)
 	_n_SP1_Max_Flowrate : REAL;
 	_n_SP1_Check_Flowrate : REAL;
-	_t_SP1_Check_Duration : INT;
+	_t_SP1_Check_Duration : TIME;
 	//_f_SP1_Check_Mass : REAL;
 	
 END_VAR
@@ -40,7 +40,7 @@ END_VAR
 // ETH Zurich, Building HIF E26, Laura-Hezner-Weg 7, CH-8093 Zürich
 // 
 // ***********************************************************************************
-// 
+// B
 // PROJECT     :  A061 Digital Casting System 
 // FUNCTION    :  Set all default/Constant data for the process
 // AUTHOR      :  Weiting Chen
@@ -59,25 +59,27 @@ END_VAR
 // Concrete Pump 1
 GVL.f_CP1_Max_Flowrate := _f_CP1_Max_Flowrate;
 GVL.f_CP1_Check_Flowrate := _f_CP1_Check_Flowrate;
-GVL.t_CP1_Check_Duration := INT_TO_TIME(_t_CP1_Check_Duration)*1000;
+GVL.t_CP1_Check_Duration := _t_CP1_Check_Duration;
 GVL.n_CP1_Flush_Flowrate := (_f_CP1_Max_Flowrate) / 2;
 
 // Admixture pump 1 (High)
 GVL.n_AP1_Max_Flowrate := _n_AP1_Max_Flowrate;
 GVL.n_AP1_Check_Flowrate := _n_AP1_Check_Flowrate;
-GVL.t_AP1_Check_Duration := INT_TO_TIME(_n_AP1_Check_Duration)*1000;
+GVL.t_AP1_Check_Duration := _t_AP1_Check_Duration;
 GVL.n_AP1_Flush_Flowrate := (_n_AP1_Max_Flowrate )/ 2;
 
 // Admixture pump (low)
 GVL.n_SP1_Max_Flowrate := _n_SP1_Max_Flowrate;
 GVL.n_SP1_Check_Flowrate := _n_SP1_Check_Flowrate;
-GVL.t_SP1_Check_Duration := INT_TO_TIME(_t_SP1_Check_Duration)*1000;
+GVL.t_SP1_Check_Duration := _t_SP1_Check_Duration;
 GVL.n_SP1_Flush_Flowrate := (_n_SP1_Max_Flowrate) / 2;
 
 ]]></ST>
     </Implementation>
     <LineIds Name="FB_SetConfigData">
-      <LineId Id="39" Count="39" />
+      <LineId Id="39" Count="18" />
+      <LineId Id="110" Count="0" />
+      <LineId Id="59" Count="19" />
       <LineId Id="9" Count="0" />
     </LineIds>
   </POU>

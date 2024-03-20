@@ -3,12 +3,10 @@
   <POU Name="P_CP1_Enable" Id="{0cce94a5-8870-4556-a5bf-f1f5cdfc669c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_CP1_Enable
 VAR_INPUT
-	//
 	// INT 
 	n_Step: INT := 0;	
 END_VAR
 VAR
-	//
 	// BOOL 
 	b_Condition: BOOL;
 	b_No_Emergency_Stop:BOOL :=TRUE;

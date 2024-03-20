@@ -2717,6 +2717,34 @@
 			</Detail>
 		</Event>
 		<Event>
+			<Id>56661</Id>
+			<Message LcId="1033">{0}{1,X}{2} Power management: Fast discharging function for DC link voltage not ready for operation</Message>
+			<Detail>
+				<Name LcId="1033">Description</Name>
+				<Text LcId="1033">Power management: Fast discharging function for DC link voltage not ready for operation</Text>
+			</Detail>
+			<Detail>
+				<SourceId>DiagReset</SourceId>
+				<Id>200</Id>
+			</Detail>
+			<Detail>
+				<SourceId>DiagReaction</SourceId>
+				<Id>0</Id>
+			</Detail>
+			<Detail>
+				<SourceId>DiagType</SourceId>
+				<Id>200</Id>
+			</Detail>
+			<CauseRemedy Idx="0">
+				<Cause LcId="1033">Extern chopper mode not parameterized</Cause>
+				<Remedy LcId="1033">Check P-0-0214 and enable external brake resistor</Remedy>
+			</CauseRemedy>
+			<CauseRemedy Idx="0">
+				<Cause LcId="1033">Chopper IGBT for DC link interface X02 not ready for operation</Cause>
+				<Remedy LcId="1033">The chopper IGBT for DC link interface X02 is not ready for operation because the internal power supply is in the safe state. Check state of the AX5801 or AX5805.</Remedy>
+			</CauseRemedy>
+		</Event>
+		<Event>
 			<Id>56704</Id>
 			<Message LcId="1033">{0}{1,X}{2} Control unit: Main loop time exceeded</Message>
 			<Detail>

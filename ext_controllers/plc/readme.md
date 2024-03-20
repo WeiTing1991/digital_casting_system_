@@ -16,9 +16,3 @@ DCS_ConcreteController_v1 : Developing version v1
 
 run local (without real plc)
 use VM installed with TC/BSD
-
-```mermaid
-
-```
-
-classs

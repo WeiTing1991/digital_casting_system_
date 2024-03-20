@@ -34,7 +34,6 @@ VAR_GLOBAL
 	ib_CC1_Safety_Ready AT %I*: BOOL; // Safety ready for line mixer button 
 	ib_CC1_Button_Mode_Manual AT %I*: BOOL;
 	ib_CC1_Button_Mode_Laptop AT %I*: BOOL;
-	ib_CC1_Button_Mode_Robot AT %I*:BOOL; // TODO: connect with variable link
 	
 	ib_CC1_Button_Reset AT %I*: BOOL;
 	

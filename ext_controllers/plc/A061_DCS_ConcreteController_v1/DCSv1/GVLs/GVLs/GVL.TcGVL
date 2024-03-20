@@ -38,6 +38,8 @@ VAR_GLOBAL
 	
 	f_MI1_MaxSpeed : REAL := 720 ; //distance/s] (equel to 120 rpm, by measurement 221006)
 	n_MI1_OverrideSpeed :INT;
+	b_Ml1_Enable : BOOL;
+	b_Ml1_Set_Run : BOOL;
 	
 	f_MI1_ActSpeedM1 : INT;
 	f_MI1_ActSpeedM2 : INT;

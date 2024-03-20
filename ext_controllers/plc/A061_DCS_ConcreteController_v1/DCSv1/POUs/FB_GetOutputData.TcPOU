@@ -118,7 +118,7 @@ END_IF
 
 //Pressure TODO
 //f_CP1_status_pressure_Concrete_pump := F_DecimalData(GVL_RESD.f_CP1_status_pressure_Concrete_pump, 3, TRUE),	
-f_MI1_status_Pressure_funnel_inlet := F_Mapping_REAL(
+f_MI1_status_Pressure_funnel_inlet := F_Mapping(
 													f_Input:= GVL_IO.in_Pressure_Funnel,
 													f_InMin:= 0, 
 													f_InMax:= 32767, 
@@ -142,7 +142,7 @@ ELSE
 END_IF
 
 //Pressure
-f_CP1_status_pressure_Concrete_pump:= F_Mapping_REAL(
+f_CP1_status_pressure_Concrete_pump:= F_Mapping(
 													f_Input:= GVL_IO.in_Pressure_Pump,
 													f_InMin:= 0, 
 													f_InMax:= 32767, 

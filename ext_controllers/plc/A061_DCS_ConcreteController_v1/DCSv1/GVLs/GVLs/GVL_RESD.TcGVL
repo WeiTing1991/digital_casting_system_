@@ -8,19 +8,22 @@ CONCRETE_CONTROLLER: STRING := 'MIXER';//***************************************
 b_Operate_mode_manual : BOOL;
 b_Operate_mode_laptop : BOOL; 	
 b_Operate_mode_robot : BOOL; 
+b_Concrete_Controller_enable : BOOL;
+b_Concrete_Controller_reset : BOOL;
 b_Concrete_Controller_power_on : BOOL; 
 n_Concrete_Controller_current_mode : INT;
 
 MIXER: STRING := 'MIXER';//***********************************************************
 // Inline Mixer Reactor				
 b_MI1_set_run : BOOL;								// POWER ON *****
+b_Ml1_Enable : BOOL;
 n_MI1_set_speed : REAL;								// [0 rpm to 120 rpm]
 b_MI1_set_curved_speed_mode_on: BOOL;				// Curved Speed Mode
 
 f_MI1_Override_Max_Speed : REAL := 120;				// [rpm]
 
 b_MI1_Is_Run:BOOL;
-b_MI1_is_ready : BOOL;
+b_MI1_Is_ready : BOOL;
 n_MI1_status_SpeedM1 : INT;
 n_MI1_status_SpeedM2 : INT;
 f_Status_Torque_Motor_1 : REAL;
@@ -29,6 +32,7 @@ f_MI1_status_temperature_funnel_outlet : REAL;
 f_MI1_status_Pressure_funnel_inlet : REAL; 	
 f_MI1_status_temperature_motor_1 : REAL; 			 
 f_MI1_status_temperature_motor_2 : REAL; 
+
 
 CONCRETE_PUMP: STRING := 'CONCRETE_PUMP';
 
@@ -46,7 +50,7 @@ n_Concrete_Pump_Check_Duration: INT := 15; 			// [s]
 
 f_Concrete_Pump_Set_Flowrate: REAL; 				// [0 to 24 l/min]
 f_Concrete_Pump_dosing_volume: REAL := 0.32;		// calibrated 230926 WT
-n_Concrete_Pump_Max_Speed : REAL := 75;
+n_Concrete_Pump_Max_Speed : INT := 75;
 n_Concrete_Pump_Set_Speed: INT;						// WRITE VALUE From 0 to 75 [rpm] 
 
 b_CP1_is_run : BOOL;
@@ -61,15 +65,16 @@ f_CP1_status_pressure_Concrete_pump: REAL; // [bar]
 
 Admixture_Pump_1: STRING := 'Admixture Pump (AP1)';
 
-b_Admixture_Pump_Set_Run : BOOL;  					// POWER ON 
+b_Admixture_Pump_Power_On : BOOL;  					// Power On
+b_Admixture_Pump_Set_Run : BOOL;  					// Set Run 
 b_Admixture_Pump_Flush_On: BOOL;					// FLUSH MODE ON 
-n_Admixture_Pump_Flush_Flowrate: REAL;				// READ 
+f_Admixture_Pump_Flush_Flowrate: REAL;				// READ 
 b_Admixture_Pump_Check_On: BOOL;					// CHECK MODE ON 
-n_Admixture_Pump_Check_Flowrate: REAL;				// READ 
+f_Admixture_Pump_Check_Flowrate: REAL;				// READ 
 n_Admixture_Pump_Check_Duration: INT := 60; 		// [s]
-n_Admixture_Pump_Max_Flowrate :REAL  := 637;		//calibrated 2402 WT
-n_Admixture_Pump_Set_Flowrate: REAL;         		// 0 to 637 [ml/min] 
-n_Admixture_Pump_dosing_factor: REAL := 1;			//only for scaled
+n_Admixture_Pump_Max_Flowrate :INT  := 637;		//calibrated 2402 WT
+f_Admixture_Pump_Set_Flowrate: REAL;         		// 0 to 637 [ml/min] 
+f_Admixture_Pump_dosing_factor: REAL := 1;			//only for scaled
 
 //f_Admixture_Pump_1_Density: REAL;          // [g/ml]
 //f_Admixture_Pump_1_Mass: REAL;             // [g]
@@ -80,19 +85,19 @@ b_Admixture_Pump_is_ready : BOOL;
 //
 Sup_Admixture_Pump_1: STRING := 'Admixture Pump (SP1)'; //***************************
 
-b_Sup_Admixture_Pump_Set_Run: BOOL;  // POWER ON 
+
+b_Sup_Admixture_Pump_Power_On : BOOL;  					// Power On
+b_Sup_Admixture_Pump_Set_Run: BOOL;  					// Set Run 
 
 b_Sup_Admixture_Pump_Flush_On: BOOL;				// FLUSH MODE ON 
-n_Sup_Admixture_Pump_Flush_Flowrate: REAL;
-
+f_Sup_Admixture_Pump_Flush_Flowrate: REAL;
 b_Sup_Admixture_Pump_Check_On: BOOL;				// CHECK MODE ON 
-n_Sup_Admixture_Pump_Check_Flowrate: REAL;
+f_Sup_Admixture_Pump_Check_Flowrate: REAL;
 n_Sup_Admixture_Pump_Check_Duration: INT := 60; 	// [s];
+n_Sup_Admixture_Pump_Max_Flowrate:INT := 138; 		//[ml/min]
 
-n_Sup_Admixture_Pump_Max_Flowrate:REAL := 138; 		//[ml/min]
-n_Sup_Admixture_Pump_dosing_factor:REAL:=1; //only for scaled
-
-n_Sup_Admixture_Pump_Set_Flowrate: REAL;         	// 0 to 138[ml/min]
+f_Sup_Admixture_Pump_Set_Flowrate: REAL;         	// 0 to 138[ml/min]
+f_Sup_Admixture_Pump_dosing_factor:REAL:=1; //only for scaled
 
 //f_Admixture_Pump_2_Density: REAL;          // [g/ml]
 //f_Admixture_Pump_2_Mass: REAL;             // [g]

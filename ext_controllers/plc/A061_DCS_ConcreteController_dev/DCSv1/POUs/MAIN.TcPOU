@@ -157,7 +157,7 @@ GVL_VAR.b_MI1_ReadToDrive:=Mixer1_2.b_ReadyToDrive;
 	
 // 
 // Reset 
-GVL_IO.ob_CC1_Safety_Reset:=GVL_IO.ib_CC1_Button_Reset;
+GVL_IO.ob_CC1_Safety_Reset:=TRUE;
  	
 // GVL.bResetSafety	:= safetyReset;
 
