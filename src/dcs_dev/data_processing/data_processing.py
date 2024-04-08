@@ -1,17 +1,17 @@
-from typing import Protocol, Any
 import os
+from typing import Any
+from typing import Protocol
 
 
-class PathConfig():
-    """
-    """
-    _HERE:str
+class PathConfig:
+    """ """
+
+    _HERE: str
     # path = "_config"
     # SRC_DIR = os.path.join(HERE, path)
 
     def __init__(self) -> None:
-        """
-        """
+        """ """
         self._HERE = os.path.dirname(__file__)
         self._HOME = os.path.abspath(os.path.join(self._HERE, "../../../"))
         os.path.abspath(os.path.join(self._HOME, "data"))
@@ -23,10 +23,8 @@ class PathConfig():
         return str(f"Here: {self._HERE} \nHome: {self._HOME} \n")
 
 
-
 class DataHandler(Protocol):
-    """
-    """
+    """ """
 
     def load_file(self) -> None:
         raise NotImplementedError
@@ -35,9 +33,9 @@ class DataHandler(Protocol):
         raise NotImplementedError
 
 
-
 class XMLDataHandler(DataHandler):
     pass
+
 
 if __name__ == "__main__":
     path = PathConfig()
@@ -45,7 +43,6 @@ if __name__ == "__main__":
 
 
 import xml.dom.minidom as xmldom
-
 
 domtree = xmldom.parse("src\GVL_Data_Com.xml")
 

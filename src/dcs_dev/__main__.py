@@ -21,7 +21,7 @@ LOOP_TIME = 10
 
 # ===============================================================================
 """Global value for research data from PLC script"""
-# ------------------------------------------------------------------------------#
+# ------------------------------------------------------------------------------
 # Accelerator pump
 
 """
@@ -211,9 +211,10 @@ if __name__ == "__main__":
                 for k, v in inline_mixer_params.items():
                     Thread1 = Thread(target=read_from_plc_and_store, args=(research_data[log], k, v))
                     Thread1.start()
-                    #read_from_plc_and_store(research_data[log], k, v)
+                    # read_from_plc_and_store(research_data[log], k, v)
 
                 # Concrete pump
+
                 for k, v in cc_pump_params.items():
                     Thread2 = Thread(target=read_from_plc_and_store, args=(research_data[log], k, v))
                     Thread2.start()
