@@ -23,19 +23,16 @@ _kwd=twincat&gclid=Cj0KCQjw9ZGYBhCEARIsAEUXITW5dmPmQ2629HIuFY7wfbSR70pi5uY2lkYzi
 
 ## __Installation__
 
-### Anaconda 3 option 1 on Windows 11
-
-First step, add the conda-forge
+### Anaconda 3 on Windows 11
 
 ```bash
-conda config --add channels conda-forge
-Create the environment and activate it
-conda create -n dcs python = 3.10
+# Create the environment and activate it
+conda create -n dcs python=3.10
 
-Install dependencies
-
+# Install dependencies
 conda activate dcs
 pip install -r requirements.txt
+
 ```
 
 

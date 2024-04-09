@@ -4,6 +4,7 @@ bump2version >=1.0.1
 check-manifest >=0.36
 doc8
 flake8
+ruff
 graphviz
 invoke >=0.14
 ipykernel
@@ -18,4 +19,9 @@ sphinx >=3.4
 twine
 wheel
 matplotlib
--e .
+
+#
+pyads >=3.3.9
+numpy >=1.26.0
+
+
