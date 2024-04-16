@@ -4,6 +4,7 @@ from typing import List
 
 # Serialization/Deserialization
 
+
 @dataclass
 class DataObject:
     """
@@ -18,11 +19,10 @@ class DataObject:
     active (bool): if the varible is active and can be read and/or write.
 
     """
+
     var_id: int
     var_name: str
     var_name_IN: str
-    is_write_value:bool
-    is_read_value:bool
     data_type: str
     active: bool
 
@@ -33,14 +33,15 @@ class DataDict:
     This moudle is a data dictionary, which  wraps from DataObject with a machine id and params list.
 
     """
-    machine_id: int
-    machine_params: List[DataObject]
 
-    def __post_init__(self):
-        self.machine_params = [asdict(params) for params in self.machine_params]
+    machine_id: int
+    machine_input: List[DataObject]
+    machine_output: List[DataObject]
 
     def __str__(self) -> str:
-        return f"machine id: {self.machine_id} \nmachine params: {self.machine_params}"
+        return f"machine id: {self.machine_id} \
+        \nmachine input: {self.machine_input} \
+        \nmachine output: {self.machine_output}"
 
 
 @dataclass
@@ -49,6 +50,7 @@ class MachineDataStruct:
     This moudle is data structure, representing the machine.
 
     """
+
     machine_name: str
     machine_data: DataDict
 

@@ -33,37 +33,38 @@ conda create -n dcs python=3.10
 conda activate dcs
 pip install -r requirements.txt
 
-```
-
-
-### Virtualenv option 2 on Debian 12
-
-```bash
-# Install venv
-sudo apt install python3-venv -y
-
-# Clone repos and create the environment
-
-mkdir myfolder
-cd myfolder
-
+# Clone the repository
 git clone https://github.com/USI-FMAA/digital_casting_system.git
-
-python3.10 -m venv env
-
-Install dependencies
-
-source env/bin/activate
-which python3
-
-pip3 install -r requirements.txt
-
-pip3 list
+git pull --recurse-submodules
 ```
+
+
+<!-- ### Virtualenv option 2 on Debian 12 -->
+<!---->
+<!-- ```bash -->
+<!-- # Install venv -->
+<!-- sudo apt install python3-venv -y -->
+<!---->
+<!-- # Clone repos and create the environment -->
+<!---->
+<!-- mkdir myfolder -->
+<!-- cd myfolder -->
+<!---->
+<!-- git clone https://github.com/USI-FMAA/digital_casting_system.git -->
+<!---->
+<!-- python3.10 -m venv env -->
+<!---->
+<!-- Install dependencies -->
+<!---->
+<!-- source env/bin/activate -->
+<!-- which python3 -->
+<!---->
+<!-- pip3 install -r requirements.txt -->
+<!---->
 
 ### Concrete Controller
 
-The subpackage `external_controllers` is a package that provides a set of driver to control the concrete casting machines.
+The sub-package `external_controllers` is a package that provides a set of driver to control the concrete casting machines.
 More information can be found in [digital casting system controller]()
 
 ## Credits

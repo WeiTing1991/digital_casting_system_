@@ -1,5 +1,4 @@
-### Global data from PLC " 
-
+### Global data from PLC "
 
 
 "inline_mixer":
