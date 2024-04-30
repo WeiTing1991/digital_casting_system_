@@ -1,8 +1,9 @@
-from dataclasses import dataclass, asdict
+from dataclasses import asdict
+from dataclasses import dataclass
 from typing import List
 
-
 # Serialization/Deserialization
+#
 
 
 @dataclass
@@ -20,15 +21,21 @@ class DataObject:
 
     """
 
-    var_id: int
+    id: int
     var_name: str
     var_name_IN: str
     data_type: str
     active: bool
 
+    def _to_dict(self) -> dict:
+        return asdict(self)
+
+    def __str__(self) -> str:
+        return f"id: {self.id} var_name: {self.var_name} var_name_IN: {self.var_name_IN} data_type: {self.data_type} active: {self.active}"
+
 
 @dataclass
-class DataDict:
+class DataParam:
     """
     This moudle is a data dictionary, which  wraps from DataObject with a machine id and params list.
 
@@ -37,6 +44,17 @@ class DataDict:
     machine_id: int
     machine_input: List[DataObject]
     machine_output: List[DataObject]
+
+    def __getitem__(self, key: str) -> List[DataObject]:
+        if key == "input":
+            return [input_data for input_data in self.machine_input]
+        elif key == "output":
+            return [output_data for output_data in self.machine_output]
+        else:
+            raise KeyError(f"KeyError: {key}")
+
+    def _to_dict(self) -> dict:
+        return asdict(self)
 
     def __str__(self) -> str:
         return f"machine id: {self.machine_id} \
@@ -52,10 +70,7 @@ class MachineDataStruct:
     """
 
     machine_name: str
-    machine_data: DataDict
+    machine_data: DataParam
 
     def _to_dict(self) -> dict:
         return asdict(self)
-
-    def __str__(self) -> str:
-        return f"machine name {self.machine_name} \nmachine data: {self.machine_data}"
