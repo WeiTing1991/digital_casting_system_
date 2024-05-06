@@ -10,4 +10,7 @@ if __name__ == "__main__":
     dcs_rob = DcsRosClient()
 
     dcs_rob._init_ros_client()
+
+    dcs_rob._set_digital_output("doA061_MI1Enable", 0)
+
     dcs_rob._close_ros_client()
