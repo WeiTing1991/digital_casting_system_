@@ -7,7 +7,7 @@ digital_casting_system
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
 
 """
@@ -20,7 +20,7 @@ __author__ = ["wei ting chen"]
 __copyright__ = ""
 __license__ = "MIT License"
 __email__ = "wei.ting.chen@usi.ch"
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 
 
 HERE = os.path.dirname(__file__)
@@ -30,5 +30,5 @@ DATA = os.path.abspath(os.path.join(HOME, "data"))
 DOCS = os.path.abspath(os.path.join(HOME, "docs"))
 TEMP = os.path.abspath(os.path.join(HOME, "temp"))
 
-
 __all__ = ["HOME", "DATA", "DOCS", "TEMP"]
+

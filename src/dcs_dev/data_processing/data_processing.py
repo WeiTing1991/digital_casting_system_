@@ -1,16 +1,27 @@
 import json
 import os
-from typing import Protocol
+
+from data_struct import DataObject
+from data_struct import DataParam
 
 
-class PathConfig():
-    """ """
+class PathConfig:
+    """
+    A class to handle paths and configurations.
 
-    _HERE: str
-    _config: str
+    Attributes:
+        _HERE (str): The directory path of the current file.
+        _HOME (str): The absolute path of the home directory.
+        _config (str): The absolute path of the configuration directory.
+        filename (str): The filename of the configuration file.
+    """
 
     def __init__(self) -> None:
-        """ """
+        """
+        _HERE: str
+        _config: str
+
+        """
         self._HERE = os.path.dirname(__file__)
         self._HOME = os.path.abspath(os.path.join(self._HERE, "../../../"))
         self._config = os.path.abspath(os.path.join(self._HERE, "..", "_config"))
@@ -28,22 +39,47 @@ class PathConfig():
     def __str__(self) -> str:
         return str(f"Here: {self._HERE} \nHome: {self._HOME} \nConfig: {self._config}")
 
-    def _load_form_json(self) -> None:
+
+class DataHandler(PathConfig):
+
+    """
+    A class to handle data loading and manipulation.
+
+    Inherits from:
+        PathConfig
+
+    Attributes:
+        machine_dict (dict): A dictionary to store machine data.
+        machine (DataParam): An instance of DataParam to hold machine data.
+    """
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.machine_dict = dict()
+        self.machine = DataParam(0, [], [])
+
+    def _load_json_to_dict(self) -> None:
         with open(self.filename, "r") as file:
             try:
                 self.machine_dict = json.load(file)
             except ValueError as e:
                 print(f"Error: {e}")
 
+    def _load_json_to_instance(self) -> None:
+        with open(self.filename, "r") as file:
+            try:
+                self.machine = json.load(file, object_hook=self.data_object_decoder)
+            except ValueError as e:
+                print(f"Error: {e}")
+
     def get_machine_dict(self) -> dict:
         return self.machine_dict
 
-class DataHandler(Protocol):
-    """ """
-
-    def load_file(self) -> None:
-        raise NotImplementedError
-
-    def write_file(self) -> None:
-        raise NotImplementedError
-
+    @staticmethod
+    def data_object_decoder(obj) -> object:
+        if "machine_id" in obj:
+            machine_id = obj["machine_id"]
+            inputs = [DataObject(**input_data) for input_data in obj.get("input", [])]
+            outputs = [DataObject(**output_data) for output_data in obj.get("output", [])]
+            return DataParam(machine_id, inputs, outputs)
+        return obj
