@@ -23,7 +23,8 @@ parameters, including processing and material characteristics, while carefully c
 ## Getting Started
 
 ```bash
-
+# docker compose up
+docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_controller\docker-compose.yml up
 ```
 
 ## Developer Installation
