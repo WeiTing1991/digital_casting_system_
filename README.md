@@ -39,7 +39,7 @@ git pull --recurse-submodules
 conda create --prefix ./.env python=3.10
 
 # Install dependencies
-conda activate ./env
+conda activate ./.env
 pip install -r requirements.txt
 
 # Install compas framework
