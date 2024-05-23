@@ -1,7 +1,7 @@
 {
     "inline_mixer": {
         "machine_id": "100",
-        "input": [
+        "output": [
             {
                 "id": "101",
                 "var_name": "mixer_is_run",
@@ -71,23 +71,59 @@
                 "var_name_IN": "GVL_RESD.f_MI1_status_temperature_motor_2",
                 "data_type": "real",
                 "active": true
+            },
+            {
+                "id": "111",
+                "var_name": "mixer_motor_max_speed",
+                "var_name_IN": "GVL_RESD.f_MI1_Override_Max_Speed",
+                "data_type": "real",
+                "active": true
             }
         ],
-        "output": []
+        "input": [
+            {
+                "id": "151",
+                "var_name": "mixer_set_run",
+                "var_name_IN": "GVL_RESD.b_MI1_set_run",
+                "data_type": "bool",
+                "active": true
+            },
+            {
+                "id": "152",
+                "var_name": "mixer_enable",
+                "var_name_IN": "GVL_RESD.b_MI1_Enable",
+                "data_type": "bool",
+                "active": true
+            },
+            {
+                "id": "153",
+                "var_name": "mixer_set_speed",
+                "var_name_IN": "GVL_RESD.b_MI1_set_speed",
+                "data_type": "real",
+                "active": true
+            },
+            {
+                "id": "154",
+                "var_name": "mixer_set_curved_mode_on",
+                "var_name_IN": "GVL_RESD.b_MI1_set_curved_speed_mode_on",
+                "data_type": "bool",
+                "active": true
+            }
+        ]
     },
     "concrete_pump": {
         "machine_id": "200",
         "input": [
             {
                 "id": "201",
-                "var_name": "concrete_pump_Forward_On",
+                "var_name": "concrete_pump_forward_On",
                 "var_name_IN": "GVL_RESD.b_RED_Concrete_Pump_Forward_On",
                 "data_type": "bool",
                 "active": true
             },
             {
                 "id": "202",
-                "var_name": "concrete_pump_Backward_On",
+                "var_name": "concrete_pump_backward_On",
                 "var_name_IN": "GVL_RESD.b_RED_Concrete_Pump_Backward_On",
                 "data_type": "bool",
                 "active": false
@@ -96,16 +132,51 @@
                 "id": "203",
                 "var_name": "concrete_flowrate",
                 "var_name_IN": "GVL_RESD.f_RED_Concrete_Pump_Flowrate",
-                "data_type": "",
+                "data_type": "real",
                 "active": true
+            },
+            {
+                "id": "204",
+                "var_name": "",
+                "var_name_IN": "",
+                "data_type": "",
+                "active": false
             }
         ],
         "output": [
             {
                 "id": "211",
+                "var_name": "concrete_fresh_temperature",
+                "var_name_IN": "GVL_RESD.f_CP1_status_temperature_concrete_fresh",
+                "data_type": "real",
+                "active": true
+            },
+            {
+                "id": "212",
                 "var_name": "concrete_pump_temperature",
-                "var_name_IN": "GVL_RESD.f_RED_Status_Pressure_Concrete_Pump",
-                "data_type": "",
+                "var_name_IN": "GVL_RESD.f_CP1_status_temperature_concrete_pump",
+                "data_type": "real",
+                "active": true
+            },
+            {
+                "id": "213",
+                "var_name": "concrete_pump_pressure",
+                "var_name_IN": "GVL_RESD.f_CP1_status_pressure_Concrete_pump",
+                "data_type": "real",
+                "active": true
+            },
+            {
+                "id": "214",
+                "var_name": "concrete_pump_is_run",
+                "var_name_IN": "GVL_RESD.b_CP1_is_run",
+                "data_type": "bool",
+                "active": true
+            },
+            {
+                "id": "215",
+                "var_name": "concrete_pump_is_ready",
+                "var_name_IN": "GVL_RESD.b_CP1_is_ready",
+                "data_type": "bool",
                 "active": true
             }
         ]
@@ -115,33 +186,54 @@
         "input": [
             {
                 "id": "301",
-                "var_name": "accelerator_pump_On",
-                "var_name_IN": "GVL_RESD.b_RED_Concrete_Pump_Forward_On",
-                "data_type": "bool",
-                "active": false
-            },
-            {
-                "id": "302",
-                "var_name": "accelerator_flowrate",
-                "var_name_IN": "GVL_RESD.n_RED_Acceleration_Pump_Flowrate",
+                "var_name": "admixture_pump_On",
+                "var_name_IN": "GVL_RESD.b_Admixture_Pump_Power_On",
                 "data_type": "bool",
                 "active": false
             },
             {
                 "id": "303",
+                "var_name": "admixture_high_pump_set_run",
+                "var_name_IN": "GVL_RESD.b_Admixture_Pump_Set_Run",
+                "data_type": "bool",
+                "active": false
+            },
+            {
+                "id": "304",
+                "var_name": "admixture_high_set_flowrate",
+                "var_name_IN": "GVL_RESD.b_Admixture_Pump_Set_Flowrate",
+                "data_type": "bool",
+                "active": false
+            },
+            {
+                "id": "305",
                 "var_name": "",
-                "var_name_IN": "GVL_RESD.f_RED_Concrete_Pump_Flowrate",
+                "var_name_IN": "",
                 "data_type": "",
-                "active": true
+                "active": false
             }
         ],
         "output": [
             {
                 "id": "311",
-                "var_name": "concrete_pump_temperature",
-                "var_name_IN": "GVL_RESD.f_RED_Status_Pressure_Concrete_Pump",
-                "data_type": "",
-                "active": false
+                "var_name": "admixture_high_pump_is_run",
+                "var_name_IN": "GVL_RESD.b_Admixture_Pump_is_run",
+                "data_type": "bool",
+                "active": true
+            },
+            {
+                "id": "312",
+                "var_name": "admixture_high_pump_is_ready",
+                "var_name_IN": "GVL_RESD.b_Admixture_Pump_is_ready",
+                "data_type": "bool",
+                "active": true
+            },
+            {
+                "id": "313",
+                "var_name": "admixture_pump_max_flowrate",
+                "var_name_IN": "GVL_RESD.b_Admixture_Pump_Max_Flowrate",
+                "data_type": "int",
+                "active": true
             }
         ]
     },
@@ -150,69 +242,90 @@
         "input": [
             {
                 "id": "401",
-                "var_name": "superplasticizer_pump_On",
-                "var_name_IN": "GVL_RESD.",
+                "var_name": "sup_admixture_pump_On",
+                "var_name_IN": "GVL_RESD.b_Sup_Admixture_Pump_Power_On",
                 "data_type": "bool",
-                "active": false
+                "active": true
             },
             {
                 "id": "402",
-                "var_name": "superplasticizer_flowrate",
-                "var_name_IN": "GVL_RESD.",
-                "data_type": "bool",
-                "active": false
+                "var_name": "sup_admixture_set_run",
+                "var_name_IN": "GVL_RESD.b_Sup_Admixture_Pump_Set_Run",
+                "data_type": "real",
+                "active": true
             },
             {
                 "id": "403",
-                "var_name": "",
-                "var_name_IN": "GVL_RESD.",
-                "data_type": "",
-                "active": false
+                "var_name": "sup_admixture_set_flowrate",
+                "var_name_IN": "GVL_RESD.f_Sup_Admixture_Pump_Set_Flowrate",
+                "data_type": "real",
+                "active": true
             }
         ],
         "output": [
             {
                 "id": "411",
-                "var_name": "",
-                "var_name_IN": "GVL_RESD.",
-                "data_type": "",
-                "active": false
+                "var_name": "sup_admixture_pump_is_run",
+                "var_name_IN": "GVL_RESD.b_Sup_Admixture_Pump_is_run",
+                "data_type": "bool",
+                "active": true
+            },
+            {
+                "id": "412",
+                "var_name": "sup_admixture_pump_is_ready",
+                "var_name_IN": "GVL_RESD.b_Sup_Admixture_Pump_is_ready",
+                "data_type": "bool",
+                "active": true
+            },
+            {
+                "id": "413",
+                "var_name": "sup_admixture_pump_max_flowrate",
+                "var_name_IN": "GVL_RESD.b_Sup_Admixture_Pump_Max_Flowrate",
+                "data_type": "int",
+                "active": true
             }
         ]
     },
     "system": {
         "machine_id": "500",
-        "input": [
+        "output": [
             {
                 "id": "501",
-                "var_name": "Operate_mode_manual",
+                "var_name": "operate_mode_manual",
                 "var_name_IN": "GVL_RESD.b_Operate_mode_manual",
                 "data_type": "bool",
                 "active": true
             },
             {
                 "id": "502",
-                "var_name": "Operate_mode_laptop",
+                "var_name": "operate_mode_laptop",
                 "var_name_IN": "GVL_RESD.b_Operate_mode_laptop",
                 "data_type": "bool",
                 "active": true
             },
             {
                 "id": "503",
-                "var_name": "Operate_mode_robot",
+                "var_name": "operate_mode_robot",
                 "var_name_IN": "GVL_RESD.b_Operate_mode_robot",
                 "data_type": "bool",
                 "active": true
             },
             {
                 "id": "504",
+                "var_name": "concrete_controller_current_mode",
+                "var_name_IN": "GVL_RESD.n_Concrete_Controller_current_mode",
+                "data_type": "Int",
+                "active": true
+            },
+            {
+                "id": "505",
                 "var_name": " ",
                 "var_name_IN": ".",
                 "data_type": " ",
                 "active": false
             }
         ],
-        "output": [
+        "input": [
             {
                 "id": "511",
                 "var_name": "Concrete_Controller_enable",
@@ -236,13 +349,6 @@
             },
             {
                 "id": "514",
-                "var_name": "Concrete_Controller_current_mode",
-                "var_name_IN": "GVL_RESD.n_Concrete_Controller_current_mode",
-                "data_type": "Int",
-                "active": true
-            },
-            {
-                "id": "515",
                 "var_name": "",
                 "var_name_IN": "",
                 "data_type": "",

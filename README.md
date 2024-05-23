@@ -29,18 +29,21 @@ docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_control
 
 ## Developer Installation
 
-### Anaconda 3 (on Windows 10)
+### Anaconda 3 (on Windows 10/ MacOS 14.0)
 
 ```bash
 # Clone the repository
 git clone https://github.com/USI-FMAA/digital_casting_system.git
+git submodule update --init --recursive
+
+# Update the submoudles
 git pull --recurse-submodules
 
 # Create the environment and activate it
 conda create --prefix ./.env python=3.10
 
 # Install dependencies
-conda activate ./env
+conda activate ./.env
 pip install -r requirements.txt
 
 # Install compas framework
@@ -49,28 +52,29 @@ pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 
 ```
 
-<!-- ### Virtualenv option 2 on Debian 12 -->
+<!-- ### Virtualenv (on MacOS\ Ubuntu 22.04) -->
 <!---->
 <!-- ```bash -->
 <!-- # Install venv -->
 <!-- sudo apt install python3-venv -y -->
 <!---->
 <!-- # Clone repos and create the environment -->
-<!---->
-<!-- mkdir myfolder -->
-<!-- cd myfolder -->
-<!---->
 <!-- git clone https://github.com/USI-FMAA/digital_casting_system.git -->
+<!-- git submodule update --init --recursive -->
 <!---->
-<!-- python3.10 -m venv env -->
+<!-- # Update the submoudles -->
+<!-- git pull --recurse-submodules -->
 <!---->
-<!-- Install dependencies -->
+<!-- # Create the environment and activate it -->
+<!-- python3.10 -m venv .env -->
 <!---->
-<!-- source env/bin/activate -->
+<!-- #Install dependencies -->
+<!-- source ./.env/bin/activate -->
 <!-- which python3 -->
 <!---->
 <!-- pip3 install -r requirements.txt -->
 <!---->
+<!-- ``` -->
 
 ### Concrete Controller
 
