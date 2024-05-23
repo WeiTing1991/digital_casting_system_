@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from typing import List
+
 
 class Machine(ABC):
 
@@ -14,12 +16,15 @@ class Machine(ABC):
         pass
 
 
+@dataclass
 class InlineMixer(Machine):
+    """
 
-    def __init__(self, machine_id: int, machine_input: list, machine_output: list):
-        self.machine_id = machine_id
-        self.machine_input = machine_input
-        self.machine_output = machine_output
+    """
+    machine_id: int
+    machine_input: List
+    machine_output: List
+    machine_error_num: int = 0
 
     def device_id(self) -> int:
         return self.machine_id

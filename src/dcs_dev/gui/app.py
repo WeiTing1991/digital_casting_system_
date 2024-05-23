@@ -1,5 +1,8 @@
 import tkinter as tk
 
 
-m = tk.Tk()
-m.mainloop()
+if __name__ == "__main__":
+
+    while True:
+        x = input ("Enter a number: ")
+
