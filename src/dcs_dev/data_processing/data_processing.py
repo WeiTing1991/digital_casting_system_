@@ -1,8 +1,8 @@
 import json
 import os
 
-from data_struct import DataObject
-from data_struct import DataParam
+from .data_struct import DataObject
+from .data_struct import DataParam
 
 
 class PathConfig:
@@ -41,7 +41,6 @@ class PathConfig:
 
 
 class DataHandler(PathConfig):
-
     """
     A class to handle data loading and manipulation.
 

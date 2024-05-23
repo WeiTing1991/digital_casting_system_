@@ -1,43 +1,25 @@
-import json
-import os
+from data_processing.data_processing import DataHandler
+from hal.device import InlineMixer
 
-from hal.interface import MixerStructOutput
+if __name__ == "__main__":
 
+    machine_data = DataHandler()
+    print(machine_data.__str__())
 
-HERE = os.path.dirname(__file__)
-path = "_config"
-SRC_DIR = os.path.join(HERE, path)
+    # set the path to the PLC config file
+    machine_data._set_plc_config()
+    data = machine_data._load_json_to_instance()
 
+    #print(path.machine["inline_mixer"])
+    #print(path.machine["inline_mixer"].machine_id)
+    #print(path.machine["inline_mixer"].machine_input)
 
-# Opening JSON file
-f = open(SRC_DIR + "/beckhoff_controller.json")
+    inline_mixer = InlineMixer(machine_data.machine["inline_mixer"].machine_id, machine_data.machine["inline_mixer"].machine_input, machine_data.machine["inline_mixer"].machine_output)
 
-# returns JSON object as
-# a dictionary
-config = json.load(f)
+    print (inline_mixer.machine_id)
+    print (inline_mixer.input_list())
+    print (inline_mixer.output_list())
 
-# Iterating through the json
-# list
+    # print(path.machine["inline_mixer"].machine_output)
 
-# Closing file
-f.close()
-
-mixer = MixerStructOutput()
-print(mixer)
-
-
-
-# print(mixer._to_list())
-
-
-# mixer_params_output = mixer.output_params
-# print(mixer_params_output)
-
-# mixer_output = config["inline_mixer"]["Output"]
-
-
-# for i in mixer_output:
-#     for k, v in mixer_output[0].items():
-#         mixer_params_output[i].update({k:v})
-
-# print(mixer_params_output)
+    print(type(machine_data.machine))

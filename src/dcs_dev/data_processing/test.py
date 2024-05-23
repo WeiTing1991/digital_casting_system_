@@ -1,3 +1,4 @@
+
 from data_processing import DataHandler
 
 if __name__ == "__main__":
@@ -9,9 +10,9 @@ if __name__ == "__main__":
     path._set_plc_config()
     data = path._load_json_to_instance()
 
-    print(path.machine["inline_mixer"])
+    #print(path.machine["inline_mixer"])
     print(path.machine["inline_mixer"].machine_id)
     print(path.machine["inline_mixer"].machine_input)
-    print(path.machine["inline_mixer"].machine_output)
+    # print(path.machine["inline_mixer"].machine_output)
 
     print(type(path.machine))
