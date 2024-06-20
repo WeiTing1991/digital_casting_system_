@@ -38,7 +38,6 @@ class DcsRosClient:
         get_gi = self.abb.send_and_wait(rrc.SetGroup(io_name))
         print(f"{io_name} is {get_gi}")
 
-
     def _set_tool(self):
         pass
 

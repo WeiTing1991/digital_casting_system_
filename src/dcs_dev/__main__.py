@@ -183,7 +183,7 @@ if __name__ == "__main__":
         #cc_pump_Forward_On_state = plc.read_by_name(cc_pump_Forward_On)
 
         # cc_pump_Forward_On or cc_pump_Backward_On and mixer is ON
-        while mixer_On_state :
+        while mixer_On_state:
         #and (cc_pump_Backward_On_state or cc_pump_Forward_On_state):
 
 

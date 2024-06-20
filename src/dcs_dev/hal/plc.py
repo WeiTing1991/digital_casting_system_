@@ -1,5 +1,3 @@
-import pyads
-
 from threading import Lock
 from typing import Any, Dict, List
 from attr import define, field, validators
@@ -23,6 +21,7 @@ class PLC:
         self.connection = pyads.Connection(self.netid, pyads.PORT_TC3PLC1)
 
     def __del__(self):
+        # NOT GOOD
         """Close the connection to the PLC."""
         if self.connection.is_open:
             self.connection.close()
@@ -67,20 +66,19 @@ class PLC:
         with self.lock_dict:
             for data in self.plc_vars_input:
                 print(data)
-                if variable_name not in data.var_name:
-                    raise VariableNotFoundInRepositoryError(f"Variable {variable_name} not found in plc.")
-            try:
-                value = self.connection.read_by_name(variable_name)
-                print(f"Variable {variable_name}:{value} read from plc.")
-                return {variable_name : value}
-            except KeyError:
-                error_msg = f"Error{variable_name}"
-                raise VariableNotFoundInRepositoryError(error_msg)
+                if variable_name == str(data.var_name_IN):
+                    try:
+                        value = self.connection.read_by_name(variable_name)
+                        print(f"Variable {variable_name}:{value} read from plc.")
+                        return {variable_name : value}
+                    except KeyError:
+                        error_msg = f"Error{variable_name}"
+                        raise VariableNotFoundInRepositoryError(error_msg)
 
 
     def set_variable(self, variable_name: str, value: Any):
         """Get a variable from the PLC."""
-        pass
+        raise NotImplementedError
 
 
 class LocalRepositoryEmptyError(Exception):

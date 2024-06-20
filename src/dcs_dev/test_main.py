@@ -8,7 +8,9 @@ if __name__ == "__main__":
     print(machine_data.__str__())
 
     # set the path to the PLC config file
-    machine_data._set_plc_config()
+    # machine_data._set_plc_config()
+
+    machine_data._set_robot_mode_config()
     data = machine_data._load_json_to_instance()
 
 
@@ -18,18 +20,26 @@ if __name__ == "__main__":
         machine_data.machine["inline_mixer"].machine_output,
     )
 
-    print(inline_mixer.machine_id)
-    print(inline_mixer.input_list())
-    print(inline_mixer.output_list())
+    # print(str(inline_mixer))
 
-    plc = PLC(netid="5.57.158.168.1.1", ip="")
+    # print(inline_mixer.input_list())
+    for input in inline_mixer.get_input_var_name():
+        print(input)
+    for output in inline_mixer.get_output_var_name():
+        print(output)
 
-    plc.set_plc_vars_input_list(inline_mixer.input_list())
 
-    plc.get_variable("mixer_is_run")
+    # inline_mixer.get_output_var_name()j
+    for input in inline_mixer.set_input_dict():
+        print(input)
+
+    #while True:
+    #    plc = PLC(netid="5.57.158.168.1.1", ip="")
+    #    plc.connect()
+    #    plc.set_plc_vars_input_list(inline_mixer.input_list())
+    #    plc.get_variable("mixer_is_run")
 
     # plc.connect()
 
     # print(path.machine["inline_mixer"].machine_output)
 
-    print(type(machine_data.machine))

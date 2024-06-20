@@ -30,10 +30,10 @@ class PathConfig:
     def _init_machine_dict(self) -> None:
         self.machine_dict = dict()
 
-    def _set_plc_config(self) -> None:
+    def _set_plc_mode_config(self) -> None:
         self.filename = os.path.join(self._config, "beckhoff_controller.json")
 
-    def _set_robot_config(self) -> None:
+    def _set_robot_mode_config(self) -> None:
         self.filename = os.path.join(self._config, "abb_irb4600.json")
 
     def __str__(self) -> str:
