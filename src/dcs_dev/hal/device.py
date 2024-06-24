@@ -33,7 +33,7 @@ class InlineMixer(Machine):
         return self.machine_input
 
     def output_list(self) -> List[object]:
-        return self.machine_input
+        return self.machine_output
 
     def get_input_var_name(self) -> Any:
         for input in self.machine_input:

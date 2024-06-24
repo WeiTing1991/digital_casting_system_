@@ -1,3 +1,4 @@
+import pyads
 from threading import Lock
 from typing import Any, Dict, List
 from attr import define, field, validators
@@ -61,14 +62,13 @@ class PLC:
             raise AdsConnectionError("Could not read variable from PLC, PLC connection failed.")
         pass
 
-    def get_variable(self, variable_name: str) -> Dict[str, Any]:
+    def get_variable(self, variable_name: str):
         """Get a variable from the PLC."""
         with self.lock_dict:
-            for data in self.plc_vars_input:
-                print(data)
-                if variable_name == str(data.var_name_IN):
+            for data in self.plc_vars_output:
+                if variable_name == str(data.var_name):
                     try:
-                        value = self.connection.read_by_name(variable_name)
+                        value = self.connection.read_by_name(data.var_name_IN)
                         print(f"Variable {variable_name}:{value} read from plc.")
                         return {variable_name : value}
                     except KeyError:
