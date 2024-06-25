@@ -36,9 +36,6 @@ dcs -- hal
     utilities
 
 <!-- NOTE: -->
-    MongoDB to check and store data in system
-    how to integrate the database with the system
-    do you wanna how to auto store data in programe..... to check
 
 data processing
     covert the processing data into system

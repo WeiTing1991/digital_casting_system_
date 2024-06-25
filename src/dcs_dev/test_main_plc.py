@@ -1,14 +1,9 @@
-import tkinter as tk
-
 from data_processing.data_processing import DataHandler
 from hal.device import InlineMixer
 from hal.plc import PLC
 
 
 if __name__ == "__main__":
-    window = tk.Tk()
-    window.minsize(800, 600)
-    tk.Button(window, text="Hello World", command=window.quit).pack()
 
     machine_data = DataHandler()
     print(machine_data.__str__())
@@ -30,7 +25,7 @@ if __name__ == "__main__":
 
     # print(inline_mixer.input_list())
     for input in inline_mixer.get_input_var_name():
-        tk.Button(window, text=input, command=window.quit).pack()
+        print(input)
     for output in inline_mixer.get_output_var_name():
         print(output)
 
@@ -39,14 +34,16 @@ if __name__ == "__main__":
     for input in inline_mixer.set_input_dict():
         print(input)
 
-    #while True:
-    #    plc = PLC(netid="5.57.158.168.1.1", ip="")
-    #    plc.connect()
-    #    plc.set_plc_vars_input_list(inline_mixer.input_list())
-    #    plc.get_variable("mixer_is_run")
+    plc = PLC(netid="5.57.158.168.1.1", ip="")
+    plc.connect()
+    plc.set_plc_vars_input_list(inline_mixer.input_list())
+    plc.set_plc_vars_output_list(inline_mixer.output_list())
+
+    while True:
+        plc.get_variable("mixer_is_run")
+
 
     # plc.connect()
 
     # print(path.machine["inline_mixer"].machine_output)
 
-    window.mainloop()

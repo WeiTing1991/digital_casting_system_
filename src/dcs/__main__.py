@@ -7,6 +7,7 @@ from threading import Thread
 
 from data_gathering.data_gathering import write_dict_to_csv, write_dict_to_json
 
+# this version only works on the robotic mode
 # =================================================================================
 '''Global value'''
 
@@ -15,10 +16,10 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_10cac_Eggshell_columnRE'
+DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_74S_3FW__ETH_acc_test'
 #50_agg_1.5FW_ETH_temperature_test
 
-# HVAE TO FINISH NOT OVERRIDE THE FILE
+# HVAE TO FINISH NOT OVERRkIDE THE FILE
 # direction for data storing
 HERE = os.path.dirname(__file__)
 HOME = os.path.abspath(os.path.join(HERE, "../../"))
@@ -30,7 +31,6 @@ CSV_DIR = os.path.join(DATA, 'csv')
 # Record time slot
 RECODED_DELAY_TIME = 1 # second
 
-
 # Value for Dry Run without concrete pump
 DRY_RUN = False
 LOOP_TIME = 1000
@@ -40,20 +40,16 @@ LOOP_TIME = 1000
 """Global value for research data from PLC script"""
 # ------------------------------------------------------------------------------#
 # Accelerator pump
+plc_output = "P_Robot_Operate.fb_getOutputData"
+plc_input = "P_Robot_Operate.fb_SetOutputDataToIO"
 
-"""
-acc_calibration_on = "GVL_ResearchData.b_RED_Acceleration_Pump_Calibration_On" # Bool
-GVL_ResearchData.n_RED_Acceleration_Pump_Calibration_Speed: INT;
-GVL_ResearchData.n_RED_Acceleration_Pump_Calibration_Time: TIME;
-"""
 
-acc_pump_mass = "GVL_ResearchData.f_RED_Acceleration_Pump_Mass"
-acc_pump_density = "GVL_ResearchData.f_RED_Acceleration_Pump_Density"
-acc_pump_flowrate = "GVL_ResearchData.n_RED_Acceleration_Pump_Flowrate"
+# ------------------------------------------------------------------------------#
+# Accelerator pump
 
 acc_pump_params = dict(
-    accHigh_flowrate = "GVL_ResearchData.n_RED_Acceleration_Pump_Flowrate",
-    accLow_flowrate = "GVL_ResearchData.n_RED_Superplasticizer_Pump_Flowrate"
+    accHigh_flowrate = plc_input + "." + "n_AP1_Operate_Flowrate",
+    accLow_flowrate = plc_input + "." + "n_SP1_Operate_Flowrate"
 )
 
 # ------------------------------------------------------------------------------#
@@ -63,43 +59,37 @@ acc_pump_params = dict(
 
 # ------------------------------------------------------------------------------#
 # Concrete pump
-"""
-n_RED_Concrete_Pump_Speed: INT;
 
-"""
-cc_pump_Forward_On = "GVL_ResearchData.b_RED_Concrete_Pump_Forward_On"
-cc_pump_Backward_On = "GVL_ResearchData.b_RED_Concrete_Pump_Backward_On"
-cc_pump_flowrate = "GVL_ResearchData.f_RED_Concrete_Pump_Flowrate"
+cc_pump_Forward_On = plc_input + "GVL_ROB.b_RED_Concrete_Pump_Forward_On"
+cc_pump_Backward_On = "GVL_ROB.b_RED_Concrete_Pump_Backward_On"
+cc_pump_flowrate = "GVL_ROB.f_RED_Concrete_Pump_Flowrate"
 
 cc_pump_params = dict(
-    cp_flowrate = "GVL_ResearchData.f_RED_Concrete_Pump_Flowrate",
-    cp_pressure = "GVL_ResearchData.f_RED_Status_Pressure_Concrete_Pump"
+    cp_flowrate = plc_input + "." + "n_CP1_Operate_Flowrate",
+    cp_pressure = plc_output + "." + "f_CP1_status_pressure_Concrete_pump",
+    cp_temperature_fresh = plc_output + "." + "f_CP1_status_temperature_concrete_fresh",
+    cp_temperature = plc_output + "." +  "f_CP1_status_temperature_Concrete_pump"
 )
 
 # ------------------------------------------------------------------------------#
 # Inline mixer reactor
 
-mixer_On = "GVL_ResearchData.b_RED_Laptop_MI1_Run"
-
-curved_speed_mode = "GVL_ResearchData.b_RED_Mixer_Curved_Speed_On"
+mixer_On = plc_output + "." + "b_MI1_Is_Run"
+curved_speed_mode = "GVL_ROB.b_RED_Mixer_Curved_Speed_On"
 
 inline_mixer_params = dict(
 
-    mixer_speed_M1 =  "GVL_ResearchData.f_RED_Status_Speed_Motor_1",
-    mixer_speed_M2 =  "GVL_ResearchData.f_RED_Status_Speed_Motor_2",
+    mixer_speed_M1 =  plc_output + "." + "n_MI1_status_SpeedM1",
+    mixer_speed_M2 =  plc_output + "." + "n_MI1_status_SpeedM2",
 
-    mixer_torque_M1 =  "GVL_ResearchData.f_RED_Status_Torque_Motor_1",
-    mixer_torque_M2 =  "GVL_ResearchData.f_RED_Status_Torque_Motor_2",
+    mixer_torque_M1 =  plc_output + "." + "f_Status_Torque_Motor_1",
+    mixer_torque_M2 =  plc_output + "." + "f_Status_Torque_Motor_2",
 
-    mixer_motor_temperature_M1 =  "GVL_ResearchData.f_RED_Status_Temperature_Motor_1",
-    mixer_motor_temperature_M2 =  "GVL_ResearchData.f_RED_Status_Temperature_Motor_2",
+    mixer_motor_temperature_M1 =  plc_output + "." + "f_MI1_status_temperature_motor_1",
+    mixer_motor_temperature_M2 =  plc_output + "." + "f_MI1_status_temperature_motor_2",
 
-
-    mixer_temperature_outlet = "GVL_ResearchData.f_RED_Status_Temperature_Funnel_outlet",
-    mixer_pressure ="GVL_ResearchData.f_RED_Status_Pressure_Funnel_inlet",
-
-   cp_temperature = "GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump_fresh",
-    cp_temperature_fresh = "GVL_ResearchData.f_RED_Status_Temperature_Concrete_Pump",
+    mixer_temperature_outlet = plc_output + "." + "f_MI1_status_temperature_funnel_outlet",
+    mixer_pressure = plc_output + "." + "f_MI1_status_Pressure_funnel_inlet"
 
 )
 
@@ -140,16 +130,6 @@ def read_from_plc_and_store_noDecimal(data:dict, key:str, value):
         data[key] = value
         print(f"{key}:{value}")
 
-def write_to_plc():
-    """
-    """
-    pass
-
-def wait_condition(condition):
-    """
-    """
-    pass
-
 
 if __name__ == "__main__":
 
@@ -173,27 +153,12 @@ if __name__ == "__main__":
         research_data = {}
 
         # Read the state from PLC
-
         mixer_On_state = plc.read_by_name(mixer_On)
-        #cc_pump_Backward_On_state = plc.read_by_name(cc_pump_Backward_On)
-        #cc_pump_Forward_On_state = plc.read_by_name(cc_pump_Forward_On)
 
-        plc.write_by_name(mixer_On, 'TRUE')
 
-        #plc.write_by_name(curved_speed_mode, 'TRUE')
+        while mixer_On_state:
 
-        #plc.write_by_name(cc_pump_Forward_On, 'TRUE')
-
-        mixer_On_state = plc.read_by_name(mixer_On)
-        #cc_pump_Backward_On_state = plc.read_by_name(cc_pump_Backward_On)
-        #cc_pump_Forward_On_state = plc.read_by_name(cc_pump_Forward_On)
-
-        # cc_pump_Forward_On or cc_pump_Backward_On and mixer is ON
-        while mixer_On_state :
-        #and (cc_pump_Backward_On_state or cc_pump_Forward_On_state):
-
-            #
-            #print (f"mixer:{mixer_On_state}")
+            print (f"mixer:{mixer_On_state}")
             #print (f"cc_pump_Backward_On:{cc_pump_Backward_On_state}")
             #print (f"cc_pump_Forward_On:{cc_pump_Forward_On_state}")
 
@@ -203,7 +168,6 @@ if __name__ == "__main__":
 
             # Update the time
             NOW_TIME = datetime.now().time().strftime("%H:%M:%S.%f")[:-3]
-
 
             # intergted to class moudle
             if research_data is not None:
@@ -225,7 +189,7 @@ if __name__ == "__main__":
                     Thread2.start()
                     #read_from_plc_and_store(research_data[log], k, v)
 
-                # Accrator pump
+                # Accelerator pump
                 for k, v in acc_pump_params.items():
                     Thread3 = Thread(target=read_from_plc_and_store, args=(research_data[log], k, v))
                     Thread3.start()
@@ -277,10 +241,6 @@ if __name__ == "__main__":
 
             # test the write value
             var_handle = plc.get_handle(mixer_On)
-            # plc.write_by_name('GVL_ResearchData.b_RED_Laptop_speed_Conctrol', True)
-            # plc.read_by_name('', pyads.PLCTYPE_BOOL, handle=var_handle)
-            # print(plc.read_by_name('', pyads.PLCTYPE_BOOL, handle=var_handle))
-            # plc.release_handle(var_handle)
 
             # intergted TODO
             if research_data is not None:
