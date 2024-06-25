@@ -16,7 +16,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # file name
-DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_10cac_Eggshell_column'
+DEFAULT_FILENAME = NOW_DATE + '_' + '50_agg_74S_3FW__ETH_acc_test'
 #50_agg_1.5FW_ETH_temperature_test
 
 # HVAE TO FINISH NOT OVERRkIDE THE FILE
@@ -76,6 +76,7 @@ cc_pump_params = dict(
 
 mixer_On = plc_output + "." + "b_MI1_Is_Run"
 curved_speed_mode = "GVL_ROB.b_RED_Mixer_Curved_Speed_On"
+
 inline_mixer_params = dict(
 
     mixer_speed_M1 =  plc_output + "." + "n_MI1_status_SpeedM1",
@@ -154,7 +155,8 @@ if __name__ == "__main__":
         # Read the state from PLC
         mixer_On_state = plc.read_by_name(mixer_On)
 
-        while mixer_On_state :
+
+        while mixer_On_state:
 
             print (f"mixer:{mixer_On_state}")
             #print (f"cc_pump_Backward_On:{cc_pump_Backward_On_state}")
