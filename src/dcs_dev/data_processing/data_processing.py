@@ -1,4 +1,5 @@
 import json
+import csv
 import os
 
 from .data_struct import DataObject
@@ -82,3 +83,40 @@ class DataHandler(PathConfig):
             outputs = [DataObject(**output_data) for output_data in obj.get("output", [])]
             return DataParam(machine_id, inputs, outputs)
         return obj
+
+class DataGathering(PathConfig):
+    """
+    A class to handle data gathering from the PLC.
+    Inherits from:
+        PathConfig
+
+    Attributes:
+        _DATA (str): The absolute path of the data directory.
+        _JSON_DIR (str): The absolute path of the json directory.
+        _CSV_DIR (str): The absolute path of the csv directory.
+
+    """
+    def __init__(self, filename) -> None:
+        super().__init__()
+        self._DATA = os.path.abspath(os.path.join(self._HOME, "data"))
+
+        self._JSON_DIR = os.path.join(self._DATA , 'json')
+        self._CSV_DIR = os.path.join(self._DATA, 'csv')
+        self.filename = ""
+
+    def write_dict_to_json(self, data):
+        path = os.path.join(self._JSON_DIR, self.filename) + ".json"
+        # Write the python dictionary to json file
+        with open(path, 'w') as f:
+            json.dump(data, f, sort_keys=True, indent=5)
+            print('\nThe json file is sucessfully exported!!!')
+
+    def write_dict_to_csv(self, data, header):
+        # Write the python dictionary to csv file
+        with open(self._CSV_DIR, 'w+', newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=header)
+            writer.writeheader()
+            writer.writerows(data)
+            print('\nThe csv file is sucessfully exported!!!')
+
+

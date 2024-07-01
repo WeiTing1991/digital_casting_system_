@@ -189,7 +189,7 @@ if __name__ == "__main__":
                     Thread2.start()
                     #read_from_plc_and_store(research_data[log], k, v)
 
-                # Accelerator pump
+
                 for k, v in acc_pump_params.items():
                     Thread3 = Thread(target=read_from_plc_and_store, args=(research_data[log], k, v))
                     Thread3.start()
