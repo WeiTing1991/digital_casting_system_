@@ -41,6 +41,7 @@ class PLC:
             else:
                 print(f"Connection: {self.connection.is_open}")
                 return True
+
     def set_plc_vars_input_list(self, plc_vars_input: List):
         """ load the machine variables from the plc """
         self.plc_vars_input = [vars for vars in plc_vars_input]
