@@ -76,7 +76,6 @@ class PLC:
         """Get a variable from the PLC."""
         with self.lock_dict:
             for data in self.plc_vars_output:
-                print(data)
                 if data.active != "false" and variable_name == str(data.var_name_IN):
                     try:
                         value = self.connection.read_by_name(data.var_name_IN)
