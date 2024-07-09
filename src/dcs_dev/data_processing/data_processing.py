@@ -56,7 +56,10 @@ class DataHandler(PathConfig):
     def __init__(self) -> None:
         super().__init__()
         self.machine_dict = dict()
-        self.machine = DataParam(0, [], [])
+        self.machine_id = 0
+        self.machine_input = []
+        self.machine_output = []
+        self.machine = DataParam(self.machine_id, self.machine_input, self.machine_output)
 
     def _load_json_to_dict(self) -> None:
         with open(self.filename, "r") as file:
@@ -97,26 +100,27 @@ class DataGathering(PathConfig):
 
     """
     def __init__(self, filename) -> None:
+
         super().__init__()
         self._DATA = os.path.abspath(os.path.join(self._HOME, "data"))
-
         self._JSON_DIR = os.path.join(self._DATA , 'json')
         self._CSV_DIR = os.path.join(self._DATA, 'csv')
-        self.filename = ""
+        self.filename = filename
 
     def write_dict_to_json(self, data):
         path = os.path.join(self._JSON_DIR, self.filename) + ".json"
         # Write the python dictionary to json file
         with open(path, 'w') as f:
             json.dump(data, f, sort_keys=True, indent=5)
-            print('\nThe json file is sucessfully exported!!!')
+            print(f"\nThe json file is sucessfully exported! in {path}")
 
     def write_dict_to_csv(self, data, header):
+        path = os.path.join(self._CSV_DIR, self.filename) + ".csv"
         # Write the python dictionary to csv file
-        with open(self._CSV_DIR, 'w+', newline="") as f:
+        with open(path, 'w+', newline="") as f:
             writer = csv.DictWriter(f, fieldnames=header)
             writer.writeheader()
             writer.writerows(data)
-            print('\nThe csv file is sucessfully exported!!!')
+            print(f"\nThe csv file is sucessfully exported! in {self._CSV_DIR}")
 
 

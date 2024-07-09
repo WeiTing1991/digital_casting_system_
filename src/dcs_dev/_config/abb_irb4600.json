@@ -54,7 +54,7 @@
             {
                 "id": "108",
                 "var_name": "mixer_pressure_funnel_inlet",
-                "var_name_IN": "GVL_ROB.on_MI1_status_temperature_funnel_inlet",
+                "var_name_IN": "GVL_ROB.on_MI1_status_pressure_funnel_inlet",
                 "data_type": "PLCTYPE_REAL",
                 "active": true
             },
@@ -84,28 +84,28 @@
             {
                 "id": "151",
                 "var_name": "mixer_set_run",
-                "var_name_IN": "GVL_ROB.b_MI1_set_run",
+                "var_name_IN": "GVL_ROB.ib_MI1_set_run",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
             {
                 "id": "155",
                 "var_name": "mixer_enable",
-                "var_name_IN": "GVL_ROB.b_MI1_enable",
+                "var_name_IN": "GVL_ROB.ib_MI1_enable",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
             {
                 "id": "153",
                 "var_name": "mixer_set_speed",
-                "var_name_IN": "GVL_ROB.b_MI1_set_speed",
+                "var_name_IN": "GVL_ROB.ib_MI1_set_speed",
                 "data_type": "PLCTYPE_UINT",
                 "active": true
             },
             {
                 "id": "154",
                 "var_name": "mixer_set_curved_mode_on",
-                "var_name_IN": "GVL_ROB.b_MI1_set_curved_speed_mode_on",
+                "var_name_IN": "GVL_ROB.ib_MI1_set_curved_speed_mode_on",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
@@ -231,7 +231,7 @@
         ]
     },
     "dosing_pump_high": {
-        "mahcine_id": "300",
+        "machine_id": "300",
         "input": [
             {
                 "id": "301",
@@ -322,7 +322,7 @@
             {
                 "id": "353",
                 "var_name": "admixture_pump_no_error",
-                "var_name_in": "GVL_ROB.ob_AP1_no_error",
+                "var_name_IN": "GVL_ROB.ob_AP1_no_error",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
@@ -432,28 +432,28 @@
         ],
         "output": [
             {
-                "id": "455",
+                "id": "450",
                 "var_name": "sup_admixture_pump_is_run",
                 "var_name_IN": "GVL_ROB.ob_SP1_is_run",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
             {
-                "id": "455",
+                "id": "451",
                 "var_name": "sup_admixture_pump_is_ready",
                 "var_name_IN": "GVL_ROB.ob_SP1_is_ready",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
             {
-                "id": "453",
+                "id": "452",
                 "var_name": "sup_admixture_pump_no_error",
                 "var_name_IN": "GVL_ROB.ob_SP1_no_error",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
             {
-                "id": "454",
+                "id": "453",
                 "var_name": "sup_admixture_pump_max_flowrate",
                 "var_name_IN": "GVL_ROB.on_SP1_max_flowrate",
                 "data_type": "PLCTYPE_UINT",
