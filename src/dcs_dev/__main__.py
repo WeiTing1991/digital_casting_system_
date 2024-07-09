@@ -186,7 +186,7 @@ if __name__ == "__main__" :
             data_recorder.write_dict_to_csv(recording_data_no_log, header)
 
         else:
-            pass
+            raise NotImplementedError
 
     else:
         print("Offline mode")

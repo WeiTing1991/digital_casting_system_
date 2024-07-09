@@ -1,32 +1,35 @@
 # Digital casting system package
 
-|  ★ dcs_dev
-|  \_config
-│ │  abb_irb4600.json
-│ │  beckhoff_controller.json
-|  data_processing
-│ │  **init**.py
-│ │  data_processing.py
-│ │  data_struct.py
-|  gui
-│ │  **init**.py
-│ └  app.py
-|  hal
-│ │  **init**.py
-│ │  device.py
-│ │  interface.py
-│ └  plc.py
-|  utilities
-│ │  **init**.py
+TODO make the doc for usage
+
+    ───dcs_dev
+        ├───abb_rob
+
+        ├───data_processing
+            │  data_processing.py
+            │  data_struct.py
+
+        ├───gui
+
+        ├───hal
+            │ device.py
+            │ interface.py
+            │ plc.py
+
+        ├───utilities
+
+        ├───visualization
+
+        ├───_config
+            │  abb_irb4600.json
+            │  beckhoff_controller.json
+
 │ └  data_processing.py
 |  visualization
 │ │  DataVisualization.py
 │ │  DataVisualizationNew.py
 │ │  test.py
 │ └  visualization.py
-│  **init**.py
-│  **main**.py
-│  ★ README.md
 
 dcs -- hal
 data processing
