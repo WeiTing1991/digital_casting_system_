@@ -89,16 +89,16 @@
                 "active": true
             },
             {
-                "id": "155",
+                "id": "152",
                 "var_name": "mixer_enable",
                 "var_name_IN": "GVL_ROB.ib_MI1_enable",
                 "data_type": "PLCTYPE_BOOL",
-                "active": true
+                "active": false
             },
             {
                 "id": "153",
                 "var_name": "mixer_set_speed",
-                "var_name_IN": "GVL_ROB.ib_MI1_set_speed",
+                "var_name_IN": "GVL_ROB.in_MI1_set_speed",
                 "data_type": "PLCTYPE_UINT",
                 "active": true
             },
@@ -217,7 +217,7 @@
             {
                 "id": "258",
                 "var_name": "concrete_pump_driver_error",
-                "var_name_IN": "GVL_ROB.ob_CP1_driver_error",
+                "var_name_IN": "GVL_ROB.ob_CP1_drive_error",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
@@ -473,20 +473,27 @@
         "input": [
             {
                 "id": "501",
-                "var_name": "Concrete_Controller_enable",
+                "var_name": "controller_enable",
                 "var_name_IN": "GVL_ROB.ib_CC1_enable",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
             {
                 "id": "502",
-                "var_name": "Concrete_Controller_reset",
+                "var_name": "controller_reset",
                 "var_name_IN": "GVL_ROB.ib_CC1_reset",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
             {
                 "id": "503",
+                "var_name": "controller_data_recording",
+                "var_name_IN": "GVL_ROB.ib_CC1_data_recording",
+                "data_type": "PLCTYPE_BOOL",
+                "active": true
+            },
+            {
+                "id": "504",
                 "var_name": "",
                 "var_name_IN": "",
                 "data_type": "",
@@ -518,9 +525,9 @@
             {
                 "id": "554",
                 "var_name": "concrete_controller_current_mode",
-                "var_name_IN": "GVL_ROB.ob_CC1_current_mode",
+                "var_name_IN": "GVL_ROB.ob_current_mode",
                 "data_type": "PLCTYPE_INT",
-                "active": true
+                "active": false
             },
             {
                 "id": "555",
