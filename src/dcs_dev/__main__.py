@@ -17,7 +17,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # File name
-DEFAULT_FILENAME = NOW_DATE + '_' + 'IO_test'
+DEFAULT_FILENAME = NOW_DATE + '_' + 'test'
 # 50_agg_1.5FW_ETH_temperature_test
 
 HERE = os.path.dirname(__file__)
@@ -169,18 +169,18 @@ if __name__ == "__main__" :
                         for key, value in params.items():
                             thread_1 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
                             thread_1.start()
-                    # for params in concrete_pump_params:
-                    #     for key, value in params.items():
-                    #         thread_2 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
-                    #         thread_2.start()
-                    # for params in accelerator_pump_params:
-                    #     for key, value in params.items():
-                    #         thread_3 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
-                    #         thread_3.start()
-                    # for params in xseed_superplasticizer_pump_params:
-                    #     for key, value in params.items():
-                    #         thread_4 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
-                    #         thread_4.start()
+                    for params in concrete_pump_params:
+                        for key, value in params.items():
+                            thread_2 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
+                            thread_2.start()
+                    for params in accelerator_pump_params:
+                        for key, value in params.items():
+                            thread_3 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
+                            thread_3.start()
+                    for params in xseed_superplasticizer_pump_params:
+                        for key, value in params.items():
+                            thread_4 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
+                            thread_4.start()
 
 
                 # Delay time to reduce real time data

@@ -32,14 +32,21 @@ parameters, including processing and material characteristics, while carefully c
 
 ```bash
 # docker compose up
+# virtual controller
 docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_controller\docker-compose.yml up
+
+# real controller
+# clean the stopped container
+docker container prune
+# compose up and connect with docker container
+docker-compose -f .\external_controllers\robot\docker_compas_rrc\real_controller\docker-compose.yml up
 ```
 
 ### Simulation
 
 #### ABB studio
 
-#### CAD/CAM software( Rhino and grasshopper )
+#### CAD/CAM software(Rhino and grasshopper)
 
 find the script
 
