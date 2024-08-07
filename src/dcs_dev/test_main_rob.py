@@ -2,11 +2,12 @@ from abb_rob.ros_client import DcsRosClient
 from compas.geometry import Frame
 import compas_rrc as rrc
 import math
-ROBOT_ON = True
 
+
+ROBOT_ON = True
 # Velocities
 MOVE_SPEED = 100
-#MOVE_ZONE = rrc.Zone.Z20
+MOVE_ZONE = 10
 
 # Robot configuration
 ROBOT_TOOL = 't_A061_InlineMixer'
@@ -52,12 +53,13 @@ if __name__ == '__main__':
 
     # Get Robtarget
     # home_position = [-15.35, -26.44, 54.56, -152.76, -22.91, 143.16]
-    home_position = [-19.75, 8.77, 38.17, -96.95, -3.53, 91.62]
+    home_position = [-22.57, -15.64, 62.16, 77.41, 15.36, -94.05]
 
     rob_client._move_to_joints(home_position, 0, MOVE_SPEED, 20)
 
     frame, external_axes = rob_client._get_robotarget()
     print(frame, external_axes)
+
 
     #adjust for the formwork
 
@@ -79,12 +81,11 @@ if __name__ == '__main__':
     frame_3 = Frame([x-850, y-800+20, z], rotate_vector(xaxis,angle ), rotate_vector(yaxis , angle))
 
     frames = [frame_1, frame_2, frame_3, frame_2, frame_1]
-    frames_list = frames * 1000
+    frames_list = frames * 1
 
     for frame in frames_list:
-        rob_client._move_to_frame(frame, external_axes, MOVE_SPEED, rrc.Zone.Z20)
-        rob_client._wait(1)
-
+        rob_client._move_to_frame(frame, MOVE_SPEED, -1)
+        # rob_client._wait(1)
 
     # while True:
     #     for f in abb_frames:

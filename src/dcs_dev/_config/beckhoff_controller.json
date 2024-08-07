@@ -222,7 +222,7 @@
             {
                 "id": "304",
                 "var_name": "admixture_high_set_flowrate",
-                "var_name_IN": "GVL_RESD.b_Admixture_Pump_Set_Flowrate",
+                "var_name_IN": "GVL_RESD.f_Admixture_Pump_Set_Flowrate",
                 "data_type": "PLCTYPE_BOOL",
                 "active": false
             },
@@ -259,8 +259,8 @@
             {
                 "id": "354",
                 "var_name": "admixture_pump_max_flowrate",
-                "var_name_IN": "GVL_RESD.b_Admixture_Pump_Max_Flowrate",
-                "data_type": "PLCTYPE_INT",
+                "var_name_IN": "GVL_RESD.f_Admixture_Pump_Max_Flowrate",
+                "data_type": "PLCTYPE_REAL",
                 "active": true
             }
         ]
@@ -270,7 +270,7 @@
         "input": [
             {
                 "id": "401",
-                "var_name": "sup_admixture_pump_On",
+                "var_name": "b_sup_admixture_pump_Power_On",
                 "var_name_IN": "GVL_RESD.b_Sup_Admixture_Pump_Power_On",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
@@ -315,8 +315,8 @@
             {
                 "id": "454",
                 "var_name": "sup_admixture_pump_max_flowrate",
-                "var_name_IN": "GVL_RESD.b_Sup_Admixture_Pump_Max_Flowrate",
-                "data_type": "PLCTYPE_INT",
+                "var_name_IN": "GVL_RESD.f_Sup_Admixture_Pump_Max_Flowrate",
+                "data_type": "PLCTYPE_REAL",
                 "active": true
             }
         ]

@@ -250,14 +250,14 @@
             {
                 "id": "303",
                 "var_name": "admixture_pump_set_flowrate",
-                "var_name_IN": "GVL_ROB.ib_AP1_set_flowrate",
-                "data_type": "PLCTYPE_BOOL",
+                "var_name_IN": "GVL_ROB.in_AP1_set_flowrate",
+                "data_type": "PLCTYPE_UINT",
                 "active": true
             },
             {
                 "id": "304",
                 "var_name": "admixture_pump_set_dosing_factor",
-                "var_name_IN": "GVL_ROB.ib_AP1_set_dosing_factor",
+                "var_name_IN": "GVL_ROB.in_AP1_set_dosing_factor",
                 "data_type": "PLCTYPE_UINT",
                 "active": true
             },
@@ -271,7 +271,7 @@
             {
                 "id": "306",
                 "var_name": "admixture_pump_set_check_flowrate",
-                "var_name_IN": "GVL_ROB.ib_AP1_set_check_flowrate",
+                "var_name_IN": "GVL_ROB.in_AP1_set_check_flowrate",
                 "data_type": "PLCTYPE_UINT",
                 "active": true
             },
@@ -292,7 +292,7 @@
             {
                 "id": "309",
                 "var_name": "admixture_pump_set_flush_flowrate",
-                "var_name_IN": "GVL_ROB.ib_AP1_set_flush_flowrate",
+                "var_name_IN": "GVL_ROB.in_AP1_set_flush_flowrate",
                 "data_type": "PLCTYPE_UINT",
                 "active": true
             },
@@ -362,14 +362,14 @@
             {
                 "id": "403",
                 "var_name": "sup_admixture_pump_set_flowrate",
-                "var_name_IN": "GVL_ROB.ib_SP1_set_flowrate",
-                "data_type": "PLCTYPE_BOOL",
+                "var_name_IN": "GVL_ROB.in_SP1_set_flowrate",
+                "data_type": "PLCTYPE_UINT",
                 "active": true
             },
             {
                 "id": "404",
                 "var_name": "sup_admixture_pump_set_dosing_factor",
-                "var_name_IN": "GVL_ROB.ib_SP1_set_dosing_factor",
+                "var_name_IN": "GVL_ROB.in_SP1_set_dosing_factor",
                 "data_type": "PLCTYPE_UINT",
                 "active": true
             },
@@ -383,7 +383,7 @@
             {
                 "id": "406",
                 "var_name": "sup_admixture_pump_set_check_flowrate",
-                "var_name_IN": "GVL_ROB.ib_SP1_set_check_flowrate",
+                "var_name_IN": "GVL_ROB.in_SP1_set_check_flowrate",
                 "data_type": "PLCTYPE_UINT",
                 "active": true
             },
@@ -404,23 +404,23 @@
             {
                 "id": "409",
                 "var_name": "sup_admixture_pump_set_flush_flowrate",
-                "var_name_IN": "GVL_ROB.ib_SP1_set_flush_flowrate",
+                "var_name_IN": "GVL_ROB.in_SP1_set_flush_flowrate",
                 "data_type": "PLCTYPE_UINT",
                 "active": true
             },
             {
                 "id": "410",
                 "var_name": "sup_admixture_pump_material_density",
-                "var_name_IN": "GVL_ROB.ib_SP1_material_density",
+                "var_name_IN": "GVL_ROB.in_SP1_material_density",
                 "data_type": "PLCTYPE_UINT",
-                "active": true
+                "active": false
             },
             {
                 "id": "411",
                 "var_name": "sup_admixture_pump_material_mass",
-                "var_name_IN": "GVL_ROB.ib_SP1_material_mass",
+                "var_name_IN": "GVL_ROB.in_SP1_material_mass",
                 "data_type": "PLCTYPE_UINT",
-                "active": true
+                "active": false
             },
             {
                 "id": "410",
