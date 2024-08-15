@@ -13,11 +13,11 @@ from hal.plc import PLC
 """Global value"""
 
 CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
-
+CLIENT_IP = '192.168.30.11'
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # File name
-DEFAULT_FILENAME = NOW_DATE + '_' + 'test'
+DEFAULT_FILENAME = NOW_DATE + '_' + 'LShape_76S'
 # 50_agg_1.5FW_ETH_temperature_test
 
 HERE = os.path.dirname(__file__)
@@ -115,7 +115,7 @@ def read_from_plc_and_store(data:dict, key:str, value):
 if __name__ == "__main__" :
 
     if REAL_PLC:
-        plc = PLC(netid=CLIENT_ID, ip="")
+        plc = PLC(netid=CLIENT_ID, ip=CLIENT_IP)
         plc.connect()
 
         # initialize the plc variables for the machine

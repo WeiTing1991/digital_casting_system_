@@ -3,7 +3,6 @@ from compas.geometry import Frame
 import compas_rrc as rrc
 import math
 
-
 ROBOT_ON = True
 # Velocities
 MOVE_SPEED = 100
@@ -64,7 +63,7 @@ if __name__ == '__main__':
     #adjust for the formwork
 
     frame.point[0] = -480
-    frame.point[1] = -950
+    frame.point[1] = -920
     frame.point[2] = 1350
 
     x = frame.point[0]
@@ -73,23 +72,26 @@ if __name__ == '__main__':
 
     xaxis = [-1, 0, 0]
     yaxis = [0, 1, 0]
-    angle = math.radians(-45)
+    angle_1 = math.radians(-45)
+    angle_2 = math.radians(-90)
 
-
-    frame_1 = Frame([x, y, z], xaxis, yaxis)
-    frame_2 = Frame([x, y-800, z], rotate_vector(xaxis, angle), rotate_vector(yaxis, angle))
-    frame_3 = Frame([x-850, y-800+20, z], rotate_vector(xaxis,angle ), rotate_vector(yaxis , angle))
+    frame_1 = Frame([x+70, y, z], xaxis, yaxis)
+    frame_2 = Frame([x, y-840, z], rotate_vector(xaxis, angle_1), rotate_vector(yaxis, angle_1))
+    frame_3 = Frame([x-860, y-840+70, z], rotate_vector(xaxis,angle_2), rotate_vector(yaxis , angle_2))
 
     frames = [frame_1, frame_2, frame_3, frame_2, frame_1]
     frames_list = frames * 1
 
-    for frame in frames_list:
-        rob_client._move_to_frame(frame, MOVE_SPEED, -1)
-        # rob_client._wait(1)
+    layer = 2
+    for i in range(layer):
+        for i, frame in enumerate(frames_list):
+            if i == 0 or i == 4 or i == 2:
+                rob_client._move_to_frame(frame, MOVE_SPEED, -1)
+                rob_client._wait(2)
+            if i == 1 or i == 3:
+                rob_client._move_to_frame(frame, MOVE_SPEED, -1)
+                rob_client._wait(1)
 
-    # while True:
-    #     for f in abb_frames:
-    #         abb.send(rrc.MoveToRobtarget(f, EXTERNAL_AXES, MOVE_SPEED, MOVE_ZONE, rrc.Motion.LINEAR))
 
     # End of Code
     done = rob_client._print_text('Executing commands finished.')

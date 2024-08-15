@@ -3,8 +3,7 @@ from ros_client import DcsRosClient
 rob_cleint = DcsRosClient()
 
 #TODO: ### read all setting from json
-
-#TODO: ### finish the setup with the DCS system. 
+#TODO: ### finish the setup with the DCS system.
 
 # ==============================================================================
 # Set parameters
