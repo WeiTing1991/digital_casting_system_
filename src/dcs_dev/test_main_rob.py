@@ -45,17 +45,16 @@ if __name__ == '__main__':
     start = rob_client._print_text('Starting robotic movement.')
 
     # 1. Move robot to home position
-    # startmsg = abb.send_and_wait(rrc.PrintText('PRINT START. Moving to home position'))
     # start = abb.send_and_wait(rrc.MoveToJoints(HOME_POSITION, EXTERNAL_AXES, MAX_SPEED, rrc.Zone.FINE))
     # home_position = [22.39, 39.56, -18.24, -209.02, -31.92, 222.16]
     # rob_cleint._move_to_joints(home_position, 0, MOVE_SPEED, 20)
 
     # Get Robtarget
     # home_position = [-15.35, -26.44, 54.56, -152.76, -22.91, 143.16]
+    # startmsg = abb.send_and_wait(rrc.PrintText('PRINT START. Moving to home position'))
+    rob_client._print_text('Moving to home position')
     home_position = [-22.57, -15.64, 62.16, 77.41, 15.36, -94.05]
-
     rob_client._move_to_joints(home_position, 0, MOVE_SPEED, 20)
-
     frame, external_axes = rob_client._get_robotarget()
     print(frame, external_axes)
 
@@ -82,17 +81,13 @@ if __name__ == '__main__':
     frames = [frame_1, frame_2, frame_3, frame_2, frame_1]
     frames_list = frames * 1
 
-    layer = 2
+    layer = 800
     for i in range(layer):
         for i, frame in enumerate(frames_list):
-            if i == 0 or i == 4 or i == 2:
                 rob_client._move_to_frame(frame, MOVE_SPEED, -1)
                 rob_client._wait(2)
-            if i == 1 or i == 3:
-                rob_client._move_to_frame(frame, MOVE_SPEED, -1)
-                rob_client._wait(1)
 
-
+    # how to ake the code line by line to to the ros one by onejkkk
     # End of Code
     done = rob_client._print_text('Executing commands finished.')
 

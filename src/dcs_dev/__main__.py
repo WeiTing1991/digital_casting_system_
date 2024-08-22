@@ -17,7 +17,7 @@ CLIENT_IP = '192.168.30.11'
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # File name
-DEFAULT_FILENAME = NOW_DATE + '_' + 'LShape_76S'
+DEFAULT_FILENAME = NOW_DATE + '_' + 'MotorCurvedMode'
 # 50_agg_1.5FW_ETH_temperature_test
 
 HERE = os.path.dirname(__file__)
