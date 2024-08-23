@@ -1,0 +1,4 @@
+site_name: Digital Casting System
+nav:
+    - Home: index.md
+theme: mkdocs
