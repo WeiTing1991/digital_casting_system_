@@ -22,10 +22,33 @@ parameters, including processing and material characteristics, while carefully c
 
 ## Getting Started
 
+### PLC Controller
+
+```bash
+
+```
+
+### ABB robotic arm
+
 ```bash
 # docker compose up
+# virtual controller
 docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_controller\docker-compose.yml up
+
+# real controller
+# clean the stopped container
+docker container prune
+# compose up and connect with docker container
+docker-compose -f .\external_controllers\robot\docker_compas_rrc\real_controller\docker-compose.yml up
 ```
+
+### Simulation
+
+#### ABB studio
+
+#### CAD/CAM software(Rhino and grasshopper)
+
+find the script
 
 ## Developer Installation
 
@@ -80,7 +103,6 @@ pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 
 The sub-package `external_controllers` is a package that provides a set of driver to control the concrete casting machines.
 More information can be found in [digital casting system controller]()
-
 
 ## License
 

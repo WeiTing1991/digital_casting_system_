@@ -1,0 +1,5 @@
+site_name: Digital Casting System
+site_url: https://usi-fmaa.github.io/digital_casting_system/
+nav:
+    - Home: index.md
+theme: mkdocs

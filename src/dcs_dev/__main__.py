@@ -13,11 +13,11 @@ from hal.plc import PLC
 """Global value"""
 
 CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
-
+CLIENT_IP = '192.168.30.11'
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # File name
-DEFAULT_FILENAME = NOW_DATE + '_' + 'test'
+DEFAULT_FILENAME = NOW_DATE + '_' + 'MotorCurvedMode'
 # 50_agg_1.5FW_ETH_temperature_test
 
 HERE = os.path.dirname(__file__)
@@ -52,6 +52,8 @@ inline_mixer = InlineMixer(
     machine_data.machine["inline_mixer"].machine_output,
 )
 inline_mixer_params_output = [ param for param in inline_mixer.set_output_dict() ]
+inline_mixer_params_input = [ param for param in inline_mixer.set_input_dict() ]
+inline_mixer_params = inline_mixer_params_output + inline_mixer_params_input
 
 # ------------------------------------------------------------------------------#
 # Concrete pump
@@ -61,6 +63,8 @@ concrete_pump = ConcretePump(
     machine_data.machine["concrete_pump"].machine_output,
 )
 concrete_pump_params_output = [ param for param in concrete_pump.set_output_dict() ]
+concrete_pump_params_input = [ param for param in concrete_pump.set_input_dict() ]
+concrete_pump_params = concrete_pump_params_output + concrete_pump_params_input
 
 # ------------------------------------------------------------------------------#
 # Accelerator pump
@@ -71,6 +75,8 @@ accelerator_pump = DosingPumpHigh(
     machine_data.machine["dosing_pump_high"].machine_output,
 )
 accelerator_pump_params_output = [ param for param in accelerator_pump.set_output_dict() ]
+accelerator_pump_params_input = [ param for param in accelerator_pump.set_input_dict() ]
+accelerator_pump_params = accelerator_pump_params_output + accelerator_pump_params_input
 
 # ------------------------------------------------------------------------------#
 # Superplasticizer pump
@@ -81,9 +87,22 @@ xseed_superplasticizer_pump = DosingPumpLow(
 )
 
 xseed_superplasticizer_pump_params_output = [ param for param in xseed_superplasticizer_pump.set_output_dict() ]
+xseed_superplasticizer_pump_params_input = [ param for param in xseed_superplasticizer_pump.set_input_dict() ]
+xseed_superplasticizer_pump_params = xseed_superplasticizer_pump_params_output + xseed_superplasticizer_pump_params_input
 
+
+# ------------------------------------------------------------------------------#
+# Concrete controller
+concrete_controller = Controller(
+    machine_data.machine["system"].machine_id,
+    machine_data.machine["system"].machine_input,
+    machine_data.machine["system"].machine_output,
+)
+concrete_controller_params_output = [ param for param in concrete_controller.set_output_dict() ]
+concrete_controller_params_input = [ param for param in concrete_controller.set_input_dict() ]
 
 #TODO: Move to PLC class and refactor
+
 def read_from_plc_and_store(data:dict, key:str, value):
     r_value_plc = plc.get_variable(value)
     if "temperature" in value or "pressure" in value:
@@ -96,7 +115,7 @@ def read_from_plc_and_store(data:dict, key:str, value):
 if __name__ == "__main__" :
 
     if REAL_PLC:
-        plc = PLC(netid=CLIENT_ID, ip="")
+        plc = PLC(netid=CLIENT_ID, ip=CLIENT_IP)
         plc.connect()
 
         # initialize the plc variables for the machine
@@ -112,18 +131,24 @@ if __name__ == "__main__" :
         plc.set_plc_vars_input_list(xseed_superplasticizer_pump.input_list())
         plc.set_plc_vars_output_list(xseed_superplasticizer_pump.output_list())
 
+        plc.set_plc_vars_input_list(concrete_controller.input_list())
+        plc.set_plc_vars_output_list(concrete_controller.output_list())
+
         if not DRY_RUN:
 
+           # no output data for some machine
             counter = 0
             param_mixer_is_run = inline_mixer_params_output[0]
+            param_data_recording = concrete_controller_params_input[2]
 
-            print(param_mixer_is_run)
             mixer_is_run = plc.get_variable(param_mixer_is_run["mixer_is_run"][0])
+            data_is_recording = plc.get_variable(param_data_recording["controller_data_recording"][0])
 
+            print(data_is_recording)
             recording_data = {}
 
             # process start
-            while mixer_is_run:
+            while data_is_recording:
 
                 # Set the log
                 counter+=1
@@ -138,19 +163,21 @@ if __name__ == "__main__" :
                     recording_data[log] = {}
                     recording_data[log]["Time"] = NOW_TIME
 
-                    for params in inline_mixer_params_output:
+                    #naming issue please check the abb json file
+
+                    for params in inline_mixer_params:
                         for key, value in params.items():
                             thread_1 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
                             thread_1.start()
-                    for params in concrete_pump_params_output:
+                    for params in concrete_pump_params:
                         for key, value in params.items():
                             thread_2 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
                             thread_2.start()
-                    for params in accelerator_pump_params_output:
+                    for params in accelerator_pump_params:
                         for key, value in params.items():
                             thread_3 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
                             thread_3.start()
-                    for params in xseed_superplasticizer_pump_params_output:
+                    for params in xseed_superplasticizer_pump_params:
                         for key, value in params.items():
                             thread_4 = Thread(target=read_from_plc_and_store, args=(recording_data[log], key, value[0]))
                             thread_4.start()
@@ -164,8 +191,10 @@ if __name__ == "__main__" :
 
                 # Update the mixer status
                 mixer_is_run = plc.get_variable(param_mixer_is_run["mixer_is_run"][0])
+                data_is_recording = plc.get_variable(param_data_recording["controller_data_recording"][0])
 
-                if not mixer_is_run:
+
+                if not data_is_recording:
                     print("Stop recording data")
                     plc.close()
                     break
@@ -186,7 +215,7 @@ if __name__ == "__main__" :
             data_recorder.write_dict_to_csv(recording_data_no_log, header)
 
         else:
-            pass
+            raise NotImplementedError
 
     else:
         print("Offline mode")

@@ -45,26 +45,60 @@ class DcsRosClient:
         get_ai = self.abb.send_and_wait(rrc.ReadAnalog(io_name))
         print(f"{io_name} is {get_ai}")
 
+    # movement functions
+    def _move_to_frame(self, frame, speed: int, zone: int) -> None:
+        move_to_frame = self.abb.send(rrc.MoveToFrame(frame, speed, zone, rrc.Motion.LINEAR))
+        print(f"Robot is moving to {frame}")
+
+    def _move_to_robotarget(self):
+        raise NotImplementedError
+
+    def _move_to_joints(self, joints: list, external_axes, speed: int, zone: int) -> None:
+        move_to_joints = self.abb.send(rrc.MoveToJoints(joints, external_axes, speed, zone))
+        print(f"Robot is moving to {joints}")
+
+    def _wait(self, time:int) -> None:
+        self.abb.send(rrc.WaitTime(time))
+
+    # Robot config
+
+    def _set_move_zone(self, zone: int) -> None:
+        raise NotImplementedError
+
     def _set_acceleration(self, acc: int, ramp: int) -> None:
         set_acceleration = self.abb.send(rrc.SetAcceleration(acc, ramp))
 
     def _set_max_speed(self, overide: int, max_tcp: int) -> None:
+        """
+        override: Unit [%]
+        max_tcp: Unit [mm/s]
+        """
         set_max_speed = self.abb.send(rrc.SetMaxSpeed(overide, max_tcp))
 
-    def _set_tool(self):
-        pass
+    def _set_tool(self, tool_name: str) -> None:
+        self.abb.send(rrc.SetTool(tool_name))
+        print(f"Tool is set to {tool_name}")
 
     def _get_tool(self):
-        pass
+        raise NotImplementedError
 
-    def _set_workobject(self):
-        pass
+    def _set_workobject(self, workobject: str) ->None:
+        self.abb.send(rrc.SetWorkObject(workobject))
+        print(f"Workobject is set to {workobject}")
 
     def _get_workobject(self):
-        pass
+        raise NotImplementedError
+
+    def _get_robotarget(self) -> tuple:
+        frame, external_axes = self.abb.send_and_wait(rrc.GetRobtarget())
+        return frame, external_axes
+
+    def _print_text(self, text: str) -> None:
+        self.abb.send(rrc.PrintText(text))
+        print(text)
+
 
 #TODO
 """
 read the path from rhino  eor abb studio
-
 """

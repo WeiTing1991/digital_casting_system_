@@ -2,6 +2,7 @@ import pyads
 from threading import Lock
 from typing import Any, Dict, List
 from attr import define, field, validators
+from itertools import chain
 
 
 @define
@@ -75,8 +76,7 @@ class PLC:
     def get_variable(self, variable_name: str) -> Any:
         """Get a variable from the PLC."""
         with self.lock_dict:
-            for data in self.plc_vars_output:
-                print(data)
+            for data in chain(self.plc_vars_output, self.plc_vars_input):
                 if data.active != "false" and variable_name == str(data.var_name_IN):
                     try:
                         value = self.connection.read_by_name(data.var_name_IN)
