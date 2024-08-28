@@ -81,7 +81,7 @@ if __name__ == '__main__':
     frames = [frame_1, frame_2, frame_3, frame_2, frame_1]
     frames_list = frames * 1
 
-    layer = 1
+    layer = 800
     for i in range(layer):
         for i, frame in enumerate(frames_list):
                 rob_client._move_to_frame(frame, MOVE_SPEED, -1)
