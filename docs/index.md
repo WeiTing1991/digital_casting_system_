@@ -1,46 +1,20 @@
-# Digital Casting System Documentation $${\color{red}}$$
+# **Digital Casting System documentation**
 
-<h1 style="color:Cyan">
-Text content
-</h1>
+*******************************************************************************
 
-<code style="color : name_color">text</code>
+<!--<h1 style="">Digital Casting System documentation</h1>-->
+<!--<code style="color : name_color">text</code>-->
 
-This is the documentation of the core infratructure of COMPAS, an open source framework for computational research and collaboration in Architecture, Engineering, Fabrication, and Construction.
 
-{{ .Page.Resources.GetMatch "*your-page*" }}
+## User Guide
 
-.. rst-class:: lead
+## Getting Started
 
-.. .. figure:: /\_images/
+## API Rerefence
 
-     :figclass: figure
+## About
 
-     :class: figure-img img-fluid
+## Indices and tables
 
-Table of Contents
 
-=================
 
-.. toctree::
-
-:maxdepth: 3
-
-:titlesonly:
-
-Introduction <self>
-
-installation
-
-tutorial
-
-examples
-
-api
-
-license
-
-# Indices and tables
-
--   :ref:`genindex`
--   :ref:`modindex`
