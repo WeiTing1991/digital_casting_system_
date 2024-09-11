@@ -15,10 +15,7 @@ This package has threee part of it. which contains PLC controller driver, DCS pa
 Robot and machine.
 )
 
-> PLC controller
-> DCS package lib
-
-DCS application for grahic real time data
+> PLC controller DCS package lib DCS application for grahic real time data
 
 
 ## Requirements
