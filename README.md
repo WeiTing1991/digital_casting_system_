@@ -11,44 +11,60 @@ This package works to transition automated digital casting systems from the labo
 overcoming the challenges addressed by inline mixing. DCS involves identifying optimal values for comprehensive system
 parameters, including processing and material characteristics, while carefully considering specific system requirements.
 
+This package has threee part of it. which contains PLC controller driver, DCS package (lib for controll machine and reading data 
+Robot and machine.
+)
+
+> PLC controller DCS package lib DCS application for grahic real time data
+
+
 ## Requirements
 
--   [Windows 10]()
--   [Debian 12]()
--   [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/?pk_campaign=AdWords-AdWordsSearch-TwinCAT_EN&pk_kwd=twincat&gclid=Cj0KCQjw9ZGYBhCEARIsAEUXITW5dmPmQ2629HIuFY7wfbSR70pi5uY2lkYziNmfKYczm1_YsK4hhPsaApjyEALw_wcB)
--   [Anaconda 3](https://www.anaconda.com/)
--   [Docker]()
--   [ABB RobotStudio]()
+Operating System and Software.
+- [Windows 10/11] or [Ubuntu 22.04]
+- [TwinCAT 3]
+- [Anaconda 3]
+- [Docker]
+
+CAD/CAM software and Simulation.
+- [ABB RobotStudio]
+- [Rhino and Grasshopper]
+
+
+<!--link:-->
+[Windows 10/11]: https://www.microsoft.com/en-us/windows/
+[Ubuntu 22.04]: https://ubuntu.com/download/desktop
+[TwinCAT 3]: https://www.beckhoff.com/en-en/products/automation/twincat/?pk_campaign=AdWords-AdWordsSearch-TwinCAT_EN&pk_kwd=twincat&gclid=Cj0KCQjw9ZGYBhCEARIsAEUXITW5dmPmQ2629HIuFY7wfbSR70pi5uY2lkYziNmfKYczm1_YsK4hhPsaApjyEALw_wcB
+[Anaconda 3]: https://www.anaconda.com/
+[Docker]: https://www.docker.com/
+[ABB RobotStudio]: https://new.abb.com/products/robotics/robotstudio
+[Rhino and Grasshopper]: https://www.rhino3d.com/download
+
 
 ## Getting Started
 
-### PLC Controller
+### Anaconda 3 (on Windows 10/ MacOS 14.0)
 
 ```bash
+# Clone the repository
+git clone https://github.com/USI-FMAA/digital_casting_system.git
+git submodule update --init --recursive
+
+# Update the submoudles
+git pull --recurse-submodules
+
+# Create the environment and activate it
+conda create --prefix ./.env python=3.10
+
+# Install dependencies
+conda activate ./.env
+pip install -r requirements.txt
+
+# Install compas framework
+conda install compas
+pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 
 ```
-
-### ABB robotic arm
-
-```bash
-# docker compose up
-# virtual controller
-docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_controller\docker-compose.yml up
-
-# real controller
-# clean the stopped container
-docker container prune
-# compose up and connect with docker container
-docker-compose -f .\external_controllers\robot\docker_compas_rrc\real_controller\docker-compose.yml up
-```
-
-### Simulation
-
-#### ABB studio
-
-#### CAD/CAM software(Rhino and grasshopper)
-
-find the script
 
 ## Developer Installation
 
@@ -75,6 +91,34 @@ pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 
 ```
 
+### PLC Controller
+
+```bash
+
+```
+
+## Robot conmunication
+
+### Real ABB robotic control
+
+```bash
+# docker compose up
+# virtual controller
+docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_controller\docker-compose.yml up
+
+# real controller
+# clean the stopped container
+docker container prune
+# compose up and connect with docker container
+docker-compose -f .\external_controllers\robot\docker_compas_rrc\real_controller\docker-compose.yml up
+```
+
+### Simulation with ABB robot
+
+#### ABB RobotStudio
+
+#### CAD/CAM software(Rhino and grasshopper)
+
 <!-- ### Virtualenv (on MacOS\ Ubuntu 22.04) -->
 <!---->
 <!-- ```bash -->
@@ -99,12 +143,11 @@ pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 <!---->
 <!-- ``` -->
 
-### Concrete Controller
+## Concrete Controller
 
 The sub-package `external_controllers` is a package that provides a set of driver to control the concrete casting machines.
-More information can be found in [digital casting system controller]()
+More information can be found in [digital casting system controller](https://github.com/USI-FMAA/digital_casting_system_controller)
 
-## License
 
 ## Credits
 
