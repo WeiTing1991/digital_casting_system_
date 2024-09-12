@@ -15,6 +15,11 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: true  # Ensures submodules are checked out
+          fetch-depth: 0    # Fetch full history to avoid shallow clones
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
