@@ -43,16 +43,27 @@ CAD/CAM software and Simulation.
 
 ## Getting Started
 
-### Anaconda 3 (on Windows 10/ MacOS 14.0)
-
 ```bash
 # Clone the repository
 git clone https://github.com/USI-FMAA/digital_casting_system.git
-git submodule update --init --recursive
+```
+
+```bash
+# Update the submoudles
+git submodule init
+cd external_controllers
+git checkout master # checkout the lastest version
+git pull
+
+# Alneratively way
+git submodule foreach git pull origin master
 
 # Update the submoudles
 git pull --recurse-submodules
+```
 
+```bash
+# Setup the environment
 # Create the environment and activate it
 conda create --prefix ./.env python=3.10
 
@@ -63,38 +74,18 @@ pip install -r requirements.txt
 # Install compas framework
 conda install compas
 pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
-
 ```
 
 ## Developer Installation
 
-### Anaconda 3 (on Windows 10/ MacOS 14.0)
-
 ```bash
-# Clone the repository
-git clone https://github.com/USI-FMAA/digital_casting_system.git
-git submodule update --init --recursive
-
-# Update the submoudles
-git pull --recurse-submodules
-
-# Create the environment and activate it
-conda create --prefix ./.env python=3.10
-
-# Install dependencies
-conda activate ./.env
-pip install -r requirements.txt
-
-# Install compas framework
-conda install compas
-pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
-
+....
 ```
 
 ### PLC Controller
 
 ```bash
-
+....
 ```
 
 ## Robot conmunication
