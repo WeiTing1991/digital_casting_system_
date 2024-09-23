@@ -1,15 +1,54 @@
 site_name: Digital Casting System
 site_author: Wei-Ting Chen
 
+repo_name: USI-FMAA/digital_casting_system
+repo_url: https://github.com/USI-FMAA/digital_casting_system.git
+
+copyright: Copyright &copy; 2024 <a href="https://github.com/USI-FMAA">USI FMAA</a>, Maintained by the <a href="https://github.com/WeiTing1991">Wei-Ting Chen</a>.
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+  features:
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - navigation.tabs
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+  # favicon: assets/favicon.png
+  icon:
+    logo: logo
+
 nav:
-  - Getting Started: index.md
+  - Digital Casting: index.md
+  - Getting Started:
+    - Installation: installation.md
+    - Example Configurations: example-configuration.md
   - User Guide: installation.md
   - API Reference: api.md
   - About: about.md
 
-theme:
-  name: mkdocs
-  color_mode: auto
-  user_color_mode_toggle: true
 
-copyright: Copyright &copy; 2024 <a href="https://github.com/USI-FMAA">USI FMAA</a>, Maintained by the <a href="https://github.com/WeiTing1991">Wei-Ting Chen</a>.
+# https://github.com/squidfunk/mkdocs-material/blob/master/mkdocs.yml
+# https://github.com/LGUG2Z/komorebi/blob/master/mkdocs.yml
