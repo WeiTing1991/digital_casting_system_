@@ -46,4 +46,3 @@ if __name__ == "__main__":
     # plc.connect()
 
     # print(path.machine["inline_mixer"].machine_output)
-
