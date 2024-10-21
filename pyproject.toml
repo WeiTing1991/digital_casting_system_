@@ -28,7 +28,7 @@ skip = ["__init__.py"]
 
 [tool.pyright]
 venvPath = "."
-venv = ".env"
+venv = [".env"]
 
 [tool.ruff]
 exclude = [".env"]
