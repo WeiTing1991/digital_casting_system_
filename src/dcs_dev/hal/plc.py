@@ -4,6 +4,7 @@ from typing import Any, Dict, List
 from attr import define, field, validators
 from itertools import chain
 
+
 @define
 class PLC:
     """Hardware abstraction class for reading and writing variables from and to PLC."""

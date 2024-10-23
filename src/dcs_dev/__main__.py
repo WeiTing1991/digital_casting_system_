@@ -14,6 +14,7 @@ from hal.device import (
 )
 from hal.plc import PLC
 
+
 # =================================================================================
 """Global value"""
 
