@@ -1,60 +1,41 @@
-# Digital casting system package
+# **Digital casting system package**
+## WIP
 
-TODO make the doc for usage
+TODO make the doc for software architecture
+
 
     ───dcs_dev
         ├───abb_rob
-
         ├───data_processing
-            │  data_processing.py
-            │  data_struct.py
-
+        │         │  data_processing.py
+        │         │  data_struct.py
         ├───gui
-
         ├───hal
-            │ device.py
-            │ interface.py
-            │ plc.py
-
+        │    │ device.py
+        │    │ interface.py
+        │    │ plc.py
+        ├
         ├───utilities
-
         ├───visualization
-
-        ├───_config
-            │  abb_irb4600.json
+        ├───config
             │  beckhoff_controller.json
-
-│ └  data_processing.py
-|  visualization
-│ │  DataVisualization.py
-│ │  DataVisualizationNew.py
-│ │  test.py
-│ └  visualization.py
-
-dcs -- hal
-data processing
-interface
-utilities
+            │  abb_irb4600.json
 
 <!-- NOTE: -->
+- data processing
+    passing the processing data into system
+    to covert plc raw data into research data
 
-data processing
-covert the processing data into system
-some kits to covert plc data into research data
+- hal: interface to convert config into python object
+- plc interface API to connect PLC
+- device :class or extend from plc
+        app gui user interface MOVE to cpp part
+        thinking how to read py lib into c++ a wrapper.
 
-hal
-interface: interface to covernt config into python object
-plc interface api to connect plc
-device :
-maybe a main deviec class or extend from plc
+- config
+    abb_irb4600.json
+    beckhoff_controller.json
 
-robot package
-how to define robot package
-for rhino user and gh user
-
-config --
-abb_irb4600.json
-beckhoff_controller.json
-
-app gui user interface MOVE to cpp part
-thinking how to read py lib into c++ a wrapper.
+TODO robot package
+    - how to define robot package
+    - for rhino user and gh user
