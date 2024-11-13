@@ -14,7 +14,7 @@ parameters, including processing and material characteristics, while carefully c
 This package has three parts, which contain ```PLC controller``` for control compenments, ```DCS library``` for middleware, robotic control, and data handling; lastly, ```DCS application``` uses for realtime data recoding and production simulation.
 
 
-- [ ] PLC controller driver package 
+- [X] PLC controller driver package
 - [ ] DCS library
 - [ ] DCS application for grahic real-time data recording
 
