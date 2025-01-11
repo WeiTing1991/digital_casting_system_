@@ -14,7 +14,6 @@ if __name__ == "__main__":
     machine_data._set_robot_mode_config()
     data = machine_data._load_json_to_instance()
 
-
     inline_mixer = InlineMixer(
         machine_data.machine["inline_mixer"].machine_id,
         machine_data.machine["inline_mixer"].machine_input,

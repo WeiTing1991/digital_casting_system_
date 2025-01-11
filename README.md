@@ -11,12 +11,12 @@ This package works to transition automated digital casting systems from the labo
 overcoming the challenges addressed by inline mixing. DCS involves identifying optimal values for comprehensive system
 parameters, including processing and material characteristics, while carefully considering specific system requirements.
 
-This package has three parts, which contain ```PLC controller``` for control compenments, ```DCS library``` for middleware, robotic control, and data handling; lastly, ```DCS application``` uses for realtime data recoding and production simulation.
+This package has three parts, which contain ```PLC controller``` for control compenments, ```DCS library``` for middleware, robotic control, and data handling; lastly, ```DCS application``` uses for real-time data recording and production simulation.
 
 
 - [X] PLC controller driver package
 - [ ] DCS library
-- [ ] DCS application for grahic real-time data recording
+- [ ] DCS application for graphic real-time data recording
 
 
 ## Requirements
@@ -27,7 +27,7 @@ Operating System and Software.
 - [Anaconda 3]
 - [Docker]
 
-CAD/CAM software and Simulation.
+CAD/CAM software and simulation.
 - [ABB RobotStudio]
 - [Rhino and Grasshopper]
 
@@ -56,7 +56,7 @@ cd external_controllers
 git checkout master # checkout the lastest version
 git pull
 
-# Alneratively way
+# Alternatively way
 git submodule foreach git pull origin master
 
 # Update the submoudles
@@ -84,6 +84,8 @@ pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 ```
 
 ### PLC Controller
+
+Please find more information [here]().
 
 ```bash
 ....
