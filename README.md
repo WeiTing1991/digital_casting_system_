@@ -14,10 +14,6 @@ parameters, including processing and material characteristics, while carefully c
 This package has three parts, which contain ```PLC controller``` for control components, ```DCS library``` for middleware, robotic control, and data handling; lastly, ```DCS application``` uses for real-time data recording and production simulation.
 
 
-- [X] PLC controller driver package
-- [ ] DCS library
-- [ ] DCS application for graphic real-time data recording
-
 
 ## Requirements
 
@@ -148,3 +144,10 @@ More information can be found in [digital casting system controller](https://git
 
 This package was created by [WeiTing Chen](https://github.com/WeiTing1991)
 at [USI-FMAA](https://github.com/USI-FMAA) and [ETHZurich DFab](https://dfab.ch/)
+
+## Features
+
+- [X] PLC controller driver package
+- [X] DCS library with real-time data recording
+- [ ] DCS application for graphic real-time data recording application
+
