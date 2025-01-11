@@ -6,9 +6,10 @@
 
 Please find the detail of software architecture and API [here]()
 
-## Package descroption
+## Package Descroption
 
 #### Structure
+
 ```bash
 src
 └── dcs_dev
@@ -19,14 +20,13 @@ src
     ├── data_processing
     ├── gui
     ├── hal
-    ├── README.md
+    ├── utilities
+    ├── visualization
     ├── test_main_gui.py # test 
     ├── test_main_plc.py # test 
-    ├── test_main_rob.py # test 
-    ├── utilities
-    └── visualization
+    └── test_main_rob.py # test 
 ```
-#### Descroption
+#### Description
 
 - **`data_processing`**: The class is to passing the processing data into system to covert plc raw data into research data.
 
