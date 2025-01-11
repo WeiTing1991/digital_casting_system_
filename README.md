@@ -11,7 +11,7 @@ This package works to transition automated digital casting systems from the labo
 overcoming the challenges addressed by inline mixing. DCS involves identifying optimal values for comprehensive system
 parameters, including processing and material characteristics, while carefully considering specific system requirements.
 
-This package has three parts, which contain ```PLC controller``` for control compenments, ```DCS library``` for middleware, robotic control, and data handling; lastly, ```DCS application``` uses for real-time data recording and production simulation.
+This package has three parts, which contain ```PLC controller``` for control components, ```DCS library``` for middleware, robotic control, and data handling; lastly, ```DCS application``` uses for real-time data recording and production simulation.
 
 
 - [X] PLC controller driver package
