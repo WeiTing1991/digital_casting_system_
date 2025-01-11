@@ -22,25 +22,23 @@ This package has three parts, which contain ```PLC controller``` for control com
 ## Requirements
 
 Operating System and Software.
-- [Windows 10/11] or [Ubuntu 22.04]
+- [Windows 10]* or [Ubuntu 22.04]*
 - [TwinCAT 3]
 - [Anaconda 3]
 - [Docker]
 
 CAD/CAM software and simulation.
-- [ABB RobotStudio]
-- [Rhino and Grasshopper]
-
+- [ABB RobotStudio] --version 2023/2024
+- [Rhino and Grasshopper] --version 7
 
 <!--link:-->
-[Windows 10/11]: https://www.microsoft.com/en-us/windows/
+[Windows 10]: https://www.microsoft.com/en-us/windows/
 [Ubuntu 22.04]: https://ubuntu.com/download/desktop
 [TwinCAT 3]: https://www.beckhoff.com/en-en/products/automation/twincat/?pk_campaign=AdWords-AdWordsSearch-TwinCAT_EN&pk_kwd=twincat&gclid=Cj0KCQjw9ZGYBhCEARIsAEUXITW5dmPmQ2629HIuFY7wfbSR70pi5uY2lkYziNmfKYczm1_YsK4hhPsaApjyEALw_wcB
 [Anaconda 3]: https://www.anaconda.com/
 [Docker]: https://www.docker.com/
 [ABB RobotStudio]: https://new.abb.com/products/robotics/robotstudio
 [Rhino and Grasshopper]: https://www.rhino3d.com/download
-
 
 ## Getting Started
 
@@ -77,23 +75,26 @@ conda install compas
 pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 ```
 
-## Developer Installation
+## Usage
 
-```bash
-....
+>NOTE:
+Don`t have to run the programming only for data recording.
+
+### Real-time monitoring and data recording
+
+``` bash
+python src/dcs_dev/main.py
+# enter the file name
+....TBC
 ```
 
 ### PLC Controller
 
-Please find more information [here]().
+Please find more information [here](https://github.com/USI-FMAA/digital_casting_system_controller.git) under **Connect with TwinCAT** section.
 
-```bash
-....
-```
+### Robot communication
 
-## Robot communication
-
-### Real ABB robotic control
+#### Real ABB robotic control
 
 ```bash
 # docker compose up
