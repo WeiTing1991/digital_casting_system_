@@ -18,7 +18,7 @@ if __name__ == "__main__":
         machine_data.machine["inline_mixer"].machine_output,
     )
 
-    inline_mixer_params_output = [ param for param in inline_mixer.set_output_dict() ]
+    inline_mixer_params_output = [param for param in inline_mixer.set_output_dict()]
 
     # for input in inline_mixer.get_input_var_name():
     #     print(input)
@@ -67,12 +67,11 @@ Variable GVL_ROB.on_MI1_status_temperature_motor_2:270.0 read from plc.
 Connection: True
 """
 
-    # tk.Button(window, text="Hello World", command=window.quit).pack()
-    # window.mainloop()
+# tk.Button(window, text="Hello World", command=window.quit).pack()
+# window.mainloop()
 
 
-
-'''
+"""
 Variable GVL_ROB.ob_MI1_is_run:False read from plc.
 Variable GVL_ROB.ob_MI1_is_ready:True read from plc.
 Variable GVL_ROB.on_MI1_status_speed_motor_1:0 read from plc.
@@ -82,4 +81,4 @@ Variable GVL_ROB.on_MI1_status_torque_motor_2:0.3020800054073334 read from plc.
 Variable GVL_ROB.on_MI1_status_temperature_funnel_outlet:278.0 read from plc.
 Variable GVL_ROB.on_MI1_status_pressure_funnel_inlet:0.0 read from plc.
 Variable GVL_ROB.on_MI1_status_temperature_motor_1:254.0 read from plc.
-Variable GVL_ROB.on_MI1_status_temperature_motor_2:270.0 read from plc.'''
+Variable GVL_ROB.on_MI1_status_temperature_motor_2:270.0 read from plc."""

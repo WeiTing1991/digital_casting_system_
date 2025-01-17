@@ -1,60 +1,56 @@
-# Digital casting system package
+# **Digital Casting System Package**
 
-TODO make the doc for usage
+## Package Usage
 
-    ───dcs_dev
-        ├───abb_rob
+> NOTE: WIP
 
-        ├───data_processing
-            │  data_processing.py
-            │  data_struct.py
+Please find the detail of software architecture and API [here]()
 
-        ├───gui
+## Package Descroption
 
-        ├───hal
-            │ device.py
-            │ interface.py
-            │ plc.py
+#### Structure
 
-        ├───utilities
+```bash
+src
+└── dcs_dev
+    ├── __init__.py
+    ├── __main__.py # main entrance file
+    ├── _config
+    ├── abb_rob
+    ├── data_processing
+    ├── gui
+    ├── hal
+    ├── utilities
+    ├── visualization
+    ├── test_main_gui.py # test 
+    ├── test_main_plc.py # test 
+    └── test_main_rob.py # test 
+```
+#### Description
 
-        ├───visualization
+- **`data_processing`**: The class is to passing the processing data into system to covert plc raw data into research data.
 
-        ├───_config
-            │  abb_irb4600.json
-            │  beckhoff_controller.json
+- **`_config`**: The class is to provide the configuration file for robot(`abb_irb4600.json`) and plc(`beckhoff_controller.json`).
 
-│ └  data_processing.py
-|  visualization
-│ │  DataVisualization.py
-│ │  DataVisualizationNew.py
-│ │  test.py
-│ └  visualization.py
+- **`abb_rob`**: The class is to provide the abb robot functions to connect the robot via `compas_rrc`.
 
-dcs -- hal
-data processing
-interface
-utilities
+- **`gui`**: The class is to create the GUI interface for user to interact with the system.
 
-<!-- NOTE: -->
+- **`hal`**: The abstract layter class is to convert the config file into python object.
+  - `PLC`: The abstract class is to provide the functions to connect the PLC.
+  - `Robot`: The abstract class is to handle to connect the robot.
+  - `device`: The abstract class object to represnet the interface of the devices. 
 
-data processing
-covert the processing data into system
-some kits to covert plc data into research data
+- **`utilities`**: The class is to provide the utility functions for the system.
 
-hal
-interface: interface to covernt config into python object
-plc interface api to connect plc
-device :
-maybe a main deviec class or extend from plc
+> NOTE: only support office data from json.
+- `Visualization`: The class is to provide the visualization functions for the system. 
 
-robot package
-how to define robot package
-for rhino user and gh user
+## Features
+- More details about the package features
+- Intergration with Robot package
+    - define robot package
+    - app gui user interface MOVE to cpp lib
+    - for rhino user and gh user
+    <!-- thinking how to read py lib into c++ a wrapper. -->
 
-config --
-abb_irb4600.json
-beckhoff_controller.json
-
-app gui user interface MOVE to cpp part
-thinking how to read py lib into c++ a wrapper.

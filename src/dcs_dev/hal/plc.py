@@ -4,7 +4,6 @@ from typing import Any, Dict, List
 from attr import define, field, validators
 from itertools import chain
 
-
 @define
 class PLC:
     """Hardware abstraction class for reading and writing variables from and to PLC."""
@@ -12,8 +11,8 @@ class PLC:
     netid: str = field(validator=validators.instance_of(str))
     ip: str
 
-    plc_vars_input:List = field(factory=list)
-    plc_vars_output:List = field(factory=list)
+    plc_vars_input: List = field(factory=list)
+    plc_vars_output: List = field(factory=list)
 
     connection: Any = field(default=None)
     lock_dict: Lock = field(factory=Lock)
@@ -43,14 +42,14 @@ class PLC:
                 return True
 
     def set_plc_vars_input_list(self, plc_vars_input: List):
-        """ load the machine variables from the plc """
+        """load the machine variables from the plc"""
         if not self.plc_vars_input:
             self.plc_vars_input = [vars for vars in plc_vars_input]
         else:
             self.plc_vars_input.extend([vars for vars in plc_vars_input])
 
     def set_plc_vars_output_list(self, plc_vars_output: List):
-        """ load the machine variables from the plc """
+        """load the machine variables from the plc"""
         if not self.plc_vars_output:
             self.plc_vars_output = [vars for vars in plc_vars_output]
         else:
@@ -59,14 +58,18 @@ class PLC:
     def read_variables(self):
         """Reads all structs from PLC and stores inside class."""
         if not self.connect():
-            raise AdsConnectionError("Could not read variable from PLC, PLC connection failed.")
+            raise AdsConnectionError(
+                "Could not read variable from PLC, PLC connection failed."
+            )
         with self.lock_ads:
             raise NotImplementedError
 
     def write_variables(self):
         """Writes all variables that have been set."""
         if not self.connect():
-            raise AdsConnectionError("Could not read variable from PLC, PLC connection failed.")
+            raise AdsConnectionError(
+                "Could not read variable from PLC, PLC connection failed."
+            )
         with self.lock_ads:
             raise NotImplementedError
 
@@ -103,8 +106,10 @@ class PLC:
 class LocalRepositoryEmptyError(Exception):
     pass
 
+
 class VariableNotFoundInRepositoryError(Exception):
     pass
+
 
 class AdsConnectionError(Exception):
     pass

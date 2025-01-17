@@ -21,8 +21,12 @@ CLIENT_ID = "5.57.158.168.1.1"  # PLC AMSNETID
 CLIENT_IP = "192.168.30.11"
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")  # Date
 
-# File name
+######################## File name ###################### change the file name here
+
+# TODO:  write a input function of it
+
 DEFAULT_FILENAME = NOW_DATE + "_" + "LShaspe_78S"
+
 # 50_agg_1.5FW_ETH_temperature_test
 
 HERE = os.path.dirname(__file__)

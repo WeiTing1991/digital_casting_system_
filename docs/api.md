@@ -2,8 +2,6 @@
 
 This document is for developers of recommonmark, it contans the API functions
 
-<!--TODO: check fastAPI -->
-
 Parser Component
 ----------------
 ```eval_rst
