@@ -73,8 +73,8 @@ pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 
 ## Usage
 
->NOTE:
-Don`t have to run the programming only for data recording.
+> NOTE:
+> Don`t have to run the programming only for data recording.
 
 ### Real-time monitoring and data recording
 
