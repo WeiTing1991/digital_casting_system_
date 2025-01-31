@@ -1,10 +1,22 @@
 site_name: Digital Casting System
 site_author: Wei-Ting Chen
-
 repo_name: USI-FMAA/digital_casting_system
 repo_url: https://github.com/USI-FMAA/digital_casting_system.git
-
 copyright: Copyright &copy; 2024 <a href="https://github.com/USI-FMAA">USI FMAA</a>, Maintained by the <a href="https://github.com/WeiTing1991">Wei-Ting Chen</a>.
+
+nav:
+- Home:
+  - Overview: index.md
+- Installation:
+  - User: installation.md
+  - Example Configurations: example.md
+  - Development: example.md
+- User Guide: tutorial.md
+- API Reference:
+  - api: api.md
+- About:
+  - Author: author.md
+  - License: license.md
 
 theme:
   name: material
@@ -40,15 +52,42 @@ theme:
   icon:
     logo: logo
 
-nav:
-  - Digital Casting: index.md
-  - Getting Started:
-    - Installation: installation.md
-    - Example Configurations: example-configuration.md
-  - User Guide: installation.md
-  - API Reference: api.md
-  - About: about.md
+plugins:
+  - search
+  - autorefs
+  - markdown-exec
+  - macros
+  - include-markdown
+  - gen-files:
+      scripts:
+      - _gen_ref_pages.py
+  - mkdocstrings
 
+markdown_extensions:
+- attr_list
+- admonition
+- footnotes
+- pymdownx.details
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- pymdownx.highlight:
+    pygments_lang_class: true
+- pymdownx.magiclink
+- pymdownx.snippets:
+    base_path: [!relative $config_dir]
+    check_paths: true
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+    slugify: !!python/object/apply:pymdownx.slugs.slugify
+      kwds:
+        case: lower
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+- toc:
+    permalink: "¤"
 
 # https://github.com/squidfunk/mkdocs-material/blob/master/mkdocs.yml
 # https://github.com/LGUG2Z/komorebi/blob/master/mkdocs.yml
