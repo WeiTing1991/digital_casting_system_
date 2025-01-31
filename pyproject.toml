@@ -1,3 +1,15 @@
+[project]
+name = "digtial_casting_system"
+version = "1.0.0"
+description = "A robot control project for Digital Control System"
+authors = [{name = "Wei-Ting Chen", email = "chenwei@arch.ethz.ch"}]
+readme = "README.md"
+requires-python = "<=3.10"
+
+dependencies = [
+    "mkdocstrings[python]>=0.18",
+]
+
 [tool.black]
 line-length = 120
 

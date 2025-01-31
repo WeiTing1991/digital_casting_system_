@@ -89,6 +89,13 @@ docker
 # clean the stopped container
 docker container prune
 # compose up and connect with docker container
+
+# Linux/WSL
+docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller/docker-compose.yml up
+```
+
+```pwsh
+# windows
 docker-compose -f .\external_controllers\robot\docker_compas_rrc\real_controller\docker-compose.yml up
 ```
 
@@ -99,7 +106,14 @@ docker
 # clean the stopped container
 docker container prune
 # docker compose up
+
 # virtual controller
+# Linux/WSL
+docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller/docker-compose.yml up
+```
+
+```pwsh
+# windows
 docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_controller\docker-compose.yml up
 ```
 
@@ -119,7 +133,6 @@ More information can be found in [digital casting system controller](https://git
 
 
 <!-- PROJECT DEVELOPMENT -->
-
 ## Development 
 
 ```bash
@@ -182,6 +195,8 @@ pip install -r requirements.txt
 conda install compas
 pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 ```
+
+<!-- Misc -->
 
 ## Credits
 Author: [Wei-Ting Chen](https://github.com/WeiTing1991)

@@ -7,13 +7,13 @@ copyright: Copyright &copy; 2024 <a href="https://github.com/USI-FMAA">USI FMAA<
 nav:
 - Home:
   - Overview: index.md
-- Installation:
-  - User: installation.md
-  - Example Configurations: example.md
-  - Development: example.md
+- Getting Started:
+  - User: user.md
+  - Development: dev.md
+  - Example: example.md
+
 - User Guide: tutorial.md
-- API Reference:
-  - api: api.md
+- API Reference: api_nav.md
 - About:
   - Author: author.md
   - License: license.md
@@ -58,21 +58,29 @@ plugins:
   - markdown-exec
   - macros
   - include-markdown
-  - gen-files:
-      scripts:
-      - _gen_ref_pages.py
-  - mkdocstrings
+  # for auto generate
+  - literate-nav:
+      nav_file: SUMMARY.md
+  # - gen-files:
+  #     scripts:
+  #     - _gen_ref_pages.py
+  - mkdocstrings:
+      enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
+      handlers:
+        python:
+          options:
+            show_source: true
+            docstring_style: google
+            heading_level: 4
 
+# check https://github.com/oprypin/mkdocs-gen-files
 markdown_extensions:
 - attr_list
 - admonition
 - footnotes
 - pymdownx.details
-- pymdownx.emoji:
-    emoji_index: !!python/name:material.extensions.emoji.twemoji
-    emoji_generator: !!python/name:material.extensions.emoji.to_svg
-- pymdownx.highlight:
-    pygments_lang_class: true
+- pymdownx.highlight
+- pymdownx.inlinehilite
 - pymdownx.magiclink
 - pymdownx.snippets:
     base_path: [!relative $config_dir]
@@ -88,6 +96,7 @@ markdown_extensions:
 - pymdownx.tilde
 - toc:
     permalink: "¤"
+    toc_depth: 3
 
 # https://github.com/squidfunk/mkdocs-material/blob/master/mkdocs.yml
 # https://github.com/LGUG2Z/komorebi/blob/master/mkdocs.yml

@@ -1,6 +1,6 @@
 
 {%
     include-markdown "../README.md"
-    start='<!-- PROJECT SHIELDS  -->'
+    start='<!-- PROJECT USAGE -->'
     end='<!-- PROJECT DEVELOPMENT -->'
 %}
