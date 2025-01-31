@@ -73,7 +73,7 @@ pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 
 ## Usage
 
-> [!NOTE]:
+> [!NOTE]
 > Don`t have to run the programming only for data recording.
 
 ### Real-time monitoring and data recording
@@ -85,7 +85,7 @@ python src/dcs_dev/main.py
 ....TBC
 ```
 
-> [!IMPORTANT]:
+> [!IMPORTANT]
 > feature
 ``` bash
 cd app/
