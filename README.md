@@ -55,7 +55,27 @@ git pull --recurse-submodules
 
 ### Setup the environment
 
-With UV package manger
+With UV package manger (super fast package management build by rust)
+
+Install UV
+```bash
+# On macOS and Linux.
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# On Windows.
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+uv --version
+```
+
+Create virtual environment
+``` bash
+uv venv --python 3.10
+source .venv/bin/activate
+
+# for package
+uv pip install mkdocs-material
+```
+
 
 With anaconda package manager
 ```bash
