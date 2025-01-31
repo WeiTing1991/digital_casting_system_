@@ -68,12 +68,12 @@ python src/dcs_dev/main.py
 ....TBC
 ```
 
-> [!IMPORTANT]
-> feature
-``` bash
-cd app/
-run ....
-```
+!!! note "Note"
+
+    ``` bash
+    cd app/
+    run ....
+    ```
 
 ### PLC Controller
 
