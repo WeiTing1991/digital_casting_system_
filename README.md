@@ -197,7 +197,7 @@ pip install -r requirements.txt
 
 # Install Compas framework
 pip install compas
-pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
+pip install git+git://github.com/WeiTing1991/compas_rrc.git@main
 ```
 
 <!-- Misc -->
