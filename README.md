@@ -15,8 +15,8 @@
 ![GitHub - License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python Version](https://img.shields.io/badge/Python-3.10-blue)
 ![Conda Version](https://img.shields.io/badge/Anaconda-4.14.0-blue)
+![UV Version](https://img.shields.io/badge/UV-0.6.0-blue)
 ![ABB Version](https://img.shields.io/badge/RobotStudio-2023/2024-blue)
-![TwinCAT Version](https://img.shields.io/badge/TwinCAT-3.4-blue)
 ![TwinCAT Version](https://img.shields.io/badge/TwinCAT-3.4-blue)
 ![Docker Version](https://img.shields.io/badge/Docker-23.0.3-blue)
 
