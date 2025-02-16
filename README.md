@@ -36,9 +36,9 @@ This package has three parts, which contain ```PLC controller``` for control com
 
 Operating System and Software.
 
-- [Windows 10]* or [Ubuntu 22.04]* 
+- [Windows 10]* or [Ubuntu 22.04]*
 - [TwinCAT 3] -- version 3.4
-- [Docker]  -- version 
+- [Docker]  -- version
 - [Anaconda 3] # change to uv soon.
 
 CAD/CAM software and simulation.
@@ -50,7 +50,7 @@ CAD/CAM software and simulation.
 <!-- PROJECT Getting Started -->
 
 ## Getting Started
-TODO: how to use the app 
+TODO: how to use the app
 
 
 <!-- PROJECT USAGE -->
@@ -68,12 +68,11 @@ python src/dcs_dev/main.py
 ....TBC
 ```
 
-!!! note "Note"
-
-    ``` bash
-    cd app/
-    run ....
-    ```
+[!NOTE]
+``` bash
+cd app/
+run ....
+```
 
 ### PLC Controller
 
@@ -133,7 +132,7 @@ More information can be found in [digital casting system controller](https://git
 
 
 <!-- PROJECT DEVELOPMENT -->
-## Development 
+## Development
 
 ```bash
 # Clone the repository
@@ -174,7 +173,7 @@ uv venv --python 3.10
 source .venv/bin/activate
 
 # for package
-uv pip install mkdocs-material 
+uv pip install mkdocs-material
 uv pip install mkdocstrings-python
 uv pip install mkdocs-gen-files
 ui pip install mkdocs-autorefs
@@ -201,7 +200,7 @@ pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 ## Credits
 Author: [Wei-Ting Chen](https://github.com/WeiTing1991)
 
-This package was created by [WeiTing Chen](https://github.com/WeiTing1991)
+This package created by [WeiTing Chen](https://github.com/WeiTing1991)
 at [USI-FMAA](https://github.com/USI-FMAA) and [ETHZurich DFab](https://dfab.ch/)
 
 ## Features
