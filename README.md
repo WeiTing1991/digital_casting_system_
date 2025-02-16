@@ -68,7 +68,6 @@ python src/dcs_dev/main.py
 ....TBC
 ```
 
-[!NOTE]
 ``` bash
 cd app/
 run ....
@@ -79,6 +78,8 @@ run ....
 Please find more information [here](https://github.com/USI-FMAA/digital_casting_system_controller.git) under **Connect with TwinCAT** section.
 
 ### Robot communication
+>[!NOTE]
+> Only if we want to run with the robot script
 
 #### Real ABB robotic control
 
@@ -132,10 +133,11 @@ More information can be found in [digital casting system controller](https://git
 
 
 <!-- PROJECT DEVELOPMENT -->
+
 ## Development
 
+### Clone the repository
 ```bash
-# Clone the repository
 git clone https://github.com/USI-FMAA/digital_casting_system.git
 ```
 
@@ -155,27 +157,36 @@ git pull --recurse-submodules
 
 ### Setup the environment
 
-With UV package manger (super fast package management build by rust)
+With `UV` package manger (super fast package management build by rust)
 
-Install UV
+#### Install UV
 ```bash
 # On macOS and Linux.
 curl -LsSf https://astral.sh/uv/install.sh | sh
+
 # On Windows.
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 uv --version
 ```
 
-Create virtual environment
+#### Create virtual environment
+
+UV
+
 ``` bash
 uv venv --python 3.10
 source .venv/bin/activate
 uv pip install -e .
+
+# optional
+uv pip install .[dev] # install the development dependencies
+uv pip install .[docs] # install the documentation dependencies
+
 ```
 
+Alternately with Anaconda package manager
 
-With anaconda package manager
 ```sh
 # Create the environment and activate it
 conda create --prefix ./.env python=3.10
@@ -184,8 +195,8 @@ conda create --prefix ./.env python=3.10
 conda activate ./.env
 pip install -r requirements.txt
 
-# Install compas framework
-conda install compas
+# Install Compas framework
+pip install compas
 pip install git+git://github.com/WeiTing1991/compas_rrc.git@master
 ```
 
