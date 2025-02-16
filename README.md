@@ -146,7 +146,7 @@ cd external_controllers
 git checkout master # checkout the lastest version
 git pull
 
-# Alternatively way
+# Alternately way
 git submodule foreach git pull origin master
 
 # Update the submoudles
@@ -171,15 +171,9 @@ Create virtual environment
 ``` bash
 uv venv --python 3.10
 source .venv/bin/activate
-
-# for package
-uv pip install mkdocs-material
-uv pip install mkdocstrings-python
-uv pip install mkdocs-gen-files
-ui pip install mkdocs-autorefs
-markdown
-mkdocs-macros-plugin
+uv pip install -e .
 ```
+
 
 With anaconda package manager
 ```sh
@@ -208,4 +202,3 @@ at [USI-FMAA](https://github.com/USI-FMAA) and [ETHZurich DFab](https://dfab.ch/
 - [X] PLC controller driver package
 - [X] DCS library with real-time data recording
 - [ ] DCS application for graphic real-time data recording application
-
