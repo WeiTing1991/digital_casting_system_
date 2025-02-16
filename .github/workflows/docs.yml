@@ -1,46 +1,61 @@
-name: ci
-on:
-  push:
-    branches:
-      - master
-      - main
+name: Build and Deploy Docs
 
-permissions:
-  contents: write
+on:
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  placeholder:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - run: echo "Release workflow placeholder"
 
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          submodules: true # Ensures submodules are checked out
-          fetch-depth: 0 # Fetch full history to avoid shallow clones
-
-      - name: Checkout submodule branch
-        run: |
-          cd external_controllers
-          git checkout main  # Replace 'main' with the appropriate branch name
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-
-      - run: pip install mkdocs-material
-
-      - run: mkdocs gh-deploy --force
+# on:
+#   push:
+#     branches:
+#       - master
+#       - main
+#
+# permissions:
+#   contents: write
+#
+# jobs:
+#   docs:
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - uses: actions/checkout@v4
+    #   - name: Configure Git Credentials
+    #     run: |
+    #       git config user.name github-actions[bot]
+    #       git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+    #
+    #   - name: Checkout code
+    #     uses: actions/checkout@v4
+    #     with:
+    #       submodules: true # Ensures submodules are checked out
+    #       fetch-depth: 0 # Fetch full history to avoid shallow clones
+    #
+    #   # - name: Checkout submodule branch
+    #   #   run: |
+    #   #     cd external_controllers || exit 1
+    #   #     git checkout main
+    #
+    #   - uses: actions/setup-python@v5
+    #     with:
+    #       python-version: 3.x
+    #   - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+    #
+    #   - uses: actions/cache@v4
+    #     with:
+    #       key: mkdocs-material-${{ env.cache_id }}
+    #       path: .cache
+    #       restore-keys: |
+    #         mkdocs-material-
+    #
+    #   - name: Install Mkdocs
+    #     run: pip install mkdocs-material
+    #
+    #   - name: Build Docs
+    #     run: mkdocs build
+    #
+    #   - name: Deploy Docs to GitHub Pages
+    #     run: mkdocs gh-deploy --force

@@ -4,6 +4,7 @@ from typing import List
 
 # Serialization/Deserialization
 
+
 @dataclass
 class DataObject:
     """
