@@ -139,10 +139,26 @@ More information can be found in [digital casting system controller](https://git
 ### Clone the repository
 ```bash
 git clone https://github.com/USI-FMAA/digital_casting_system.git
+# Alternately
+git clone --recurse-submodules https://github.com/USI-FMAA/digital_casting_system.git
 ```
 
 ```bash
+# if the repository is already cloned
+cd digital_casting_system
+git submodule update --init --recursive
+```
+
+
+### Update the submodules
+
+```bash
 # Update the submoudles
+git submodule update --remote --merge
+git pull --recurse-submodules
+
+
+# Alternately
 git submodule init
 cd external_controllers
 git checkout master # checkout the lastest version
@@ -151,8 +167,6 @@ git pull
 # Alternately way
 git submodule foreach git pull origin master
 
-# Update the submoudles
-git pull --recurse-submodules
 ```
 
 ### Setup the environment
