@@ -40,10 +40,13 @@ jobs:
           uv sync --all-extras --dev
 
       - name: Build Docs
-        run: mkdocs build
+        run: |
+          ${{ github.workspace }}/.venv/bin/python -m mkdocs build
 
       - name: Deploy Docs to GitHub Pages
-        run: mkdocs gh-deploy --force
+        run: |
+          ${{ github.workspace }}/.venv/bin/python -m mkdocs gh-deploy --force
+
 #   - uses: actions/cache@v4
 #     with:
 #       key: mkdocs-material-${{ env.cache_id }}
