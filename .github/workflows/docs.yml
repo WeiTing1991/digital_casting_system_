@@ -6,6 +6,9 @@ on:
       - master
       - main
 
+permissions:
+  contents: write
+
 jobs:
   docs:
     runs-on: ubuntu-latest
@@ -59,8 +62,6 @@ jobs:
 #
 #
 #
-# permissions:
-#   contents: write
 #
 #   - uses: actions/setup-python@v5
 #     with:
