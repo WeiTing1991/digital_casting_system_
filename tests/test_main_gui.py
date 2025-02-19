@@ -4,6 +4,7 @@ from hal.plc import PLC
 import time
 from gui.app import DCSApp
 
+
 if __name__ == "__main__":
     machine_data = DataHandler()
 
