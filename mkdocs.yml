@@ -1,10 +1,22 @@
 site_name: Digital Casting System
 site_author: Wei-Ting Chen
-
 repo_name: USI-FMAA/digital_casting_system
 repo_url: https://github.com/USI-FMAA/digital_casting_system.git
-
 copyright: Copyright &copy; 2024 <a href="https://github.com/USI-FMAA">USI FMAA</a>, Maintained by the <a href="https://github.com/WeiTing1991">Wei-Ting Chen</a>.
+
+nav:
+- Home:
+  - Overview: index.md
+- Getting Started:
+  - User: user.md
+  - Development: dev.md
+  - Example: example.md
+
+- User Guide: tutorial.md
+- API Reference: api_nav.md
+- About:
+  - Author: author.md
+  - License: license.md
 
 theme:
   name: material
@@ -40,15 +52,51 @@ theme:
   icon:
     logo: logo
 
-nav:
-  - Digital Casting: index.md
-  - Getting Started:
-    - Installation: installation.md
-    - Example Configurations: example-configuration.md
-  - User Guide: installation.md
-  - API Reference: api.md
-  - About: about.md
+plugins:
+  - search
+  - autorefs
+  - markdown-exec
+  - macros
+  - include-markdown
+  # for auto generate
+  - literate-nav:
+      nav_file: SUMMARY.md
+  # - gen-files:
+  #     scripts:
+  #     - _gen_ref_pages.py
+  - mkdocstrings:
+      enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
+      handlers:
+        python:
+          options:
+            show_source: true
+            docstring_style: google
+            heading_level: 4
 
+# check https://github.com/oprypin/mkdocs-gen-files
+markdown_extensions:
+- attr_list
+- admonition
+- footnotes
+- pymdownx.details
+- pymdownx.highlight
+- pymdownx.inlinehilite
+- pymdownx.magiclink
+- pymdownx.snippets:
+    base_path: [!relative $config_dir]
+    check_paths: true
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+    slugify: !!python/object/apply:pymdownx.slugs.slugify
+      kwds:
+        case: lower
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+- toc:
+    permalink: "¤"
+    toc_depth: 3
 
 # https://github.com/squidfunk/mkdocs-material/blob/master/mkdocs.yml
 # https://github.com/LGUG2Z/komorebi/blob/master/mkdocs.yml

@@ -1,7 +1,10 @@
+""" A class to load the configuration parameters via given path json."""
+
 import os
 import json
 
 class AbbConfig():
+    """ a class to load the configuration parameters via given path json."""
 
     def __init__(self):
 
@@ -11,6 +14,7 @@ class AbbConfig():
 
 
     def _load_from_json(self):
+        """ Load the configuration parameters from a json file."""
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         filename = os.path.join(dir_path, ".." ,"config", "setup.json")
@@ -20,3 +24,4 @@ class AbbConfig():
             except ValueError:
                 print('Decoding JSON has failed')
         return output
+
