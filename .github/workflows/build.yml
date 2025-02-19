@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build_main:
@@ -37,7 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Release workflow placeholder"
-
 # reference
 #   build:
 #     if: "!contains(github.event.pull_request.labels.*.name, 'docs-only')"
