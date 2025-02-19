@@ -37,7 +37,7 @@ jobs:
 
       - name: Install the project and python dependencies
         run: |
-          uv sync --all-extras --dev --docs
+          uv sync --all-extras --dev
 
       - name: Build Docs
         run: mkdocs build
