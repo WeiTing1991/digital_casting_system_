@@ -1,11 +1,11 @@
 [project]
 name = "digtial_casting_system"
 version = "1.0.0"
-description = "A robot control project for Digital Control System"
+description = "A digital control project for Digital Control System"
 authors = [{ name = "Wei-Ting Chen", email = "chenwei@arch.ethz.ch" }]
 license = { file = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 
 dependencies = [
     "numpy>=1.26",
@@ -14,11 +14,12 @@ dependencies = [
     "attrs>=17.4",
     "pydantic>=2.10.6",
 
-    "matplotlib>=3.8.4",
     "pandas>=2.2.0",
+
     # becasue of the compas_rrc, we should use comaps <=1.0.4
     "compass<=2.9.0",
-    "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main"
+    "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main",
+    "matplotlib>=3.8.4",
 ]
 
 [project.optional-dependencies]

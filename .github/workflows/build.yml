@@ -1,14 +1,58 @@
-name: build
+name: Build
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  placeholder:
+  build_main:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Release workflow placeholder"
 
+  build_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Release workflow placeholder"
+# on: [push]
+# jobs:
+#   uv-ubuntu:
+#     runs-on: ubuntu-latest
+#     env:
+#       PROJECT_ROOT: ${{ github.workspace }}
+#
+#     steps:
+#       - uses: actions/checkout@v4
+#
+#       - name: Install uv
+#         uses: astral-sh/setup-uv@v5
+#         with:
+#           enable-cache: true
+#
+#       - name: Cloning dependencies mesh_common
+#         run: |
+#             git clone https://${{ secrets.GH_MESH_PAT }}@github.com/Mesh-ch/mesh_common.git ../mesh_common
+#
+#       - name: "Set up Python"
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version-file: "backend/pyproject.toml"
+#
+#       - name: Set up Authentication for Private GitHub Repos
+#         run: git config --global url."https://${{ secrets.GH_MESH_PAT }}@github.com/".insteadOf "https://github.com/"
+#
+#       - name: Install the project and python dependencies
+#         run: |
+#             cd backend/
+#             uv sync --all-extras --dev
+#
+#       - name: Run python tests
+#         run: |
+#             cd backend/
+#             uv run pytest
+
+# reference
 #   build:
 #     if: "!contains(github.event.pull_request.labels.*.name, 'docs-only')"
 #     runs-on: ${{ matrix.os }}
@@ -23,3 +67,54 @@ jobs:
 #           python: ${{ matrix.python }}
 #           invoke_lint: true
 #           invoke_test: true
+
+# on:
+#   push:
+#     branches:
+#       - master
+#       - main
+#
+# permissions:
+#   contents: write
+#
+# jobs:
+#   docs:
+# runs-on: ubuntu-latest
+# steps:
+#   - uses: actions/checkout@v4
+#   - name: Configure Git Credentials
+#     run: |
+#       git config user.name github-actions[bot]
+#       git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+#
+#   - name: Checkout code
+#     uses: actions/checkout@v4
+#     with:
+#       submodules: true # Ensures submodules are checked out
+#       fetch-depth: 0 # Fetch full history to avoid shallow clones
+#
+#   # - name: Checkout submodule branch
+#   #   run: |
+#   #     cd external_controllers || exit 1
+#   #     git checkout main
+#
+#   - uses: actions/setup-python@v5
+#     with:
+#       python-version: 3.x
+#   - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+#
+#   - uses: actions/cache@v4
+#     with:
+#       key: mkdocs-material-${{ env.cache_id }}
+#       path: .cache
+#       restore-keys: |
+#         mkdocs-material-
+#
+#   - name: Install Mkdocs
+#     run: pip install mkdocs-material
+#
+#   - name: Build Docs
+#     run: mkdocs build
+#
+#   - name: Deploy Docs to GitHub Pages
+#     run: mkdocs gh-deploy --force
