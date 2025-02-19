@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - main
 
 jobs:
   build_main:
@@ -19,7 +20,6 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
@@ -34,73 +34,3 @@ jobs:
         run: |
           uv sync --all-extras --dev
 
-  build_docs:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Release workflow placeholder"
-# reference
-#   build:
-#     if: "!contains(github.event.pull_request.labels.*.name, 'docs-only')"
-#     runs-on: ${{ matrix.os }}
-#     strategy:
-#       matrix:
-#         os: [ubuntu-latest, macos-latest, windows-latest]
-#         python: ['3.8', '3.9', '3.10']
-#
-#     steps:
-#       - uses: compas-dev/compas-actions.build@v3
-#         with:
-#           python: ${{ matrix.python }}
-#           invoke_lint: true
-#           invoke_test: true
-
-# on:
-#   push:
-#     branches:
-#       - master
-#       - main
-#
-# permissions:
-#   contents: write
-#
-# jobs:
-#   docs:
-# runs-on: ubuntu-latest
-# steps:
-#   - uses: actions/checkout@v4
-#   - name: Configure Git Credentials
-#     run: |
-#       git config user.name github-actions[bot]
-#       git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-#
-#   - name: Checkout code
-#     uses: actions/checkout@v4
-#     with:
-#       submodules: true # Ensures submodules are checked out
-#       fetch-depth: 0 # Fetch full history to avoid shallow clones
-#
-#   # - name: Checkout submodule branch
-#   #   run: |
-#   #     cd external_controllers || exit 1
-#   #     git checkout main
-#
-#   - uses: actions/setup-python@v5
-#     with:
-#       python-version: 3.x
-#   - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-#
-#   - uses: actions/cache@v4
-#     with:
-#       key: mkdocs-material-${{ env.cache_id }}
-#       path: .cache
-#       restore-keys: |
-#         mkdocs-material-
-#
-#   - name: Install Mkdocs
-#     run: pip install mkdocs-material
-#
-#   - name: Build Docs
-#     run: mkdocs build
-#
-#   - name: Deploy Docs to GitHub Pages
-#     run: mkdocs gh-deploy --force
