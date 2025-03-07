@@ -13,13 +13,12 @@ dependencies = [
   "pyads>=3.3.9",
   "attrs>=17.4",
   "pydantic>=2.10.6",
-
   "pandas>=2.2.0",
-
   # becasue of the compas_rrc, we should use comaps <=1.0.4
   "compass<=2.9.0",
   "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main",
   "matplotlib>=3.8.4",
+  "path>=17.1.0",
 ]
 
 [project.optional-dependencies]
@@ -39,9 +38,9 @@ docs = [
 ]
 
 [tool.ruff]
-indent-size = 2
-line-length = 120
-indent-style = "space"
+# indent-size = 2
+# line-length = 120
+# indent-style = "space"
 # target-version = "py311"
 
 [tool.ruff.lint]
