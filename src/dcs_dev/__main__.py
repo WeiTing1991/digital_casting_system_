@@ -17,7 +17,7 @@ CLIENT_ID = '5.57.158.168.1.1'                          # PLC AMSNETID
 NOW_DATE = datetime.now().date().strftime("%Y%m%d")     # Date
 
 # File name
-DEFAULT_FILENAME = NOW_DATE + '_' + 'test'
+DEFAULT_FILENAME = NOW_DATE + '_' + 'HIF_test'
 # 50_agg_1.5FW_ETH_temperature_test
 
 HERE = os.path.dirname(__file__)
