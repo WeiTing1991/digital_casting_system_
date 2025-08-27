@@ -15,7 +15,7 @@ dependencies = [
   "pydantic>=2.10.6",
   "pandas>=2.2.0",
   # becasue of the compas_rrc, we should use comaps <=1.0.4
-  "compass<=2.9.0",
+  "compas<=2.9.0",
   "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main",
   "matplotlib>=3.8.4",
   "path>=17.1.0",
