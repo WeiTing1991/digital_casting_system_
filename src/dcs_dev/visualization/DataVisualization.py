@@ -1,16 +1,15 @@
 
 ## install panda, matplotlib, scipy
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
 import math
 import os
 
-from scipy import stats
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 from scipy.optimize import curve_fit
 
 
-class CSVToDataFrame():
+class CSVToDataFrame:
     """ CSV data to panda dataframe"""
     def __init__(self, filename:str, data_folder_path:str):
 
@@ -75,7 +74,7 @@ class CSVToDataFrame():
 
 
 
-class PlotFromData():
+class PlotFromData:
     """
     plot data
     """

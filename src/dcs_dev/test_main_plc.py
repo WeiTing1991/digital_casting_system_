@@ -1,7 +1,5 @@
 from data_processing.data_processing import DataHandler
 from hal.device import InlineMixer
-from hal.plc import PLC
-
 
 if __name__ == "__main__":
 

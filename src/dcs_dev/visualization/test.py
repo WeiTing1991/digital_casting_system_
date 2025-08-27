@@ -1,6 +1,7 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy import odr
+
 x = np.linspace(0.0, 5.0)
 y = np.sin(x)
 poly_model = odr.polynomial(2)  # using third order polynomial model

@@ -1,5 +1,5 @@
 [project]
-name = "digtial_casting_system"
+name = "digital_casting_system"
 version = "1.0.0"
 description = "A robot control project for Digital Control System"
 authors = [{ name = "Wei-Ting Chen", email = "chenwei@arch.ethz.ch" }]
@@ -40,10 +40,8 @@ docs = [
 ]
 
 [tool.ruff]
-indent-size = 2
 line-length = 120
-indent-style = "space"
-# target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = [
