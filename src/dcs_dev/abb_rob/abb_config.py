@@ -1,9 +1,10 @@
 """ A class to load the configuration parameters via given path json."""
 
-import os
 import json
+import os
 
-class AbbConfig():
+
+class AbbConfig:
     """ a class to load the configuration parameters via given path json."""
 
     def __init__(self):
@@ -18,7 +19,7 @@ class AbbConfig():
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         filename = os.path.join(dir_path, ".." ,"config", "setup.json")
-        with open(filename, 'r') as f:
+        with open(filename) as f:
             try:
                 output = json.load(f)
             except ValueError:

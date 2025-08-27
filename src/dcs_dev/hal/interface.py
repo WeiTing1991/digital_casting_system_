@@ -1,6 +1,4 @@
-from dataclasses import asdict
-from dataclasses import dataclass
-from dataclasses import field
+from dataclasses import asdict, dataclass
 
 
 @dataclass(slots=True)

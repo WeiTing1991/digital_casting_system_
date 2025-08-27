@@ -1,8 +1,9 @@
-import pytest
+import math
+
 import compas
 import dcs
-import math
 import numpy
+import pytest
 
 
 def pytest_ignore_collect(path):

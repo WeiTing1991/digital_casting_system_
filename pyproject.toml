@@ -40,9 +40,7 @@ docs = [
 ]
 
 [tool.ruff]
-indent-size = 2
 line-length = 120
-indent-style = "space"
 # target-version = "py311"
 
 [tool.ruff.lint]

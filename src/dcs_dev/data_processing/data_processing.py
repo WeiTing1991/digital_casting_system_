@@ -63,14 +63,14 @@ class DataHandler(PathConfig):
         )
 
     def _load_json_to_dict(self) -> None:
-        with open(self.filename, "r") as file:
+        with open(self.filename) as file:
             try:
                 self.machine_dict = json.load(file)
             except ValueError as e:
                 print(f"Error: {e}")
 
     def _load_json_to_instance(self) -> None:
-        with open(self.filename, "r") as file:
+        with open(self.filename) as file:
             try:
                 self.machine = json.load(file, object_hook=self.data_object_decoder)
             except ValueError as e:

@@ -1,12 +1,10 @@
-import json
 import csv
+import json
 import os
-
 from datetime import datetime
-from typing import Any
 
 
-class DataProcessing():
+class DataProcessing:
     """
     This is a class that provides the data collection, processing, handlering.
 

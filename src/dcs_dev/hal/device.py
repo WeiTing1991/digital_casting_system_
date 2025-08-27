@@ -1,7 +1,7 @@
 # device.py
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import List, Any, Dict
+from typing import Any
 
 
 class Machine(ABC):
@@ -15,11 +15,11 @@ class Machine(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def input_list(self) -> List:
+    def input_list(self) -> list:
         raise NotImplementedError
 
     @abstractmethod
-    def output_list(self) -> List:
+    def output_list(self) -> list:
         raise NotImplementedError
 
     @abstractmethod
@@ -46,8 +46,8 @@ class InlineMixer(Machine):
 
     """
     machine_id: int
-    machine_input: List
-    machine_output: List
+    machine_input: list
+    machine_output: list
     machine_error_num: int = 0
 
     def device_id(self) -> int:
@@ -59,10 +59,10 @@ class InlineMixer(Machine):
                 if param_name == param.var_name:
                     return param.id if param.id is not None else 0
 
-    def input_list(self) -> List[object]:
+    def input_list(self) -> list[object]:
         return self.machine_input
 
-    def output_list(self) -> List[object]:
+    def output_list(self) -> list[object]:
         return self.machine_output
 
     def get_input_var_name(self) -> Any:
@@ -94,8 +94,8 @@ class ConcretePump(Machine):
 
     """
     machine_id: int
-    machine_input: List
-    machine_output: List
+    machine_input: list
+    machine_output: list
     machine_error_num: int = 0
 
     def device_id(self) -> int:
@@ -107,10 +107,10 @@ class ConcretePump(Machine):
                 if param_name == param.var_name:
                     return param.id if param.id is not None else 0
 
-    def input_list(self) -> List[object]:
+    def input_list(self) -> list[object]:
         return self.machine_input
 
-    def output_list(self) -> List[object]:
+    def output_list(self) -> list[object]:
         return self.machine_output
 
     def get_input_var_name(self) -> Any:
@@ -143,8 +143,8 @@ class DosingPumpHigh(Machine):
 
     """
     machine_id: int
-    machine_input: List
-    machine_output: List
+    machine_input: list
+    machine_output: list
     machine_error_num: int = 0
 
     def device_id(self) -> int:
@@ -156,10 +156,10 @@ class DosingPumpHigh(Machine):
                 if param_name == param.var_name:
                     return param.id if param.id is not None else 0
 
-    def input_list(self) -> List[object]:
+    def input_list(self) -> list[object]:
         return self.machine_input
 
-    def output_list(self) -> List[object]:
+    def output_list(self) -> list[object]:
         return self.machine_output
 
     def get_input_var_name(self) -> Any:
@@ -191,8 +191,8 @@ class DosingPumpLow(Machine):
 
     """
     machine_id: int
-    machine_input: List
-    machine_output: List
+    machine_input: list
+    machine_output: list
     machine_error_num: int = 0
 
     def device_id(self) -> int:
@@ -204,10 +204,10 @@ class DosingPumpLow(Machine):
                 if param_name == param.var_name:
                     return param.id if param.id is not None else 0
 
-    def input_list(self) -> List[object]:
+    def input_list(self) -> list[object]:
         return self.machine_input
 
-    def output_list(self) -> List[object]:
+    def output_list(self) -> list[object]:
         return self.machine_output
 
     def get_input_var_name(self) -> Any:
@@ -239,8 +239,8 @@ class Controller(Machine):
 
     """
     machine_id: int
-    machine_input: List
-    machine_output: List
+    machine_input: list
+    machine_output: list
     machine_error_num: int = 0
 
     def device_id(self) -> int:
@@ -252,10 +252,10 @@ class Controller(Machine):
                 if param_name == param.var_name:
                     return param.id if param.id is not None else 0
 
-    def input_list(self) -> List[object]:
+    def input_list(self) -> list[object]:
         return self.machine_input
 
-    def output_list(self) -> List[object]:
+    def output_list(self) -> list[object]:
         return self.machine_output
 
     def get_input_var_name(self) -> Any:

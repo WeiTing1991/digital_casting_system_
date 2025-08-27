@@ -1,8 +1,10 @@
 from unittest.mock import Mock
+
+import pyads
 import pytest
 
 from dcs_dev.hal import plc
-import pyads
+
 
 @pytest.fixture(scope='function')
 def pyads_mock():

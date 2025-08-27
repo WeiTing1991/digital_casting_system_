@@ -1,5 +1,6 @@
 import compas_rrc as rrc
 
+
 class DcsRosClient:
     def __init__(self):
         self._ros = None
