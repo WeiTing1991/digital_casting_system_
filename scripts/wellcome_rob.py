@@ -5,7 +5,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "../src"))
 
 from dcs_dev.abb_rob.ros_client import DcsRosClient
 
-
 if __name__ == "__main__":
     dcs_rob = DcsRosClient()
 

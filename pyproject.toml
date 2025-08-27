@@ -1,62 +1,60 @@
 [project]
 name = "digtial_casting_system"
 version = "1.0.0"
-description = "A robot control project for Digital Control System"
+description = "A digital control project for Digital Control System"
 authors = [{ name = "Wei-Ting Chen", email = "chenwei@arch.ethz.ch" }]
 license = { file = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 
 dependencies = [
-    "numpy>=1.26",
-    "ruff>=0.8.2",
-    "pyads>=3.3.9",
-    "attrs>=17.4",
-    "pydantic>=2.10.6",
-
-    "matplotlib>=3.8.4",
-    "pandas>=2.2.0",
-    # becasue of the compas_rrc, we should use comaps <=1.0.4
-    "compass<=2.9.0",
-    "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main"
+  "numpy>=1.26",
+  "ruff>=0.8.2",
+  "pyads>=3.3.9",
+  "attrs>=17.4",
+  "pydantic>=2.10.6",
+  "pandas>=2.2.0",
+  # becasue of the compas_rrc, we should use comaps <=1.0.4
+  "compas<=2.9.0",
+  "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main",
+  "matplotlib>=3.8.4",
+  "path>=17.1.0",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "black",
-    "isort",
-    "pytest",
-    "pytest-cov"
-]
+dev = ["black", "isort", "pytest", "pytest-cov"]
 
 docs = [
-    "mkdocs",
-    "mkdocs-material",
-    "mkdocstrings-python",
-    "mkdocs-gen-files",
-    "mkdocs-autorefs",
-    "markdown",
-    "mkdocs-macros-plugin",
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings-python",
+  "mkdocs-gen-files",
+  "mkdocs-autorefs",
+  "markdown",
+  "mkdocs-include-markdown-plugin",
+  "mkdocs-macros-plugin",
+  "markdown-exec",
+  "mkdocs-literate-nav"
 ]
 
 [tool.ruff]
-indent-size = 2
-line-length = 120
-indent-style = "space"
+# indent-size = 2
+# line-length = 120
+# indent-style = "space"
 # target-version = "py311"
 
 [tool.ruff.lint]
 select = [
-    "E",   # pycodestyle errors
-    "W",   # pycodestyle warnings
-    "F",   # pyflakes
-    "I",   # isort
-    "UP",  # pyupgrade
-    "N",   # pep8-naming
-    "RUF", # ruff-specific rules
+  "E",   # pycodestyle errors
+  "W",   # pycodestyle warnings
+  "F",   # pyflakes
+  "I",   # isort
+  "UP",  # pyupgrade
+  "N",   # pep8-naming
+  "RUF", # ruff-specific rules
 ]
 ignore = [
-    "D417", # missing parameter documentation
+  "D417", # missing parameter documentation
 ]
 
 [tool.ruff.lint.pydocstyle]
@@ -64,11 +62,11 @@ convention = "google"
 
 [tool.ruff.lint.isort]
 section-order = [
-    "future",
-    "standard-library",
-    "third-party",
-    "first-party",
-    "local-folder",
+  "future",
+  "standard-library",
+  "third-party",
+  "first-party",
+  "local-folder",
 ]
 
 # [tool.pytest.ini_options]

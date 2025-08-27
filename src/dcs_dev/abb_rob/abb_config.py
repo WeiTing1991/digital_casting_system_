@@ -24,4 +24,3 @@ class AbbConfig():
             except ValueError:
                 print('Decoding JSON has failed')
         return output
-
