@@ -1,7 +1,5 @@
 from dcs_dev.data_processing.data_processing import DataHandler
 from dcs_dev.hal.device import InlineMixer
-from dcs_dev.hal.plc import PLC
-
 
 if __name__ == "__main__":
 
