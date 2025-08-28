@@ -1,17 +1,17 @@
 ## install panda, matplotlib, scipy
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
-import math
 import os
 from datetime import datetime
 
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from scipy import odr
 
 #from sklearn.preprocessing import StandardScaler
 from scipy.optimize import curve_fit
-from scipy import odr
 
-class CSVToDataFrame():
+
+class CSVToDataFrame:
     """ CSV data to Panda Dataframe
     """
 
@@ -113,7 +113,7 @@ class CSVToDataFrame():
         self.df[col] = (self.df[col]*(1-factor) + self.df[col].mean()*factor).round(2)
 
 
-class PlotData():
+class PlotData:
     """ the class is to plot data from Panda DataFrame
         dataframe_list:list
         col_x:str
@@ -161,21 +161,21 @@ class PlotData():
         label_func:str
         data_dict ={}
 
-        if func_type is "linar":
+        if func_type == "linar":
             func = self.linar_func
             params, params_covariance = curve_fit(func, data_x, data_y) # popt, pcov, a*x + c
 
             label_func = f"y = {params[0].round(5)}x + {params[1].round(5)}"
             result = func(data_x, *params)
 
-        elif func_type is "exp":
+        elif func_type == "exp":
             func = self.exponential_func
             params, params_covariance = curve_fit(func, data_x, data_y) # popt, pcov
 
             label_func = f"y ={params[0].round(5)}" + f"e$^{{{params[2].round(5)}}}$$^x$ + " + f"{params[2].round(5)}"
             result = func(data_x, *params)
 
-        elif func_type is "poly":
+        elif func_type == "poly":
 
             poly_model = odr.polynomial(2)  # using third order polynomial model
             data = odr.Data(data_x, data_y)
@@ -247,10 +247,10 @@ class PlotData():
 
             plot_label = self.set_label()
 
-            if figure_type is "plot":
+            if figure_type == "plot":
                 # draw plot
                 self.ax.plot(data_x, data_y, linestyle = '-', linewidth = 0.5, color = self.color_list[i],label= plot_label)
-            elif figure_type is "point":
+            elif figure_type == "point":
                 # draw point
                 self.ax.scatter(data_x, data_y, marker=self.make_type_list[i], s=10, color = self.color_list[i], alpha=0.5,label= plot_label)
 

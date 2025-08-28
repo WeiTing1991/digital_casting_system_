@@ -1,6 +1,4 @@
-from dataclasses import asdict
-from dataclasses import dataclass
-from typing import List
+from dataclasses import asdict, dataclass
 
 # Serialization/Deserialization
 
@@ -41,10 +39,10 @@ class DataParam:
     """
 
     machine_id: int
-    machine_input: List[DataObject]
-    machine_output: List[DataObject]
+    machine_input: list[DataObject]
+    machine_output: list[DataObject]
 
-    def __getitem__(self, key: str) -> List[DataObject]:
+    def __getitem__(self, key: str) -> list[DataObject]:
         if key == "input":
             return [input_data for input_data in self.machine_input]
         elif key == "output":

@@ -1,8 +1,10 @@
-import pyads
-from threading import Lock
-from typing import Any, Dict, List
-from attr import define, field, validators
 from itertools import chain
+from threading import Lock
+from typing import Any
+
+import pyads
+from attr import define, field, validators
+
 
 @define
 class PLC:
@@ -11,8 +13,8 @@ class PLC:
     netid: str = field(validator=validators.instance_of(str))
     ip: str
 
-    plc_vars_input: List = field(factory=list)
-    plc_vars_output: List = field(factory=list)
+    plc_vars_input: list = field(factory=list)
+    plc_vars_output: list = field(factory=list)
 
     connection: Any = field(default=None)
     lock_dict: Lock = field(factory=Lock)
@@ -41,14 +43,14 @@ class PLC:
                 print(f"Connection: {self.connection.is_open}")
                 return True
 
-    def set_plc_vars_input_list(self, plc_vars_input: List):
+    def set_plc_vars_input_list(self, plc_vars_input: list):
         """load the machine variables from the plc"""
         if not self.plc_vars_input:
             self.plc_vars_input = [vars for vars in plc_vars_input]
         else:
             self.plc_vars_input.extend([vars for vars in plc_vars_input])
 
-    def set_plc_vars_output_list(self, plc_vars_output: List):
+    def set_plc_vars_output_list(self, plc_vars_output: list):
         """load the machine variables from the plc"""
         if not self.plc_vars_output:
             self.plc_vars_output = [vars for vars in plc_vars_output]
