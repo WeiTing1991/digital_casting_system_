@@ -50,7 +50,8 @@ CAD/CAM software and simulation.
 <!-- PROJECT Getting Started -->
 
 ## Getting Started
-TODO: how to use the app
+Data visualization and real-time monitoring app
+Please find the app [here](https://github.com/USI-FMAA/digital_casting_system_app)
 
 
 <!-- PROJECT USAGE -->
@@ -61,16 +62,12 @@ TODO: how to use the app
 
 ### Real-time monitoring and data recording
 
-
 ``` bash
-python src/dcs_dev/main.py
-# enter the file name
-....TBC
-```
+# sync the library
+uv sync
 
-``` bash
-cd app/
-run ....
+# run the script
+uv run scripts/dcs.py
 ```
 
 ### PLC Controller
@@ -82,6 +79,18 @@ Please find more information [here](https://github.com/USI-FMAA/digital_casting_
 > Only if we want to run with the robot script
 
 #### Real ABB robotic control
+TODO: TEST
+
+```sh
+docker
+# real controller
+# clean the stopped container
+docker container prune
+# compose up and connect with docker container
+
+# Linux/WSL
+docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller/docker-compose.yml up
+```
 
 ```sh
 docker
@@ -97,6 +106,11 @@ docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller
 ```pwsh
 # windows
 docker-compose -f .\external_controllers\robot\docker_compas_rrc\real_controller\docker-compose.yml up
+```
+
+```pwsh
+# windows
+uv run scripts/main_run_robot.py
 ```
 
 ### Simulation with ABB robot
@@ -119,12 +133,11 @@ docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_control
 
 #### ABB RobotStudio
 
-...TODO
+Please find more information [here]()
 
 #### CAD/CAM software(Rhino and grasshopper)
 
-...TODO
-
+Please find more information [here]()
 
 #### Concrete Controller
 
@@ -139,10 +152,26 @@ More information can be found in [digital casting system controller](https://git
 ### Clone the repository
 ```bash
 git clone https://github.com/USI-FMAA/digital_casting_system.git
+# Alternately
+git clone --recurse-submodules https://github.com/USI-FMAA/digital_casting_system.git
 ```
 
 ```bash
+# if the repository is already cloned
+cd digital_casting_system
+git submodule update --init --recursive
+```
+
+
+### Update the submodules
+
+```bash
 # Update the submoudles
+git submodule update --remote --merge
+git pull --recurse-submodules
+
+
+# Alternately
 git submodule init
 cd external_controllers
 git checkout master # checkout the lastest version
@@ -151,8 +180,6 @@ git pull
 # Alternately way
 git submodule foreach git pull origin master
 
-# Update the submoudles
-git pull --recurse-submodules
 ```
 
 ### Setup the environment
@@ -175,13 +202,13 @@ uv --version
 UV
 
 ``` bash
-uv venv --python 3.10
+uv venv --python 3.12
 source .venv/bin/activate
 uv pip install -e .
 
 # optional
-uv pip install .[dev] # install the development dependencies
-uv pip install .[docs] # install the documentation dependencies
+uv pip install '.[dev]' # install the development dependencies
+uv pip install '.[docs]' # install the documentation dependencies
 
 ```
 

@@ -1,61 +1,70 @@
-name: Build and Deploy Docs
+name: Doc build and deploy
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  placeholder:
+  docs:
     runs-on: ubuntu-latest
-    steps:
-      - run: echo "Release workflow placeholder"
+    env:
+      PROJECT_ROOT: ${{ github.workspace}}
 
-# on:
-#   push:
-#     branches:
-#       - master
-#       - main
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      # - name: Checkout submodule branch
+      #   run: |
+      #     cd external_controllers || exit 1
+      #     git checkout main
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install the project and python dependencies
+        run: |
+          uv sync --all-extras --dev
+
+      - name: Build Docs
+        run: |
+          ${{ github.workspace }}/.venv/bin/python -m mkdocs build
+
+      - name: Deploy Docs to GitHub Pages
+        run: |
+          ${{ github.workspace }}/.venv/bin/python -m mkdocs gh-deploy --force
+
+#   - uses: actions/cache@v4
+#     with:
+#       key: mkdocs-material-${{ env.cache_id }}
+#       path: .cache
+#       restore-keys: |
+#         mkdocs-material-
 #
-# permissions:
-#   contents: write
+#   - name: Install Mkdocs
+#     run: pip install mkdocs-material
 #
-# jobs:
-#   docs:
-    # runs-on: ubuntu-latest
-    # steps:
-    #   - uses: actions/checkout@v4
-    #   - name: Configure Git Credentials
-    #     run: |
-    #       git config user.name github-actions[bot]
-    #       git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-    #
-    #   - name: Checkout code
-    #     uses: actions/checkout@v4
-    #     with:
-    #       submodules: true # Ensures submodules are checked out
-    #       fetch-depth: 0 # Fetch full history to avoid shallow clones
-    #
-    #   # - name: Checkout submodule branch
-    #   #   run: |
-    #   #     cd external_controllers || exit 1
-    #   #     git checkout main
-    #
-    #   - uses: actions/setup-python@v5
-    #     with:
-    #       python-version: 3.x
-    #   - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-    #
-    #   - uses: actions/cache@v4
-    #     with:
-    #       key: mkdocs-material-${{ env.cache_id }}
-    #       path: .cache
-    #       restore-keys: |
-    #         mkdocs-material-
-    #
-    #   - name: Install Mkdocs
-    #     run: pip install mkdocs-material
-    #
-    #   - name: Build Docs
-    #     run: mkdocs build
-    #
-    #   - name: Deploy Docs to GitHub Pages
-    #     run: mkdocs gh-deploy --force
+#
+#
+#
+#   - uses: actions/setup-python@v5
+#     with:
+#       python-version: 3.x
+#   - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+#

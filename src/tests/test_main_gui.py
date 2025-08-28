@@ -5,6 +5,7 @@ from gui.app import DCSApp
 from hal.device import InlineMixer
 from hal.plc import PLC
 
+
 if __name__ == "__main__":
     machine_data = DataHandler()
 

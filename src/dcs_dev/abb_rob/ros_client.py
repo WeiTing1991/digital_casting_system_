@@ -1,12 +1,16 @@
+""" This module is a ROS client for ABB robot controller via compas_rrc."""
+
 import compas_rrc as rrc
 
 
 class DcsRosClient:
-    def __init__(self):
-        self._ros = None
-        self._abb = None
+"""This class is a ROS client for ABB robot controller via compas_rrc."""
+  def __init__(self):
+    self._ros = None
+    self._abb = None
 
     def _init_ros_client(self) -> None:
+
         self.ros = rrc.RosClient()
         self.ros.run()
         self.abb = rrc.AbbClient(self.ros, "/rob1")
@@ -15,6 +19,7 @@ class DcsRosClient:
         self.abb.send_and_wait(rrc.PrintText("Wellcome to digital casting sytsem"))
 
     def _close_ros_client(self) -> None:
+
         self.ros.close()
         self.ros.terminate()
 
@@ -97,9 +102,3 @@ class DcsRosClient:
     def _print_text(self, text: str) -> None:
         self.abb.send(rrc.PrintText(text))
         print(text)
-
-
-#TODO
-"""
-read the path from rhino  eor abb studio
-"""
