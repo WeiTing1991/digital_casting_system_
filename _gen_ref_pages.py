@@ -1,7 +1,6 @@
 """Generate the code reference pages."""
 
 from pathlib import Path
-from typing import Counter
 
 import mkdocs_gen_files
 

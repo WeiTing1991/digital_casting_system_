@@ -6,10 +6,8 @@ from matplotlib.figure import Figure
 
 
 class DCSApp:
-    """
-    simple demo appp for the data visualization
+    """simple demo appp for the data visualization"""
 
-    """
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("DCS Data Visualization")
@@ -23,7 +21,7 @@ class DCSApp:
         self.ydata = ydata
         print(self.ydata)
 
-    def create_plot(self, number:int) -> tuple:
+    def create_plot(self, number: int) -> tuple:
         # Function to create a matplotlib plot
         # make the input outside the function
         fig = Figure(figsize=(10, 8), dpi=100)
@@ -81,5 +79,6 @@ class DCSApp:
         self.root.mainloop()
 
 
-
-
+if __name__ == "__main__":
+    app = DCSApp()
+    app.run()

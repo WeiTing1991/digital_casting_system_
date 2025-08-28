@@ -1,5 +1,5 @@
-from data_processing.data_processing import DataHandler
-from hal.device import InlineMixer
+from dcs_dev.data_processing.data_processing import DataHandler
+from dcs_dev.hal.device import InlineMixer
 
 if __name__ == "__main__":
 
@@ -25,21 +25,3 @@ if __name__ == "__main__":
         print(input)
     for output in inline_mixer.get_output_var_name():
         print(output)
-
-
-    # # inline_mixer.get_output_var_name()j
-    # for input in inline_mixer.set_input_dict():
-    #     print(input)
-
-    # plc = PLC(netid="5.57.158.168.1.1", ip="")
-    # plc.connect()
-    # plc.set_plc_vars_input_list(inline_mixer.input_list())
-    # plc.set_plc_vars_output_list(inline_mixer.output_list())
-
-    # while True:
-    #     plc.get_variable("mixer_is_run")
-
-
-    # plc.connect()
-
-    # print(path.machine["inline_mixer"].machine_output)
