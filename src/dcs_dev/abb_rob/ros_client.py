@@ -4,10 +4,11 @@ import compas_rrc as rrc
 
 
 class DcsRosClient:
-"""This class is a ROS client for ABB robot controller via compas_rrc."""
-  def __init__(self):
-    self._ros = None
-    self._abb = None
+    """This class is a ROS client for ABB robot controller via compas_rrc."""
+    
+    def __init__(self):
+        self._ros = None
+        self._abb = None
 
     def _init_ros_client(self) -> None:
 

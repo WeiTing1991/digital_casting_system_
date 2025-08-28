@@ -5,7 +5,7 @@ description = "A digital control project for Digital Control System"
 authors = [{ name = "Wei-Ting Chen", email = "chenwei@arch.ethz.ch" }]
 license = { file = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 
 dependencies = [
   "numpy>=1.26",
@@ -46,7 +46,7 @@ Repository = "https://github.com/USI-FMAA/digital_casting_system"
 [tool.ruff]
 indent-width = 2
 line-length = 120
-target-version = "py312"
+target-version = "py310"
 
 [tool.ruff.format]
 docstring-code-format = true
