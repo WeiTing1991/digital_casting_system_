@@ -3,7 +3,6 @@ import time
 from datetime import datetime
 from threading import Thread
 
-
 # from utilities.data_processing import DataProcessing
 from data_processing.data_processing import DataGathering, DataHandler
 from hal.device import (
