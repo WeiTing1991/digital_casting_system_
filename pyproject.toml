@@ -25,7 +25,6 @@ dev = ["ruff","pytest", "pytest-cov", "invoke>=0.14", "wheel", "bump-my-version"
 
 docs = [
   "mkdocs",
-  "mkdocs-material",
   "mkdocstrings-python",
   "mkdocs-gen-files",
   "mkdocs-autorefs",
@@ -33,7 +32,9 @@ docs = [
   "mkdocs-include-markdown-plugin",
   "mkdocs-macros-plugin",
   "markdown-exec",
-  "mkdocs-literate-nav"
+  "mkdocs-literate-nav",
+  "mkdocs-shadcn>=0.9.1",
+  "pymdown-extensions>=10.14.3",
 ]
 
 [project.urls]

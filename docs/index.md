@@ -3,5 +3,3 @@
     start='<!-- PROJECT SHIELDS -->'
     end='<!-- PROJECT USAGE -->'
 %}
-
-
