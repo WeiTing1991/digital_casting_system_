@@ -362,3 +362,10 @@ pre {
 .md-typeset div {
   max-width: none;
 }
+
+/* Style the function/method signatures */
+.doc-heading {
+  padding: 8px 12px;
+  font-size: 16px !important;
+  margin: 0;
+}
