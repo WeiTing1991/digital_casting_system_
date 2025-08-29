@@ -16,7 +16,7 @@ permissions:
 jobs:
   build-docs:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -45,6 +45,5 @@ jobs:
           ${{ github.workspace }}/.venv/bin/python -m mkdocs build
 
       - name: Deploy to GitHub Pages (main branch only)
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
           ${{ github.workspace }}/.venv/bin/python -m mkdocs gh-deploy --force

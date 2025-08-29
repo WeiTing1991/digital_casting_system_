@@ -13,6 +13,7 @@ jobs:
       PROJECT_ROOT: ${{ github.workspace}}
 
     steps:
+      - name: Checkout repository
       - uses: actions/checkout@v4
 
       - name: Configure Git Credentials
