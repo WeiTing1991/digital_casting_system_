@@ -7,7 +7,7 @@ name = "digital_casting_system"
 version = "0.1.0"
 description = "A digital control project for Digital Control System"
 authors = [{ name = "Wei-Ting Chen", email = "chenwei@arch.ethz.ch" }]
-license = { text = "MIT" }
+license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
@@ -66,7 +66,7 @@ Repository = "https://github.com/USI-FMAA/digital_casting_system"
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/dcs_dev"]
+packages = ["src/dcs"]
 
 [tool.ruff]
 indent-width = 2
@@ -115,7 +115,7 @@ section-order = [
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-testpaths = ["tests", "src/dcs_dev"]  # Fixed path to match your project structure
+testpaths = ["tests", "src/dcs"]  # Fixed path to match your project structure
 python_files = ["test_*.py", "tests.py"]
 addopts = "-ra --strict --doctest-modules --doctest-glob=*.rst --tb=short"
 doctest_optionflags = "NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ALLOW_UNICODE ALLOW_BYTES NUMBER"
