@@ -86,6 +86,7 @@ docstring-code-format = true
 docstring-code-line-length = "dynamic"
 
 
+
 [tool.ruff.lint]
 select = [
   "E",   # pycodestyle errors
@@ -115,7 +116,7 @@ section-order = [
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-testpaths = ["tests", "src/dcs"]  # Fixed path to match your project structure
+testpaths = ["tests", "src/dcs"]
 python_files = ["test_*.py", "tests.py"]
 addopts = "-ra --strict --doctest-modules --doctest-glob=*.rst --tb=short"
 doctest_optionflags = "NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ALLOW_UNICODE ALLOW_BYTES NUMBER"
