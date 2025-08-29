@@ -36,32 +36,27 @@ This package has three parts, which contain ```PLC controller``` for control com
 
 Operating System and Software.
 
-- [Windows 10]* or [Ubuntu 22.04]*
-- [TwinCAT 3] -- version 3.4
-- [Docker]  -- version
-- [Anaconda 3] # change to uv soon.
+- [Windows 10]()* or [Ubuntu 22.04]()*
+- [TwinCAT 3]() -- version 3.4
+- [Docker]()  -- version
 
 CAD/CAM software and simulation.
 
-- [ABB RobotStudio] -- version 2023/2024
-- [Rhino and Grasshopper] -- version 7
+- [ABB RobotStudio]() -- version 2023/2024
+- [Rhino and Grasshopper]() -- version 7
 
 
 <!-- PROJECT Getting Started -->
 
-## Getting Started
+## Usage
 Data visualization and real-time monitoring app
-Please find the app [here](https://github.com/USI-FMAA/digital_casting_system_app)
+Please find the app [HERE](https://github.com/USI-FMAA/digital_casting_system_app).
 
 
 <!-- PROJECT USAGE -->
-## Usage
+## Real-time monitoring and data recording
 
-> [!NOTE]
-> Don`t have to run the programming only for data recording.
-
-### Real-time monitoring and data recording
-
+### Use the package from Git
 ``` bash
 # sync the library
 uv sync
@@ -72,29 +67,16 @@ uv run scripts/dcs.py
 
 ### PLC Controller
 
-Please find more information [here](https://github.com/USI-FMAA/digital_casting_system_controller.git) under **Connect with TwinCAT** section.
+Please find more information [HERE](https://github.com/USI-FMAA/digital_casting_system_controller.git) under **Connect with TwinCAT** section.
 
 ### Robot communication
->[!NOTE]
 > Only if we want to run with the robot script
 
-#### Real ABB robotic control
-TODO: TEST
+## Robotic control
+### Real ABB robotic control
 
 ```sh
 docker
-# real controller
-# clean the stopped container
-docker container prune
-# compose up and connect with docker container
-
-# Linux/WSL
-docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller/docker-compose.yml up
-```
-
-```sh
-docker
-# real controller
 # clean the stopped container
 docker container prune
 # compose up and connect with docker container
@@ -106,14 +88,11 @@ docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller
 ```pwsh
 # windows
 docker-compose -f .\external_controllers\robot\docker_compas_rrc\real_controller\docker-compose.yml up
-```
 
-```pwsh
-# windows
 uv run scripts/main_run_robot.py
 ```
 
-### Simulation with ABB robot
+### Simulation with ABB robot(with virtual controller)
 
 ```sh
 docker
@@ -121,7 +100,6 @@ docker
 docker container prune
 # docker compose up
 
-# virtual controller
 # Linux/WSL
 docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller/docker-compose.yml up
 ```
@@ -131,15 +109,15 @@ docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller
 docker-compose -f .\external_controllers\robot\docker_compas_rrc\virtual_controller\docker-compose.yml up
 ```
 
-#### ABB RobotStudio
+### ABB RobotStudios Setup
 
 Please find more information [here]()
 
-#### CAD/CAM software(Rhino and grasshopper)
+### CAD/CAM software(Rhino and grasshopper)
 
 Please find more information [here]()
 
-#### Concrete Controller
+### Concrete Controller
 
 The sub-package `external_controllers` is a package that provides a set of driver to control the concrete casting machines.
 More information can be found in [digital casting system controller](https://github.com/USI-FMAA/digital_casting_system_controller)

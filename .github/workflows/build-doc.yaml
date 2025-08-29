@@ -1,20 +1,25 @@
-name: Build
+name: Build Documentation
 
 on:
   push:
     branches:
-      - master
       - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
 
 jobs:
-  build_main:
+  build-docs:
     runs-on: ubuntu-latest
-    env:
-      PROJECT_ROOT: ${{ github.workspace}}
 
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Configure Git Credentials
         run: |
@@ -31,7 +36,14 @@ jobs:
         with:
           python-version-file: "pyproject.toml"
 
-      - name: Install the project and python dependencies
+      - name: Install dependencies
         run: |
           uv sync --all-extras --dev
 
+      - name: Build documentation
+        run: |
+          ${{ github.workspace }}/.venv/bin/python -m mkdocs build
+
+      - name: Deploy to GitHub Pages (main branch only)
+        run: |
+          ${{ github.workspace }}/.venv/bin/python -m mkdocs gh-deploy --force
