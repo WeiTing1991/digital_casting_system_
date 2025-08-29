@@ -23,7 +23,7 @@ def rotate_vector(vector, angle):
 def main():
     # Create Ros Client
     rob_client = DcsRosClient()
-    rob_client._init_ros_client()
+    rob_client.init_ros_client()
 
     # Set Tool
     # rob_cleint._set_tool(ROBOT_TOOL)
@@ -99,14 +99,14 @@ def main():
     layer = 800
     for i in range(layer):
         for i, frame in enumerate(frames_list):
-            rob_client._move_to_frame(frame, MOVE_SPEED, -1)
+            rob_client.move_to_frame(frame, MOVE_SPEED, -1)
             rob_client._wait(2)
 
     # End of Code
     rob_client._print_text("Executing commands finished.")
 
     # Close client
-    rob_client._close_ros_client()
+    rob_client.close_ros_client()
 
     # 3. Move robot back to home position
     # endmsg = abb.send_and_wait(rrc.PrintText('PRINT END. Moving to home position'))
