@@ -4,11 +4,7 @@ import compas_rrc as rrc
 
 
 class DcsRosClient:
-    """This class is a ROS client for ABB robot controller via compas_rrc."""
-    
-    def __init__(self):
-        self._ros = None
-        self._abb = None
+  """This class is a ROS client for ABB robot controller via compas_rrc."""
 
   def __init__(self):
     """Initialize the ROS client."""
@@ -35,7 +31,7 @@ class DcsRosClient:
   # IO functions
   def set_digital_output(self, io_name: str, value: int) -> None:
     """Set the digital output."""
-    set_do = self.abb.send_and_wait(rrc.SetDigital(io_name, value))
+    self.abb.send_and_wait(rrc.SetDigital(io_name, value))
     print(f"{io_name} is set to {value}")
 
   def get_digital_input(self, io_name: str) -> None:
@@ -43,7 +39,7 @@ class DcsRosClient:
     print(f"{io_name} is {get_di}")
 
   def set_group_output(self, io_name: str, value: int) -> None:
-    get_go = self.abb.send_and_wait(rrc.SetGroup(io_name, value))
+    self.abb.send_and_wait(rrc.SetGroup(io_name, value))
     print(f"{io_name} is {value}")
 
   def get_group_input(self, io_name: str) -> None:
@@ -60,14 +56,14 @@ class DcsRosClient:
 
   # movement functions
   def move_to_frame(self, frame, speed: int, zone: int) -> None:
-    move_to_frame = self.abb.send(rrc.MoveToFrame(frame, speed, zone, rrc.Motion.LINEAR))
+    self.abb.send(rrc.MoveToFrame(frame, speed, zone, rrc.Motion.LINEAR))
     print(f"Robot is moving to {frame}")
 
   def _move_to_robotarget(self):
     raise NotImplementedError
 
   def _move_to_joints(self, joints: list, external_axes, speed: int, zone: int) -> None:
-    move_to_joints = self.abb.send(rrc.MoveToJoints(joints, external_axes, speed, zone))
+    self.abb.send(rrc.MoveToJoints(joints, external_axes, speed, zone))
     print(f"Robot is moving to {joints}")
 
   def _wait(self, time: int) -> None:
@@ -79,14 +75,14 @@ class DcsRosClient:
     raise NotImplementedError
 
   def _set_acceleration(self, acc: int, ramp: int) -> None:
-    set_acceleration = self.abb.send(rrc.SetAcceleration(acc, ramp))
+    self.abb.send(rrc.SetAcceleration(acc, ramp))
 
   def _set_max_speed(self, overide: int, max_tcp: int) -> None:
     """
     override: Unit [%]
     max_tcp: Unit [mm/s]
     """
-    set_max_speed = self.abb.send(rrc.SetMaxSpeed(overide, max_tcp))
+    self.abb.send(rrc.SetMaxSpeed(overide, max_tcp))
 
   def _set_tool(self, tool_name: str) -> None:
     self.abb.send(rrc.SetTool(tool_name))

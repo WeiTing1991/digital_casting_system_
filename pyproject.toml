@@ -48,10 +48,19 @@ Repository = "https://github.com/USI-FMAA/digital_casting_system"
 indent-width = 2
 line-length = 120
 target-version = "py310"
+extend-exclude = [
+    "__init__.py",
+    "__main__.py",
+    "*/__init__.py",
+    "*/__main__.py",
+    "**/__init__.py",
+    "**/__main__.py"
+]
 
 [tool.ruff.format]
 docstring-code-format = true
 docstring-code-line-length = "dynamic"
+
 
 [tool.ruff.lint]
 select = [
@@ -65,6 +74,7 @@ select = [
 ]
 ignore = [
   "D417", # missing parameter documentation
+  "N815"
 ]
 
 [tool.ruff.lint.pydocstyle]
