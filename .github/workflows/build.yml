@@ -5,21 +5,18 @@ on:
     branches:
       - master
       - main
+  pull_request:
+    branches:
+      - master
+      - main
 
 jobs:
-  build_main:
+  build:
     runs-on: ubuntu-latest
-    env:
-      PROJECT_ROOT: ${{ github.workspace}}
 
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v4
-
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        uses: actions/checkout@v4
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -31,7 +28,15 @@ jobs:
         with:
           python-version-file: "pyproject.toml"
 
-      - name: Install the project and python dependencies
-        run: |
-          uv sync --all-extras --dev
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Run linting
+        run: uv run ruff check
+
+      - name: Run tests
+        run: uv run pytest -v
+
+      - name: Build package
+        run: uv build
 

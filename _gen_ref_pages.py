@@ -12,7 +12,7 @@ def generate_api_reference():
     api_nav_content = []
 
     # Get all module directories from source
-    src_path = Path("src/dcs_dev")
+    src_path = Path("src/dcs")
     if not src_path.exists():
         print(f"Warning: Source path {src_path} does not exist")
         return
@@ -29,7 +29,7 @@ def generate_api_reference():
 
         for py_file in sorted(py_files):
             file_stem = py_file.stem
-            api_nav_content.append(f"            * [{file_stem}](api/reference/dcs_dev/{module_name}/{file_stem}.md)")
+            api_nav_content.append(f"            * [{file_stem}](api/reference/dcs/{module_name}/{file_stem}.md)")
 
     # Create the full SUMMARY.md content with embedded navigation
     summary_content = [
@@ -58,10 +58,10 @@ def generate_api_reference():
         summary_file.write('\n'.join(summary_content))
 
     # Generate the actual markdown files with cleaner configuration
-    for path in sorted(Path("src/dcs_dev").rglob("*.py")):
-        module_path = path.relative_to("src/dcs_dev").with_suffix("")
-        doc_path = path.relative_to("src/dcs_dev").with_suffix(".md")
-        full_doc_path = Path("api/reference/dcs_dev", doc_path)
+    for path in sorted(Path("src/dcs").rglob("*.py")):
+        module_path = path.relative_to("src/dcs").with_suffix("")
+        doc_path = path.relative_to("src/dcs").with_suffix(".md")
+        full_doc_path = Path("api/reference/dcs", doc_path)
 
         parts = tuple(module_path.parts)
 
@@ -74,7 +74,7 @@ def generate_api_reference():
             continue
 
         with mkdocs_gen_files.open(full_doc_path, "w") as fd:
-            identifier = f"dcs_dev.{'.'.join(parts)}"
+            identifier = f"dcs.{'.'.join(parts)}"
             fd.write(f"# {identifier}\n\n")
             fd.write(f"::: {identifier}\n")
             fd.write("    options:\n")

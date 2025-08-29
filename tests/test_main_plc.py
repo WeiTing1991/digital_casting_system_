@@ -1,5 +1,5 @@
-from dcs_dev.data_processing.data_processing import DataHandler
-from dcs_dev.hal.device import InlineMixer
+from dcs.data_processing.data_processing import DataHandler
+from dcs.hal.device import InlineMixer
 
 if __name__ == "__main__":
 
