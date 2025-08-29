@@ -2,7 +2,7 @@ import math
 
 from compas.geometry import Frame
 
-from dcs.abb_rob.ros_client import DcsRosClient
+from robot.ros_client import DcsRosClient
 
 ROBOT_ON = True
 # Velocities
@@ -44,7 +44,7 @@ def main():
     # ===========================================================================
     # Robot movement
     # ===========================================================================
-    start = rob_client._print_text("Starting robotic movement.")
+    rob_client._print_text("Starting robotic movement.")
 
     # start = abb.send_and_wait(rrc.MoveToJoints(HOME_POSITION, EXTERNAL_AXES, MAX_SPEED, rrc.Zone.FINE))
     # home_position = [22.39, 39.56, -18.24, -209.02, -31.92, 222.16]
@@ -103,7 +103,7 @@ def main():
             rob_client._wait(2)
 
     # End of Code
-    done = rob_client._print_text("Executing commands finished.")
+    rob_client._print_text("Executing commands finished.")
 
     # Close client
     rob_client._close_ros_client()

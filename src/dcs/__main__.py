@@ -4,15 +4,15 @@ from datetime import datetime
 from threading import Thread
 
 # from utilities.data_processing import DataProcessing
-from data_processing.data_processing import DataGathering, DataHandler
-from hal.device import (
+from .data_processing.data_processing import DataGathering, DataHandler
+from .hal.device import (
     ConcretePump,
     Controller,
     DosingPumpHigh,
     DosingPumpLow,
     InlineMixer,
 )
-from hal.plc import PLC
+from .hal.plc import PLC
 
 # =================================================================================
 """Global value"""

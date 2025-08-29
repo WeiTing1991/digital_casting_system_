@@ -66,7 +66,7 @@ Repository = "https://github.com/USI-FMAA/digital_casting_system"
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/dcs"]
+packages = ["src/dcs", "src/infrastructure", "src/robot", "src/hal", "src/utils"]
 
 [tool.ruff]
 indent-width = 2
