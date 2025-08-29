@@ -33,7 +33,7 @@ docs = [
   "mkdocs-macros-plugin",
   "markdown-exec",
   "mkdocs-literate-nav",
-  "mkdocs-shadcn>=0.9.1",
+  "mkdocs-material>=9.1.15",
   "pymdown-extensions>=10.14.3",
 ]
 
