@@ -1,2 +1,0 @@
-# ABB Robot ROS client
-
