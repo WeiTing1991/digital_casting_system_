@@ -3,7 +3,7 @@ from unittest.mock import Mock
 import pyads
 import pytest
 
-from dcs_dev.hal.plc import PLC
+from dcs.hal.plc import PLC
 
 
 @pytest.fixture(scope='function')

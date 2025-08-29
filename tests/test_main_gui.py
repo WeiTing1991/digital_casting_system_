@@ -1,9 +1,9 @@
 import time
 
-from dcs_dev.data_processing.data_processing import DataHandler
-from dcs_dev.gui.app import DCSApp
-from dcs_dev.hal.device import InlineMixer
-from dcs_dev.hal.plc import PLC
+from dcs.data_processing.data_processing import DataHandler
+from dcs.gui.app import DCSApp
+from dcs.hal.device import InlineMixer
+from dcs.hal.plc import PLC
 
 if __name__ == "__main__":
     machine_data = DataHandler()

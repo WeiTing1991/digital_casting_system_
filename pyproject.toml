@@ -1,11 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "digital_casting_system"
 version = "0.1.0"
-description = "A digital control project for Digital Control System"
+description = "A digital control package for Digital Control System"
 authors = [{ name = "Wei-Ting Chen", email = "chenwei@arch.ethz.ch" }]
 license = { file = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["digital casting", "robotics", "automation", "concrete", "manufacturing"]
 
 dependencies = [
   "numpy>=1.26",
@@ -44,6 +62,12 @@ Homepage = "https://usi-fmaa.github.io/digital_casting_system/"
 Issues = "https://github.com/USI-FMAA/digital_casting_system/issues"
 Repository = "https://github.com/USI-FMAA/digital_casting_system"
 
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dcs"]
+
 [tool.ruff]
 indent-width = 2
 line-length = 120
@@ -60,6 +84,7 @@ extend-exclude = [
 [tool.ruff.format]
 docstring-code-format = true
 docstring-code-line-length = "dynamic"
+
 
 
 [tool.ruff.lint]
@@ -91,7 +116,7 @@ section-order = [
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-testpaths = ["tests", "src/dcs_dev"]  # Fixed path to match your project structure
+testpaths = ["tests", "src/dcs"]
 python_files = ["test_*.py", "tests.py"]
 addopts = "-ra --strict --doctest-modules --doctest-glob=*.rst --tb=short"
 doctest_optionflags = "NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ALLOW_UNICODE ALLOW_BYTES NUMBER"

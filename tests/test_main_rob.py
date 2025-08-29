@@ -2,7 +2,7 @@ import math
 
 from compas.geometry import Frame
 
-from dcs_dev.abb_rob.ros_client import DcsRosClient
+from dcs.abb_rob.ros_client import DcsRosClient
 
 ROBOT_ON = True
 # Velocities
