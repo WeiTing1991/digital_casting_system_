@@ -1,6 +1,6 @@
-# dcs.abb_rob.ros_client
+# dcs.data.struct
 
-::: dcs.abb_rob.ros_client
+::: dcs.data.struct
     options:
       show_source: false
       show_root_heading: false

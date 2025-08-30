@@ -1,6 +1,6 @@
-# dcs.data_processing.data_struct
+# dcs.robot.ros_client
 
-::: dcs.data_processing.data_struct
+::: dcs.robot.ros_client
     options:
       show_source: false
       show_root_heading: false

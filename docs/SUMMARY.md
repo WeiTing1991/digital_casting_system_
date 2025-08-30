@@ -6,20 +6,20 @@
 * API Reference
     * [Architecture](api/api.md)
     * dcs
-        * abb_rob
-            * [abb_config](api/reference/dcs_dev/abb_rob/abb_config.md)
-            * [ros_client](api/reference/dcs_dev/abb_rob/ros_client.md)
-        * data_processing
-            * [data_processing](api/reference/dcs_dev/data_processing/data_processing.md)
-            * [data_struct](api/reference/dcs_dev/data_processing/data_struct.md)
-        * gui
-            * [app](api/reference/dcs_dev/gui/app.md)
+        * data
+            * [processing](api/reference/dcs/data/processing.md)
+            * [struct](api/reference/dcs/data/struct.md)
         * hal
-            * [device](api/reference/dcs_dev/hal/device.md)
-            * [interface](api/reference/dcs_dev/hal/interface.md)
-            * [plc](api/reference/dcs_dev/hal/plc.md)
-        * utilities
-            * [data_processing](api/reference/dcs_dev/utilities/data_processing.md)
+            * [device](api/reference/dcs/hal/device.md)
+            * [interface](api/reference/dcs/hal/interface.md)
+            * [plc](api/reference/dcs/hal/plc.md)
+        * infrastructure
+            * [config_manager](api/reference/dcs/infrastructure/config_manager.md)
+        * robot
+            * [abb_config](api/reference/dcs/robot/abb_config.md)
+            * [ros_client](api/reference/dcs/robot/ros_client.md)
+        * utils
+            * [data_processing](api/reference/dcs/utils/data_processing.md)
 * About
     * [Author](author.md)
     * [License](license.md)
