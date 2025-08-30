@@ -150,7 +150,7 @@ commit = true
 tag = true
 
 [[tool.bumpversion.files]]
-filename = "src/digital_casting_system/__init__.py"
+filename = "src/dcs/__init__.py"
 search = "__version__ = \"{current_version}\""
 replace = "__version__ = \"{new_version}\""
 
