@@ -122,7 +122,7 @@ class ConfigManager:
     """
     config_path = filepath or os.path.join(self._config_dir, "beckhoff_controller.json")
     raw_config = self._load_json_config(config_path)
-    
+
     # Convert raw config to structured data objects
     for machine_name, machine_data in raw_config.items():
       self.machines[machine_name] = self._convert_to_data_param(machine_data)
@@ -150,15 +150,15 @@ class ConfigManager:
         >>> inline_mixer = config.get_machine("inline_mixer")
         >>> print(f"Machine ID: {inline_mixer.machine_id}")
         >>> for output_var in inline_mixer.machine_output:
-        ...     print(f"Output: {output_var.var_name}")
+        ...   print(f"Output: {output_var.var_name}")
     """
     if not self.machines:
       raise RuntimeError("No machines loaded. Call load_plc_config() first.")
-    
+
     if machine_name not in self.machines:
       available_machines = list(self.machines.keys())
       raise KeyError(f"Machine '{machine_name}' not found. Available machines: {available_machines}")
-    
+
     return self.machines[machine_name]
 
   def get_all_machines(self) -> Dict[str, DataParam]:
@@ -178,11 +178,11 @@ class ConfigManager:
         >>> config.load_plc_config()
         >>> all_machines = config.get_all_machines()
         >>> for name, machine in all_machines.items():
-        ...     print(f"Machine: {name}, ID: {machine.machine_id}")
+        ...   print(f"Machine: {name}, ID: {machine.machine_id}")
     """
     if not self.machines:
       raise RuntimeError("No machines loaded. Call load_plc_config() first.")
-    
+
     return self.machines.copy()
 
   def _convert_to_data_param(self, machine_data: dict) -> DataParam:
@@ -198,29 +198,33 @@ class ConfigManager:
         DataParam: Structured machine configuration object.
     """
     machine_id = int(machine_data["machine_id"])
-    
+
     # Convert input variables
     inputs = []
     for input_data in machine_data.get("input", []):
-      inputs.append(DataObject(
-        id=int(input_data["id"]),
-        var_name=input_data["var_name"],
-        var_name_IN=input_data["var_name_IN"],
-        data_type=input_data["data_type"],
-        active=input_data["active"]
-      ))
-    
+      inputs.append(
+        DataObject(
+          id=int(input_data["id"]),
+          var_name=input_data["var_name"],
+          var_name_IN=input_data["var_name_IN"],
+          data_type=input_data["data_type"],
+          active=input_data["active"],
+        )
+      )
+
     # Convert output variables
     outputs = []
     for output_data in machine_data.get("output", []):
-      outputs.append(DataObject(
-        id=int(output_data["id"]),
-        var_name=output_data["var_name"],
-        var_name_IN=output_data["var_name_IN"],
-        data_type=output_data["data_type"],
-        active=output_data["active"]
-      ))
-    
+      outputs.append(
+        DataObject(
+          id=int(output_data["id"]),
+          var_name=output_data["var_name"],
+          var_name_IN=output_data["var_name_IN"],
+          data_type=output_data["data_type"],
+          active=output_data["active"],
+        )
+      )
+
     return DataParam(machine_id, inputs, outputs)
 
   def _load_json_config(self, config_path: str) -> dict[str, Any]:

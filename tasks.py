@@ -1,4 +1,6 @@
 
+from pathlib import Path
+
 from invoke import task
 
 from _gen_ref_pages import generate_api_reference
@@ -7,7 +9,10 @@ from _gen_ref_pages import generate_api_reference
 @task
 def format(ctx, fix: bool = False):
   """Format the code using ruff."""
-  cmd = "ruff check"
+  filepath = Path("./src") / "dcs"
+  matches = list(filepath.rglob("*.py"))
+  files = " ".join(str(f) for f in matches)
+  cmd = f"ruff format {files}"
   if fix:
     cmd += " --fix"
   ctx.run(cmd, pty=True)

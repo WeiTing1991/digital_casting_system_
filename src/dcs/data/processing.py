@@ -8,7 +8,7 @@ from .struct import DataObject, DataParam
 class DataGathering:
   """
   A class to handle data gathering from the PLC and export to files.
-  
+
   This class provides functionality for collecting data during PLC operations
   and exporting it to JSON and CSV formats for analysis and storage.
 
@@ -27,7 +27,7 @@ class DataGathering:
 
   def __init__(self, filename: str) -> None:
     """Initialize data gathering with specified filename.
-    
+
     Args:
         filename (str): Base filename for exported data files.
     """
@@ -40,13 +40,13 @@ class DataGathering:
 
   def write_dict_to_json(self, data: dict) -> None:
     """Export dictionary data to JSON file.
-    
+
     Writes the provided dictionary to a JSON file in the configured
     JSON directory with the specified filename.
-    
+
     Args:
         data (dict): Data dictionary to export to JSON.
-        
+
     Example:
         >>> gatherer = DataGathering("test_data")
         >>> data = {"sensor_1": 25.3, "sensor_2": 42.1}
@@ -60,14 +60,14 @@ class DataGathering:
 
   def write_dict_to_csv(self, data: list, header: list) -> None:
     """Export list of dictionaries to CSV file.
-    
+
     Writes the provided data list to a CSV file in the configured
     CSV directory with the specified filename and header.
-    
+
     Args:
         data (list): List of dictionaries containing row data.
         header (list): List of column headers for the CSV file.
-        
+
     Example:
         >>> gatherer = DataGathering("sensor_log")
         >>> data = [{"time": "10:00", "temp": 25.3}, {"time": "10:01", "temp": 25.5}]
@@ -86,30 +86,30 @@ class DataGathering:
 # Legacy compatibility - DataHandler class for backwards compatibility
 class DataHandler:
   """Legacy DataHandler class - DEPRECATED.
-  
+
   This class is maintained for backwards compatibility but should not be used
   in new code. Use ConfigManager from dcs.infrastructure.config_manager instead.
-  
+
   Example:
       >>> # OLD (deprecated):
       >>> from dcs.data.processing import DataHandler
       >>> handler = DataHandler()
-      >>> 
       >>> # NEW (recommended):
       >>> from dcs.infrastructure.config_manager import ConfigManager
       >>> config = ConfigManager()
       >>> config.load_plc_config()
   """
-  
+
   def __init__(self) -> None:
     """Initialize legacy DataHandler."""
     import warnings
+
     warnings.warn(
       "DataHandler is deprecated. Use ConfigManager from dcs.infrastructure.config_manager instead.",
       DeprecationWarning,
-      stacklevel=2
+      stacklevel=2,
     )
-    
+
     self._HERE = os.path.dirname(__file__)
     self._HOME = os.path.abspath(os.path.join(self._HERE, "../../../"))
     self._config = os.path.abspath(os.path.join(self._HERE, "..", "_config"))
