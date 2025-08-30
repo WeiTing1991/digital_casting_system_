@@ -36,6 +36,7 @@ dependencies = [
   "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main",
   "matplotlib>=3.8.4",
   "path>=17.1.0",
+  "pytest-mock>=3.14.1",
 ]
 
 [project.optional-dependencies]
@@ -83,9 +84,7 @@ extend-exclude = [
 
 [tool.ruff.format]
 docstring-code-format = true
-docstring-code-line-length = "dynamic"
-
-
+docstring-code-line-length = 120
 
 [tool.ruff.lint]
 select = [
