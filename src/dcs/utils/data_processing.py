@@ -13,20 +13,20 @@ class DataProcessing:
   def __init__(self, filename=str, data=dict):
     """Initialize the class with the filename and data."""
     # Date
-    NOW_DATA = datetime.now().date().strftime("%Y%m%d")
-    HERE = os.path.dirname(__file__)
-    HOME = os.path.abspath(os.path.join(HERE, "../../../"))
-    DATA = os.path.abspath(os.path.join(HOME, "data"))
+    now_data = datetime.now().date().strftime("%Y%m%d")
+    here = os.path.dirname(__file__)
+    home = os.path.abspath(os.path.join(here, "../../../"))
+    data = os.path.abspath(os.path.join(home, "data"))
 
-    self.__date = NOW_DATA
+    self.__date = now_data
     self.default_filename = self.__date + "_" + filename
 
-    self.__data = DATA
-    JSON_DIR = os.path.join(self.__data, "json")
-    CSV_DIR = os.path.join(self.__data, "csv")
+    self.__data = data
+    json_dir = os.path.join(self.__data, "json")
+    csv_dir = os.path.join(self.__data, "csv")
 
-    self.filepath_json = JSON_DIR
-    self.filepath_csv = CSV_DIR
+    self.filepath_json = json_dir
+    self.filepath_csv = csv_dir
 
     self.data = data
     self.number_recorded = 0
@@ -56,7 +56,7 @@ class DataProcessing:
     """
     __filename = os.path.join(self.filepath_json, self.default_filename) + ".json"
 
-    if self.__is_file_existed(__filename) != True:
+    if not self.__is_file_existed(__filename):
       # Write the python dictionary to json file
       with open(__filename, "w") as f:
         json.dump(self.data, f, sort_keys=True, indent=2)
@@ -75,7 +75,7 @@ class DataProcessing:
     """ """
     __filepath = os.path.join(self.filepath_csv, self.default_filename) + ".csv"
     # Write the python dictionary to csv file
-    if self.__is_file_existed(__filepath) != True:
+    if not self.__is_file_existed(__filepath):
       with open(__filepath, "w+", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=header)
         writer.writeheader()

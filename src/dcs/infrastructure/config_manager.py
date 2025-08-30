@@ -7,9 +7,9 @@ loaded from JSON configuration files with structured data objects.
 
 import json
 import os
-from typing import Any, Dict
+from typing import Any
 
-from ..data.struct import DataObject, DataParam, MachineDataStruct
+from ..data.struct import DataObject, DataParam
 
 
 class ConfigManager:
@@ -44,7 +44,7 @@ class ConfigManager:
     self._HERE = os.path.dirname(__file__)
     self._HOME = os.path.abspath(os.path.join(self._HERE, "../../"))
     self._config_dir = os.path.abspath(os.path.join(self._HERE, "../_config"))
-    self.machines: Dict[str, DataParam] = {}
+    self.machines: dict[str, DataParam] = {}
 
   def get_robot_config(self, filepath: str | None = None) -> dict[str, Any]:
     """Get robot configuration from JSON file.
@@ -161,7 +161,7 @@ class ConfigManager:
 
     return self.machines[machine_name]
 
-  def get_all_machines(self) -> Dict[str, DataParam]:
+  def get_all_machines(self) -> dict[str, DataParam]:
     """Get all loaded machine configurations.
 
     Returns a dictionary of all machine configurations that were loaded

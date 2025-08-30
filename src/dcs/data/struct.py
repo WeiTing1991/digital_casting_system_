@@ -28,7 +28,10 @@ class DataObject:
     return asdict(self)
 
   def __str__(self) -> str:
-    return f"id: {self.id} var_name: {self.var_name} var_name_IN: {self.var_name_IN} data_type: {self.data_type} active: {self.active}"
+    return (
+      f"id: {self.id} var_name: {self.var_name} var_name_IN: {self.var_name_IN} "
+      f"data_type: {self.data_type} active: {self.active}"
+    )
 
 
 @dataclass

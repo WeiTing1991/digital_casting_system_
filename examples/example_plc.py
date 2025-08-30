@@ -4,8 +4,8 @@ This example shows how to use the unified ConfigManager to load machine
 configurations and work with device classes for PLC communication.
 """
 
-from dcs.infrastructure.config_manager import ConfigManager
 from dcs.hal.device import InlineMixer
+from dcs.infrastructure.config_manager import ConfigManager
 
 if __name__ == "__main__":
   # Initialize the configuration manager

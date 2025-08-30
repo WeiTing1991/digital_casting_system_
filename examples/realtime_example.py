@@ -27,7 +27,6 @@ import time
 from datetime import datetime
 from threading import Thread
 
-from dcs.infrastructure.config_manager import ConfigManager
 from dcs.data.processing import DataGathering
 from dcs.hal.device import (
   ConcretePump,
@@ -37,6 +36,7 @@ from dcs.hal.device import (
   InlineMixer,
 )
 from dcs.hal.plc import PLC
+from dcs.infrastructure.config_manager import ConfigManager
 
 # =================================================================================
 """Global Configuration Values"""
@@ -268,7 +268,6 @@ def run_realtime_data_collection(plc_connection: PLC, devices: dict, all_params:
 
   # Get initial status
   try:
-    mixer_is_run = plc_connection.get_variable(param_mixer_is_run["mixer_is_run"][0])
     data_is_recording = plc_connection.get_variable(param_data_recording["controller_data_recording"][0])
     print(f"Initial recording status: {data_is_recording}")
   except Exception as e:
@@ -288,12 +287,12 @@ def run_realtime_data_collection(plc_connection: PLC, devices: dict, all_params:
       log_id = counter
 
       # Update timestamp
-      NOW_TIME = datetime.now().time().strftime("%H:%M:%S.%f")[:-3]
+      now_time = datetime.now().time().strftime("%H:%M:%S.%f")[:-3]
 
       # Initialize data structure for this collection cycle
-      recording_data[log_id] = {"Time": NOW_TIME}
+      recording_data[log_id] = {"Time": now_time}
 
-      print(f"Data collection cycle {log_id} at {NOW_TIME}")
+      print(f"Data collection cycle {log_id} at {now_time}")
 
       # Collect data from all devices using threading for parallel processing
       threads = []
@@ -320,7 +319,6 @@ def run_realtime_data_collection(plc_connection: PLC, devices: dict, all_params:
       data_recorder.write_dict_to_json(recording_data)
 
       # Update monitoring variables
-      mixer_is_run = plc_connection.get_variable(param_mixer_is_run["mixer_is_run"][0])
       data_is_recording = plc_connection.get_variable(param_data_recording["controller_data_recording"][0])
 
       # Check if recording should stop

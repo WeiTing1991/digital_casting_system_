@@ -131,8 +131,8 @@ class PLC:
         will be appended to the existing list.
 
     Example:
-        >>> input_vars = [{"name": "MAIN.rSetTemperature", "type": "REAL"}, {"name": "MAIN.bStartProcess", "type": "BOOL"}]
-        >>> plc.set_plc_vars_input_list(input_vars)
+        >>> vars = [{"name": "MAIN.rSetTemp", "type": "REAL"}, {"name": "MAIN.bStart", "type": "BOOL"}]
+        >>> plc.set_plc_vars_input_list(vars)
     """
     if not self.plc_vars_input:
       self.plc_vars_input = [vars for vars in plc_vars_input]
@@ -156,8 +156,8 @@ class PLC:
         will be appended to the existing list.
 
     Example:
-        >>> output_vars = [{"name": "MAIN.rCurrentTemperature", "type": "REAL"}, {"name": "MAIN.bProcessRunning", "type": "BOOL"}]
-        >>> plc.set_plc_vars_output_list(output_vars)
+        >>> vars = [{"name": "MAIN.rCurrTemp", "type": "REAL"}, {"name": "MAIN.bRunning", "type": "BOOL"}]
+        >>> plc.set_plc_vars_output_list(vars)
     """
     if not self.plc_vars_output:
       self.plc_vars_output = [vars for vars in plc_vars_output]

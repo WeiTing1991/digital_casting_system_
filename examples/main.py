@@ -13,9 +13,9 @@ Usage:
     python examples/main.py
 """
 
-from dcs.infrastructure.config_manager import ConfigManager
-from dcs.hal.device import InlineMixer, ConcretePump, DosingPumpHigh, DosingPumpLow, Controller
+from dcs.hal.device import ConcretePump, Controller, DosingPumpHigh, DosingPumpLow, InlineMixer
 from dcs.hal.plc import PLC
+from dcs.infrastructure.config_manager import ConfigManager
 
 
 def demonstrate_unified_config_system():
@@ -27,7 +27,7 @@ def demonstrate_unified_config_system():
   # Step 1: Initialize the configuration manager
   print("\n1. Initializing ConfigManager...")
   config = ConfigManager()
-  print(f"   ✓ ConfigManager initialized")
+  print("   ✓ ConfigManager initialized")
   print(f"   ✓ Config directory: {config._config_dir}")
 
   # Step 2: Load all PLC configurations into memory
@@ -171,8 +171,8 @@ def demonstrate_unified_config_system():
     print(f"   ✓ IP Address: {plc.ip}")
 
     # Note: Actual connection would require hardware
-    print("   ℹ Note: PLC connection requires actual Beckhoff hardware")
-    print("   ℹ Use plc.connect() to establish connection when hardware is available")
+    print("   i Note: PLC connection requires actual Beckhoff hardware")
+    print("   i Use plc.connect() to establish connection when hardware is available")
 
   except Exception as e:
     print(f"   ✗ Failed to create PLC instance: {e}")

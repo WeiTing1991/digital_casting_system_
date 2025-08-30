@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 from invoke import task
@@ -49,4 +48,3 @@ def docs_clean(ctx):
   ctx.run("rm -rf docs/api/reference/", pty=True)
   ctx.run("rm -rf dist/", pty=True)
   print("Documentation cleaned!")
-
