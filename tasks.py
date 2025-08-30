@@ -76,7 +76,7 @@ def build_clean(ctx):
 
 
 @task
-def build_release(ctx, part="patch"):
+def build_release(ctx, part: str = "patch", publish: bool = False):
   """Build a release with automatic version bumping and tagging.
 
   Args:
@@ -96,3 +96,8 @@ def build_release(ctx, part="patch"):
   ctx.run("python -m build --no-isolation", pty=True)
 
   print(f"Release built successfully with {part} version bump!")
+  if publish:
+    print("Publishing to PyPI...")
+    ctx.run("twine upload dist/*", pty=True)
+    print("Creating GitHub release...")
+    ctx.run("gh release create --generate-notes", pty=True)
