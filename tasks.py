@@ -123,7 +123,11 @@ def gh_release(ctx):
 
   print(f"Creating GitHub release for tag: {tag}")
 
-  ctx.run(f"gh release create {tag} --title 'Release {tag}' --generate-notes", pty=True)
+  # Use the local CHANGELOG.md as the release notes file so its contents appear on the release page.
+  if Path("CHANGELOG.md").exists():
+    ctx.run(f"gh release create {tag} --title '{tag}' --notes-file CHANGELOG.md", pty=True)
+  else:
+    ctx.run(f"gh release create {tag} --title '{tag}' --generate-notes", pty=True)
 
   print(f"GitHub release created successfully for {tag}")
 

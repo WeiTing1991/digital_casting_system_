@@ -6,11 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
 ## [0.1.3] - 2025-08-30
 
 ### Added
 
+
 ### Changed
+  - make `compas_rrc` ad optional package
 
 ### Fixed
 
