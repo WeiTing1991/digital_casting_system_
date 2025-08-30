@@ -36,6 +36,7 @@ dependencies = [
   "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main",
   "matplotlib>=3.8.4",
   "path>=17.1.0",
+  "pytest-mock>=3.14.1",
 ]
 
 [project.optional-dependencies]
@@ -66,7 +67,7 @@ Repository = "https://github.com/USI-FMAA/digital_casting_system"
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/dcs"]
+packages = ["src/dcs", "src/infrastructure", "src/robot", "src/hal", "src/utils"]
 
 [tool.ruff]
 indent-width = 2
@@ -78,14 +79,13 @@ extend-exclude = [
     "*/__init__.py",
     "*/__main__.py",
     "**/__init__.py",
-    "**/__main__.py"
+    "**/__main__.py",
+    "tests/**"
 ]
 
 [tool.ruff.format]
 docstring-code-format = true
-docstring-code-line-length = "dynamic"
-
-
+docstring-code-line-length = 120
 
 [tool.ruff.lint]
 select = [

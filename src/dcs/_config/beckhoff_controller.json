@@ -203,7 +203,7 @@
         ]
     },
     "dosing_pump_high": {
-        "mahcine_id": "300",
+        "machine_id": "300",
         "input": [
             {
                 "id": "301",
@@ -252,7 +252,7 @@
             {
                 "id": "353",
                 "var_name": "admixture_high_pump_no_error",
-                "var_name_in": "GVL_RESD.b_Admixture_Pump_no_error",
+                "var_name_IN": "GVL_RESD.b_Admixture_Pump_no_error",
                 "data_type": "PLCTYPE_BOOL",
                 "active": true
             },
