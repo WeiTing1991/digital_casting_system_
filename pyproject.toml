@@ -39,11 +39,15 @@ dependencies = [
   "pydantic>=2.10.6",
   "pandas>=2.2.0",
   "compas<=2.9.0",
-  "compas_rrc @ git+https://github.com/WeiTing1991/compas_rrc.git@main",
   "matplotlib>=3.8.4",
 ]
 
+
 [project.optional-dependencies]
+robot = [
+    "compas-rrc@ git+https://github.com/WeiTing1991/compas_rrc.git@main",
+]
+
 dev = [
   "build>=1.3.0",
   "hatchling>=1.27.0",

@@ -96,8 +96,16 @@ def build_release(ctx, part: str = "patch", publish: bool = False):
   ctx.run("python -m build --no-isolation", pty=True)
 
   print(f"Release built successfully with {part} version bump!")
+
   if publish:
-    print("Publishing to PyPI...")
-    ctx.run("twine upload dist/*", pty=True)
-    print("Creating GitHub release...")
-    ctx.run("gh release create --generate-notes", pty=True)
+    import glob
+    wheel_files = glob.glob("dist/*.whl")
+    tarball_files = glob.glob("dist/*.tar.gz")
+    package_files = wheel_files + tarball_files
+
+    if package_files:
+        files_str = " ".join(package_files)
+        ctx.run(f"twine upload {files_str}", pty=True)
+    else:
+        print("No package files found to upload")
+    # print("Creating GitHub release...")
