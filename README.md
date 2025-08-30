@@ -22,8 +22,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-**Digital Casting System (DCS)** is a Innosuisse project as well as a new novel approach for [Smart Dynamic Casting(SDC)]().
-This package works to transition automated digital casting systems from the laboratory to the industry scale by
+**Digital Casting System (DCS)** is a Innosuisse project as well as a new novel approach for robotic casting system. it serves part of [Scaling up in Digital Casting of Concrete](https://www.research-collection.ethz.ch/entities/publication/c9547f49-8d9e-47fe-b8e5-88cad5239ea2). This package works to transition automated digital casting systems from the laboratory to the industry scale by
 overcoming the challenges addressed by inline mixing. DCS involves identifying optimal values for comprehensive system
 parameters, including processing and material characteristics, while carefully considering specific system requirements.
 
@@ -49,6 +48,8 @@ CAD/CAM software and simulation.
 <!-- PROJECT Getting Started -->
 
 ## Usage
+For further a tutorial, examples, and an API reference, please check out the online documentation HERE: [digtial_casting doc](https://usi-fmaa.github.io/digital_casting_system/)
+
 Data visualization and real-time monitoring app
 Please find the app [HERE](https://github.com/USI-FMAA/digital_casting_system_app).
 
@@ -65,22 +66,18 @@ uv sync
 uv run scripts/main.py
 ```
 
-### PLC Controller
+## PLC Controller
 
 Please find more information [HERE](https://github.com/USI-FMAA/digital_casting_system_controller.git) under **Connect with TwinCAT** section.
-
-### Robot communication
-> Only if we want to run with the robot script
 
 ## Robotic control
 ### Real ABB robotic control
 
 ```sh
-docker
 # clean the stopped container
 docker container prune
-# compose up and connect with docker container
 
+# compose up and connect with docker container
 # Linux/WSL
 docker-compose -f ./external_controllers/robot/docker_compas_rrc/real_controller/docker-compose.yml up
 ```
@@ -126,7 +123,6 @@ More information can be found in [digital casting system controller](https://git
 <!-- PROJECT DEVELOPMENT -->
 
 ## Development
-
 ### Clone the repository
 ```bash
 git clone https://github.com/USI-FMAA/digital_casting_system.git
@@ -178,7 +174,6 @@ uv --version
 #### Create virtual environment
 
 UV
-
 ``` bash
 uv venv --python 3.12
 source .venv/bin/activate
@@ -193,7 +188,6 @@ uv pip install '.[docs]' # install the documentation dependencies
 ```
 
 Alternately with Anaconda package manager
-
 ```sh
 # Create the environment and activate it
 conda create --prefix ./.env python=3.10
@@ -214,9 +208,3 @@ Author: [Wei-Ting Chen](https://github.com/WeiTing1991)
 
 This package created by [WeiTing Chen](https://github.com/WeiTing1991)
 at [USI-FMAA](https://github.com/USI-FMAA) and [ETHZurich DFab](https://dfab.ch/)
-
-## Features
-
-- [X] PLC controller driver package
-- [X] DCS library with real-time data recording
-- [ ] DCS application for graphic real-time data recording application
