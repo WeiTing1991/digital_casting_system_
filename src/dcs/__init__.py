@@ -4,4 +4,4 @@ __author__ = ["Wei-Ting Chen"]
 __copyright__ = "2024 FFMA"
 __license__ = "MIT License"
 __email__ = "chenwei@arch.ethz.ch"
-__version__ = "0.1.2"
+__version__ = "0.1.3"
