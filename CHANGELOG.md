@@ -33,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Docker containerization for development
 - Comprehensive testing infrastructure
 
-## Unreleased
+## [0.2.0] 2025-08-30
 
 ### Added
 
