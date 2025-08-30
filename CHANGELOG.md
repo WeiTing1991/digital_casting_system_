@@ -18,7 +18,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-
 ### Changed
   - make `compas_rrc` ad optional package
 
@@ -46,10 +45,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated bumpversion configuration to point to correct files
 - Fixed import organization and code style issues
 - Resolved version inconsistencies across configuration files
-
-### Technical Details
-- Python 3.10+ support
-- Integration with ABB RobotStudio 2023/2024
-- TwinCAT 3.4 compatibility
-- Docker containerization for development
-- Comprehensive testing infrastructure

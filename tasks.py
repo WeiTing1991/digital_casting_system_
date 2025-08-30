@@ -1,4 +1,7 @@
 import json
+import os
+import re
+import tempfile
 from pathlib import Path
 
 from invoke import task
@@ -115,6 +118,26 @@ def github_release(ctx):
   )
 
 
+def _changelog_section_for_version(changelog_path: Path, version: str) -> str:
+  """Return the changelog section for the given version (without leading 'v').
+  If not found, return an empty string."""
+  if not changelog_path.exists():
+    return ""
+  text = changelog_path.read_text(encoding="utf-8")
+  ver = version.lstrip("v")
+  # match header line like: ## [0.1.3] - 2025-08-30  (or ## 0.1.3 - ...)
+  header_re = re.compile(rf"^##\s*\[?{re.escape(ver)}\]?(?:\s*-\s*.*)?\s*$", re.MULTILINE)
+  m = header_re.search(text)
+  if not m:
+    return ""
+  start = m.start()
+  # find next "## " header after start
+  next_header_re = re.compile(r"^##\s+", re.MULTILINE)
+  next_m = next_header_re.search(text, m.end())
+  end = next_m.start() if next_m else len(text)
+  return text[start:end].strip()
+
+
 @task
 def gh_release(ctx):
   """Create GitHub release using GitHub CLI - automatically detects tag"""
@@ -123,13 +146,24 @@ def gh_release(ctx):
 
   print(f"Creating GitHub release for tag: {tag}")
 
-  # Use the local CHANGELOG.md as the release notes file so its contents appear on the release page.
-  if Path("CHANGELOG.md").exists():
-    ctx.run(f"gh release create {tag} --title '{tag}' --notes-file CHANGELOG.md", pty=True)
-  else:
-    ctx.run(f"gh release create {tag} --title '{tag}' --generate-notes", pty=True)
+  changelog_path = Path("CHANGELOG.md")
+  changelog_body = _changelog_section_for_version(changelog_path, tag)
 
-  print(f"GitHub release created successfully for {tag}")
+  if changelog_body:
+    # write a temp notes file and pass --notes-file so only the version section is used
+    with tempfile.NamedTemporaryFile(delete=False, mode="w", encoding="utf-8", suffix=".md") as tf:
+      tf.write(changelog_body)
+      notes_file = tf.name
+    try:
+      ctx.run(f"gh release create {tag} --title '{tag}' --notes-file {notes_file}", pty=True)
+    finally:
+      try:
+        os.remove(notes_file)
+      except OSError:
+        pass
+  else:
+    print(f"Warning: no changelog section found for version '{tag}'. Falling back to generated notes.")
+    ctx.run(f"gh release create {tag} --title '{tag}' --generate-notes", pty=True)
 
 
 @task
