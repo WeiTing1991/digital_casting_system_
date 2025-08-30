@@ -7,10 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+  - Initial release of the Digital Casting System (DCS)
 
 ### Changed
 
 ### Fixed
+  - `Changelog` issue with build system.
+  - Resolved version inconsistencies across configuration files
 
 ### Removed
 
@@ -40,8 +43,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integration with Rhino/Grasshopper for CAD/CAM workflows
 
 ### Fixed
-- Fixed package name typo in pyproject.toml
-- Corrected ruff configuration issues
-- Updated bumpversion configuration to point to correct files
-- Fixed import organization and code style issues
-- Resolved version inconsistencies across configuration files
