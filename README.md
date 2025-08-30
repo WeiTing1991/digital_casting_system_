@@ -61,8 +61,8 @@ Please find the app [HERE](https://github.com/USI-FMAA/digital_casting_system_ap
 # sync the library
 uv sync
 
-# run the script
-uv run scripts/dcs.py
+# run the main script (requires PLC hardware)
+uv run scripts/main.py
 ```
 
 ### PLC Controller
