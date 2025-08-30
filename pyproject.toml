@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "digital_casting_system"
+name = "dcs"
 version = "0.1.0"
 description = "A digital control package for Digital Control System"
 authors = [{ name = "Wei-Ting Chen", email = "chenwei@arch.ethz.ch" }]
