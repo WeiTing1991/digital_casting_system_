@@ -79,7 +79,8 @@ extend-exclude = [
     "*/__init__.py",
     "*/__main__.py",
     "**/__init__.py",
-    "**/__main__.py"
+    "**/__main__.py",
+    "tests/**"
 ]
 
 [tool.ruff.format]
