@@ -74,4 +74,6 @@ class MixerStructOutput:
       # >>> mixer_output.motor_temperature = 65.5  # Celsius
   """
 
-  raise NotImplementedError("MixerStructOutput is a placeholder and not yet implemented.")
+  def __post_init__(self):
+    """Placeholder for future implementation."""
+    pass
