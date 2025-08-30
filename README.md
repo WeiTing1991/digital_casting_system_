@@ -73,6 +73,12 @@ Please find more information [HERE](https://github.com/USI-FMAA/digital_casting_
 ## Robotic control
 ### Real ABB robotic control
 
+#### With robot support:
+
+```bash
+pip install digital-casting-system[robot] git+https://github.com/WeiTing1991/compas_rrc.git@main
+```
+
 ```sh
 # clean the stopped container
 docker container prune

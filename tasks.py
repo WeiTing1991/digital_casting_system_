@@ -149,6 +149,7 @@ def gh_release(ctx):
   changelog_path = Path("CHANGELOG.md")
   changelog_body = _changelog_section_for_version(changelog_path, tag)
 
+  ctx.run("git push origin --tags", pty=True)
   if changelog_body:
     # write a temp notes file and pass --notes-file so only the version section is used
     with tempfile.NamedTemporaryFile(delete=False, mode="w", encoding="utf-8", suffix=".md") as tf:
@@ -173,13 +174,12 @@ def build_release(ctx, part: str = "patch", publish: bool = False):
   Args:
       part: Version part to bump (patch, minor, major). Default: patch
   """
-  print(f"Building release with {part} version bump...")
-
-  build_clean(ctx)
-  ctx.run(f"bump-my-version bump {part}", pty=True)
-  print("Building package...")
-  ctx.run("python -m build --no-isolation", pty=True)
-  print(f"Release built successfully with {part} version bump!")
+  # print(f"Building release with {part} version bump...")
+  # build_clean(ctx)
+  # ctx.run(f"bump-my-version bump {part}", pty=True)
+  # print("Building package...")
+  # ctx.run("python -m build --no-isolation", pty=True)
+  # print(f"Release built successfully with {part} version bump!")
 
   if publish:
     import glob

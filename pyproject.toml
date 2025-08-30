@@ -44,9 +44,8 @@ dependencies = [
 
 
 [project.optional-dependencies]
-robot = [
-    "compas-rrc@ git+https://github.com/WeiTing1991/compas_rrc.git@main",
-]
+# pip install git+https://github.com/WeiTing1991/compas_rrc.git@main
+robot = []
 
 dev = [
   "build>=1.3.0",
@@ -168,4 +167,13 @@ filename = "CHANGELOG.md"
 search = "## [Unreleased]"
 replace = """## [Unreleased]
 
-## [{new_version}] - {now:%Y-%m-%d}"""
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [{new_version}] - {now:%Y-%m-%d}
+"""
