@@ -70,8 +70,8 @@ def build_clean(ctx):
   ctx.run("rm -rf build/", pty=True)
   ctx.run("rm -rf dist/", pty=True) 
   ctx.run("rm -rf *.egg-info/", pty=True)
-  ctx.run("find . -name '*.pyc' -delete", pty=True)
-  ctx.run("find . -name '__pycache__' -type d -exec rm -rf {} +", pty=True)
+  ctx.run("find . -name '*.pyc' -delete 2>/dev/null || true", pty=True)
+  ctx.run("find . -name '__pycache__' -type d -exec rm -rf {} + 2>/dev/null || true", pty=True)
   print("Build artifacts cleaned!")
 
 
