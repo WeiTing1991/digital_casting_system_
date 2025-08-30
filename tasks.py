@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from invoke import task
@@ -76,6 +77,45 @@ def build_clean(ctx):
 
 
 @task
+def github_release(ctx):
+  """Create GitHub release using API - automatically detects tag and repo"""
+  # Get the latest tag automatically
+  result = ctx.run("git describe --tags --abbrev=0", hide=True)
+  tag = result.stdout.strip()
+
+  # Get repo name from git remote
+  result = ctx.run("git remote get-url origin", hide=True)
+  remote_url = result.stdout.strip()
+
+  if "github.com" in remote_url:
+    repo = remote_url.split("github.com")[-1].strip(":/").replace(".git", "")
+    if repo.startswith("/"):
+      repo = repo[1:]
+  else:
+    raise ValueError(f"Not a GitHub repository: {remote_url}")
+
+  print(f"Creating GitHub release for {repo} tag: {tag}")
+
+  release_data = {
+    "tag_name": tag,
+    "name": f"Release {tag}",
+    "generate_release_notes": True,
+    "draft": False,
+    "prerelease": False,
+  }
+
+  json_data = json.dumps(release_data).replace('"', '\\"')
+
+  ctx.run(
+    f'curl -X POST -H "Authorization: token $GITHUB_TOKEN" '
+    f'-H "Accept: application/vnd.github+json" '
+    f'-d "{json_data}" '
+    f"https://api.github.com/repos/{repo}/releases",
+    pty=True,
+  )
+
+
+@task
 def build_release(ctx, part: str = "patch", publish: bool = False):
   """Build a release with automatic version bumping and tagging.
 
@@ -99,13 +139,14 @@ def build_release(ctx, part: str = "patch", publish: bool = False):
 
   if publish:
     import glob
+
     wheel_files = glob.glob("dist/*.whl")
     tarball_files = glob.glob("dist/*.tar.gz")
     package_files = wheel_files + tarball_files
 
     if package_files:
-        files_str = " ".join(package_files)
-        ctx.run(f"twine upload {files_str}", pty=True)
+      files_str = " ".join(package_files)
+      ctx.run(f"twine upload {files_str}", pty=True)
     else:
-        print("No package files found to upload")
+      print("No package files found to upload")
     # print("Creating GitHub release...")
