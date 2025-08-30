@@ -7,7 +7,7 @@ loaded from JSON configuration files.
 
 import json
 import os
-from typing import Any, Optional
+from typing import Any
 
 
 class ConfigManager:
