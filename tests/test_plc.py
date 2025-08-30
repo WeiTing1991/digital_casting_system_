@@ -138,28 +138,28 @@ def test_set_plc_vars_output_list_extend(plc_instance):
 
 def test_read_variables_not_implemented(plc_instance):
   """Test that read_variables raises NotImplementedError."""
-  with patch("hal.plc.PLC.connect", return_value=True):
+  with patch("dcs.hal.plc.PLC.connect", return_value=True):
     with pytest.raises(NotImplementedError):
       plc_instance.read_variables()
 
 
 def test_read_variables_connection_failure(plc_instance):
   """Test read_variables when connection fails."""
-  with patch("hal.plc.PLC.connect", return_value=False):
+  with patch("dcs.hal.plc.PLC.connect", return_value=False):
     with pytest.raises(AdsConnectionError):
       plc_instance.read_variables()
 
 
 def test_write_variables_not_implemented(plc_instance):
   """Test that write_variables raises NotImplementedError."""
-  with patch("hal.plc.PLC.connect", return_value=True):
+  with patch("dcs.hal.plc.PLC.connect", return_value=True):
     with pytest.raises(NotImplementedError):
       plc_instance.write_variables()
 
 
 def test_write_variables_connection_failure(plc_instance):
   """Test write_variables when connection fails."""
-  with patch("hal.plc.PLC.connect", return_value=False):
+  with patch("dcs.hal.plc.PLC.connect", return_value=False):
     with pytest.raises(AdsConnectionError):
       plc_instance.write_variables()
 

@@ -154,6 +154,7 @@ class InlineMixer(Machine):
       for param in params:
         if param_name == param.var_name:
           return param.id if param.id is not None else 0
+    return 0
 
   def input_list(self) -> list[object]:
     """Get the list of input parameters for mixer control.
@@ -260,6 +261,7 @@ class ConcretePump(Machine):
       for param in params:
         if param_name == param.var_name:
           return param.id if param.id is not None else 0
+    return 0
 
   def input_list(self) -> list[object]:
     """Get the list of input parameters for pump control."""
@@ -326,6 +328,7 @@ class DosingPumpHigh(Machine):
       for param in params:
         if param_name == param.var_name:
           return param.id if param.id is not None else 0
+    return 0
 
   def input_list(self) -> list[object]:
     """Get the list of input parameters for dosing control."""
@@ -391,6 +394,7 @@ class DosingPumpLow(Machine):
       for param in params:
         if param_name == param.var_name:
           return param.id if param.id is not None else 0
+    return 0
 
   def input_list(self) -> list[object]:
     """Get the list of input parameters for dosing control."""
@@ -457,6 +461,7 @@ class Controller(Machine):
       for param in params:
         if param_name == param.var_name:
           return param.id if param.id is not None else 0
+    return 0
 
   def input_list(self) -> list[object]:
     """Get the list of input parameters for system control."""
