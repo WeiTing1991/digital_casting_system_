@@ -7,7 +7,7 @@ loaded from JSON configuration files.
 
 import json
 import os
-from typing import Any
+from typing import Any, Optional
 
 
 class ConfigManager:
@@ -43,7 +43,7 @@ class ConfigManager:
     self._HOME = os.path.abspath(os.path.join(self._HERE, "../../"))
     self._config_dir = os.path.abspath(os.path.join(self._HERE, "../_config"))
 
-  def get_robot_config(self) -> dict[str, Any]:
+  def get_robot_config(self, filepath: str | None = None) -> dict[str, Any]:
     """Get robot configuration from JSON file.
 
     Loads and returns the ABB IRB4600 robot configuration including
@@ -65,10 +65,14 @@ class ConfigManager:
         >>> ip_address = robot_config.get("network", {}).get("ip")
         >>> joint_limits = robot_config.get("joint_limits", [])
     """
-    config_path = os.path.join(self._config_dir, "abb_irb4600.json")
+    config_path = ""
+    if not filepath:
+      config_path = os.path.join(self._config_dir, "abb_irb4600.json")
+    else:
+      config_path = filepath
     return self._load_json_config(config_path)
 
-  def get_plc_config(self) -> dict[str, Any]:
+  def get_plc_config(self, filepath: str | None = None) -> dict[str, Any]:
     """Get PLC configuration from JSON file.
 
     Loads and returns the Beckhoff TwinCAT PLC configuration including
@@ -90,7 +94,11 @@ class ConfigManager:
         >>> netid = plc_config.get("network", {}).get("netid")
         >>> machines = plc_config.get("machines", [])
     """
-    config_path = os.path.join(self._config_dir, "beckhoff_controller.json")
+    config_path = ""
+    if not filepath:
+      config_path = os.path.join(self._config_dir, "beckhoff_controller.json")
+    else:
+      config_path = filepath
     return self._load_json_config(config_path)
 
   def _load_json_config(self, config_path: str) -> dict[str, Any]:
