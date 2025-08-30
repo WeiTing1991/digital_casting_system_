@@ -162,3 +162,10 @@ replace = "__version__ = \"{new_version}\""
 filename = "pyproject.toml"
 search = "version = \"{current_version}\""
 replace = "version = \"{new_version}\""
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = "## [Unreleased]"
+replace = """## [Unreleased]
+
+## [{new_version}] - {now:%Y-%m-%d}"""

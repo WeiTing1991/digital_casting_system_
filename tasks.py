@@ -116,6 +116,19 @@ def github_release(ctx):
 
 
 @task
+def gh_release(ctx):
+  """Create GitHub release using GitHub CLI - automatically detects tag"""
+  result = ctx.run("git describe --tags --abbrev=0", hide=True)
+  tag = result.stdout.strip()
+
+  print(f"Creating GitHub release for tag: {tag}")
+
+  ctx.run(f"gh release create {tag} --title 'Release {tag}' --generate-notes", pty=True)
+
+  print(f"GitHub release created successfully for {tag}")
+
+
+@task
 def build_release(ctx, part: str = "patch", publish: bool = False):
   """Build a release with automatic version bumping and tagging.
 
@@ -124,17 +137,10 @@ def build_release(ctx, part: str = "patch", publish: bool = False):
   """
   print(f"Building release with {part} version bump...")
 
-  # Clean first
   build_clean(ctx)
-
-  # Update version and create tag
-  print("Bumping version...")
   ctx.run(f"bump-my-version bump {part}", pty=True)
-
-  # Build the package
   print("Building package...")
   ctx.run("python -m build --no-isolation", pty=True)
-
   print(f"Release built successfully with {part} version bump!")
 
   if publish:
@@ -149,4 +155,3 @@ def build_release(ctx, part: str = "patch", publish: bool = False):
       ctx.run(f"twine upload {files_str}", pty=True)
     else:
       print("No package files found to upload")
-    # print("Creating GitHub release...")
